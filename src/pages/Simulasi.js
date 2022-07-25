@@ -9,7 +9,7 @@ const Simulasi = () => {
   return (
     <>
       <ReactHelmet
-        title="Bank Artha Mas Abadi | Simulasi Kredit"
+        title="Simulasi KPR | Bank Artha Mas Abadi"
         url={location.pathname}
       />
       <FocusComponentColor backgroundColor="#26ac42" img={imgContact} />

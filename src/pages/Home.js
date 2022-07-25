@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <>
       <ReactHelmet
-        title="Bank Artha Mas Abadi | Home"
+        title="Beranda | Bank Artha Mas Abadi"
         url={location.pathname}
       />
       <SimpleSlider />
