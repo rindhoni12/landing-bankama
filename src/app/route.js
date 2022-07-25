@@ -5,7 +5,7 @@ import NotFound from "../pages/404";
 import Berita from "../pages/Berita";
 import DetailBerita from "../pages/DetailBerita";
 import ContactUs from "../pages/ContactUs";
-import { Layanan, LayananDua, LayananSatu } from "../pages/Layanan";
+import { Layanan, LayananSatu } from "../pages/Layanan";
 import Simulasi from "../pages/Simulasi";
 import Publikasi from "../pages/Publikasi";
 
@@ -28,7 +28,6 @@ export const RouteSite = () => {
         <Route exact path="/we-contact-us" element={<ContactUs />} />
 
         <Route exact path="/layanan-kami" element={<LayananSatu />} />
-        <Route exact path="/layanan-kami/:id" element={<LayananDua />} />
         <Route exact path="/layanan-kami/:id/:index" element={<Layanan />} />
 
         <Route exact path="/berita-kami" element={<Berita />} />
