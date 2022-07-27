@@ -22,10 +22,10 @@ const DetailBeritaComponents = ({ newItem }) => {
                   <nav className="berita_breadcrum">
                     <ol className="breadcrum">
                       <li className="breadcrum_item">
-                        <a href="#try">Home</a>
+                        <a href="/web-landing">Home</a>
                       </li>
                       <li className="breadcrum_item">
-                        <a href="#try">Berita</a>
+                        <a href="/web-landing/berita-kami">Berita</a>
                       </li>
                       <li className="breadcrum_item">
                         <p>{itemBerita.judul}</p>
