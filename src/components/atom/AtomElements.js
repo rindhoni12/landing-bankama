@@ -1,6 +1,6 @@
-import styled from "styled-components";
 import { devices } from "../../assets/_respondTo";
 import themeList from "../../config/themeList";
+import styled from "styled-components";
 
 export const InformasiSite = styled.section`
   ${devices.smartphone} {
@@ -23,11 +23,11 @@ export const InformasiSite = styled.section`
   .informasi {
     display: flex;
     flex-direction: row;
-    padding: 30px;
     background-color: ${({ theme: { theme } }) =>
       theme === themeList.light ? "#ffefd4" : "var(--mediumColor)"};
-    width: 100%;
     border-radius: 8px;
+    padding: 30px;
+    width: 100%;
     gap: 20px;
 
     ${devices.smartphone} {
@@ -71,16 +71,16 @@ export const InformasiSite = styled.section`
   .text_content {
     display: flex;
     flex-direction: column;
-    gap: 20px;
     align-items: center;
     width: 100%;
+    gap: 20px;
   }
 
   .content {
     width: 70%;
     display: flex;
-    gap: 20px;
     flex-direction: column;
+    gap: 20px;
 
     ${devices.smartphone} {
       width: 100%;
@@ -88,67 +88,63 @@ export const InformasiSite = styled.section`
   }
 
   .text_p {
-    font-size: 14px;
     font-weight: 300;
-    line-height: 1.5;
+    line-height: 1.8;
+    font-size: 14px;
   }
 `;
 
 export const CardItemComponents = styled.div`
   .card {
     &_item {
-      gap: 10px;
-      border-radius: 8px;
-      box-shadow: 0 0 15px rgb(0 0 0 / 10%);
-      /* height: 200px; */
-      position: relative;
       display: flex;
+      position: relative;
       flex-direction: column;
-      min-width: 0;
-      word-wrap: break-word;
-
+      box-shadow: 0 0 15px rgb(0 0 0 / 10%);
       background-color: ${({ theme: { theme } }) =>
         theme === themeList.light ? "#fff" : "var(--mediumColor)"};
-
-      background-clip: border-box;
-      overflow: hidden;
       border: 1px solid transparent;
+      background-clip: border-box;
+      word-wrap: break-word;
+      border-radius: 8px;
+      overflow: hidden;
+      min-width: 0;
+      gap: 10px;
 
       :hover {
-        border: 1px solid var(--colorMain);
         box-shadow: 0 0 10px rgb(0 0 0 / 15%);
+        border: 1px solid var(--colorMain);
       }
     }
     &_img {
       position: relative;
-      width: 100%;
       object-fit: cover;
+      width: 100%;
 
       img {
         object-fit: cover;
-        /* max-width: 200px; */
       }
     }
 
     &_body {
-      flex: 1 1 auto;
-      min-height: 1px;
-      padding: 1.25rem;
       text-align: left;
+      padding: 1.25rem;
+      min-height: 1px;
+      flex: 1 1 auto;
       height: 200px;
 
       h3 {
-        font-size: 15px;
-        font-weight: 500;
         margin-bottom: 10px;
+        font-weight: 500;
+        font-size: 15px;
       }
 
       .berita_text {
+        text-overflow: ellipsis;
         line-height: 1.45;
         font-weight: 300;
-        font-size: 13px;
         overflow: hidden;
-        text-overflow: ellipsis;
+        font-size: 13px;
         display: -webkit-box;
         -webkit-line-clamp: 5; /* number of lines to show */
         -webkit-box-orient: vertical;
@@ -158,8 +154,8 @@ export const CardItemComponents = styled.div`
     &_footer {
       padding: 20px 1.25rem;
       text-align: left;
-      font-size: 12px;
       font-weight: 400;
+      font-size: 12px;
       background-color: ${({ theme: { theme } }) =>
         theme === themeList.light ? "#f8f9fa" : "#282d34"};
     }
@@ -183,6 +179,7 @@ export const CardComponents = styled.section`
     padding: 100px 0;
     max-width: 1580px;
   }
+
   .card_container {
     padding: 0 100px;
 
@@ -206,20 +203,20 @@ export const CardComponents = styled.section`
   .heading {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    text-align: left;
     padding: 40px 0px;
+    text-align: left;
     width: 80%;
+    gap: 20px;
 
     h2 {
-      font-size: 42px;
       font-weight: 600;
+      font-size: 42px;
     }
 
     p {
-      font-size: 16px;
       font-weight: 400;
       line-height: 1.5;
+      font-size: 16px;
     }
   }
 `;
@@ -240,8 +237,8 @@ export const DetailComponents = styled.section`
   }
 
   ${devices.screen_large} {
-    padding: 100px 0;
     max-width: 1580px;
+    padding: 100px 0;
   }
 
   .detail {
@@ -281,10 +278,10 @@ export const DetailComponents = styled.section`
     &_img {
       display: flex;
       align-items: center;
-      width: 50%;
       justify-content: center;
       overflow: hidden;
       padding: 10px;
+      width: 50%;
 
       ${devices.smartphone} {
         width: 100%;
@@ -302,10 +299,10 @@ export const DetailComponents = styled.section`
     &_text {
       display: flex;
       align-items: center;
-      width: 50%;
-      justify-content: flex-start;
       flex-direction: column;
+      justify-content: flex-start;
       padding: 10px;
+      width: 50%;
       gap: 40px;
 
       ${devices.smartphone} {
@@ -317,21 +314,21 @@ export const DetailComponents = styled.section`
       }
 
       .visi_misi {
-        text-align: left;
         display: flex;
         flex-direction: column;
+        text-align: left;
         gap: 10px;
       }
 
       &_heading {
-        font-size: 26px;
         font-weight: 500;
+        font-size: 26px;
       }
 
       &_p {
-        font-size: 14px;
         font-weight: 300;
         line-height: 1.5;
+        font-size: 14px;
       }
     }
   }
@@ -353,8 +350,8 @@ export const OjkComponents = styled.section`
   }
 
   ${devices.screen_large} {
-    padding: 100px 0;
     max-width: 1580px;
+    padding: 100px 0;
   }
 
   .ojk {
@@ -382,8 +379,8 @@ export const OjkComponents = styled.section`
       display: grid;
       grid-template-columns: repeat(4, auto);
       align-items: center;
-      gap: 20px;
       width: 100%;
+      gap: 20px;
 
       @media only screen and (min-width: 480px) and (max-width: 1024px) {
         grid-template-columns: repeat(2, 1fr);
@@ -394,8 +391,8 @@ export const OjkComponents = styled.section`
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
       border-radius: 8px;
+      overflow: hidden;
       width: 100%;
 
       ${devices.smartphone} {
@@ -420,14 +417,14 @@ export const HeadingAll = styled.div`
   .heading {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    text-align: left;
     padding: 40px 0px;
+    text-align: left;
     width: 80%;
+    gap: 20px;
 
     ${devices.smartphone} {
-      width: 100%;
       padding: 30px 0px;
+      width: 100%;
     }
 
     ${devices.ipads} {
@@ -444,9 +441,9 @@ export const HeadingAll = styled.div`
     }
 
     p {
-      font-size: 16px;
-      font-weight: 300;
       line-height: 1.5;
+      font-weight: 300;
+      font-size: 16px;
     }
   }
 `;
@@ -464,35 +461,35 @@ export const FocusComponentSite = styled.section`
     padding: 0;
 
     .gambar_bg {
-      overflow: hidden;
-      height: 380px;
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
       place-items: center;
+      overflow: hidden;
       display: grid;
+      height: 380px;
     }
 
     .gambar_bg_tentang {
-      overflow: hidden;
-      height: 380px;
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
       place-items: center;
       display: flex;
       flex-direction: row;
-      gap: 20px;
+      overflow: hidden;
       padding: 0 25px;
+      height: 380px;
+      gap: 20px;
 
       .gambar_img {
-        width: 100%;
         display: flex;
         align-items: center;
-        padding: 30px;
         justify-content: center;
         overflow: hidden;
+        padding: 30px;
         height: 100%;
+        width: 100%;
 
         img {
           object-fit: contain;
@@ -503,8 +500,8 @@ export const FocusComponentSite = styled.section`
 `;
 
 export const FocusComponentSiteContact = styled.section`
-  padding: 0;
   max-width: 100%;
+  padding: 0;
 
   ${devices.smartphone} {
     padding: 0px 0;
@@ -515,39 +512,39 @@ export const FocusComponentSiteContact = styled.section`
     padding: 0;
 
     .gambar_bg_tentang {
-      overflow: hidden;
-      height: 380px;
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
       place-items: center;
+      overflow: hidden;
       display: flex;
       flex-direction: row;
-      gap: 20px;
       padding: 0 50px;
+      height: 380px;
+      gap: 20px;
 
       ${devices.smartphone} {
-        padding: 0 25px;
         flex-direction: column-reverse;
+        padding: 0 25px;
         height: 450px;
         gap: 0px;
       }
 
       ${devices.ipads} {
-        padding: 0 25px;
         flex-direction: column-reverse;
+        padding: 0 25px;
         height: 450px;
         gap: 0px;
       }
 
       .gambar_img {
-        width: 100%;
         display: flex;
         align-items: center;
-        padding: 30px;
         justify-content: center;
         overflow: hidden;
+        padding: 30px;
         height: 100%;
+        width: 100%;
 
         ${devices.smartphone} {
           margin-top: 35px;
@@ -574,14 +571,15 @@ export const OrganisasiSite = styled.div`
   .informasi {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    gap: 20px;
   }
+
   .gambar_img {
-    padding: 10px;
     overflow: hidden;
     max-width: 280px;
+    padding: 10px;
 
     img {
       object-fit: cover;
@@ -594,13 +592,13 @@ export const OrganisasiSite = styled.div`
     gap: 10px;
 
     h1 {
-      font-size: 18px;
       font-weight: 600;
+      font-size: 18px;
     }
 
     p {
-      font-size: 12px;
       font-weight: 300;
+      font-size: 12px;
     }
   }
 `;
@@ -609,6 +607,7 @@ export const PimpinanComponent = styled.section`
   ${devices.smartphone} {
     padding: 50px 0;
   }
+
   .organisasi {
     &_container {
       padding: 0 100px;
@@ -627,9 +626,9 @@ export const PimpinanComponent = styled.section`
     &_button {
       display: flex;
       flex-direction: row;
-      gap: 20px;
       justify-content: center;
       align-items: center;
+      gap: 20px;
 
       ${devices.smartphone} {
         display: grid;
@@ -661,15 +660,16 @@ export const PimpinanComponent = styled.section`
   }
 
   .download {
-    font-size: 13px;
-    font-weight: 400;
     background-color: #f4f4f4;
-    padding: 8px 15px;
-    border-radius: 8px;
     width: max-content;
+    border-radius: 8px;
+    padding: 8px 15px;
+    font-weight: 400;
+    margin-top: 60px;
+    font-size: 13px;
     color: #a606ae;
     margin: auto;
-    margin-top: 60px;
+
     a:hover {
       text-decoration: underline;
     }
