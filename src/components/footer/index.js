@@ -4,6 +4,7 @@ import { MEDIA_SOSIAL } from "../../config/data";
 import gambarOjk from "../../assets/img/ojk.png";
 import gambarLps from "../../assets/img/lps.png";
 import logoSite from "../../assets/img/logo_bawah.png";
+import { WaItem } from "../atom";
 
 const Footer = () => {
   return (
@@ -88,6 +89,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <WaItem />
     </FooterSite>
   );
 };

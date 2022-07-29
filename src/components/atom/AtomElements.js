@@ -1,6 +1,7 @@
 import { devices } from "../../assets/_respondTo";
 import themeList from "../../config/themeList";
 import styled from "styled-components";
+import gambarWa from "../../assets/img/whatsapp.png";
 
 export const InformasiSite = styled.section`
   ${devices.smartphone} {
@@ -672,6 +673,54 @@ export const PimpinanComponent = styled.section`
 
     a:hover {
       text-decoration: underline;
+    }
+  }
+`;
+
+export const WaItemSite = styled.div`
+  .wa {
+    &_content {
+      position: fixed;
+      z-index: 999;
+      bottom: 15px;
+      right: 15px;
+      text-align: right;
+      width: 150px;
+      height: 50px;
+      border-radius: 50px;
+      overflow: hidden;
+      background: #1bd741aa;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+
+      a {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &_text {
+      display: inline-block;
+      width: 90px;
+      color: ${({ theme: { theme } }) =>
+        theme === themeList.light ? "#fff" : "#000"};
+      line-height: 1.2;
+      letter-spacing: 0.2px;
+      padding-left: 20px;
+      background: 0 0;
+      font-size: 10px;
+      text-align: center;
+    }
+
+    &_icon {
+      display: inline-block;
+      margin-left: auto;
+      width: 50px;
+      height: 50px;
+      border-radius: 50px;
+      background: url(${gambarWa}) #1bd741 center center no-repeat;
+      background-size: 90%;
     }
   }
 `;

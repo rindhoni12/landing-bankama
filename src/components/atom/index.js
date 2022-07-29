@@ -10,6 +10,7 @@ import {
   OjkComponents,
   OrganisasiSite,
   PimpinanComponent,
+  WaItemSite,
 } from "./AtomElements";
 import imgwbs from "../../assets/img/wbs-icon.png";
 import imgDetail from "../../assets/img/2.png";
@@ -543,6 +544,23 @@ const ReactHelmet = (item) => {
   );
 };
 
+const WaItem = () => {
+  return (
+    <WaItemSite>
+      <div className="wa_content">
+        <a
+          href="https://wa.me/6282137925172"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div className="wa_text">Hubungi Kami via Whatsapp</div>
+          <div className="wa_icon"></div>
+        </a>
+      </div>
+    </WaItemSite>
+  );
+};
+
 export {
   Informasi,
   Card,
@@ -556,4 +574,5 @@ export {
   FocusComponentContactUs,
   FocusComponentColor,
   ReactHelmet,
+  WaItem,
 };
