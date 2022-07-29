@@ -88,27 +88,27 @@ export const NAVLINKS = [
 
 export const MEDIA_SOSIAL = [
   {
-    to: "https://github.com/id-prawito",
+    to: "/#",
     label: "Github",
     icon: FiGithub,
   },
   {
-    to: "https://www.instagram.com/praw.ito/",
+    to: "/#",
     label: "Instagram",
     icon: FaInstagram,
   },
   {
-    to: "https://twitter.com/id_praw",
+    to: "/#",
     label: "Twitter",
     icon: FiTwitter,
   },
   {
-    to: "https://linkedin.com/in/prawito/",
+    to: "/#",
     label: "Linkedin",
     icon: FiLinkedin,
   },
   {
-    to: "tel:+6282137925172",
+    to: "/#",
     label: "Phone",
     icon: FiPhone,
   },

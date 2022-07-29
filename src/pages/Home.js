@@ -33,11 +33,11 @@ const Home = () => {
         deskripsi="Kami percaya bahwa pengalaman transaksi perbankan yang pada produk unggulan kami."
       />
       <FocusComponent backgroundColor="#06aed5" />
-      <Accordion />
-      <Informasi />
+      {/* <Accordion /> */}
       <Card itemBerita={BERITA} text="Lihat Lebih" />
-      <OrganisasiSection />
-      <FormKpr />
+      <Informasi />
+      {/* <OrganisasiSection /> */}
+      {/* <FormKpr /> */}
     </>
   );
 };
