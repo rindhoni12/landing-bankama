@@ -301,7 +301,6 @@ const Header = () => {
               )}
               <ul className="bisa">
                 {NAVLINKS.map((item, i) => {
-                  console.log(item);
                   let isDropdown = dropdown === item.name;
                   return (
                     <li key={i}>

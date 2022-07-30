@@ -124,6 +124,8 @@ export const CardItemComponents = styled.div`
 
       img {
         object-fit: cover;
+        width: 100%;
+        height: 100%;
       }
     }
 
@@ -283,6 +285,11 @@ export const DetailComponents = styled.section`
       overflow: hidden;
       padding: 10px;
       width: 50%;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
 
       ${devices.smartphone} {
         width: 100%;
@@ -524,6 +531,11 @@ export const FocusComponentSiteContact = styled.section`
       height: 380px;
       gap: 20px;
 
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
       ${devices.smartphone} {
         flex-direction: column-reverse;
         padding: 0 25px;
@@ -559,6 +571,8 @@ export const FocusComponentSiteContact = styled.section`
 
         img {
           object-fit: contain;
+          width: 100%;
+          height: 100%;
         }
       }
     }
@@ -681,7 +695,7 @@ export const WaItemSite = styled.div`
   .wa {
     &_content {
       position: fixed;
-      z-index: 999;
+      z-index: 99;
       bottom: 15px;
       right: 15px;
       text-align: right;

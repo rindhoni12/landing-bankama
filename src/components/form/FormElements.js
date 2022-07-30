@@ -106,6 +106,11 @@ export const FormSite = styled.section`
     overflow: hidden;
     padding: 20px;
 
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
     ${devices.smartphone} {
       display: none;
     }

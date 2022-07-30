@@ -323,10 +323,18 @@ export const OrganisasiSite = styled.section`
             padding: 10px;
             overflow: hidden;
             transition: all 0.3s ease-in-out;
+            border-radius: 50%;
+
+            button {
+              background: transparent;
+              cursor: pointer;
+              border-radius: 50%;
+            }
 
             img {
               object-fit: cover;
               width: 100%;
+              height: 100%;
             }
           }
           .text_nama {

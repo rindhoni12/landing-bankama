@@ -70,10 +70,10 @@ const GlobalStyles = createGlobalStyle`
   ul,li {
     list-style: none;
   }
-  img {
+  /* img {
     width: 100%;
     height: 100%;
-  }
+  } */
   section {
     margin: 0px auto;
     padding: 100px 0px;

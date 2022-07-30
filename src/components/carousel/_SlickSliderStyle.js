@@ -9,6 +9,11 @@ const SliderWrapper = styled.div`
     align-items: center;
     height: 100%;
     justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .slick-list {

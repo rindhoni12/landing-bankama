@@ -1,6 +1,6 @@
 import React from "react";
 import SimpleSlider, { SimpleSliderFicture } from "../components/carousel";
-import { Accordion, FormKpr } from "../components";
+// import { Accordion, FormKpr } from "../components";
 import { BERITA } from "../config/data";
 import {
   Card,
@@ -10,7 +10,7 @@ import {
   OjkInformasi,
   ReactHelmet,
 } from "../components/atom";
-import { OrganisasiSection } from "../components/section";
+// import { OrganisasiSection } from "../components/section";
 import { useLocation } from "react-router-dom";
 
 const Home = () => {
@@ -33,11 +33,11 @@ const Home = () => {
         deskripsi="Kami percaya bahwa pengalaman transaksi perbankan yang pada produk unggulan kami."
       />
       <FocusComponent backgroundColor="#06aed5" />
-      <Accordion />
-      <Informasi />
+      {/* <Accordion /> */}
       <Card itemBerita={BERITA} text="Lihat Lebih" />
-      <OrganisasiSection />
-      <FormKpr />
+      {/* <OrganisasiSection /> */}
+      {/* <FormKpr /> */}
+      <Informasi />
     </>
   );
 };

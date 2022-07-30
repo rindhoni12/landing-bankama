@@ -11,6 +11,7 @@ import Publikasi from "../pages/Publikasi";
 
 import { Outlet } from "react-router-dom";
 import { Footer, Header } from "../components";
+import Galery from "../pages/Galery";
 
 const PageLayout = () => (
   <>
@@ -36,6 +37,8 @@ export const RouteSite = () => {
         <Route exact path="/simulasi-kpr" element={<Simulasi />} />
 
         <Route exact path="/publikasi" element={<Publikasi />} />
+
+        <Route exact path="/galery" element={<Galery />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>

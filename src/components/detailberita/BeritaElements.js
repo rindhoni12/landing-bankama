@@ -115,8 +115,11 @@ export const DetailBeritaSite = styled.section`
       overflow: hidden;
       border-radius: 10px;
       object-fit: contain;
+
       img {
         object-fit: contain;
+        width: 100%;
+        height: 100%;
       }
     }
   }

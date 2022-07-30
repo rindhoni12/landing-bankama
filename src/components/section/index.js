@@ -14,6 +14,7 @@ import {
 } from "./SectionElements";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
+import ModalItem from "../modal";
 
 const TentangKami = () => {
   return (
@@ -123,6 +124,12 @@ const ButtonFilter = ({ filter, button, active }) => {
 };
 
 const Card = (item) => {
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal((prev) => !prev);
+  };
+
   return (
     <motion.div
       className="padding"
@@ -134,13 +141,20 @@ const Card = (item) => {
     >
       <div className="card_component">
         <div className="gambar_img">
-          <img src={item.items.img} alt={item.items.label} />
+          <button onClick={openModal} id={item.id}>
+            <img src={item.items.img} alt={item.items.label} />
+          </button>
         </div>
         <div className="text_nama">
           <span>{item.items.label}</span>
           <p>{item.items.jabatan}</p>
         </div>
       </div>
+      <ModalItem
+        item={item.items}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
     </motion.div>
   );
 };
