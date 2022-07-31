@@ -5,6 +5,7 @@ import { ORGANISASI } from "../../config/data";
 import { HeadingComponent, ReactHelmet } from "../atom";
 import { Button, ButtonTransparent, FormInput, TextArea } from "../form";
 import {
+  CardInformasiSite,
   ContentTabSite,
   ErrorSite,
   HubungiSite,
@@ -633,6 +634,123 @@ const HubungiSection = () => {
   );
 };
 
+const CardInformasi = () => {
+  return (
+    <CardInformasiSite>
+      <div className="informasi_container">
+        <div className="informasi_content">
+          <HeadingComponent
+            Heading="Form Pengaduan"
+            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+          />
+          <div className="informasi_card_content">
+            <div className="card_content">
+              <div className="heading">Tabungan</div>
+              <div className="body">
+                <div className="class_table">
+                  <table>
+                    <thead>
+                      <tr style={{ background: "var(--colorMain)" }}>
+                        <th rowSpan="2">Jenis Investasi</th>
+                        <th rowSpan="2">Nisbah</th>
+                        <th colSpan="3">Tingkat Imbalan/Tahun (%)</th>
+                      </tr>
+                      <tr style={{ background: "var(--colorMain)" }}>
+                        <th>April 2022</th>
+                        <th>Mei 2022</th>
+                        <th>Juni 2022</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Tabungan Wadiah</td>
+                        <td>-</td>
+                        <td>1.5%</td>
+                        <td>1.5%</td>
+                        <td>1.5%</td>
+                      </tr>
+                      <tr>
+                        <td style={{ width: "35%" }}>
+                          Tabungan Mudhrabah (iB Haji dan Masa Depan)
+                        </td>
+                        <td>11%</td>
+                        <td>1.5%</td>
+                        <td>1.5%</td>
+                        <td>1.5%</td>
+                      </tr>
+                      <tr>
+                        <td style={{ width: "35%" }}>
+                          Tabungan Mudhrabah (iB Haji dan Masa Depan)
+                        </td>
+                        <td>11%</td>
+                        <td>1.5%</td>
+                        <td>1.5%</td>
+                        <td>1.5%</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div className="footer">
+                Keterangan: Simpanan sampai dengan 2 Milyar Rupiah dijamin oleh
+                LPS.
+              </div>
+            </div>
+            <div className="card_content">
+              <div className="heading">Deposito</div>
+              <div className="body">
+                <div className="class_table">
+                  <table>
+                    <thead>
+                      <tr style={{ background: "var(--colorMain)" }}>
+                        <th rowSpan="2">Jenis Investasi</th>
+                        <th rowSpan="2">Nisbah</th>
+                        <th colSpan="3">Tingkat Imbalan/Tahun (%)</th>
+                      </tr>
+                      <tr style={{ background: "var(--colorMain)" }}>
+                        <th>April 2022</th>
+                        <th>Mei 2022</th>
+                        <th>Juni 2022</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Deposito 3 Bulan</td>
+                        <td>-</td>
+                        <td>1.5%</td>
+                        <td>1.5%</td>
+                        <td>1.5%</td>
+                      </tr>
+                      <tr>
+                        <td>Deposito 6 Bulan</td>
+                        <td>-</td>
+                        <td>1.5%</td>
+                        <td>1.5%</td>
+                        <td>1.5%</td>
+                      </tr>
+                      <tr>
+                        <td>Deposito 12 Bulan</td>
+                        <td>-</td>
+                        <td>1.5%</td>
+                        <td>1.5%</td>
+                        <td>1.5%</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div className="footer">
+                Keterangan: Simpanan sampai dengan 2 Milyar Rupiah dijamin oleh
+                LPS.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </CardInformasiSite>
+  );
+};
+
 export {
   TentangKami,
   OrganisasiSection,
@@ -640,4 +758,5 @@ export {
   PublikasiSection,
   ErrorSection,
   HubungiSection,
+  CardInformasi,
 };

@@ -10,13 +10,14 @@ import {
   OjkComponents,
   OrganisasiSite,
   PimpinanComponent,
+  SlideContent,
   WaItemSite,
 } from "./AtomElements";
 import imgwbs from "../../assets/img/wbs-icon.png";
 import imgDetail from "../../assets/img/2.png";
 import imgOjk from "../../assets/img/ojk.png";
 import imgLps from "../../assets/img/lps.1.png";
-import imgBpr from "../../assets/img/bpr.png";
+// import imgBpr from "../../assets/img/bpr.png";
 import imgAyo from "../../assets/img/ayobank.png";
 import bgGopay from "../../assets/img/kemudahan-gopay-bg.png";
 import { Button, ButtonTransparent } from "../form";
@@ -270,6 +271,123 @@ const DetailLayananPages = (item) => {
   );
 };
 
+const NewSlide = () => {
+  const [isMobile, setIsMobile] = useState(
+    window.matchMedia("(max-width: 480px)").matches
+  );
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setIsMobile(window.matchMedia("(max-width: 480px)").matches);
+    });
+  }, []);
+  const settings = {
+    className: "center",
+    centerMode: true,
+    infinite: true,
+    // centerPadding: "60px",
+    slidesToShow: 3,
+    speed: 500,
+    fade: false,
+    autoplay: true,
+    autoplaySpeed: 5000,
+  };
+
+  const settingsMobile = {
+    dots: false,
+    infinite: true,
+    speed: 800,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    fade: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    cssEase: "linear",
+    arrows: false,
+    appendDots: (dots) => <ul>{dots}</ul>,
+    customPaging: (i) => (
+      <div className="ft-slick__dots--custom">
+        <div className="loading" />
+      </div>
+    ),
+  };
+
+  return (
+    <SlideContent>
+      {isMobile ? (
+        <SliderWrapper>
+          <Slider {...settingsMobile}>
+            <div className="slide_content">
+              <div className="ojk_img">
+                <img src={imgAyo} alt="imgAyo" />
+              </div>
+            </div>
+            <div className="slide_content">
+              <div className="ojk_img">
+                <img src={imgLps} alt="imgLps" />
+              </div>
+            </div>
+            <div className="slide_content">
+              <div className="ojk_img">
+                <img src={imgAyo} alt="imgAyo" />
+              </div>
+            </div>
+            <div className="slide_content">
+              <div className="ojk_img">
+                <img src={imgAyo} alt="imgAyo" />
+              </div>
+            </div>
+            <div className="slide_content">
+              <div className="ojk_img">
+                <img src={imgLps} alt="imgLps" />
+              </div>
+            </div>
+            <div className="slide_content">
+              <div className="ojk_img">
+                <img src={imgAyo} alt="imgAyo" />
+              </div>
+            </div>
+          </Slider>
+        </SliderWrapper>
+      ) : (
+        <SliderWrapper>
+          <Slider {...settings}>
+            <div className="slide_content">
+              <div className="ojk_img">
+                <img src={imgAyo} alt="imgAyo" />
+              </div>
+            </div>
+            <div className="slide_content">
+              <div className="ojk_img">
+                <img src={imgLps} alt="imgLps" />
+              </div>
+            </div>
+            <div className="slide_content">
+              <div className="ojk_img">
+                <img src={imgAyo} alt="imgAyo" />
+              </div>
+            </div>
+            <div className="slide_content">
+              <div className="ojk_img">
+                <img src={imgAyo} alt="imgAyo" />
+              </div>
+            </div>
+            <div className="slide_content">
+              <div className="ojk_img">
+                <img src={imgLps} alt="imgLps" />
+              </div>
+            </div>
+            <div className="slide_content">
+              <div className="ojk_img">
+                <img src={imgAyo} alt="imgAyo" />
+              </div>
+            </div>
+          </Slider>
+        </SliderWrapper>
+      )}
+    </SlideContent>
+  );
+};
+
 const OjkInformasi = () => {
   const [isMobile, setIsMobile] = useState(
     window.matchMedia("(max-width: 480px)").matches
@@ -298,6 +416,7 @@ const OjkInformasi = () => {
       </div>
     ),
   };
+
   return (
     <OjkComponents>
       <div className="ojk_container">
@@ -317,9 +436,6 @@ const OjkInformasi = () => {
                 <img src={imgLps} alt="imgLps" />
               </div>
               <div className="ojk_img">
-                <img src={imgBpr} alt="imgBpr" style={{ width: "50px" }} />
-              </div>
-              <div className="ojk_img">
                 <img src={imgAyo} alt="imgAyo" />
               </div>
             </Slider>
@@ -333,13 +449,14 @@ const OjkInformasi = () => {
               <img src={imgLps} alt="imgLps" />
             </div>
             <div className="ojk_img">
-              <img src={imgBpr} alt="imgBpr" style={{ width: "50px" }} />
-            </div>
-            <div className="ojk_img">
               <img src={imgAyo} alt="imgAyo" />
             </div>
           </div>
         )}
+
+        <div className="ojk_content_slide">
+          <NewSlide />
+        </div>
       </div>
     </OjkComponents>
   );

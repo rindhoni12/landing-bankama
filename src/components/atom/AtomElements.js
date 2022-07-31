@@ -385,7 +385,7 @@ export const OjkComponents = styled.section`
 
     &_content {
       display: grid;
-      grid-template-columns: repeat(4, auto);
+      grid-template-columns: repeat(3, auto);
       align-items: center;
       width: 100%;
       gap: 20px;
@@ -415,6 +415,52 @@ export const OjkComponents = styled.section`
           width: 200px !important;
           object-fit: contain;
         }
+      }
+    }
+
+    &_content_slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+    }
+  }
+`;
+
+export const SlideContent = styled.div`
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+
+  .slide_content {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 8px;
+    height: 120px;
+    /* background-color: red; */
+  }
+
+  .ojk_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+
+    ${devices.smartphone} {
+      display: flex !important;
+      height: 20vh;
+    }
+
+    img {
+      width: 150px;
+
+      ${devices.smartphone} {
+        width: 200px !important;
+        object-fit: contain;
       }
     }
   }

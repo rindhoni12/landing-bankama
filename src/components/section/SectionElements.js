@@ -809,3 +809,200 @@ export const HubungiSite = styled.section`
     }
   }
 `;
+
+export const CardInformasiSite = styled.section`
+  ${devices.smartphone} {
+    padding: 50px 0;
+  }
+
+  ${devices.ipads} {
+    padding: 25px 0;
+  }
+
+  ${devices.laptops} {
+    padding: 35px 0;
+  }
+
+  ${devices.screen_large} {
+    padding: 100px 0;
+    max-width: 1580px;
+  }
+
+  .informasi {
+    &_container {
+      padding: 0 100px;
+
+      ${devices.smartphone} {
+        padding: 0 25px;
+      }
+
+      ${devices.ipads} {
+        padding: 0 50px;
+      }
+
+      ${devices.laptops} {
+        padding: 0 50px;
+      }
+
+      ${devices.screen_large} {
+        padding: 0 100px;
+      }
+    }
+
+    &_content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    &_card_content {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      gap: 20px;
+
+      ${devices.smartphone} {
+        grid-template-columns: repeat(1, auto);
+      }
+
+      ${devices.ipads} {
+        grid-template-columns: repeat(1, auto);
+      }
+
+      ${devices.laptops} {
+        grid-template-columns: repeat(1, auto);
+      }
+
+      .card_content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        align-items: center;
+        width: 100%;
+        justify-content: flex-start;
+
+        height: max-content;
+        background-color: ${({ theme: { theme } }) =>
+          theme === themeList.light ? "#fff" : "var(--mediumColor)"};
+        border: 1px solid
+          ${({ theme: { theme } }) =>
+            theme === themeList.light ? "#bdbdbd" : "var(--mediumColor)"};
+        box-sizing: border-box;
+        border-radius: 10px;
+        transition: box-shadow 1s;
+        height: 450px;
+
+        ${devices.smartphone} {
+          width: 100% !important;
+          overflow-x: auto;
+        }
+
+        ${devices.ipads} {
+          width: 100% !important;
+          overflow-x: auto;
+        }
+
+        ${devices.laptops} {
+          width: 100% !important;
+          overflow-x: auto;
+        }
+
+        :hover {
+          border: 1px solid var(--colorMain);
+          box-shadow: 0 0 10px rgb(0 0 0 / 15%);
+        }
+      }
+
+      .heading {
+        font-size: 16px;
+        font-weight: 500;
+        text-align: left;
+        width: 100%;
+      }
+
+      .body {
+        width: 100%;
+      }
+
+      .footer {
+        font-size: 12px;
+        font-weight: 400;
+        text-align: left;
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .class_table {
+    overflow-x: auto;
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    ${devices.smartphone} {
+      overflow-x: auto;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid #fff;
+    ${devices.smartphone} {
+      width: 600px;
+    }
+
+    thead {
+      tr {
+        th {
+          padding: 0.75rem;
+          border: 1px solid
+            ${({ theme: { theme } }) =>
+              theme === themeList.light
+                ? "#fff"
+                : "var(--mediumColor)"} !important;
+          font-size: 14px;
+          font-weight: 400;
+          text-align: center;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  tbody {
+    border: 1px solid #fff;
+    font-size: 13px;
+    background: #f0f0f0;
+
+    tr:nth-child(even) {
+      background: #f7f7f7;
+    }
+
+    td {
+      border: 1px solid
+        ${({ theme: { theme } }) =>
+          theme === themeList.light ? "#fff" : "var(--mediumColor)"};
+      padding: 0.75rem;
+      color: #000;
+      line-height: 1.3;
+      font-weight: 500;
+      text-align: center;
+
+      ${devices.smartphone} {
+        text-align: center;
+      }
+
+      :nth-child(1) {
+        text-align: left;
+
+        ${devices.smartphone} {
+          text-align: left;
+        }
+      }
+    }
+  }
+`;

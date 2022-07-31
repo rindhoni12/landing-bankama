@@ -12,6 +12,7 @@ import {
 } from "../components/atom";
 // import { OrganisasiSection } from "../components/section";
 import { useLocation } from "react-router-dom";
+import { CardInformasi } from "../components/section";
 
 const Home = () => {
   const location = useLocation();
@@ -32,6 +33,7 @@ const Home = () => {
         judul="Produk dan Layanan Kami"
         deskripsi="Kami percaya bahwa pengalaman transaksi perbankan yang pada produk unggulan kami."
       />
+      <CardInformasi />
       <FocusComponent backgroundColor="#06aed5" />
       {/* <Accordion /> */}
       <Card itemBerita={BERITA} text="Lihat Lebih" />
