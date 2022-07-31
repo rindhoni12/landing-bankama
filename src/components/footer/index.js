@@ -80,10 +80,10 @@ const Footer = () => {
                 Kebijakan Privasi
               </a>
               <a className="end" href="#22">
-                Kebijakan Privasi
+                Syarat dan Ketentuan
               </a>
               <a className="end" href="#22">
-                Kebijakan Privasi
+                Prosedur Pengajuan Nasabah
               </a>
             </div>
           </div>

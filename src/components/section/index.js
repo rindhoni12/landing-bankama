@@ -3,10 +3,11 @@ import { FaAccusoft, FaPhone } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import { ORGANISASI } from "../../config/data";
 import { HeadingComponent, ReactHelmet } from "../atom";
-import { Button, ButtonTransparent } from "../form";
+import { Button, ButtonTransparent, FormInput, TextArea } from "../form";
 import {
   ContentTabSite,
   ErrorSite,
+  HubungiSite,
   LayananSite,
   OrganisasiSite,
   Tabs,
@@ -15,6 +16,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import ModalItem from "../modal";
+import { FormContent } from "../form/FormElements";
 
 const TentangKami = () => {
   return (
@@ -49,6 +51,11 @@ const TentangKami = () => {
                 <FiMail /> kbpr.pati@gmail.com
               </p>
             </div>
+            <Button
+              icon={FaAccusoft}
+              label="Form Pengaduan"
+              to="./hubungi-kami"
+            />
           </div>
         </div>
         <div className="tentang_cabang">
@@ -514,10 +521,123 @@ const ErrorSection = () => {
   );
 };
 
+const HubungiSection = () => {
+  return (
+    <HubungiSite>
+      <div className="hubungi_container">
+        <div className="hubungi_content">
+          <HeadingComponent
+            Heading="Form Pengaduan"
+            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+          />
+          <FormContent>
+            <div className="content_form_pengaduan">
+              <div className="card_form" style={{ width: "70%" }}>
+                <div className="content">
+                  <p>
+                    <b>Keteragan : </b>Kirimkan pesan atau pengaduan kepada
+                    kami, senang melayani anda sebagai nasabah kami,
+                    Terimakasih.
+                  </p>
+                  <div className="content_form">
+                    <form
+                      className="form_style"
+                      // onSubmit={handleSubmit}
+                      id="form_table"
+                    >
+                      <div className="inputan">
+                        <FormInput
+                          judul="Nama"
+                          placeholder="Jumlah Pinjamanan"
+                          type="text"
+                          // defaultValue={setForm}
+                        />
+                        <FormInput
+                          judul="No. Hp"
+                          placeholder="Jumlah Pinjamanan"
+                          type="number"
+                          // defaultValue={setForm}
+                        />
+                      </div>
+                      <TextArea />
+                      <p style={{ fontSize: "12px", borderBottom: "none" }}>
+                        <b>Catatan Lain : </b> Pesan balasan daripada form
+                        pengaduan akan dikirimkan melalui No. Hp yang di
+                        masukan.
+                      </p>
+                      <div className="button_flex">
+                        <Button
+                          // onClick={() => (state.button = 1)}
+                          id="Hitung"
+                          icon={FaAccusoft}
+                          label="Kirim Pesan Pengaduan"
+                        />
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div className="card_form" style={{ width: "30%" }}>
+                <div className="content">
+                  <p>
+                    <b>Keteragan : </b>Kontak Umum yang dapat dihubungi.
+                  </p>
+                  <div className="content_form">
+                    <div className="contact_item">
+                      <div className="item_contact">
+                        <div className="icon_text">
+                          <FaAccusoft />
+                          WhatsApps
+                        </div>
+                        <div className="label">082137926172</div>
+                      </div>
+                      <div className="item_contact">
+                        <div className="icon_text">
+                          <FaAccusoft />
+                          Email
+                        </div>
+                        <div className="label">082137926172</div>
+                      </div>
+                      <div className="item_contact">
+                        <div className="icon_text">
+                          <FaAccusoft />
+                          Twitter
+                        </div>
+                        <div className="label">082137926172</div>
+                      </div>
+                      <div className="item_contact">
+                        <div className="icon_text">
+                          <FaAccusoft />
+                          Instagram
+                        </div>
+                        <div className="label">
+                          082137926172 sdfsdfsdfsddfsdfsdfsdf
+                        </div>
+                      </div>
+                      <div className="item_contact">
+                        <div className="icon_text">
+                          <FaAccusoft />
+                          Facebook
+                        </div>
+                        <div className="label">082137926172 sdfsdfsdf</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </FormContent>
+        </div>
+      </div>
+    </HubungiSite>
+  );
+};
+
 export {
   TentangKami,
   OrganisasiSection,
   LayananSection,
   PublikasiSection,
   ErrorSection,
+  HubungiSection,
 };

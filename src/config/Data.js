@@ -61,7 +61,7 @@ export const NAVLINKS = [
     ],
   },
   {
-    to: "/simulasi-kpr",
+    to: "/simulasi",
     icon: FaEllipsisV,
     name: "SIMULASI KPR",
     megamenu: false,
@@ -79,13 +79,13 @@ export const NAVLINKS = [
     megamenu: false,
   },
   {
-    to: "/galery",
+    to: "/galeri-kami",
     icon: FaEllipsisV,
     name: "GALERY",
     megamenu: false,
   },
   {
-    to: "/we-contact-us",
+    to: "/kontak-kami",
     icon: FaEllipsisV,
     name: "TENTANG KAMI",
     megamenu: false,

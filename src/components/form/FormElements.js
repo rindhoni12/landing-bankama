@@ -126,6 +126,64 @@ export const FormContent = styled.div`
   flex-direction: column;
   gap: 40px;
 
+  .content_form_pengaduan {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+
+    ${devices.smartphone} {
+      flex-direction: column;
+    }
+
+    ${devices.ipads} {
+      flex-direction: column;
+    }
+
+    ${devices.laptops} {
+      flex-direction: column;
+    }
+  }
+
+  .inputan {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    ${devices.smartphone} {
+      flex-direction: column;
+    }
+
+    ${devices.ipads} {
+      flex-direction: column;
+    }
+
+    ${devices.laptops} {
+      flex-direction: column;
+    }
+  }
+
+  textarea {
+    padding: 12px 20px;
+    border: 1px solid
+      ${({ theme: { theme } }) =>
+        theme === themeList.light ? "#bdbdbd" : "var(--mediumColor)"};
+    box-sizing: border-box;
+    border-radius: 8px;
+    color: #00193e;
+
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Rubik", sans-serif;
+
+    :focus {
+      border: 1px solid #aaa;
+      outline: none;
+    }
+  }
+
   select:required:invalid {
     color: #aeaeae;
     font-size: 14px;
@@ -156,6 +214,33 @@ export const FormContent = styled.div`
     font-weight: 600;
 
     :focus {
+      outline: none;
+    }
+  }
+
+  .form_input {
+    padding: 12px 20px;
+    /* border: 1.2px solid #aaa; */
+
+    border: 1px solid
+      ${({ theme: { theme } }) =>
+        theme === themeList.light ? "#bdbdbd" : "var(--mediumColor)"};
+    box-sizing: border-box;
+    border-radius: 8px;
+    color: #00193e;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    ::placeholder {
+      color: #aeaeae;
+      font-size: 14px;
+      font-weight: 300;
+      text-transform: capitalize;
+    }
+
+    :focus {
+      border: 1px solid #aaa;
       outline: none;
     }
   }
@@ -191,6 +276,17 @@ export const FormContent = styled.div`
     box-sizing: border-box;
     border-radius: 20px;
     transition: box-shadow 1s;
+    ${devices.smartphone} {
+      width: 100% !important;
+    }
+
+    ${devices.ipads} {
+      width: 100% !important;
+    }
+
+    ${devices.laptops} {
+      width: 100% !important;
+    }
 
     :hover {
       border: 1px solid var(--colorMain);
@@ -248,6 +344,101 @@ export const FormContent = styled.div`
           }
         }
       }
+    }
+  }
+
+  .form_content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+    width: 100%;
+
+    label {
+      font-weight: 500;
+      font-size: 16px;
+    }
+  }
+
+  .form_content_input {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+    width: 100%;
+
+    label {
+      font-weight: 500;
+      font-size: 14px;
+      width: 100%;
+
+      ::after {
+        content: "*";
+        color: red;
+      }
+    }
+  }
+
+  .content_form {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .contact_item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .item_contact {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 14px;
+
+    :last-child {
+      align-items: flex-end;
+    }
+
+    .icon_text {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      width: 120px;
+    }
+
+    .label {
+      text-align: end;
+      overflow-wrap: anywhere;
+      width: 100%;
+    }
+  }
+
+  .gambar_pemanis {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 20px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    ${devices.smartphone} {
+      display: none;
+    }
+
+    ${devices.ipads} {
+      display: none;
     }
   }
 

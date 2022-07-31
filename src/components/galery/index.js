@@ -3,6 +3,7 @@ import { GalerySite } from "./GaleryElements";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import { photos } from "../../config/data";
+import { HeadingComponent } from "../atom";
 
 const GalerySection = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -21,7 +22,17 @@ const GalerySection = () => {
   return (
     <GalerySite>
       <div id="galery" className="galery_container">
-        <Gallery photos={photos} onClick={openLightbox} />
+        <HeadingComponent
+          Heading="Simulasi Kredit Standar!"
+          Text="Simulasi ini untuk memudahkan calon kreditur mengetahui besaran
+            angsuran per-bulan yang harus dibayarkan dan besarannya sudah sesuai
+            aturan bunga yang ditetapkan perusahaan per tanggal 01 Januari 2021."
+        />
+        {photos ? (
+          <Gallery photos={photos} onClick={openLightbox} />
+        ) : (
+          "Loading"
+        )}
         <ModalGateway>
           {viewerIsOpen ? (
             <Modal onClose={closeLightbox}>

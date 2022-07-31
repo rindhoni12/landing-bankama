@@ -12,6 +12,7 @@ import Publikasi from "../pages/Publikasi";
 import { Outlet } from "react-router-dom";
 import { Footer, Header } from "../components";
 import Galery from "../pages/Galery";
+import HubungiKami from "../pages/Hubungi";
 
 const PageLayout = () => (
   <>
@@ -26,7 +27,8 @@ export const RouteSite = () => {
     <Routes>
       <Route element={<PageLayout />}>
         <Route index element={<Home />} />
-        <Route exact path="/we-contact-us" element={<ContactUs />} />
+        <Route exact path="/kontak-kami" element={<ContactUs />} />
+        <Route exact path="/hubungi-kami" element={<HubungiKami />} />
 
         <Route exact path="/layanan-kami" element={<LayananSatu />} />
         <Route exact path="/layanan-kami/:id/:index" element={<Layanan />} />
@@ -34,11 +36,11 @@ export const RouteSite = () => {
         <Route exact path="/berita-kami" element={<Berita />} />
         <Route exact path="/berita-kami/:id" element={<DetailBerita />} />
 
-        <Route exact path="/simulasi-kpr" element={<Simulasi />} />
+        <Route exact path="/simulasi" element={<Simulasi />} />
 
         <Route exact path="/publikasi" element={<Publikasi />} />
 
-        <Route exact path="/galery" element={<Galery />} />
+        <Route exact path="/galeri-kami" element={<Galery />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>

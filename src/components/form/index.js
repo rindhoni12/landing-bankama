@@ -10,7 +10,7 @@ import gambarPemanis from "../../assets/img/banner.png";
 import { FaAccusoft } from "react-icons/fa";
 import { HeadingComponent } from "../atom";
 
-const FormInputCurrency = (item) => {
+export const FormInputCurrency = (item) => {
   return (
     <div className="form_content">
       <label>{item.placeholder}</label>
@@ -28,7 +28,7 @@ const FormInputCurrency = (item) => {
   );
 };
 
-const FormInputSelect = (item) => {
+export const FormInputSelect = (item) => {
   return (
     <div className="form_content">
       <label>{item.placeholder}</label>
@@ -44,6 +44,29 @@ const FormInputSelect = (item) => {
         <option value="10Bulan">10 Bulan (2.5% per Bulan)</option>
         <option value="20Bulan">20 Bulan (2.0% per Bulan)</option>
       </select>
+    </div>
+  );
+};
+
+export const FormInput = (item) => {
+  return (
+    <div className="form_content_input">
+      <label>{item.judul}</label>
+      <input
+        className="form_input"
+        type={item.type}
+        placeholder={item.placeholder}
+        required
+      />
+    </div>
+  );
+};
+
+export const TextArea = () => {
+  return (
+    <div className="form_content_input">
+      <label>Pesan</label>
+      <textarea name="pesan" id="pesan" cols="30" rows="10"></textarea>
     </div>
   );
 };
