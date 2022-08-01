@@ -11,11 +11,12 @@ import {
   HubungiSite,
   LayananSite,
   OrganisasiSite,
+  PengajuanSite,
   Tabs,
   TentangKamiSite,
 } from "./SectionElements";
 import { motion, AnimatePresence } from "framer-motion";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import ModalItem from "../modal";
 import { FormContent } from "../form/FormElements";
 
@@ -751,6 +752,143 @@ const CardInformasi = () => {
   );
 };
 
+const SectionPengajuan = () => {
+  const [checked, setChecked] = React.useState(false);
+
+  return (
+    <PengajuanSite>
+      <div className="pengajuan_container">
+        <div className="pengajuan_content">
+          <HeadingComponent
+            Heading="Pengajuan Rekening Bank"
+            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+          />
+
+          <div className="pengajuan_card">
+            <div className="card_form">
+              <div className="pengajuan_body">
+                <div className="heading">
+                  Syarat dan Ketentuan Pembukaan Rekening Nasabah
+                </div>
+                <p>
+                  Sehubungan dengan pembukaan rekening oleh PT. Bank Rakyat
+                  Indonesia (Persero) Tbk. (Selanjutnya disebut Bank) atas
+                  permintaan pemohon (selanjutnya disebut Nasabah), dengan ini
+                  Nasabah menyatakan setuju bahwa rekening tersebut tunduk dan
+                  akan ditatakerjakan sesuai dengan syarat dan ketentuan dibawah
+                  ini :
+                </p>
+                <div className="value_pengajuan">
+                  <div className="value_keterangan">
+                    <h1>Rekening</h1>
+                    <p></p>
+                    <ol>
+                      <div>
+                        <li>
+                          Yang dimaksud rekening dalam ketentuan ini adalah
+                          pembukuan Bank atas produk-produk simpanan Bank, yang
+                          dibuka baik secara langsung maupun secara tidak
+                          langsung atas permintaan Nasabah, baik yang telah ada
+                          maupun yang akan ada dikemudian hari.
+                        </li>
+                        <li>
+                          Rekening tertentu dapat dibuka dalam mata uang rupiah
+                          ataupun mata uang asing (valas), dan Bank tidak
+                          bertanggung jawab atas perubahan nilai yang
+                          diakibatkan oleh perubahan nilai mata uang asing
+                          terhadap rupiah.
+                        </li>
+                        <li>
+                          Pembukaan rekening wajib didasarkan atas permohonan
+                          secara tertulis oleh Nasabah dengan memenuhi segala
+                          persyaratan yang ditentukan oleh Bank.
+                        </li>
+                        <li>
+                          Bank melarang segala bentuk penyalahgunaan rekening,
+                          termasuk sebagai sarana tindakan berindikasi pidana.
+                          Dalam hal terdapat indikasi penyalahgunaan rekening
+                          oleh nasabah, maka Bank berhak untuk melakukan
+                          pemblokiran rekening, mendebet kembali dana untuk
+                          diselesaikan sesuai dengan ketentuan yang berlaku dan
+                          atau sesuai kebijakan Bank, dan/atau penutupan
+                          rekening.
+                        </li>
+                      </div>
+                    </ol>
+                  </div>
+                  <div className="value_keterangan">
+                    <h1>Rekening</h1>
+                    <p></p>
+                    <ol>
+                      <div>
+                        <li>
+                          Yang dimaksud rekening dalam ketentuan ini adalah
+                          pembukuan Bank atas produk-produk simpanan Bank, yang
+                          dibuka baik secara langsung maupun secara tidak
+                          langsung atas permintaan Nasabah, baik yang telah ada
+                          maupun yang akan ada dikemudian hari.
+                        </li>
+                        <li>
+                          Rekening tertentu dapat dibuka dalam mata uang rupiah
+                          ataupun mata uang asing (valas), dan Bank tidak
+                          bertanggung jawab atas perubahan nilai yang
+                          diakibatkan oleh perubahan nilai mata uang asing
+                          terhadap rupiah.
+                        </li>
+                        <li>
+                          Pembukaan rekening wajib didasarkan atas permohonan
+                          secara tertulis oleh Nasabah dengan memenuhi segala
+                          persyaratan yang ditentukan oleh Bank.
+                        </li>
+                        <li>
+                          Bank melarang segala bentuk penyalahgunaan rekening,
+                          termasuk sebagai sarana tindakan berindikasi pidana.
+                          Dalam hal terdapat indikasi penyalahgunaan rekening
+                          oleh nasabah, maka Bank berhak untuk melakukan
+                          pemblokiran rekening, mendebet kembali dana untuk
+                          diselesaikan sesuai dengan ketentuan yang berlaku dan
+                          atau sesuai kebijakan Bank, dan/atau penutupan
+                          rekening.
+                        </li>
+                      </div>
+                    </ol>
+                  </div>
+                </div>
+                <div className="pengajuan_footer">
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="checkbox"
+                      defaultChecked={checked}
+                      onChange={() => setChecked(!checked)}
+                    />
+                    <p>
+                      Saya setuju dengan syarat dan ketentuan tersebut di atas
+                    </p>
+                  </label>
+
+                  {/* <button className="pengajuan_button" disabled={!checked}>
+                    <FaAccusoft /> Buka Rekening
+                  </button> */}
+                  <Link
+                    className={`pengajuan_button ${
+                      !checked ? "pengajuan_disable_button" : ""
+                    }`}
+                    to={"/form-nasabah"}
+                    state={{ state: checked }}
+                  >
+                    Buka Rekening
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PengajuanSite>
+  );
+};
+
 export {
   TentangKami,
   OrganisasiSection,
@@ -759,4 +897,5 @@ export {
   ErrorSection,
   HubungiSection,
   CardInformasi,
+  SectionPengajuan,
 };

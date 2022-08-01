@@ -14,6 +14,8 @@ import {
   Galery,
   Berita,
   Home,
+  PengajuanForm,
+  FormNasabah,
 } from "../pages";
 
 const PageLayout = () => (
@@ -41,6 +43,9 @@ export const RouteSite = () => {
         <Route exact path="/simulasi" element={<Simulasi />} />
 
         <Route exact path="/publikasi" element={<Publikasi />} />
+
+        <Route exact path="/pengajuan-rekening" element={<PengajuanForm />} />
+        <Route exact path="/form-nasabah" element={<FormNasabah />} />
 
         <Route exact path="/galeri-kami" element={<Galery />} />
       </Route>

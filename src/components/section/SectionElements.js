@@ -1010,3 +1010,204 @@ export const CardInformasiSite = styled.section`
     }
   }
 `;
+
+export const PengajuanSite = styled.section`
+  ${devices.smartphone} {
+    padding: 50px 0;
+  }
+
+  ${devices.ipads} {
+    padding: 25px 0;
+  }
+
+  ${devices.laptops} {
+    padding: 35px 0;
+  }
+
+  ${devices.screen_large} {
+    padding: 100px 0;
+    max-width: 1580px;
+  }
+
+  .pengajuan {
+    &_container {
+      padding: 0 100px;
+
+      ${devices.smartphone} {
+        padding: 0 25px;
+      }
+
+      ${devices.ipads} {
+        padding: 0 50px;
+      }
+
+      ${devices.laptops} {
+        padding: 0 50px;
+      }
+
+      ${devices.screen_large} {
+        padding: 0 100px;
+      }
+    }
+
+    &_card {
+      .card_form {
+        height: max-content;
+        background-color: ${({ theme: { theme } }) =>
+          theme === themeList.light ? "#fff" : "var(--mediumColor)"};
+        border: 1px solid
+          ${({ theme: { theme } }) =>
+            theme === themeList.light ? "#bdbdbd" : "var(--mediumColor)"};
+        box-sizing: border-box;
+        border-radius: 20px;
+        transition: box-shadow 1s;
+
+        ${devices.smartphone} {
+          width: 100% !important;
+        }
+
+        ${devices.ipads} {
+          width: 100% !important;
+        }
+
+        ${devices.laptops} {
+          width: 100% !important;
+        }
+
+        :hover {
+          border: 1px solid var(--colorMain);
+          box-shadow: 0 0 10px rgb(0 0 0 / 15%);
+        }
+      }
+    }
+
+    &_body {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 30px;
+      gap: 20px;
+
+      .heading {
+        font-size: 16px;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 1.5;
+        text-align: left;
+      }
+
+      .value_pengajuan {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .value_keterangan {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+
+        h1 {
+          font-size: 15px;
+          font-weight: 500;
+          text-transform: uppercase;
+        }
+
+        p {
+          font-size: 14px;
+          line-height: 1.5;
+
+          ${devices.ipads} {
+            text-align: left;
+          }
+        }
+        ol {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          margin-left: 40px;
+          list-style-type: decimal;
+
+          li {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.5;
+            display: list-item;
+            list-style: decimal;
+            text-align: left;
+          }
+        }
+      }
+    }
+
+    &_footer {
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      gap: 10px;
+      label {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        p {
+          font-size: 12px;
+          /* margin-left: 10px; */
+          font-weight: 400;
+        }
+      }
+    }
+
+    &_button {
+      display: flex;
+      align-items: center;
+      background-color: var(--colorMain);
+      padding: 12px 16px;
+      border-radius: 20px;
+      max-height: 100%;
+      cursor: pointer;
+      font-size: 13px;
+      color: #ffffff;
+      gap: 10px;
+      transition: 0.3s all ease;
+
+      &:hover {
+        background-color: #038100;
+        transition: 0.3s all ease;
+        transform: scale(1.05);
+      }
+
+      :disabled {
+        background-color: #b6b7b8;
+        cursor: default;
+
+        &:hover {
+          background-color: #b6b7b8;
+          transition: 0.3s all ease;
+          transform: scale(1);
+        }
+      }
+    }
+
+    &_disable_button {
+      pointer-events: none;
+      background-color: #b6b7b8;
+      cursor: default;
+
+      &:hover {
+        background-color: #b6b7b8;
+        transition: 0.3s all ease;
+        transform: scale(1);
+      }
+    }
+  }
+`;
