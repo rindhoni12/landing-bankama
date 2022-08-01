@@ -916,10 +916,121 @@ const PengajuanSection = () => {
 };
 
 const FormNasabahSection = () => {
+  const [values, setValues] = useState({
+    nama: "",
+    alamat: "",
+    jenisIdentitas: "",
+    noIdentitas: "",
+    fileIdentitas: "",
+  });
+
+  const set = (name) => {
+    return ({ target: { value } }) => {
+      setValues((oldValues) => ({ ...oldValues, [name]: value }));
+    };
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(values);
+    setValues({
+      nama: "",
+      alamat: "",
+      jenisIdentitas: "",
+      noIdentitas: "",
+      fileIdentitas: "",
+    });
+  };
   return (
     <FormNasabahSite>
       <div className="nasabah_container">
-        <div className="nasabah_content">Form Nasabah</div>
+        <div className="nasabah_content">
+          <HeadingComponent
+            Heading="Pengajuan Buka Rekening"
+            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+          />
+          <FormContent>
+            <div className="content_form_buka">
+              <div className="card_form">
+                <div className="content">
+                  <p>
+                    <b>Keteragan : </b>Kirimkan pesan atau pengaduan kepada
+                    kami, senang melayani anda sebagai nasabah kami,
+                    Terimakasih.
+                  </p>
+                  <div className="content_form">
+                    <form
+                      className="form_style"
+                      onSubmit={handleSubmit}
+                      id="form_baru"
+                    >
+                      <div className="inputan">
+                        <FormInput
+                          judul="Nama"
+                          placeholder="Jumlah Pinjamanan"
+                          type="text"
+                          value={values.nama}
+                          onChange={set("nama")}
+                        />
+                        <FormInput
+                          judul="Alamat"
+                          placeholder="Alamat"
+                          type="text"
+                          value={values.alamat}
+                          onChange={set("alamat")}
+                        />
+                      </div>
+                      <div className="inputan">
+                        <FormInput
+                          judul="Jenis Identitas"
+                          placeholder="Jenis Identitas"
+                          type="text"
+                          value={values.jenisIdentitas}
+                          onChange={set("jenisIdentitas")}
+                        />
+                        <FormInput
+                          judul="No. Identitas"
+                          placeholder="No. Identitas"
+                          type="text"
+                          value={values.noIdentitas}
+                          onChange={set("noIdentitas")}
+                        />
+                        <FormInput
+                          judul="File Identitas"
+                          placeholder="File Identitas"
+                          type="file"
+                          value={values.fileIdentitas}
+                          onChange={set("fileIdentitas")}
+                        />
+                      </div>
+                      <p style={{ fontSize: "12px", borderBottom: "none" }}>
+                        <b>Catatan Lain : </b> Pesan balasan daripada form
+                        pengaduan akan dikirimkan melalui No. Hp yang di
+                        masukan.
+                      </p>
+                      <p className="informasi">
+                        <b>Informasi : </b>
+                        Data Berhasil Dikirim, silahkan cek pesan WhatsApp
+                        secara berkala.
+                      </p>
+                      <div className="button_flex">
+                        <Button
+                          id="form_baru"
+                          icon={FaAccusoft}
+                          label="Kirim Pesan Pengaduan"
+                          style={{ fontSize: "12px" }}
+                        >
+                          Hitung
+                        </Button>
+                      </div>
+                    </form>
+                  </div>
+                  <input type="file" name="file" id="file" />
+                </div>
+              </div>
+            </div>
+          </FormContent>
+        </div>
       </div>
     </FormNasabahSite>
   );

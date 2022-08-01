@@ -143,6 +143,24 @@ export const FormContent = styled.div`
       flex-direction: column;
     }
   }
+
+  .content_form_buka {
+    display: initial;
+    /* flex-direction: row;
+    gap: 40px; */
+
+    /* ${devices.smartphone} {
+      flex-direction: column;
+    }
+
+    ${devices.ipads} {
+      flex-direction: column;
+    }
+
+    ${devices.laptops} {
+      flex-direction: column;
+    } */
+  }
   .informasi {
     font-size: 12px !important;
     border-bottom: none;
