@@ -969,6 +969,10 @@ export const CardInformasiSite = styled.section`
           text-align: center;
           color: #fff;
         }
+
+        .text {
+          font-size: 12px;
+        }
       }
     }
   }

@@ -1,7 +1,7 @@
 import React from "react";
-import SimpleSlider, { SimpleSliderFicture } from "../components/carousel";
+import SimpleSlider, { SimpleSliderFicture } from "../../components/carousel";
 // import { Accordion, FormKpr } from "../components";
-import { BERITA } from "../config/data";
+import { BERITA } from "../../config/data";
 import {
   Card,
   Detail,
@@ -9,10 +9,10 @@ import {
   Informasi,
   OjkInformasi,
   ReactHelmet,
-} from "../components/atom";
+} from "../../components/atom";
 // import { OrganisasiSection } from "../components/section";
 import { useLocation } from "react-router-dom";
-import { CardInformasi } from "../components/section";
+import { CardInformasi } from "../../components/section";
 
 const Home = () => {
   const location = useLocation();

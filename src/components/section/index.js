@@ -650,15 +650,15 @@ const CardInformasi = () => {
                 <div className="class_table">
                   <table>
                     <thead>
-                      <tr style={{ background: "var(--colorMain)" }}>
+                      <tr style={{ background: "#b8bcb8" }}>
                         <th rowSpan="2">Jenis Investasi</th>
                         <th rowSpan="2">Nisbah</th>
                         <th colSpan="3">Tingkat Imbalan/Tahun (%)</th>
                       </tr>
-                      <tr style={{ background: "var(--colorMain)" }}>
-                        <th>April 2022</th>
-                        <th>Mei 2022</th>
-                        <th>Juni 2022</th>
+                      <tr style={{ background: "#b8bcb8" }}>
+                        <th className="text">April 2022</th>
+                        <th className="text">Mei 2022</th>
+                        <th className="text">Juni 2022</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -702,15 +702,15 @@ const CardInformasi = () => {
                 <div className="class_table">
                   <table>
                     <thead>
-                      <tr style={{ background: "var(--colorMain)" }}>
+                      <tr style={{ background: "#b8bcb8" }}>
                         <th rowSpan="2">Jenis Investasi</th>
                         <th rowSpan="2">Nisbah</th>
                         <th colSpan="3">Tingkat Imbalan/Tahun (%)</th>
                       </tr>
-                      <tr style={{ background: "var(--colorMain)" }}>
-                        <th>April 2022</th>
-                        <th>Mei 2022</th>
-                        <th>Juni 2022</th>
+                      <tr style={{ background: "#b8bcb8" }}>
+                        <th className="text">April 2022</th>
+                        <th className="text">Mei 2022</th>
+                        <th className="text">Juni 2022</th>
                       </tr>
                     </thead>
                     <tbody>

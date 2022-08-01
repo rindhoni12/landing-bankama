@@ -46,6 +46,12 @@ const Informasi = () => {
                 Jika anda melihat dan mendengar Pelanggaran/Kecurangan yang
                 dilakukan oleh Pejabat/Pegawai di lingkungan Bank Jago.
               </p>
+              <Button
+                style={{ margin: "auto" }}
+                icon={FaAccusoft}
+                label="Form Pengaduan"
+                to="./hubungi-kami"
+              />
             </div>
           </div>
         </div>

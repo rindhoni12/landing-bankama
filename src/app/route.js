@@ -1,18 +1,20 @@
 import React from "react";
-import Home from "../pages/Home";
 import { Routes, Route } from "react-router-dom";
-import NotFound from "../pages/404";
-import Berita from "../pages/Berita";
-import DetailBerita from "../pages/DetailBerita";
-import ContactUs from "../pages/ContactUs";
-import { Layanan, LayananSatu } from "../pages/Layanan";
-import Simulasi from "../pages/Simulasi";
-import Publikasi from "../pages/Publikasi";
-
-import { Outlet } from "react-router-dom";
 import { Footer, Header } from "../components";
-import Galery from "../pages/Galery";
-import HubungiKami from "../pages/Hubungi";
+import { Outlet } from "react-router-dom";
+import {
+  DetailBerita,
+  HubungiKami,
+  LayananSatu,
+  ContactUs,
+  Publikasi,
+  NotFound,
+  Simulasi,
+  Layanan,
+  Galery,
+  Berita,
+  Home,
+} from "../pages";
 
 const PageLayout = () => (
   <>

@@ -1,8 +1,12 @@
 import React from "react";
-import { Detail, FocusComponentColor, ReactHelmet } from "../components/atom";
-import imgContact from "../assets/img/contact-us.png";
-import { SimpleSliderFicture } from "../components/carousel";
-import { OrganisasiSection, TentangKami } from "../components/section";
+import {
+  Detail,
+  FocusComponentColor,
+  ReactHelmet,
+} from "../../components/atom";
+import imgContact from "../../assets/img/contact-us.png";
+import { SimpleSliderFicture } from "../../components/carousel";
+import { OrganisasiSection, TentangKami } from "../../components/section";
 import { useLocation } from "react-router-dom";
 
 const ContactUs = () => {

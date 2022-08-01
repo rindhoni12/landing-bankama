@@ -45,6 +45,8 @@ export const InformasiSite = styled.section`
 
       img {
         object-fit: contain;
+        width: 100%;
+        height: 100%;
       }
     }
 
@@ -73,7 +75,7 @@ export const InformasiSite = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 70%;
     gap: 20px;
   }
 

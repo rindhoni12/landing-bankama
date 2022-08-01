@@ -4,12 +4,12 @@ import {
   DetailLayananPages,
   FocusComponentContactUs,
   ReactHelmet,
-} from "../components/atom";
-import { LayananSection } from "../components/section";
-import imgContact from "../assets/img/contact-us.png";
-import imgDetail from "../assets/img/2.png";
+} from "../../components/atom";
+import { LayananSection } from "../../components/section";
+import imgContact from "../../assets/img/contact-us.png";
+import imgDetail from "../../assets/img/2.png";
 import { FaAccusoft } from "react-icons/fa";
-import { DATA_BARU } from "../config";
+import { DATA_BARU } from "../../config";
 
 const Layanan = () => {
   const { id } = useParams();

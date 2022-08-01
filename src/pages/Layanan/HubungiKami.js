@@ -1,8 +1,8 @@
 import React from "react";
-import { FocusComponentColor, ReactHelmet } from "../components/atom";
-import imgContact from "../assets/img/contact-us.png";
+import { FocusComponentColor, ReactHelmet } from "../../components/atom";
+import imgContact from "../../assets/img/contact-us.png";
 import { useLocation } from "react-router-dom";
-import { HubungiSection } from "../components/section";
+import { HubungiSection } from "../../components/section";
 
 const HubungiKami = () => {
   const location = useLocation();

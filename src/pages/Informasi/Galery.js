@@ -1,8 +1,8 @@
 import React from "react";
-import { FocusComponentColor, ReactHelmet } from "../components/atom";
-import imgContact from "../assets/img/contact-us.png";
+import { FocusComponentColor, ReactHelmet } from "../../components/atom";
+import imgContact from "../../assets/img/contact-us.png";
 import { useLocation } from "react-router-dom";
-import GalerySection from "../components/galery";
+import GalerySection from "../../components/galery";
 
 const Galery = () => {
   const location = useLocation();

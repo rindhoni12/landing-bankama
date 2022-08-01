@@ -1,7 +1,7 @@
 import React from "react";
-import { FocusComponentColor, ReactHelmet } from "../components/atom";
-import imgContact from "../assets/img/contact-us.png";
-import { FormKpr } from "../components";
+import { FocusComponentColor, ReactHelmet } from "../../components/atom";
+import imgContact from "../../assets/img/contact-us.png";
+import { FormKpr } from "../../components";
 import { useLocation } from "react-router-dom";
 
 const Simulasi = () => {

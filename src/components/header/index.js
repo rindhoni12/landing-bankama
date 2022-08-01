@@ -250,10 +250,10 @@ const Header = () => {
     window.matchMedia("(max-width: 1024px)").matches
   );
 
-  const humberHandle = () => {
+  const humberHandle = (item) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     setIsNavOpen(false);
-    // window.location.reload(item.to);
+    window.location.reload(item.to);
   };
 
   const humberHandle2 = (item) => {

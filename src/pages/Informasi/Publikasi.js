@@ -1,9 +1,9 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import imgContact from "../assets/img/contact-us.png";
-import { FocusComponentColor, ReactHelmet } from "../components/atom";
-import { PublikasiSection } from "../components/section";
-import { DATA_PUBLIKASI } from "../config/data";
+import imgContact from "../../assets/img/contact-us.png";
+import { FocusComponentColor, ReactHelmet } from "../../components/atom";
+import { PublikasiSection } from "../../components/section";
+import { DATA_PUBLIKASI } from "../../config/data";
 
 const Publikasi = () => {
   const DataPublikasi = DATA_PUBLIKASI;
