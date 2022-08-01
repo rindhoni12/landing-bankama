@@ -53,20 +53,31 @@ export const FormInput = (item) => {
     <div className="form_content_input">
       <label>{item.judul}</label>
       <input
+        id={item.judul}
         className="form_input"
         type={item.type}
         placeholder={item.placeholder}
         required
+        onChange={item.onChange}
+        value={item.value}
       />
     </div>
   );
 };
 
-export const TextArea = () => {
+export const TextArea = (item) => {
   return (
     <div className="form_content_input">
       <label>Pesan</label>
-      <textarea name="pesan" id="pesan" cols="30" rows="10"></textarea>
+      <textarea
+        required
+        value={item.value}
+        onChange={item.onChange}
+        name="pesan"
+        id="pesan"
+        cols="30"
+        rows="10"
+      ></textarea>
     </div>
   );
 };

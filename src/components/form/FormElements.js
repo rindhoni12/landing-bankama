@@ -143,6 +143,15 @@ export const FormContent = styled.div`
       flex-direction: column;
     }
   }
+  .informasi {
+    font-size: 12px !important;
+    border-bottom: none;
+    padding: 10px 20px;
+    background-color: #709fff;
+    border-radius: 10px;
+    width: max-content;
+    color: #fff;
+  }
 
   .inputan {
     display: flex;
@@ -402,6 +411,33 @@ export const FormContent = styled.div`
 
     :last-child {
       align-items: flex-end;
+    }
+
+    .icon_text {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      width: 120px;
+    }
+
+    .label {
+      text-align: end;
+      overflow-wrap: anywhere;
+      width: 100%;
+    }
+  }
+
+  .item_contactNew {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 14px;
+
+    :last-child {
+      align-items: flex-start;
     }
 
     .icon_text {

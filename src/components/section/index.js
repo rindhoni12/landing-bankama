@@ -8,6 +8,7 @@ import {
   CardInformasiSite,
   ContentTabSite,
   ErrorSite,
+  FormNasabahSite,
   HubungiSite,
   LayananSite,
   OrganisasiSite,
@@ -524,6 +525,23 @@ const ErrorSection = () => {
 };
 
 const HubungiSection = () => {
+  const [values, setValues] = useState({
+    nama: "",
+    number: "",
+    textArea: "",
+  });
+
+  const set = (name) => {
+    return ({ target: { value } }) => {
+      setValues((oldValues) => ({ ...oldValues, [name]: value }));
+    };
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(values);
+    setValues({ nama: "", number: "", textArea: "" });
+  };
   return (
     <HubungiSite>
       <div className="hubungi_container">
@@ -544,36 +562,48 @@ const HubungiSection = () => {
                   <div className="content_form">
                     <form
                       className="form_style"
-                      // onSubmit={handleSubmit}
-                      id="form_table"
+                      onSubmit={handleSubmit}
+                      id="form_baru"
                     >
                       <div className="inputan">
                         <FormInput
                           judul="Nama"
                           placeholder="Jumlah Pinjamanan"
                           type="text"
-                          // defaultValue={setForm}
+                          value={values.nama}
+                          onChange={set("nama")}
                         />
                         <FormInput
-                          judul="No. Hp"
+                          judul="No"
                           placeholder="Jumlah Pinjamanan"
                           type="number"
-                          // defaultValue={setForm}
+                          value={values.number}
+                          onChange={set("number")}
                         />
                       </div>
-                      <TextArea />
+                      <TextArea
+                        value={values.textArea}
+                        onChange={set("textArea")}
+                      />
                       <p style={{ fontSize: "12px", borderBottom: "none" }}>
                         <b>Catatan Lain : </b> Pesan balasan daripada form
                         pengaduan akan dikirimkan melalui No. Hp yang di
                         masukan.
                       </p>
+                      <p className="informasi">
+                        <b>Informasi : </b>
+                        Data Berhasil Dikirim, silahkan cek pesan WhatsApp
+                        secara berkala.
+                      </p>
                       <div className="button_flex">
                         <Button
-                          // onClick={() => (state.button = 1)}
-                          id="Hitung"
+                          id="form_baru"
                           icon={FaAccusoft}
                           label="Kirim Pesan Pengaduan"
-                        />
+                          style={{ fontSize: "12px" }}
+                        >
+                          Hitung
+                        </Button>
                       </div>
                     </form>
                   </div>
@@ -586,28 +616,28 @@ const HubungiSection = () => {
                   </p>
                   <div className="content_form">
                     <div className="contact_item">
-                      <div className="item_contact">
+                      <div className="item_contactNew">
                         <div className="icon_text">
                           <FaAccusoft />
                           WhatsApps
                         </div>
                         <div className="label">082137926172</div>
                       </div>
-                      <div className="item_contact">
+                      <div className="item_contactNew">
                         <div className="icon_text">
                           <FaAccusoft />
                           Email
                         </div>
                         <div className="label">082137926172</div>
                       </div>
-                      <div className="item_contact">
+                      <div className="item_contactNew">
                         <div className="icon_text">
                           <FaAccusoft />
                           Twitter
                         </div>
                         <div className="label">082137926172</div>
                       </div>
-                      <div className="item_contact">
+                      <div className="item_contactNew">
                         <div className="icon_text">
                           <FaAccusoft />
                           Instagram
@@ -616,7 +646,7 @@ const HubungiSection = () => {
                           082137926172 sdfsdfsdfsddfsdfsdfsdf
                         </div>
                       </div>
-                      <div className="item_contact">
+                      <div className="item_contactNew">
                         <div className="icon_text">
                           <FaAccusoft />
                           Facebook
@@ -752,7 +782,7 @@ const CardInformasi = () => {
   );
 };
 
-const SectionPengajuan = () => {
+const PengajuanSection = () => {
   const [checked, setChecked] = React.useState(false);
 
   return (
@@ -866,10 +896,6 @@ const SectionPengajuan = () => {
                       Saya setuju dengan syarat dan ketentuan tersebut di atas
                     </p>
                   </label>
-
-                  {/* <button className="pengajuan_button" disabled={!checked}>
-                    <FaAccusoft /> Buka Rekening
-                  </button> */}
                   <Link
                     className={`pengajuan_button ${
                       !checked ? "pengajuan_disable_button" : ""
@@ -889,6 +915,16 @@ const SectionPengajuan = () => {
   );
 };
 
+const FormNasabahSection = () => {
+  return (
+    <FormNasabahSite>
+      <div className="nasabah_container">
+        <div className="nasabah_content">Form Nasabah</div>
+      </div>
+    </FormNasabahSite>
+  );
+};
+
 export {
   TentangKami,
   OrganisasiSection,
@@ -897,5 +933,6 @@ export {
   ErrorSection,
   HubungiSection,
   CardInformasi,
-  SectionPengajuan,
+  PengajuanSection,
+  FormNasabahSection,
 };
