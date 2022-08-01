@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaAccusoft, FaPhone } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import { ORGANISASI } from "../../config/data";
@@ -921,8 +921,10 @@ const FormNasabahSection = () => {
     alamat: "",
     jenisIdentitas: "",
     noIdentitas: "",
-    fileIdentitas: "",
   });
+
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [preview, setPreview] = useState(null);
 
   const set = (name) => {
     return ({ target: { value } }) => {
@@ -930,16 +932,32 @@ const FormNasabahSection = () => {
     };
   };
 
+  const inputRef = useRef(null);
+
+  // console.log(selectedFile);
+
+  const handleUpload = (e) => {
+    if (e.target.files.length !== 0) {
+      setPreview({ image: URL.createObjectURL(e.target.files[0]) });
+    }
+    const file = e.target.files[0];
+    setSelectedFile(file);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(values);
+    const data = {
+      ...values,
+      file: selectedFile,
+    };
+    console.log(data);
     setValues({
       nama: "",
       alamat: "",
       jenisIdentitas: "",
       noIdentitas: "",
-      fileIdentitas: "",
     });
+    inputRef.current.value = null;
   };
   return (
     <FormNasabahSite>
@@ -999,8 +1017,8 @@ const FormNasabahSection = () => {
                           judul="File Identitas"
                           placeholder="File Identitas"
                           type="file"
-                          value={values.fileIdentitas}
-                          onChange={set("fileIdentitas")}
+                          onChange={handleUpload}
+                          innerRef={inputRef}
                         />
                       </div>
                       <p style={{ fontSize: "12px", borderBottom: "none" }}>
@@ -1023,9 +1041,21 @@ const FormNasabahSection = () => {
                           Hitung
                         </Button>
                       </div>
+                      <div className="bungkus_image">
+                        <div className="text">Test Gambar</div>
+
+                        {preview === null ? (
+                          ""
+                        ) : (
+                          <img
+                            style={{ height: "100%", width: "100%" }}
+                            src={preview.image}
+                            alt="seletedFile"
+                          />
+                        )}
+                      </div>
                     </form>
                   </div>
-                  <input type="file" name="file" id="file" />
                 </div>
               </div>
             </div>

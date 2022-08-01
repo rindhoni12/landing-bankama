@@ -1251,4 +1251,12 @@ export const FormNasabahSite = styled.section`
       }
     }
   }
+
+  .bungkus_image {
+    width: 130px;
+
+    .text {
+      font-size: 12px;
+    }
+  }
 `;

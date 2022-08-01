@@ -60,6 +60,7 @@ export const FormInput = (item) => {
         required
         onChange={item.onChange}
         value={item.value}
+        ref={item.innerRef}
       />
     </div>
   );
