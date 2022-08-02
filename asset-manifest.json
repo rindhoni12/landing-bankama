@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/web-landing/static/css/main.d026f199.css",
-    "main.js": "/web-landing/static/js/main.98113ae8.js",
+    "main.js": "/web-landing/static/js/main.e47ca856.js",
     "static/media/blog.jpg": "/web-landing/static/media/blog.490bef791b07bdd7f7d8.jpg",
     "static/media/jago-2.jpeg": "/web-landing/static/media/jago-2.40254e148c07e8c3b7fd.jpeg",
     "static/media/jago-3.jpg": "/web-landing/static/media/jago-3.6318b27de2998085a42f.jpg",
@@ -18,7 +18,8 @@
     "static/media/banner.png": "/web-landing/static/media/banner.9fe475d22f5bbbbeefa6.png",
     "static/media/logo_bawah.png": "/web-landing/static/media/logo_bawah.0ae4b70b35e229c33f26.png",
     "static/media/lps.png": "/web-landing/static/media/lps.10b34851941f49114be9.png",
-    "static/media/ayobank.png": "/web-landing/static/media/ayobank.60dbc6b89f0cfc109896.png",
+    "static/media/logo_white.png": "/web-landing/static/media/logo_white.92a378cc2c65f9ce6374.png",
+    "static/media/ayosyariah.jpeg": "/web-landing/static/media/ayosyariah.b0685a80b3456216f497.jpeg",
     "static/media/ojk.png": "/web-landing/static/media/ojk.f2246f8e0b9a808a1e67.png",
     "static/media/kemudahan-gopay-bg.png": "/web-landing/static/media/kemudahan-gopay-bg.b07fbe4a9d0f228f6aea.png",
     "static/media/lps.1.png": "/web-landing/static/media/lps.1.f23bb6aada03ccdb4706.png",
@@ -28,10 +29,10 @@
     "static/media/slick.woff": "/web-landing/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/web-landing/index.html",
     "main.d026f199.css.map": "/web-landing/static/css/main.d026f199.css.map",
-    "main.98113ae8.js.map": "/web-landing/static/js/main.98113ae8.js.map"
+    "main.e47ca856.js.map": "/web-landing/static/js/main.e47ca856.js.map"
   },
   "entrypoints": [
     "static/css/main.d026f199.css",
-    "static/js/main.98113ae8.js"
+    "static/js/main.e47ca856.js"
   ]
 }
