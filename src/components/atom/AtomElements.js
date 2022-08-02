@@ -558,7 +558,7 @@ export const FocusComponentSite = styled.section`
     .class_tambahan {
       position: absolute;
       z-index: 1;
-      opacity: 0.4;
+      opacity: 0.3;
 
       img {
         --size: 145px;
