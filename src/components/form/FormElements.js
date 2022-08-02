@@ -169,6 +169,14 @@ export const FormContent = styled.div`
     border-radius: 10px;
     width: max-content;
     color: #fff;
+
+    ${devices.smartphone} {
+      width: 100%;
+    }
+
+    ${devices.ipads} {
+      width: 100%;
+    }
   }
 
   .inputan {

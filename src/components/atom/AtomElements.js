@@ -33,6 +33,7 @@ export const InformasiSite = styled.section`
 
     ${devices.smartphone} {
       flex-direction: column;
+      align-items: center;
     }
 
     @media only screen and (min-width: 540px) and (max-width: 760px) {

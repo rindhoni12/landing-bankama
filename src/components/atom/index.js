@@ -485,7 +485,12 @@ const FocusComponent = ({ backgroundColor }) => {
       <div className="focus_container">
         <div className="gambar_bg" style={{ backgroundColor: backgroundColor }}>
           <HeadingComponent
-            Style={{ textAlign: "center", width: "100%", color: "#fff" }}
+            Style={{
+              textAlign: "center",
+              width: "100%",
+              color: "#fff",
+              padding: "0px 20px",
+            }}
             Heading="Coba simulasi kredit sekarang!"
             Text="Untuk mengetahui berapa biaya yang harus digunakan untuk melakukan kredit KPR."
           />
