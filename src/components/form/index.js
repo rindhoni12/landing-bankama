@@ -151,8 +151,6 @@ const FormKpr = () => {
     button: 1,
   };
 
-  console.log(data);
-
   const formReset = document.getElementById("form_table");
 
   const handleSubmit = (e) => {
