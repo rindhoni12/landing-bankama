@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { devices } from "../../assets/_respondTo";
 import { themeList } from "../../config";
 
-export const TentangKamiSite = styled.section`
+export const KontakKamiSite = styled.section`
   ${devices.smartphone} {
     padding: 50px 0;
   }

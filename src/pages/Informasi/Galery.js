@@ -1,8 +1,11 @@
 import React from "react";
-import { FocusComponentColor, ReactHelmet } from "../../components/atom";
 import { useLocation } from "react-router-dom";
-import GalerySection from "../../components/galery";
 import { contactUs } from "../../assets";
+import {
+  FocusComponentColor,
+  GalerySection,
+  ReactHelmet,
+} from "../../components";
 
 const Galery = () => {
   const location = useLocation();

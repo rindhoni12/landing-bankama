@@ -5,7 +5,7 @@ import PengajuanForm from "./Layanan/PengajuanForm";
 import HubungiKami from "./Layanan/HubungiKami";
 import FormNasabah from "./Layanan/FormNasabah";
 import Publikasi from "./Informasi/Publikasi";
-import ContactUs from "./Layanan/ContactUs";
+import TentangKami from "./Layanan/TentangKami";
 import Simulasi from "./Layanan/Simulasi";
 import Berita from "./Informasi/Berita";
 import Galery from "./Informasi/Galery";
@@ -21,7 +21,7 @@ export {
   HubungiKami,
   FormNasabah,
   Publikasi,
-  ContactUs,
+  TentangKami,
   Simulasi,
   Berita,
   Galery,

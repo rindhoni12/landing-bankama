@@ -5,11 +5,11 @@ import {
   ReactHelmet,
 } from "../../components/atom";
 import { SimpleSliderFicture } from "../../components/carousel";
-import { OrganisasiSection, TentangKami } from "../../components/section";
 import { useLocation } from "react-router-dom";
 import { contactUs } from "../../assets";
+import { KontakKamiSection, OrganisasiSection } from "../../components";
 
-const ContactUs = () => {
+const TentangKami = () => {
   const location = useLocation();
   return (
     <>
@@ -27,9 +27,9 @@ const ContactUs = () => {
         deskripsi="Koperasi BPR Wedarijaksa Kabupaten Pati (KBPR Wedarijaksa) berlokasi"
       />
       <OrganisasiSection />
-      <TentangKami />
+      <KontakKamiSection />
     </>
   );
 };
 
-export default ContactUs;
+export default TentangKami;

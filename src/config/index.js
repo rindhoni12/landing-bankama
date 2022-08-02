@@ -15,9 +15,11 @@ import {
 } from "./data";
 
 export {
-  GlobalStyles,
+  ThemeContextProvider,
   ThemeSwitcher,
   ThemeContext,
+  GlobalStyles,
+  themeList,
   DATA_PUBLIKASI,
   MEDIA_SOSIAL,
   ORGANISASI,
@@ -26,6 +28,4 @@ export {
   PHOTOS,
   BERITA,
   TABS,
-  themeList,
-  ThemeContextProvider,
 };

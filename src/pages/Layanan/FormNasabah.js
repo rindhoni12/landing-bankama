@@ -1,8 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { FocusComponentColor, ReactHelmet } from "../../components/atom";
-import { FormNasabahSection } from "../../components/section";
 import { contactUs } from "../../assets";
+import { FormNasabahSection } from "../../components";
 
 const FormNasabah = () => {
   const location = useLocation();

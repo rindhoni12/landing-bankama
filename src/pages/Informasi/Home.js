@@ -1,18 +1,18 @@
 import React from "react";
-import SimpleSlider, { SimpleSliderFicture } from "../../components/carousel";
-// import { Accordion, FormKpr } from "../components";
+// import { Accordion } from "../components";
+import { useLocation } from "react-router-dom";
+import { BERITA } from "../../config";
 import {
-  Card,
-  Detail,
+  CardInformasiSection,
   FocusComponentWithLogo,
-  Informasi,
+  SimpleSliderFicture,
+  SimpleSlider,
   OjkInformasi,
   ReactHelmet,
-} from "../../components/atom";
-// import { OrganisasiSection } from "../components/section";
-import { useLocation } from "react-router-dom";
-import { CardInformasi } from "../../components/section";
-import { BERITA } from "../../config";
+  Informasi,
+  Detail,
+  Card,
+} from "../../components";
 
 const Home = () => {
   const location = useLocation();
@@ -33,13 +33,12 @@ const Home = () => {
         judul="Produk dan Layanan Kami"
         deskripsi="Kami percaya bahwa pengalaman transaksi perbankan yang pada produk unggulan kami."
       />
-      <CardInformasi />
+      <CardInformasiSection />
       <FocusComponentWithLogo backgroundColor="#06aed5" />
-      {/* <Accordion /> */}
       <Card itemBerita={BERITA} text="Lihat Lebih" />
-      {/* <OrganisasiSection /> */}
-      {/* <FormKpr /> */}
       <Informasi />
+
+      {/* <Accordion /> */}
     </>
   );
 };

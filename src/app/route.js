@@ -9,7 +9,7 @@ import {
   HubungiKami,
   LayananSatu,
   FormNasabah,
-  ContactUs,
+  TentangKami,
   Publikasi,
   NotFound,
   Simulasi,
@@ -32,7 +32,7 @@ export const RouteSite = () => {
     <Routes>
       <Route element={<PageLayout />}>
         <Route index element={<Home />} />
-        <Route exact path="/kontak-kami" element={<ContactUs />} />
+        <Route exact path="/kontak-kami" element={<TentangKami />} />
         <Route exact path="/hubungi-kami" element={<HubungiKami />} />
 
         <Route exact path="/layanan-kami" element={<LayananSatu />} />

@@ -1,8 +1,11 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { contactUs } from "../../assets";
-import { FocusComponentColor, ReactHelmet } from "../../components/atom";
-import { PublikasiSection } from "../../components/section";
+import {
+  FocusComponentColor,
+  PublikasiSection,
+  ReactHelmet,
+} from "../../components";
 import { DATA_PUBLIKASI } from "../../config";
 
 const Publikasi = () => {
