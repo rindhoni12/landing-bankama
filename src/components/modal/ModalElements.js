@@ -34,6 +34,10 @@ export const ModalWrapper = styled.div`
   z-index: 10;
   border-radius: 10px;
   padding: 40px;
+
+  ${devices.laptops} {
+    height: 300px;
+  }
 `;
 
 export const ModalContent = styled.div`
@@ -68,6 +72,10 @@ export const ModalContent = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    ${devices.laptops} {
+      overflow: scroll;
+    }
     .judul {
       font-size: 16px;
       font-weight: 500;
