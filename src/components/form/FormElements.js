@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { devices } from "../../assets/_respondTo";
-import themeList from "../../config/themeList";
+import { themeList } from "../../config";
 
 export const FormSite = styled.section`
   ${devices.smartphone} {

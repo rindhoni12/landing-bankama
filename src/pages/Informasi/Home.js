@@ -1,7 +1,6 @@
 import React from "react";
 import SimpleSlider, { SimpleSliderFicture } from "../../components/carousel";
 // import { Accordion, FormKpr } from "../components";
-import { BERITA } from "../../config/data";
 import {
   Card,
   Detail,
@@ -13,6 +12,7 @@ import {
 // import { OrganisasiSection } from "../components/section";
 import { useLocation } from "react-router-dom";
 import { CardInformasi } from "../../components/section";
+import { BERITA } from "../../config";
 
 const Home = () => {
   const location = useLocation();

@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { contactUs } from "../../assets";
 import { FocusComponentColor, ReactHelmet } from "../../components/atom";
 import { PublikasiSection } from "../../components/section";
-import { DATA_PUBLIKASI } from "../../config/data";
+import { DATA_PUBLIKASI } from "../../config";
 
 const Publikasi = () => {
   const DataPublikasi = DATA_PUBLIKASI;

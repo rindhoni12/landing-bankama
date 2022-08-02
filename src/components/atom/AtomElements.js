@@ -1,7 +1,7 @@
 import { devices } from "../../assets/_respondTo";
-import themeList from "../../config/themeList";
 import styled from "styled-components";
 import { whatsapp } from "../../assets";
+import { themeList } from "../../config";
 
 export const InformasiSite = styled.section`
   ${devices.smartphone} {

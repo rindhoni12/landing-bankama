@@ -2,8 +2,8 @@ import React, { useCallback, useState } from "react";
 import { GalerySite } from "./GaleryElements";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
-import { PHOTOS } from "../../config/data";
 import { HeadingComponent } from "../atom";
+import { PHOTOS } from "../../config";
 
 const GalerySection = () => {
   const [currentImage, setCurrentImage] = useState(0);

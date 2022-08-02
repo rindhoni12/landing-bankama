@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { devices } from "../../assets/_respondTo";
-// import themeList from "../../config/themeList";
 
 export const GalerySite = styled.section`
   ${devices.smartphone} {

@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FaAccusoft, FaPhone } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
-import { ORGANISASI } from "../../config/data";
 import { HeadingComponent, ReactHelmet } from "../atom";
 import {
   Button,
@@ -27,6 +26,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import ModalItem from "../modal";
 import { FormContent } from "../form/FormElements";
+import { ORGANISASI } from "../../config";
 
 const TentangKami = () => {
   return (

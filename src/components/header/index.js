@@ -1,14 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { HeaderContainer, HeaderSite } from "./HeaderElements";
 import { FiMenu, FiX } from "react-icons/fi";
-import { NAVLINKS } from "../../config/data";
-import ThemeSwitcher from "../../config/themeSwitcher";
 import { NavLink } from "react-router-dom";
 import { BiCaretDown } from "react-icons/bi";
 import styled from "styled-components";
 import { devices } from "../../assets/_respondTo";
-import themeList from "../../config/themeList";
 import { logoNew } from "../../assets";
+import { NAVLINKS, themeList, ThemeSwitcher } from "../../config";
 
 const ContentDrop = styled.div`
   max-height: 340px;

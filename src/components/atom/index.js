@@ -15,7 +15,6 @@ import {
 } from "./AtomElements";
 import { Button, ButtonTransparent } from "../form";
 import { FaAccusoft } from "react-icons/fa";
-import { ORGANISASI } from "../../config/data";
 import { motion, AnimatePresence } from "framer-motion";
 import Slider from "react-slick";
 import SliderWrapper from "../carousel/_SlickSliderStyle";
@@ -24,6 +23,7 @@ import styled from "styled-components";
 import { devices } from "../../assets/_respondTo";
 import { Helmet } from "react-helmet-async";
 import { ayosyariah, logoWhite, lps1, ojk, two, wbsIcon } from "../../assets";
+import { ORGANISASI } from "../../config";
 
 const Informasi = () => {
   return (

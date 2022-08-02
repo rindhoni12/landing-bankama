@@ -2,7 +2,7 @@ import styled from "styled-components";
 import React from "react";
 import { FiChevronDown } from "react-icons/fi";
 import { devices } from "../../assets/_respondTo";
-import themeList from "../../config/themeList";
+import { themeList } from "../../config";
 
 const AccordionSite = styled.section`
   display: flex;

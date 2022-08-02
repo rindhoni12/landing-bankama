@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import themeList from "../../config/themeList";
+import { themeList } from "../../config";
 
 const SliderWrapper = styled.div`
   height: 100%;

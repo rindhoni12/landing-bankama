@@ -1,23 +1,31 @@
 import GlobalStyles from "./gobalStyles";
-import ThemeContext from "./themeContext.js";
+import ThemeContext, { ThemeContextProvider } from "./themeContext.js";
+import ThemeSwitcher from "./themeSwitcher";
+import themeList from "./themeList";
+
 import {
-  NAVLINKS,
+  DATA_PUBLIKASI,
   MEDIA_SOSIAL,
   ORGANISASI,
+  DATA_BARU,
+  NAVLINKS,
+  PHOTOS,
   BERITA,
   TABS,
-  DATA_BARU,
-  DATA_PUBLIKASI,
 } from "./data";
 
 export {
   GlobalStyles,
+  ThemeSwitcher,
   ThemeContext,
-  NAVLINKS,
+  DATA_PUBLIKASI,
   MEDIA_SOSIAL,
   ORGANISASI,
+  DATA_BARU,
+  NAVLINKS,
+  PHOTOS,
   BERITA,
   TABS,
-  DATA_BARU,
-  DATA_PUBLIKASI,
+  themeList,
+  ThemeContextProvider,
 };
