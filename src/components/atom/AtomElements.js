@@ -43,6 +43,7 @@ export const InformasiSite = styled.section`
     .img {
       overflow: hidden;
       height: 150px;
+      margin: auto;
 
       img {
         object-fit: contain;
@@ -78,6 +79,14 @@ export const InformasiSite = styled.section`
     align-items: center;
     width: 70%;
     gap: 20px;
+
+    ${devices.smartphone} {
+      width: 100%;
+    }
+
+    ${devices.ipads} {
+      width: 100%;
+    }
   }
 
   .content {
@@ -87,6 +96,14 @@ export const InformasiSite = styled.section`
     gap: 20px;
 
     ${devices.smartphone} {
+      width: 100%;
+    }
+
+    ${devices.ipads} {
+      width: 100%;
+    }
+
+    ${devices.laptops} {
       width: 100%;
     }
   }
