@@ -526,7 +526,7 @@ const FocusComponentWithLogo = ({ backgroundColor }) => {
             style={{ zIndex: "2" }}
             icon={FaAccusoft}
             label="Hitung KPR"
-            to="./berita-kami"
+            to="./simulasi"
           />
         </div>
       </div>

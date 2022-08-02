@@ -63,7 +63,7 @@ export const NAVLINKS = [
   {
     to: "/simulasi",
     icon: FaEllipsisV,
-    name: "SIMULASI KPR",
+    name: "SIMULASI",
     megamenu: false,
   },
   {
@@ -81,7 +81,7 @@ export const NAVLINKS = [
   {
     to: "/galeri-kami",
     icon: FaEllipsisV,
-    name: "GALERY",
+    name: "GALERI",
     megamenu: false,
   },
   {

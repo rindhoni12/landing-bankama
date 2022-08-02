@@ -36,7 +36,7 @@ export const FormInputSelect = (item) => {
         className="style_select"
         onChange={item.onChange}
         required
-        defaultValue={""}
+        value={item.value}
       >
         <option value="" disabled>
           {item.placeholder}
@@ -151,6 +151,8 @@ const FormKpr = () => {
     button: 1,
   };
 
+  console.log(data);
+
   const formReset = document.getElementById("form_table");
 
   const handleSubmit = (e) => {
@@ -166,6 +168,8 @@ const FormKpr = () => {
       console.log("Button 2 clicked!");
       setShow(false);
       formReset.reset();
+      setSelect("");
+      setData([]);
     }
   };
 
@@ -273,11 +277,11 @@ const FormKpr = () => {
                   <FormInputCurrency
                     nama="jumlah"
                     placeholder="Jumlah Pinjamanan"
-                    // defaultValue={setForm}
                   />
                   <FormInputSelect
                     onChange={handleSelect}
                     placeholder="Lama Pinjamanan"
+                    value={select}
                   />
                   <div className="button_flex">
                     <Button
