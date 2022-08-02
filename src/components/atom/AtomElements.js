@@ -471,6 +471,7 @@ export const SlideContent = styled.div`
 
 export const HeadingAll = styled.div`
   width: 100%;
+  z-index: 2;
   .heading {
     display: flex;
     flex-direction: column;
@@ -550,6 +551,55 @@ export const FocusComponentSite = styled.section`
 
         img {
           object-fit: contain;
+        }
+      }
+    }
+
+    .class_tambahan {
+      position: absolute;
+      z-index: 1;
+      opacity: 0.4;
+
+      img {
+        --size: 145px;
+        width: var(--size);
+        position: absolute;
+        right: 420px;
+        top: 10px;
+
+        :first-child {
+          left: 420px;
+          top: -140px;
+        }
+
+        ${devices.smartphone} {
+          right: 40px;
+          top: 10px;
+
+          :first-child {
+            left: 50px;
+            top: -140px;
+          }
+        }
+
+        ${devices.ipads} {
+          right: 150px;
+          top: 10px;
+
+          :first-child {
+            left: 150px;
+            top: -140px;
+          }
+        }
+
+        ${devices.laptops} {
+          right: 250px;
+          top: 10px;
+
+          :first-child {
+            left: 250px;
+            top: -140px;
+          }
         }
       }
     }

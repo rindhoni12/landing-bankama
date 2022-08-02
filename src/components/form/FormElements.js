@@ -253,6 +253,27 @@ export const FormContent = styled.div`
     }
   }
 
+  .style_selectNew {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* background: transparent; */
+    background-image: url("data:image/svg+xml;utf8,<svg stroke='currentColor' fill='none' stroke-width='2' viewBox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 97%;
+    background-position-y: 15px;
+    border-radius: 2px;
+    padding: 12px 20px;
+    border: 1.2px solid #aaa;
+    box-sizing: border-box;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+
+    :focus {
+      outline: none;
+    }
+  }
+
   .form_input {
     padding: 12px 20px;
     /* border: 1.2px solid #aaa; */
@@ -600,6 +621,7 @@ export const ButtonComponent = styled.div`
 
 export const ButtonAll = styled.div`
   display: initial;
+  z-index: 2;
   .button_my-course {
     display: flex;
     align-items: center;

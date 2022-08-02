@@ -5,7 +5,7 @@ import { BERITA } from "../../config/data";
 import {
   Card,
   Detail,
-  FocusComponent,
+  FocusComponentWithLogo,
   Informasi,
   OjkInformasi,
   ReactHelmet,
@@ -34,7 +34,7 @@ const Home = () => {
         deskripsi="Kami percaya bahwa pengalaman transaksi perbankan yang pada produk unggulan kami."
       />
       <CardInformasi />
-      <FocusComponent backgroundColor="#06aed5" />
+      <FocusComponentWithLogo backgroundColor="#06aed5" />
       {/* <Accordion /> */}
       <Card itemBerita={BERITA} text="Lihat Lebih" />
       {/* <OrganisasiSection /> */}

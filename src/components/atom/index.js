@@ -18,7 +18,7 @@ import imgDetail from "../../assets/img/2.png";
 import imgOjk from "../../assets/img/ojk.png";
 import imgLps from "../../assets/img/lps.1.png";
 // import imgBpr from "../../assets/img/bpr.png";
-import imgAyo from "../../assets/img/ayobank.png";
+import imgAyoSya from "../../assets/img/ayosyariah.jpeg";
 import bgGopay from "../../assets/img/kemudahan-gopay-bg.png";
 import { Button, ButtonTransparent } from "../form";
 import { FaAccusoft } from "react-icons/fa";
@@ -30,6 +30,7 @@ import DOMPurify from "dompurify";
 import styled from "styled-components";
 import { devices } from "../../assets/_respondTo";
 import { Helmet } from "react-helmet-async";
+import gambarLogo from "../../assets/img/logo_white.png";
 
 const Informasi = () => {
   return (
@@ -324,7 +325,7 @@ const NewSlide = () => {
           <Slider {...settingsMobile}>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={imgAyo} alt="imgAyo" />
+                <img src={imgAyoSya} alt="imgAyoSya" />
               </div>
             </div>
             <div className="slide_content">
@@ -334,12 +335,12 @@ const NewSlide = () => {
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={imgAyo} alt="imgAyo" />
+                <img src={imgAyoSya} alt="imgAyoSya" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={imgAyo} alt="imgAyo" />
+                <img src={imgAyoSya} alt="imgAyoSya" />
               </div>
             </div>
             <div className="slide_content">
@@ -349,7 +350,7 @@ const NewSlide = () => {
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={imgAyo} alt="imgAyo" />
+                <img src={imgAyoSya} alt="imgAyoSya" />
               </div>
             </div>
           </Slider>
@@ -359,7 +360,7 @@ const NewSlide = () => {
           <Slider {...settings}>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={imgAyo} alt="imgAyo" />
+                <img src={imgAyoSya} alt="imgAyoSya" />
               </div>
             </div>
             <div className="slide_content">
@@ -369,12 +370,12 @@ const NewSlide = () => {
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={imgAyo} alt="imgAyo" />
+                <img src={imgAyoSya} alt="imgAyoSya" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={imgAyo} alt="imgAyo" />
+                <img src={imgAyoSya} alt="imgAyoSya" />
               </div>
             </div>
             <div className="slide_content">
@@ -384,7 +385,7 @@ const NewSlide = () => {
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={imgAyo} alt="imgAyo" />
+                <img src={imgAyoSya} alt="imgAyoSya" />
               </div>
             </div>
           </Slider>
@@ -442,7 +443,7 @@ const OjkInformasi = () => {
                 <img src={imgLps} alt="imgLps" />
               </div>
               <div className="ojk_img">
-                <img src={imgAyo} alt="imgAyo" />
+                <img src={imgAyoSya} alt="imgAyoSya" />
               </div>
             </Slider>
           </SliderWrapper>
@@ -455,7 +456,7 @@ const OjkInformasi = () => {
               <img src={imgLps} alt="imgLps" />
             </div>
             <div className="ojk_img">
-              <img src={imgAyo} alt="imgAyo" />
+              <img src={imgAyoSya} alt="imgAyoSya" />
             </div>
           </div>
         )}
@@ -495,6 +496,38 @@ const FocusComponent = ({ backgroundColor }) => {
             Text="Untuk mengetahui berapa biaya yang harus digunakan untuk melakukan kredit KPR."
           />
           <Button icon={FaAccusoft} label="Hitung KPR" to="./berita-kami" />
+        </div>
+      </div>
+    </FocusComponentSite>
+  );
+};
+
+const FocusComponentWithLogo = ({ backgroundColor }) => {
+  return (
+    <FocusComponentSite>
+      <div className="focus_container">
+        <div className="gambar_bg" style={{ backgroundColor: backgroundColor }}>
+          <div className="class_tambahan">
+            <img src={gambarLogo} className="new" alt="logo_new" />
+            <img src={gambarLogo} className="new" alt="logo_new" />
+          </div>
+          <HeadingComponent
+            Style={{
+              textAlign: "center",
+              width: "100%",
+              color: "#fff",
+              padding: "0px 20px",
+              zIndex: "2",
+            }}
+            Heading="Coba simulasi kredit sekarang!"
+            Text="Untuk mengetahui berapa biaya yang harus digunakan untuk melakukan kredit KPR."
+          />
+          <Button
+            style={{ zIndex: "2" }}
+            icon={FaAccusoft}
+            label="Hitung KPR"
+            to="./berita-kami"
+          />
         </div>
       </div>
     </FocusComponentSite>
@@ -701,6 +734,7 @@ export {
   DetailLayananPages,
   FocusComponentContactUs,
   FocusComponentColor,
+  FocusComponentWithLogo,
   ReactHelmet,
   WaItem,
 };

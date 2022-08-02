@@ -16,6 +16,7 @@ import {
   Home,
   PengajuanForm,
   FormNasabah,
+  FormPenyaluran,
 } from "../pages";
 
 const PageLayout = () => (
@@ -46,6 +47,8 @@ export const RouteSite = () => {
 
         <Route exact path="/pengajuan-rekening" element={<PengajuanForm />} />
         <Route exact path="/form-nasabah" element={<FormNasabah />} />
+
+        <Route exact path="/form-penyaluran" element={<FormPenyaluran />} />
 
         <Route exact path="/galeri-kami" element={<Galery />} />
       </Route>

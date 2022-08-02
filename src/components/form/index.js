@@ -48,6 +48,27 @@ export const FormInputSelect = (item) => {
   );
 };
 
+export const FormInputSelectNew = (item) => {
+  return (
+    <div className="form_content_input">
+      <label>{item.placeholder}</label>
+      <select
+        className="style_selectNew"
+        onChange={item.onChange}
+        required
+        // defaultValue={item.value}
+        value={item.value}
+      >
+        <option value="" disabled>
+          {item.placeholder}
+        </option>
+        <option value="penyimpanan_dana">Penyimpanan Dana</option>
+        <option value="penyaluran_dana">Penyaluran Dana</option>
+      </select>
+    </div>
+  );
+};
+
 export const FormInput = (item) => {
   return (
     <div className="form_content_input">

@@ -54,11 +54,23 @@ const SimpleSlider = () => {
             <div className="class_img">
               <img src={imgTry3Mobile} alt="img_try" />
             </div>
+            <div className="class_img">
+              <img src={imgTryMobile} alt="img_try" />
+            </div>
+            <div className="class_img">
+              <img src={imgTry3Mobile} alt="img_try" />
+            </div>
           </Slider>
         ) : (
           <Slider {...settings}>
             <div className="class_img">
               <img src={imgTry} alt="img_try" />
+            </div>
+            <div className="class_img">
+              <img src={imgTry2} alt="img_try" />
+            </div>
+            <div className="class_img">
+              <img src={imgTry3} alt="img_try" />
             </div>
             <div className="class_img">
               <img src={imgTry2} alt="img_try" />

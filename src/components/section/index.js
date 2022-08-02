@@ -3,7 +3,13 @@ import { FaAccusoft, FaPhone } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import { ORGANISASI } from "../../config/data";
 import { HeadingComponent, ReactHelmet } from "../atom";
-import { Button, ButtonTransparent, FormInput, TextArea } from "../form";
+import {
+  Button,
+  ButtonTransparent,
+  FormInput,
+  FormInputSelectNew,
+  TextArea,
+} from "../form";
 import {
   CardInformasiSite,
   ContentTabSite,
@@ -13,6 +19,7 @@ import {
   LayananSite,
   OrganisasiSite,
   PengajuanSite,
+  PenyaluranSite,
   Tabs,
   TentangKamiSite,
 } from "./SectionElements";
@@ -1066,6 +1073,181 @@ const FormNasabahSection = () => {
   );
 };
 
+const PenyaluranSection = () => {
+  const [values, setValues] = useState({
+    nama: "",
+    alamat: "",
+    jenisIdentitas: "",
+    noIdentitas: "",
+    namaIbu: "",
+  });
+
+  const [select, setSelect] = useState("");
+
+  const handleSelect = (e) => {
+    setSelect(e.target.value);
+  };
+
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [preview, setPreview] = useState(null);
+
+  const set = (name) => {
+    return ({ target: { value } }) => {
+      setValues((oldValues) => ({ ...oldValues, [name]: value }));
+    };
+  };
+
+  const inputRef = useRef(null);
+
+  // console.log(selectedFile);
+
+  const handleUpload = (e) => {
+    if (e.target.files.length !== 0) {
+      setPreview({ image: URL.createObjectURL(e.target.files[0]) });
+    }
+    const file = e.target.files[0];
+    setSelectedFile(file);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = {
+      ...values,
+      select: select,
+      file: selectedFile,
+    };
+    console.log(data);
+    setValues({
+      nama: "",
+      alamat: "",
+      jenisIdentitas: "",
+      noIdentitas: "",
+      namaIbu: "",
+    });
+    setSelect("");
+    inputRef.current.value = null;
+  };
+  return (
+    <PenyaluranSite>
+      <div className="penyaluran_container">
+        <div className="penyaluran_section">
+          <HeadingComponent
+            Heading="Form Penyimpanan atau Penyaluran Dana"
+            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+          />
+          <FormContent>
+            <div className="content_form_buka">
+              <div className="card_form">
+                <div className="content">
+                  <p>
+                    <b>Keteragan : </b>Kirimkan pesan atau pengaduan kepada
+                    kami, senang melayani anda sebagai nasabah kami,
+                    Terimakasih.
+                  </p>
+                  <div className="content_form">
+                    <form
+                      className="form_style"
+                      onSubmit={handleSubmit}
+                      id="form_baru"
+                    >
+                      <div className="inputan">
+                        <FormInputSelectNew
+                          onChange={handleSelect}
+                          placeholder="Jenis Layanan"
+                          value={select}
+                        />
+                        <FormInput
+                          judul="Nama"
+                          placeholder="Nama"
+                          type="text"
+                          value={values.nama}
+                          onChange={set("nama")}
+                        />
+                      </div>
+                      <div className="inputan">
+                        <FormInput
+                          judul="Nama Ibu Kandung"
+                          placeholder="Nama Ibu Kandung"
+                          type="text"
+                          value={values.namaIbu}
+                          onChange={set("namaIbu")}
+                        />
+                        <FormInput
+                          judul="Alamat"
+                          placeholder="Alamat"
+                          type="text"
+                          value={values.alamat}
+                          onChange={set("alamat")}
+                        />
+                      </div>
+                      <div className="inputan">
+                        <FormInput
+                          judul="Jenis Identitas"
+                          placeholder="Jenis Identitas"
+                          type="text"
+                          value={values.jenisIdentitas}
+                          onChange={set("jenisIdentitas")}
+                        />
+                        <FormInput
+                          judul="No. Identitas"
+                          placeholder="No. Identitas"
+                          type="text"
+                          value={values.noIdentitas}
+                          onChange={set("noIdentitas")}
+                        />
+                        <FormInput
+                          judul="File Identitas"
+                          placeholder="File Identitas"
+                          type="file"
+                          onChange={handleUpload}
+                          innerRef={inputRef}
+                        />
+                      </div>
+                      <p style={{ fontSize: "12px", borderBottom: "none" }}>
+                        <b>Catatan Lain : </b> Pesan balasan daripada form
+                        pengaduan akan dikirimkan melalui No. Hp yang di
+                        masukan.
+                      </p>
+                      <p className="informasi">
+                        <b>Informasi : </b>
+                        Data Berhasil Dikirim, silahkan cek pesan WhatsApp
+                        secara berkala.
+                      </p>
+                      <div className="button_flex">
+                        <Button
+                          id="form_baru"
+                          icon={FaAccusoft}
+                          label="Kirim Pesan Pengaduan"
+                          style={{ fontSize: "12px" }}
+                        >
+                          Hitung
+                        </Button>
+                      </div>
+                      <div className="bungkus_image">
+                        <div className="text">Test Gambar</div>
+
+                        {preview === null ? (
+                          ""
+                        ) : (
+                          <img
+                            style={{ height: "100%", width: "100%" }}
+                            src={preview.image}
+                            alt="seletedFile"
+                          />
+                        )}
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </FormContent>
+        </div>
+      </div>
+    </PenyaluranSite>
+  );
+};
+
 export {
   TentangKami,
   OrganisasiSection,
@@ -1076,4 +1258,5 @@ export {
   CardInformasi,
   PengajuanSection,
   FormNasabahSection,
+  PenyaluranSection,
 };

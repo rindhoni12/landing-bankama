@@ -1,4 +1,5 @@
 import { Layanan, LayananSatu } from "./Layanan/Layanan";
+import FormPenyaluran from "./Layanan/FormPenyaluran";
 import DetailBerita from "./Informasi/DetailBerita";
 import PengajuanForm from "./Layanan/PengajuanForm";
 import HubungiKami from "./Layanan/HubungiKami";
@@ -14,6 +15,7 @@ import Home from "./Informasi/Home";
 export {
   Layanan,
   LayananSatu,
+  FormPenyaluran,
   DetailBerita,
   PengajuanForm,
   HubungiKami,

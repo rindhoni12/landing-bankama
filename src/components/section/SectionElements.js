@@ -1254,7 +1254,60 @@ export const FormNasabahSite = styled.section`
 
   .bungkus_image {
     width: 130px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    .text {
+      font-size: 12px;
+    }
+  }
+`;
 
+export const PenyaluranSite = styled.section`
+  ${devices.smartphone} {
+    padding: 50px 0;
+  }
+
+  ${devices.ipads} {
+    padding: 25px 0;
+  }
+
+  ${devices.laptops} {
+    padding: 35px 0;
+  }
+
+  ${devices.screen_large} {
+    padding: 100px 0;
+    max-width: 1580px;
+  }
+
+  .penyaluran {
+    &_container {
+      padding: 0 100px;
+
+      ${devices.smartphone} {
+        padding: 0 25px;
+      }
+
+      ${devices.ipads} {
+        padding: 0 50px;
+      }
+
+      ${devices.laptops} {
+        padding: 0 50px;
+      }
+
+      ${devices.screen_large} {
+        padding: 0 100px;
+      }
+    }
+  }
+
+  .bungkus_image {
+    width: 130px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
     .text {
       font-size: 12px;
     }
