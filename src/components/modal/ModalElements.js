@@ -24,8 +24,8 @@ export const Background = styled.div`
 `;
 
 export const ModalWrapper = styled.div`
-  width: 400px;
-  height: 500px;
+  width: 500px;
+  height: 400px;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
   background: #fff;
   color: #000;
@@ -50,6 +50,19 @@ export const ModalContent = styled.div`
     flex-direction: column;
     height: 100%;
     gap: 20px;
+    align-items: center;
+
+    .images_content {
+      --size: 200px;
+      width: var(--size);
+      height: var(--size);
+      margin-top: -100px;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
   .heading {
     display: flex;
@@ -61,14 +74,16 @@ export const ModalContent = styled.div`
     }
     p {
       font-size: 12px;
-      font-weight: 400;
+      font-weight: 300;
+      line-height: 1.5;
+      text-align: justify;
       color: ${({ theme: { theme } }) =>
         theme === themeList.light ? "#000" : "#000"};
     }
   }
   .content_form {
     display: flex;
-    gap: 20px;
+    gap: 10px;
     flex-direction: column;
     width: 100%;
     .form {
@@ -76,9 +91,15 @@ export const ModalContent = styled.div`
       flex-direction: column;
       gap: 10px;
       .text_form {
-        font-size: 14px;
-        font-weight: 500;
+        font-size: 13px;
+        font-weight: 400;
       }
+
+      .text_form_judul {
+        font-size: 18px;
+        font-weight: 600;
+      }
+
       .input_form {
         border: 0.5px rgba(0, 0, 0, 0.5) solid;
         border-radius: 4px;
@@ -99,8 +120,8 @@ export const CloseModalButton = styled(FiX)`
   position: absolute;
   top: 20px;
   right: 20px;
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   padding: 0;
   z-index: 10;
 `;

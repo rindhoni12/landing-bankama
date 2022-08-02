@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { organisasi } from "../../assets";
 import {
   Background,
   CloseModalButton,
@@ -37,24 +38,23 @@ const ModalItem = ({ showModal, setShowModal, id, item }) => {
           <ModalWrapper showModal={showModal}>
             <ModalContent>
               <div className="pembungkus" id={id}>
+                <div className="images_content">
+                  <img src={organisasi} alt="organisasi" />
+                </div>
+                <div className="content_form">
+                  <div className="form">
+                    <div className="text_form_judul">{item.label}</div>
+                  </div>
+                  <div className="form">
+                    <div className="text_form">{item.jabatan}</div>
+                  </div>
+                </div>
                 <div className="heading">
-                  <div className="judul">Create Project</div>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Cupiditate laborum perferendis sapiente, excepturi nostrum
                     debitis blanditiis iste, corporis, laudantium dolore
                   </p>
-                </div>
-                <div className="content_form">
-                  <div className="form">
-                    <div className="text_form">{item.jabatan}</div>
-                  </div>
-                  <div className="form">
-                    <div className="text_form">{item.id}</div>
-                  </div>
-                  <div className="form">
-                    <div className="text_form">Caption</div>
-                  </div>
                 </div>
               </div>
             </ModalContent>

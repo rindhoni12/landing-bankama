@@ -212,12 +212,12 @@ const Detail = (item) => {
   );
 };
 
-const DetailLayanan = ({ item, two }) => {
+const DetailLayanan = ({ item, imgDetail }) => {
   return (
     <DetailComponents>
       <div className="detail_content">
         <div className="detail_img">
-          <img src={two} alt="two" />
+          <img src={imgDetail} alt="imgDetail" />
         </div>
         <div className="detail_text">
           <div className="visi_misi">
