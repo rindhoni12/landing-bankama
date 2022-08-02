@@ -320,7 +320,7 @@ export const HeaderContainer = styled.div`
             theme === themeList.light ? "#ffffff" : "#1a1d29"};
           padding: 50px 0px;
           max-width: 250px;
-          overflow: hidden;
+          overflow: scroll;
           position: fixed;
           height: 100vh;
           z-index: 100;

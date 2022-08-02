@@ -138,6 +138,10 @@ export const FooterSite = styled.footer`
         align-items: center;
         justify-content: flex-start;
 
+        ${devices.laptops} {
+          flex-direction: column;
+        }
+
         .img_class {
           --size: 40px;
           width: 100%;
@@ -173,6 +177,7 @@ export const FooterSite = styled.footer`
           place-items: baseline;
           gap: 10px;
           padding: 0;
+          text-align: left;
         }
 
         .end {
