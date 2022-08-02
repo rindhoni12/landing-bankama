@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import { GalerySite } from "./GaleryElements";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
-import { photos } from "../../config/data";
+import { PHOTOS } from "../../config/data";
 import { HeadingComponent } from "../atom";
 
 const GalerySection = () => {
@@ -28,8 +28,8 @@ const GalerySection = () => {
             angsuran per-bulan yang harus dibayarkan dan besarannya sudah sesuai
             aturan bunga yang ditetapkan perusahaan per tanggal 01 Januari 2021."
         />
-        {photos ? (
-          <Gallery photos={photos} onClick={openLightbox} />
+        {PHOTOS ? (
+          <Gallery photos={PHOTOS} onClick={openLightbox} />
         ) : (
           "Loading"
         )}
@@ -38,7 +38,7 @@ const GalerySection = () => {
             <Modal onClose={closeLightbox}>
               <Carousel
                 currentIndex={currentImage}
-                views={photos.map((x) => ({
+                views={PHOTOS.map((x) => ({
                   ...x,
                   srcset: x.srcSet,
                   caption: x.title,

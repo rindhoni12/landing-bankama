@@ -2,92 +2,46 @@ import { FiGithub, FiLinkedin, FiPhone, FiTwitter } from "react-icons/fi";
 import { FaEllipsisV, FaInstagram } from "react-icons/fa";
 import { blog, organisasi } from "../assets";
 
-export const NAVLINKS = [
+export const DATA_PUBLIKASI = [
   {
-    to: "/",
-    icon: FaEllipsisV,
-    name: "HOME",
-    megamenu: false,
+    id: 1,
+    judul: "Laporan Triwulan",
+    content: {
+      apa: "Seleksi Pemasok dan Perlindungan Hak Kreditur",
+      p: "Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:",
+      fitur: [
+        {
+          judul: "Seleksi Pemasok dan Perlindungan Hak Kreditur",
+          tanggal: "2021 | April",
+          buttonDonwload: "link",
+        },
+        {
+          judul: "Seleksi Pemasok dan Perlindungan Hak Kreditur",
+          tanggal: "2022 | April",
+          buttonDonwload: "link",
+        },
+      ],
+    },
   },
   {
-    to: "/layanan-kami",
-    icon: FaEllipsisV,
-    name: "PRODUK & LAYANAN",
-    megamenu: true,
-    megamenuItem: [
-      {
-        id: 1,
-        to: "/penyimpanan-dana",
-        name: "PENYIMPANAN DANA",
-        sub: [
-          {
-            to: "/web-landing/layanan-kami/penyimpanan-dana/0",
-            judul: "Tabungan iB Wadiah",
-          },
-          {
-            to: "/web-landing/layanan-kami/penyimpanan-dana/1",
-            judul: "Tabungan iB Mudharabah",
-          },
-          {
-            to: "/web-landing/layanan-kami/penyimpanan-dana/2",
-            judul: "Deposito iB Mudharabah",
-          },
-        ],
-      },
-      {
-        id: 2,
-        to: "/penyaluran-dana",
-        name: "PENYALURAN DANA",
-        sub: [
-          {
-            to: "/web-landing/layanan-kami/penyaluran-dana/0",
-            judul: "Pembiayaan iB Wadiah",
-          },
-          {
-            to: "/web-landing/layanan-kami/penyaluran-dana/1",
-            judul: "Pembiayaan iB Musyarakah",
-          },
-          {
-            to: "/web-landing/layanan-kami/penyaluran-dana/2",
-            judul: "Pembiayaan iB Multijasa",
-          },
-          {
-            to: "/web-landing/layanan-kami/penyaluran-dana/3",
-            judul: "iB Gadai Emas",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    to: "/simulasi",
-    icon: FaEllipsisV,
-    name: "SIMULASI",
-    megamenu: false,
-  },
-  {
-    to: "/berita-kami",
-    icon: FaEllipsisV,
-    name: "BERITA KAMI",
-    megamenu: false,
-  },
-  {
-    to: "/publikasi",
-    icon: FaEllipsisV,
-    name: "PUBLIKASI",
-    megamenu: false,
-  },
-  {
-    to: "/galeri-kami",
-    icon: FaEllipsisV,
-    name: "GALERI",
-    megamenu: false,
-  },
-  {
-    to: "/kontak-kami",
-    icon: FaEllipsisV,
-    name: "TENTANG KAMI",
-    megamenu: false,
+    id: 2,
+    judul: "Laporan CGC",
+    content: {
+      apa: "Apa yang Dimaksud dengan Tabungan iB Mudharabah ?",
+      p: "Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:",
+      fitur: [
+        {
+          judul: "Seleksi Pemasok dan Perlindungan Hak Kreditur CDC",
+          tanggal: "2021 | April",
+          buttonDonwload: "link",
+        },
+        {
+          judul: "Seleksi Pemasok dan Perlindungan Hak Kreditur CDC",
+          tanggal: "2022 | April",
+          buttonDonwload: "link",
+        },
+      ],
+    },
   },
 ];
 
@@ -173,86 +127,6 @@ export const ORGANISASI = [
     label: "Github",
     img: organisasi,
     jabatan: "Komisaris",
-  },
-];
-
-export const BERITA = [
-  {
-    id: 1,
-    judul: "Membuat adonan kue 1",
-    date: "17 Juli 2020",
-    img: blog,
-    kontenBerita:
-      "Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.",
-  },
-  {
-    id: 2,
-    judul: "Membuat adonan kue 2",
-    date: "17 Juli 2020",
-    img: blog,
-    kontenBerita:
-      "<div>Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.<br><br>Bikin anggaran, baik anggaran jangka pendek <b>Bank Jago</b> maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang. <br><br>Bikin anggaran, baik anggaran jangka pendek <b>Bank Jago</b> maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang. <br><br>Bikin anggaran, baik anggaran jangka pendek <b>Bank Jago</b> maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.</div>",
-  },
-  {
-    id: 3,
-    judul: "Membuat adonan kue 3",
-    date: "17 Juli 2020",
-    img: blog,
-    kontenBerita:
-      "Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.",
-  },
-  {
-    id: 4,
-    judul: "Membuat adonan kue 4",
-    date: "17 Juli 2020",
-    img: blog,
-    kontenBerita:
-      "Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.",
-  },
-  {
-    id: 5,
-    judul: "Membuat adonan kue 5",
-    date: "17 Juli 2020",
-    img: blog,
-    kontenBerita:
-      "Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.",
-  },
-  {
-    id: 6,
-    judul: "Membuat adonan kue 6",
-    date: "17 Juli 2020",
-    img: blog,
-    kontenBerita:
-      "Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.",
-  },
-  {
-    id: 7,
-    judul: "Membuat adonan kue 7",
-    date: "17 Juli 2020",
-    img: blog,
-    kontenBerita:
-      "Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.",
-  },
-];
-
-export const TABS = [
-  {
-    id: 1,
-    judul: "Tabungan iB Wadiyah",
-    content:
-      "1 Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.",
-  },
-  {
-    id: 2,
-    judul: "Tabungan iB Mudharabah",
-    content:
-      "2 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has",
-  },
-  {
-    id: 3,
-    judul: "Deposito iB Mudharabah",
-    content:
-      "3 page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now",
   },
 ];
 
@@ -663,50 +537,96 @@ export const DATA_BARU = {
   ],
 };
 
-export const DATA_PUBLIKASI = [
+export const NAVLINKS = [
   {
-    id: 1,
-    judul: "Laporan Triwulan",
-    content: {
-      apa: "Seleksi Pemasok dan Perlindungan Hak Kreditur",
-      p: "Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:",
-      fitur: [
-        {
-          judul: "Seleksi Pemasok dan Perlindungan Hak Kreditur",
-          tanggal: "2021 | April",
-          buttonDonwload: "link",
-        },
-        {
-          judul: "Seleksi Pemasok dan Perlindungan Hak Kreditur",
-          tanggal: "2022 | April",
-          buttonDonwload: "link",
-        },
-      ],
-    },
+    to: "/",
+    icon: FaEllipsisV,
+    name: "HOME",
+    megamenu: false,
   },
   {
-    id: 2,
-    judul: "Laporan CGC",
-    content: {
-      apa: "Apa yang Dimaksud dengan Tabungan iB Mudharabah ?",
-      p: "Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:",
-      fitur: [
-        {
-          judul: "Seleksi Pemasok dan Perlindungan Hak Kreditur CDC",
-          tanggal: "2021 | April",
-          buttonDonwload: "link",
-        },
-        {
-          judul: "Seleksi Pemasok dan Perlindungan Hak Kreditur CDC",
-          tanggal: "2022 | April",
-          buttonDonwload: "link",
-        },
-      ],
-    },
+    to: "/layanan-kami",
+    icon: FaEllipsisV,
+    name: "PRODUK & LAYANAN",
+    megamenu: true,
+    megamenuItem: [
+      {
+        id: 1,
+        to: "/penyimpanan-dana",
+        name: "PENYIMPANAN DANA",
+        sub: [
+          {
+            to: "/web-landing/layanan-kami/penyimpanan-dana/0",
+            judul: "Tabungan iB Wadiah",
+          },
+          {
+            to: "/web-landing/layanan-kami/penyimpanan-dana/1",
+            judul: "Tabungan iB Mudharabah",
+          },
+          {
+            to: "/web-landing/layanan-kami/penyimpanan-dana/2",
+            judul: "Deposito iB Mudharabah",
+          },
+        ],
+      },
+      {
+        id: 2,
+        to: "/penyaluran-dana",
+        name: "PENYALURAN DANA",
+        sub: [
+          {
+            to: "/web-landing/layanan-kami/penyaluran-dana/0",
+            judul: "Pembiayaan iB Wadiah",
+          },
+          {
+            to: "/web-landing/layanan-kami/penyaluran-dana/1",
+            judul: "Pembiayaan iB Musyarakah",
+          },
+          {
+            to: "/web-landing/layanan-kami/penyaluran-dana/2",
+            judul: "Pembiayaan iB Multijasa",
+          },
+          {
+            to: "/web-landing/layanan-kami/penyaluran-dana/3",
+            judul: "iB Gadai Emas",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    to: "/simulasi",
+    icon: FaEllipsisV,
+    name: "SIMULASI",
+    megamenu: false,
+  },
+  {
+    to: "/berita-kami",
+    icon: FaEllipsisV,
+    name: "BERITA KAMI",
+    megamenu: false,
+  },
+  {
+    to: "/publikasi",
+    icon: FaEllipsisV,
+    name: "PUBLIKASI",
+    megamenu: false,
+  },
+  {
+    to: "/galeri-kami",
+    icon: FaEllipsisV,
+    name: "GALERI",
+    megamenu: false,
+  },
+  {
+    to: "/kontak-kami",
+    icon: FaEllipsisV,
+    name: "TENTANG KAMI",
+    megamenu: false,
   },
 ];
 
-export const photos = [
+export const PHOTOS = [
   {
     src: "https://source.unsplash.com/2ShvY8Lf6l0/800x599",
     width: 4,
@@ -751,5 +671,85 @@ export const photos = [
     src: "https://source.unsplash.com/I1ASdgphUH4/800x599",
     width: 4,
     height: 3,
+  },
+];
+
+export const BERITA = [
+  {
+    id: 1,
+    judul: "Membuat adonan kue 1",
+    date: "17 Juli 2020",
+    img: blog,
+    kontenBerita:
+      "Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.",
+  },
+  {
+    id: 2,
+    judul: "Membuat adonan kue 2",
+    date: "17 Juli 2020",
+    img: blog,
+    kontenBerita:
+      "<div>Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.<br><br>Bikin anggaran, baik anggaran jangka pendek <b>Bank Jago</b> maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang. <br><br>Bikin anggaran, baik anggaran jangka pendek <b>Bank Jago</b> maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang. <br><br>Bikin anggaran, baik anggaran jangka pendek <b>Bank Jago</b> maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.</div>",
+  },
+  {
+    id: 3,
+    judul: "Membuat adonan kue 3",
+    date: "17 Juli 2020",
+    img: blog,
+    kontenBerita:
+      "Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.",
+  },
+  {
+    id: 4,
+    judul: "Membuat adonan kue 4",
+    date: "17 Juli 2020",
+    img: blog,
+    kontenBerita:
+      "Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.",
+  },
+  {
+    id: 5,
+    judul: "Membuat adonan kue 5",
+    date: "17 Juli 2020",
+    img: blog,
+    kontenBerita:
+      "Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.",
+  },
+  {
+    id: 6,
+    judul: "Membuat adonan kue 6",
+    date: "17 Juli 2020",
+    img: blog,
+    kontenBerita:
+      "Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.",
+  },
+  {
+    id: 7,
+    judul: "Membuat adonan kue 7",
+    date: "17 Juli 2020",
+    img: blog,
+    kontenBerita:
+      "Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.",
+  },
+];
+
+export const TABS = [
+  {
+    id: 1,
+    judul: "Tabungan iB Wadiyah",
+    content:
+      "1 Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.",
+  },
+  {
+    id: 2,
+    judul: "Tabungan iB Mudharabah",
+    content:
+      "2 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has",
+  },
+  {
+    id: 3,
+    judul: "Deposito iB Mudharabah",
+    content:
+      "3 page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now",
   },
 ];
