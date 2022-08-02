@@ -1,7 +1,7 @@
 import { devices } from "../../assets/_respondTo";
-import styled from "styled-components";
-import { whatsapp } from "../../assets";
 import { themeList } from "../../config";
+import { whatsapp } from "../../assets";
+import styled from "styled-components";
 
 export const InformasiSite = styled.section`
   ${devices.smartphone} {
@@ -592,6 +592,7 @@ export const FocusComponentSite = styled.section`
         ${devices.smartphone} {
           right: 40px;
           top: 10px;
+          opacity: 0.3;
 
           :first-child {
             left: 50px;
@@ -602,6 +603,7 @@ export const FocusComponentSite = styled.section`
         ${devices.ipads} {
           right: 150px;
           top: 10px;
+          opacity: 0.3;
 
           :first-child {
             left: 150px;
@@ -612,6 +614,7 @@ export const FocusComponentSite = styled.section`
         ${devices.laptops} {
           right: 250px;
           top: 10px;
+          opacity: 0.3;
 
           :first-child {
             left: 250px;
