@@ -2,13 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import { HeaderContainer, HeaderSite } from "./HeaderElements";
 import { FiMenu, FiX } from "react-icons/fi";
 import { NAVLINKS } from "../../config/data";
-import logoSite from "../../assets/img/logo_new.png";
 import ThemeSwitcher from "../../config/themeSwitcher";
 import { NavLink } from "react-router-dom";
 import { BiCaretDown } from "react-icons/bi";
 import styled from "styled-components";
 import { devices } from "../../assets/_respondTo";
 import themeList from "../../config/themeList";
+import { logoNew } from "../../assets";
 
 const ContentDrop = styled.div`
   max-height: 340px;
@@ -395,7 +395,7 @@ const Header = () => {
                 return { color: isActive ? "red" : "grey" };
               }}
             >
-              <img alt="logo_header" src={logoSite} className="logo__img" />
+              <img alt="logoNew" src={logoNew} className="logo__img" />
             </NavLink>
             <ThemeSwitcher />
           </div>
@@ -435,7 +435,7 @@ export const Header404 = () => {
                 return { color: isActive ? "red" : "grey" };
               }}
             >
-              <img alt="logo_header" src={logoSite} className="logo__img" />
+              <img alt="logoNew" src={logoNew} className="logo__img" />
             </NavLink>
             <ThemeSwitcher />
           </div>

@@ -1,7 +1,6 @@
 import { FiGithub, FiLinkedin, FiPhone, FiTwitter } from "react-icons/fi";
 import { FaEllipsisV, FaInstagram } from "react-icons/fa";
-import organisasiImg from "../assets/img/organisasi.png";
-import blogImg from "../assets/img/blog.jpg";
+import { blog, organisasi } from "../assets";
 
 export const NAVLINKS = [
   {
@@ -124,55 +123,55 @@ export const ORGANISASI = [
   {
     id: 1,
     label: "Github",
-    img: organisasiImg,
+    img: organisasi,
     jabatan: "Komisaris",
   },
   {
     id: 2,
     label: "Github",
-    img: organisasiImg,
+    img: organisasi,
     jabatan: "Dewan Direksi",
   },
   {
     id: 7,
     label: "Github",
-    img: organisasiImg,
+    img: organisasi,
     jabatan: "Dewan Direksi",
   },
   {
     id: 8,
     label: "Github",
-    img: organisasiImg,
+    img: organisasi,
     jabatan: "Dewan Direksi",
   },
   {
     id: 3,
     label: "Github",
-    img: organisasiImg,
+    img: organisasi,
     jabatan: "Dewan Direksi",
   },
   {
     id: 4,
     label: "Github",
-    img: organisasiImg,
+    img: organisasi,
     jabatan: "Anggota",
   },
   {
     id: 8,
     label: "Github",
-    img: organisasiImg,
+    img: organisasi,
     jabatan: "Anggota",
   },
   {
     id: 5,
     label: "Github",
-    img: organisasiImg,
+    img: organisasi,
     jabatan: "Komisaris",
   },
   {
     id: 6,
     label: "Github",
-    img: organisasiImg,
+    img: organisasi,
     jabatan: "Komisaris",
   },
 ];
@@ -182,7 +181,7 @@ export const BERITA = [
     id: 1,
     judul: "Membuat adonan kue 1",
     date: "17 Juli 2020",
-    img: blogImg,
+    img: blog,
     kontenBerita:
       "Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.",
   },
@@ -190,7 +189,7 @@ export const BERITA = [
     id: 2,
     judul: "Membuat adonan kue 2",
     date: "17 Juli 2020",
-    img: blogImg,
+    img: blog,
     kontenBerita:
       "<div>Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.<br><br>Bikin anggaran, baik anggaran jangka pendek <b>Bank Jago</b> maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang. <br><br>Bikin anggaran, baik anggaran jangka pendek <b>Bank Jago</b> maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang. <br><br>Bikin anggaran, baik anggaran jangka pendek <b>Bank Jago</b> maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.</div>",
   },
@@ -198,7 +197,7 @@ export const BERITA = [
     id: 3,
     judul: "Membuat adonan kue 3",
     date: "17 Juli 2020",
-    img: blogImg,
+    img: blog,
     kontenBerita:
       "Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.",
   },
@@ -206,7 +205,7 @@ export const BERITA = [
     id: 4,
     judul: "Membuat adonan kue 4",
     date: "17 Juli 2020",
-    img: blogImg,
+    img: blog,
     kontenBerita:
       "Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.",
   },
@@ -214,7 +213,7 @@ export const BERITA = [
     id: 5,
     judul: "Membuat adonan kue 5",
     date: "17 Juli 2020",
-    img: blogImg,
+    img: blog,
     kontenBerita:
       "Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.",
   },
@@ -222,7 +221,7 @@ export const BERITA = [
     id: 6,
     judul: "Membuat adonan kue 6",
     date: "17 Juli 2020",
-    img: blogImg,
+    img: blog,
     kontenBerita:
       "Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.",
   },
@@ -230,7 +229,7 @@ export const BERITA = [
     id: 7,
     judul: "Membuat adonan kue 7",
     date: "17 Juli 2020",
-    img: blogImg,
+    img: blog,
     kontenBerita:
       "Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.",
   },

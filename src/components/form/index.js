@@ -6,9 +6,9 @@ import {
   FormSite,
 } from "./FormElements";
 import CurrencyInput from "react-currency-input-field";
-import gambarPemanis from "../../assets/img/banner.png";
 import { FaAccusoft } from "react-icons/fa";
 import { HeadingComponent } from "../atom";
+import { banner } from "../../assets";
 
 export const FormInputCurrency = (item) => {
   return (
@@ -297,7 +297,7 @@ const FormKpr = () => {
                   </div>
                 </form>
                 <div className="gambar_pemanis">
-                  <img src={gambarPemanis} alt="gambar_pemanis" />
+                  <img src={banner} alt="banner" />
                 </div>
               </div>
             </div>

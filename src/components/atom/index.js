@@ -13,13 +13,6 @@ import {
   SlideContent,
   WaItemSite,
 } from "./AtomElements";
-import imgwbs from "../../assets/img/wbs-icon.png";
-import imgDetail from "../../assets/img/2.png";
-import imgOjk from "../../assets/img/ojk.png";
-import imgLps from "../../assets/img/lps.1.png";
-// import imgBpr from "../../assets/img/bpr.png";
-import imgAyoSya from "../../assets/img/ayosyariah.jpeg";
-import bgGopay from "../../assets/img/kemudahan-gopay-bg.png";
 import { Button, ButtonTransparent } from "../form";
 import { FaAccusoft } from "react-icons/fa";
 import { ORGANISASI } from "../../config/data";
@@ -30,7 +23,7 @@ import DOMPurify from "dompurify";
 import styled from "styled-components";
 import { devices } from "../../assets/_respondTo";
 import { Helmet } from "react-helmet-async";
-import gambarLogo from "../../assets/img/logo_white.png";
+import { ayosyariah, logoWhite, lps1, ojk, two, wbsIcon } from "../../assets";
 
 const Informasi = () => {
   return (
@@ -38,7 +31,7 @@ const Informasi = () => {
       <div className="informasi_container">
         <div className="informasi">
           <div className="img">
-            <img src={imgwbs} alt="imgwbs" />
+            <img src={wbsIcon} alt="wbsIcon" />
           </div>
           <div className="text_content">
             <div className="content">
@@ -198,7 +191,7 @@ const Detail = (item) => {
       <div className="detail_container">
         <div className="detail_content">
           <div className="detail_img">
-            <img src={imgDetail} alt="imgDetail" />
+            <img src={two} alt="two" />
           </div>
           <div className="detail_text">
             <div className="visi_misi">
@@ -219,12 +212,12 @@ const Detail = (item) => {
   );
 };
 
-const DetailLayanan = ({ item, imgDetail }) => {
+const DetailLayanan = ({ item, two }) => {
   return (
     <DetailComponents>
       <div className="detail_content">
         <div className="detail_img">
-          <img src={imgDetail} alt="imgDetail" />
+          <img src={two} alt="two" />
         </div>
         <div className="detail_text">
           <div className="visi_misi">
@@ -325,32 +318,32 @@ const NewSlide = () => {
           <Slider {...settingsMobile}>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={imgAyoSya} alt="imgAyoSya" />
+                <img src={ayosyariah} alt="ayosyariah" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={imgLps} alt="imgLps" />
+                <img src={lps1} alt="lps1" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={imgAyoSya} alt="imgAyoSya" />
+                <img src={ayosyariah} alt="ayosyariah" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={imgAyoSya} alt="imgAyoSya" />
+                <img src={ayosyariah} alt="ayosyariah" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={imgLps} alt="imgLps" />
+                <img src={lps1} alt="lps1" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={imgAyoSya} alt="imgAyoSya" />
+                <img src={ayosyariah} alt="ayosyariah" />
               </div>
             </div>
           </Slider>
@@ -360,32 +353,32 @@ const NewSlide = () => {
           <Slider {...settings}>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={imgAyoSya} alt="imgAyoSya" />
+                <img src={ayosyariah} alt="ayosyariah" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={imgLps} alt="imgLps" />
+                <img src={lps1} alt="lps1" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={imgAyoSya} alt="imgAyoSya" />
+                <img src={ayosyariah} alt="ayosyariah" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={imgAyoSya} alt="imgAyoSya" />
+                <img src={ayosyariah} alt="ayosyariah" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={imgLps} alt="imgLps" />
+                <img src={lps1} alt="lps1" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={imgAyoSya} alt="imgAyoSya" />
+                <img src={ayosyariah} alt="ayosyariah" />
               </div>
             </div>
           </Slider>
@@ -437,26 +430,26 @@ const OjkInformasi = () => {
           <SliderWrapper>
             <Slider {...settings}>
               <div className="ojk_img">
-                <img src={imgOjk} alt="imgOjk" />
+                <img src={ojk} alt="ojk" />
               </div>
               <div className="ojk_img">
-                <img src={imgLps} alt="imgLps" />
+                <img src={lps1} alt="lps1" />
               </div>
               <div className="ojk_img">
-                <img src={imgAyoSya} alt="imgAyoSya" />
+                <img src={ayosyariah} alt="ayosyariah" />
               </div>
             </Slider>
           </SliderWrapper>
         ) : (
           <div className="ojk_content">
             <div className="ojk_img">
-              <img src={imgOjk} alt="imgOjk" />
+              <img src={ojk} alt="ojk" />
             </div>
             <div className="ojk_img">
-              <img src={imgLps} alt="imgLps" />
+              <img src={lps1} alt="lps1" />
             </div>
             <div className="ojk_img">
-              <img src={imgAyoSya} alt="imgAyoSya" />
+              <img src={ayosyariah} alt="ayosyariah" />
             </div>
           </div>
         )}
@@ -508,8 +501,8 @@ const FocusComponentWithLogo = ({ backgroundColor }) => {
       <div className="focus_container">
         <div className="gambar_bg" style={{ backgroundColor: backgroundColor }}>
           <div className="class_tambahan">
-            <img src={gambarLogo} className="new" alt="logo_new" />
-            <img src={gambarLogo} className="new" alt="logo_new" />
+            <img src={logoWhite} className="new" alt="logoWhite" />
+            <img src={logoWhite} className="new" alt="logoWhite" />
           </div>
           <HeadingComponent
             Style={{
@@ -531,32 +524,6 @@ const FocusComponentWithLogo = ({ backgroundColor }) => {
         </div>
       </div>
     </FocusComponentSite>
-  );
-};
-
-const FocusComponentContactUs = ({ img }) => {
-  return (
-    <FocusComponentSiteContact>
-      <div className="focus_container">
-        <div
-          className="gambar_bg_tentang"
-          style={{ backgroundImage: `url(${bgGopay})` }}
-        >
-          <HeadingComponent
-            Style={{
-              textAlign: "start",
-              width: "100%",
-              color: "#fff",
-            }}
-            Heading="Coba simulasi kredit sekarang!"
-            Text="Untuk mengetahui berapa biaya yang harus digunakan untuk melakukan kredit KPR."
-          />
-          <div className="gambar_img">
-            <img src={img} alt="imgContact" />
-          </div>
-        </div>
-      </div>
-    </FocusComponentSiteContact>
   );
 };
 
@@ -732,7 +699,6 @@ export {
   DetailOrganisasi,
   DetailLayanan,
   DetailLayananPages,
-  FocusComponentContactUs,
   FocusComponentColor,
   FocusComponentWithLogo,
   ReactHelmet,

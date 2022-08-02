@@ -1,7 +1,7 @@
 import { devices } from "../../assets/_respondTo";
 import themeList from "../../config/themeList";
 import styled from "styled-components";
-import gambarWa from "../../assets/img/whatsapp.png";
+import { whatsapp } from "../../assets";
 
 export const InformasiSite = styled.section`
   ${devices.smartphone} {
@@ -849,7 +849,7 @@ export const WaItemSite = styled.div`
       width: 50px;
       height: 50px;
       border-radius: 50px;
-      background: url(${gambarWa}) #1bd741 center center no-repeat;
+      background: url(${whatsapp}) #1bd741 center center no-repeat;
       background-size: 90%;
     }
   }

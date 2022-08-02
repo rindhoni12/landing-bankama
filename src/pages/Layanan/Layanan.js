@@ -2,14 +2,13 @@ import React from "react";
 import { useLocation, useParams } from "react-router-dom";
 import {
   DetailLayananPages,
-  FocusComponentContactUs,
+  FocusComponentColor,
   ReactHelmet,
 } from "../../components/atom";
 import { LayananSection } from "../../components/section";
-import imgContact from "../../assets/img/contact-us.png";
-import imgDetail from "../../assets/img/2.png";
 import { FaAccusoft } from "react-icons/fa";
 import { DATA_BARU } from "../../config";
+import { contactUs, two } from "../../assets";
 
 const Layanan = () => {
   const { id } = useParams();
@@ -47,15 +46,15 @@ const LayananSatu = () => {
         title="Layanan & Produk | Bank Artha Mas Abadi"
         url={location.pathname}
       />
-      <FocusComponentContactUs img={imgContact} />
+      <FocusComponentColor backgroundColor="#f9b418" img={contactUs} />
       <DetailLayananPages
-        imgDetail={imgDetail}
+        imgDetail={two}
         label="Penyimpanan Dana"
         to="layanan-kami/penyimpanan-dana/0"
         icon={FaAccusoft}
       />
       <DetailLayananPages
-        imgDetail={imgDetail}
+        imgDetail={two}
         label="Penyaluran Dana"
         to="layanan-kami/penyaluran-dana/0"
         icon={FaAccusoft}

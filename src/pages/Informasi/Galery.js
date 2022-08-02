@@ -1,8 +1,8 @@
 import React from "react";
 import { FocusComponentColor, ReactHelmet } from "../../components/atom";
-import imgContact from "../../assets/img/contact-us.png";
 import { useLocation } from "react-router-dom";
 import GalerySection from "../../components/galery";
+import { contactUs } from "../../assets";
 
 const Galery = () => {
   const location = useLocation();
@@ -12,7 +12,7 @@ const Galery = () => {
         title="Galery Photos | Bank Artha Mas Abadi"
         url={location.pathname}
       />
-      <FocusComponentColor backgroundColor="#e9bf45" img={imgContact} />
+      <FocusComponentColor backgroundColor="#e9bf45" img={contactUs} />
       <GalerySection />
     </>
   );

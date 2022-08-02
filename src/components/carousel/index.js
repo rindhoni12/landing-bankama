@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { CorouselSection, CorouselSectionFicture } from "./CarouselElements";
-import imgTry from "../../assets/img/jago.jpeg";
-import imgTry2 from "../../assets/img/jago-2.jpeg";
-import imgTry3 from "../../assets/img/jago-3.jpg";
 import imgTryMobile from "../../assets/img/jago-mobile.jpg";
-import imgTry2Mobile from "../../assets/img/jago-2-mobile.jpg";
-import imgTry3Mobile from "../../assets/img/jago-3-mobile.jpg";
+import {
+  jago,
+  jago2,
+  jago2Mobile,
+  jago3,
+  jago3Mobile,
+  two,
+} from "../../assets";
 import Slider from "react-slick";
 import SliderWrapper from "./_SlickSliderStyle";
 import { DetailLayanan, HeadingComponent } from "../atom";
-import imgDetail from "../../assets/img/2.png";
 
 const SimpleSlider = () => {
   const [isMobile, setIsMobile] = useState(
@@ -49,34 +51,34 @@ const SimpleSlider = () => {
               <img src={imgTryMobile} alt="img_try" />
             </div>
             <div className="class_img">
-              <img src={imgTry2Mobile} alt="img_try" />
+              <img src={jago2Mobile} alt="jago2Mobile" />
             </div>
             <div className="class_img">
-              <img src={imgTry3Mobile} alt="img_try" />
+              <img src={jago2Mobile} alt="jago2Mobile" />
             </div>
             <div className="class_img">
               <img src={imgTryMobile} alt="img_try" />
             </div>
             <div className="class_img">
-              <img src={imgTry3Mobile} alt="img_try" />
+              <img src={jago3Mobile} alt="jago3Mobile" />
             </div>
           </Slider>
         ) : (
           <Slider {...settings}>
             <div className="class_img">
-              <img src={imgTry} alt="img_try" />
+              <img src={jago} alt="jago" />
             </div>
             <div className="class_img">
-              <img src={imgTry2} alt="img_try" />
+              <img src={jago2} alt="jago2" />
             </div>
             <div className="class_img">
-              <img src={imgTry3} alt="img_try" />
+              <img src={jago3} alt="jago3" />
             </div>
             <div className="class_img">
-              <img src={imgTry2} alt="img_try" />
+              <img src={jago2} alt="jago2" />
             </div>
             <div className="class_img">
-              <img src={imgTry3} alt="img_try" />
+              <img src={jago3} alt="jago3" />
             </div>
           </Slider>
         )}
@@ -112,9 +114,9 @@ export const SimpleSliderFicture = (itemNew) => {
         <div className="carousel_container_slide">
           <SliderWrapper>
             <Slider {...settings}>
-              <DetailLayanan item="Label 1" imgDetail={imgDetail} />
-              <DetailLayanan item="Label 2" imgDetail={imgDetail} />
-              <DetailLayanan item="Label 3" imgDetail={imgDetail} />
+              <DetailLayanan item="Label 1" imgDetail={two} />
+              <DetailLayanan item="Label 2" imgDetail={two} />
+              <DetailLayanan item="Label 3" imgDetail={two} />
             </Slider>
           </SliderWrapper>
         </div>

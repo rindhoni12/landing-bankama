@@ -3,9 +3,12 @@ import { Routes, Route } from "react-router-dom";
 import { Footer, Header } from "../components";
 import { Outlet } from "react-router-dom";
 import {
+  FormPenyaluran,
+  PengajuanForm,
   DetailBerita,
   HubungiKami,
   LayananSatu,
+  FormNasabah,
   ContactUs,
   Publikasi,
   NotFound,
@@ -14,9 +17,6 @@ import {
   Galery,
   Berita,
   Home,
-  PengajuanForm,
-  FormNasabah,
-  FormPenyaluran,
 } from "../pages";
 
 const PageLayout = () => (

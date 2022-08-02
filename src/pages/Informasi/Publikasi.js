@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import imgContact from "../../assets/img/contact-us.png";
+import { contactUs } from "../../assets";
 import { FocusComponentColor, ReactHelmet } from "../../components/atom";
 import { PublikasiSection } from "../../components/section";
 import { DATA_PUBLIKASI } from "../../config/data";
@@ -14,7 +14,7 @@ const Publikasi = () => {
         title="Publikasi | Bank Artha Mas Abadi"
         url={location.pathname}
       />
-      <FocusComponentColor backgroundColor="#e9bf45" img={imgContact} />
+      <FocusComponentColor backgroundColor="#e9bf45" img={contactUs} />
       <PublikasiSection
         judul="Publikasi"
         link="publikasi"

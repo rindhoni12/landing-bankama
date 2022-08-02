@@ -1,8 +1,8 @@
 import React from "react";
 import { FocusComponentColor, ReactHelmet } from "../../components/atom";
-import imgContact from "../../assets/img/contact-us.png";
 import { useLocation } from "react-router-dom";
 import { HubungiSection } from "../../components/section";
+import { contactUs } from "../../assets";
 
 const HubungiKami = () => {
   const location = useLocation();
@@ -12,7 +12,7 @@ const HubungiKami = () => {
         title="Tentang Kami | Bank Artha Mas Abadi"
         url={location.pathname}
       />
-      <FocusComponentColor backgroundColor="#06aed5" img={imgContact} />
+      <FocusComponentColor backgroundColor="#06aed5" img={contactUs} />
       <HubungiSection />
     </>
   );

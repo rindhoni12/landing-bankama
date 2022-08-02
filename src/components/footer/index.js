@@ -2,9 +2,8 @@ import React from "react";
 import { FooterSite, Media } from "./FooterElements";
 import { MEDIA_SOSIAL } from "../../config/data";
 import gambarOjk from "../../assets/img/ojk.png";
-import gambarLps from "../../assets/img/lps.png";
-import logoSite from "../../assets/img/logo_bawah.png";
 import { WaItem } from "../atom";
+import { logoBawah, lps } from "../../assets";
 
 const Footer = () => {
   return (
@@ -13,7 +12,7 @@ const Footer = () => {
         <div className="footer_content">
           <div className="footer_header">
             <div className="footer_logo">
-              <img src={logoSite} alt="logo_bawah" />
+              <img src={logoBawah} alt="logo_bawah" />
             </div>
             <div className="footer_header_content">
               <nav>
@@ -66,7 +65,7 @@ const Footer = () => {
           <div className="footer_desc">
             <div className="footer_desc_img">
               <img className="img_class" src={gambarOjk} alt="gambarOjk" />
-              <img className="img_class" src={gambarLps} alt="gambarLps" />
+              <img className="img_class" src={lps} alt="lps" />
             </div>
             <div className="footer_desc_p">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi

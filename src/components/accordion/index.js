@@ -5,9 +5,8 @@ import {
   AccordionImg,
   AccordionSite,
 } from "./AccordionElements";
-import img1 from "../../assets/img/img-1.png";
-import img2 from "../../assets/img/img-2.png";
 import { HeadingComponent } from "../atom";
+import { img1, img2 } from "../../assets";
 
 const render = () => {
   let items = [
