@@ -455,6 +455,7 @@ const OjkInformasi = () => {
         )}
 
         <div className="ojk_content_slide">
+          <div className="mitra">Mitra Kami</div>
           <NewSlide />
         </div>
       </div>

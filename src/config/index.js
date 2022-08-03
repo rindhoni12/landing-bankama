@@ -12,6 +12,8 @@ import {
   PHOTOS,
   BERITA,
   TABS,
+  KONTAK_KAMI,
+  DATA_FOOTER,
 } from "./data";
 
 export {
@@ -28,4 +30,6 @@ export {
   PHOTOS,
   BERITA,
   TABS,
+  KONTAK_KAMI,
+  DATA_FOOTER,
 };

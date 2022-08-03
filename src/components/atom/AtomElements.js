@@ -442,7 +442,15 @@ export const OjkComponents = styled.section`
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 20px;
+      margin-top: 40px;
+      flex-direction: column;
+
+      .mitra {
+        width: 100%;
+        margin: auto;
+        font-size: 20px;
+        font-weight: 500;
+      }
     }
   }
 `;

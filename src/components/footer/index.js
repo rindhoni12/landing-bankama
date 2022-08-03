@@ -19,27 +19,37 @@ const Footer = () => {
                 <ul>
                   <li>
                     <div className="footer_item">
-                      <div className="text_menu">HOME</div>
+                      <div className="text_menu">
+                        <a href="./kontak-kami">TENTANG KAMI</a>
+                      </div>
                     </div>
                   </li>
                   <li>
                     <div className="footer_item">
-                      <div className="text_menu">PROFILE</div>
+                      <div className="text_menu">
+                        <a href="./berita-kami">BERITA</a>
+                      </div>
                     </div>
                   </li>
                   <li>
                     <div className="footer_item">
-                      <div className="text_menu">E-BILLING KPR</div>
+                      <div className="text_menu">
+                        <a href="./hubungi-kami">FORM PENGADUAN</a>
+                      </div>
                     </div>
                   </li>
                   <li>
                     <div className="footer_item">
-                      <div className="text_menu">PRODUK & LAYANAN</div>
+                      <div className="text_menu">
+                        <a href="./layanan-kami">PRODUK & LAYANAN</a>
+                      </div>
                     </div>
                   </li>
                   <li>
                     <div className="footer_item">
-                      <div className="text_menu">TENTANG KAMI</div>
+                      <div className="text_menu">
+                        <a href="./simulasi">SIMULASI</a>
+                      </div>
                     </div>
                   </li>
                 </ul>
@@ -68,20 +78,18 @@ const Footer = () => {
               <img className="img_class" src={lps} alt="lps" />
             </div>
             <div className="footer_desc_p">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
-              unde molestiae eius blanditiis, nulla expedita consequatur est,
-              maiores libero quas ipsa. Et error sed, nulla necessitatibus vel
-              in similique corporis.
+              <b>Kantor Pusat :</b> Jl. Raya Pati – Tayu Km. 19. Kampunganyar,
+              Waturoyo, Kec. Margoyoso, Kabupaten Pati, Jawa Tengah 59154.
             </div>
 
             <div className="footer_desc_kebijakan">
-              <a className="end" href="#22">
+              <a className="end" href="/web-landing/support/kebijakan-privasi">
                 Kebijakan Privasi
               </a>
-              <a className="end" href="#22">
+              <a className="end" href="/web-landing/support/syarat-ketentuan">
                 Syarat dan Ketentuan
               </a>
-              <a className="end" href="#22">
+              <a className="end" href="/web-landing/support/prosedur-pengaduan">
                 Prosedur Pengajuan Nasabah
               </a>
             </div>

@@ -17,6 +17,8 @@ import {
   Galery,
   Berita,
   Home,
+  Support,
+  SupportLayanan,
 } from "../pages";
 
 const PageLayout = () => (
@@ -51,6 +53,9 @@ export const RouteSite = () => {
         <Route exact path="/form-penyaluran" element={<FormPenyaluran />} />
 
         <Route exact path="/galeri-kami" element={<Galery />} />
+
+        <Route exact path="/support" element={<Support />} />
+        <Route exact path="/support/:id" element={<SupportLayanan />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>

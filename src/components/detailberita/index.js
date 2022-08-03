@@ -1,11 +1,11 @@
 import React from "react";
-import { DetailBeritaSite } from "./BeritaElements";
+import { DetailBeritaSite, DetailSupportSite } from "./BeritaElements";
 import DOMPurify from "dompurify";
 import { useLocation } from "react-router-dom";
 import { ReactHelmet } from "../atom";
 
 const DetailBeritaComponents = ({ newItem }) => {
-  console.log(newItem);
+  // console.log(newItem);
   const location = useLocation();
   return (
     <>
@@ -55,6 +55,59 @@ const DetailBeritaComponents = ({ newItem }) => {
           "Tidak ada data"
         )}
       </DetailBeritaSite>
+    </>
+  );
+};
+
+export const DetailSupportComponents = (item) => {
+  const location = useLocation();
+  console.log(item.itemNew);
+  return (
+    <>
+      <ReactHelmet
+        title={`${item.itemNew.judul} | Bank Artha Mas Abadi`}
+        url={location.pathname}
+      />
+      {item && (
+        <DetailSupportSite>
+          <div className="support_container">
+            <div className="support_content">
+              <nav className="support_breadcrum">
+                <ol className="breadcrum">
+                  <li className="breadcrum_item">
+                    <a href="/web-landing">Home</a>
+                  </li>
+                  <li className="breadcrum_item">
+                    <a href="/web-landing/support">Support</a>
+                  </li>
+                  <li className="breadcrum_item">
+                    <p>{item.itemNew.judul}</p>
+                  </li>
+                </ol>
+              </nav>
+              <div className="support_judul">
+                <div className="judul">{item.itemNew.judul}</div>
+                <p>18 Juli 2020</p>
+              </div>
+              {item.itemNew.contentFull &&
+                item.itemNew.contentFull.map((item, i) => (
+                  <div key={i} className="value_b">
+                    <div key={i} className="value_all">
+                      <h1>{item.judul}</h1>
+                      <ol>
+                        {item.text.map((item, i) => (
+                          <div key={i}>
+                            <li>{item}</li>
+                          </div>
+                        ))}
+                      </ol>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </div>
+        </DetailSupportSite>
+      )}
     </>
   );
 };

@@ -1,5 +1,5 @@
-import { FiGithub, FiLinkedin, FiPhone, FiTwitter } from "react-icons/fi";
-import { FaEllipsisV, FaInstagram } from "react-icons/fa";
+import { FiFacebook, FiMail, FiPhone, FiTwitter } from "react-icons/fi";
+import { FaEllipsisV, FaInstagram, FaPhone } from "react-icons/fa";
 import { blog, organisasi } from "../assets";
 
 export const DATA_PUBLIKASI = [
@@ -47,11 +47,6 @@ export const DATA_PUBLIKASI = [
 
 export const MEDIA_SOSIAL = [
   {
-    to: "https://github.com/id-prawito",
-    label: "Github",
-    icon: FiGithub,
-  },
-  {
     to: "https://www.instagram.com/praw.ito/",
     label: "Instagram",
     icon: FaInstagram,
@@ -62,9 +57,9 @@ export const MEDIA_SOSIAL = [
     icon: FiTwitter,
   },
   {
-    to: "https://linkedin.com/in/prawito/",
-    label: "Linkedin",
-    icon: FiLinkedin,
+    to: "https://twitter.com/id_praw",
+    label: "Facebook",
+    icon: FiFacebook,
   },
   {
     to: "tel:+6282137925172",
@@ -753,3 +748,196 @@ export const TABS = [
       "3 page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now",
   },
 ];
+
+export const KONTAK_KAMI = {
+  kantor_pusat: [
+    {
+      id: 1,
+      judul: "Head Office",
+      alamat:
+        "Jl. Raya Pati – Tayu Km. 19. Kampunganyar, Waturoyo, Kec. Margoyoso, Kabupaten Pati, Jawa Tengah 59154",
+      no: [
+        {
+          id: 1,
+          icon: FaPhone,
+          value: "(0295) 4150477",
+        },
+        {
+          id: 2,
+          icon: FiMail,
+          value: "085225100893",
+        },
+      ],
+    },
+  ],
+  kantor_cabang: [
+    {
+      id: 1,
+      judul: "Kantor Cabang",
+      alamat: "",
+      cabang: [
+        {
+          id: 1,
+          judul: "Kantor Kas Winong",
+          alamat: "Jl. Raya Winong – Pucakwangi Km. 01 Pekalongan Winong Pati",
+          no: [
+            {
+              id: 1,
+              icon: FaPhone,
+              value: "(0295) 4101241",
+            },
+            {
+              id: 2,
+              icon: FiMail,
+              value: "085326670851",
+            },
+          ],
+        },
+        {
+          id: 2,
+          judul: "Kantor Kas Cluwak",
+          alamat: "Jl. Raya Tayu – Jepara Km. 07 Ngablak Cluwak Pati",
+          no: [
+            {
+              id: 1,
+              icon: FaPhone,
+              value: "(0295) 4545037",
+            },
+            {
+              id: 2,
+              icon: FiMail,
+              value: "082314006059",
+            },
+          ],
+        },
+        {
+          id: 2,
+          judul: "Kantor Kas Pati",
+          alamat: "Jl. Mr. Iskandar No. 1 C Kalianyar Pati",
+          no: [
+            {
+              id: 1,
+              icon: FaPhone,
+              value: "(0295) 4102834",
+            },
+            {
+              id: 2,
+              icon: FiMail,
+              value: "082328262770",
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+export const DATA_FOOTER = {
+  syarat_ketentuan: [
+    {
+      id: 1,
+      judul: "Syarat dan Ketentuan",
+      url: "syarat-ketentuan",
+      contentFull: [
+        {
+          judul: "Istilah",
+          text: [
+            "Website www.bri.co.id adalah saluran distribusi BRI untuk memberikan informasi-informasi terkait produk serta perusahaan melalui jaringan internet dengan menggunakan perangkat lunak browser pada komputer  maupun ponsel. Tidak termasuk dengan situs microsite yang terdapat dalam www.bri.co.id.",
+          ],
+        },
+        {
+          judul: "Ketentuan Penggunaan",
+          text: [
+            "Pengguna dapat menggunakan layanan website www.bri.co.id untuk mendapatkan informasi. Situs utama www.bri.co.id tidak terdapat transaksi finansial perbankan. Seluruh konten dalam website memiliki hak cipta dan dalam berada ketentuan BRI.",
+            "Setiap pertukaran data informasi telah disetujui dari Pengguna yang tersimpan pada pusat data BRI merupakan data yang benar yang diterima sebagai bukti dari Pengguna kepada BRI untuk melaksanakan pertukaran data informasi yang dimaksud.",
+            "BRI berhak menghentikan layanan www.bri.co.id untuk sementara waktu maupun untuk jangka waktu tertentu yang ditentukan oleh BRI untuk keperluan pembaharuan, pemeliharaan atau untuk tujuan lain dengan alasan apapun yang dianggap baik oleh BRI, dan untuk itu BRI tidak berkewajiban mempertanggungjawabkannya kepada siapapun.",
+          ],
+        },
+        {
+          judul: "Force Majeure",
+          text: [
+            "Pengguna akan membebaskan BRI dari segala tuntutan apapun, dalam hal BRI tidak dapat melaksanakan perintah dari Pengguna baik sebagian maupun seluruhnya karena kejadian-kejadian atau sebab-sebab di luar kekuasaan atau kemampuan BRI termasuk namun tidak terbatas pada segala gangguan virus komputer atau sistem Trojan Horses atau komponen membahayakan yang dapat menggangu layanan www.bri.co.id, web browser atau komputer sistem BRI, Pengguna, atau Internet Service Provider, karena bencana alam, perang, huru-hara, keadaan peralatan, sistem atau transmisi yang tidak berfungsi, gangguan listrik, gangguan telekomunikasi, kebijakan pemerintah, serta kejadian-kejadian atau sebab-sebab lain di luar kekuasaan atau kemampuan BRI.",
+          ],
+        },
+        {
+          judul: "Lain-Lain",
+          text: [
+            "Pengguna dapat menghubungi Call BRI atas setiap permasalahan yang berkaitan dengan akses layanan www.bri.co.id",
+            "BRI dapat mengubah syarat dan ketentuan ini setiap saat dengan pemberitahuan terlebih dahulu kepada Pengguna dalam bentuk tertulis dilayar www.bri.co.id atau berupa email ataupun melalui sarana lainnya.",
+            "Pengguna tunduk pada ketentuan-ketentuan dan peraturan-peraturan yang berlaku pada BRI termasuk setiap perubahan yang akan diberitahukan terlebih dahulu oleh BRI dalam bentuk dan sarana apapun.",
+          ],
+        },
+      ],
+    },
+  ],
+  kebijakan_privasi: [
+    {
+      id: 1,
+      judul: "Kebijakan Privasi",
+      url: "kebijakan-privasi",
+      contentFull: [
+        {
+          judul: "Kebijakan Privasi",
+          text: [
+            "Bank Jago sepenuhnya memahami bahwa melindungi privasi Anda, informasi pribadi Anda serta transparan dengan apa yang kami lakukan dengan data Anda merupakan salah satu bagian untuk membangun kepercayaan Anda dengan Kami.",
+          ],
+        },
+        {
+          judul: "Pengumpulan dan Penggunaan Informasi",
+          text: [
+            "Bank Jago adalah pemilik tunggal dari semua informasi yang terkumpul dari website dan aplikasi yang dimiliki oleh Bank Jago.",
+            "Kami tidak akan menjual, berbagi ataupun menyewakan informasi pribadi Anda kepada orang/ pihak lain untuk tujuan yang tidak dinyatakan di dalam syarat dan kondisi yang telah disepakati pada saat menjalin hubungan dengan Anda, dan perubahannya dari waktu ke waktu sesuai pemberitahuan kepada Anda.",
+          ],
+        },
+        {
+          judul: "Keamanan",
+          text: [
+            "Bank Jago akan senantiasa berupaya untuk menjaga keamanan informasi pribadi Anda dan melindunginya terhadap manipulasi, pemalsuan, akses dan pengungkapan yang tidak bertanggung jawab.",
+          ],
+        },
+        {
+          judul: "Perubahan Pernyataan",
+          text: [
+            "Bank Jago berhak untuk sewaktu-waktu mengubah pernyataan pada website ini. Kami menganjurkan Anda untuk sekali-sekali membaca lagi pernyataan privasi dan mempelajari sejumlah pernyataan privasi yang baru atau perubahan kebijakan Bank Jago.",
+          ],
+        },
+      ],
+    },
+  ],
+  prosedur_pengaduan: [
+    {
+      id: 1,
+      judul: "Prosedur Pengaduan Nasabah",
+      url: "prosedur-pengaduan",
+      contentFull: [
+        {
+          judul: "Prosedur Pelayanan dan Penyelesaian Pengaduan Nasabah",
+          text: [
+            "Mengacu pada peraturan dan ketentuan perundang-undangan yang berlaku serta sesuai dengan aspirasi PT Bank Jago Tbk (“Bank”) yaitu “Meningkatkan kesempatan tumbuh berjuta insan melalui solusi finansial digital”, penyediaan layanan yang prima dan solusi finansial kepada seluruh nasabah selaku mitra pilihan utama adalah prioritas kami. Sehubungan dengan hal tersebut, berikut kami informasikan Prosedur Pelayanan dan Penyelesaian Pengaduan Nasabah PT Bank Jago Tbk:",
+          ],
+        },
+        {
+          judul: "Prosedur Penyampaian Pengaduan kepada Bank : Secara lisan:",
+          text: [
+            "Nasabah dapat mendatangi kantor cabang Bank terdekat dan menyampaikan pengaduan melalui Customer Service/Relationship Manager; atau",
+            "Nasabah dapat menghubungi Contact Center Tanya Jago di nomor 1500 746 atau 021 30000746. Layanan Contact Center kami melayani Anda 24 jam sehari dan 7 hari dalam seminggu.",
+          ],
+        },
+        {
+          judul: "Prosedur Penyampaian Pengaduan kepada Bank : Secara Tulisan:",
+          text: [
+            "Nasabah dapat mengirimkan email untuk menyampaikan pengaduan ke alamat email Tanya Jago di tanya@jago.com; ",
+            "Nasabah dapat menyampaikan pengaduan melalui website Bank Jago (https://jago.com); ",
+            "Nasabah dapat menyampaikan pengaduan melalui surat ke alamat berikut:",
+          ],
+        },
+        {
+          judul: "Kontak Lain",
+          text: [
+            "Bank Jago berhak untuk sewaktu-waktu mengubah pernyataan pada website ini. Kami menganjurkan Anda untuk sekali-sekali membaca lagi pernyataan privasi dan mempelajari sejumlah pernyataan privasi yang baru atau perubahan kebijakan Bank Jago.",
+          ],
+        },
+      ],
+    },
+  ],
+};

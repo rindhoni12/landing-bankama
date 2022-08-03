@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FaAccusoft, FaPhone } from "react-icons/fa";
-import { FiMail } from "react-icons/fi";
+import { FaAccusoft } from "react-icons/fa";
 import { HeadingComponent, ReactHelmet } from "../atom";
 import {
   Button,
@@ -26,9 +25,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import ModalItem from "../modal";
 import { FormContent } from "../form/FormElements";
-import { ORGANISASI } from "../../config";
+import { ORGANISASI, KONTAK_KAMI } from "../../config";
 
 const KontakKamiSection = () => {
+  const dataCabang = KONTAK_KAMI.kantor_cabang[0];
+  const dataPusat = KONTAK_KAMI.kantor_pusat[0];
+  console.log(dataPusat);
   return (
     <KontakKamiSite>
       <div className="tentang_container">
@@ -47,77 +49,49 @@ const KontakKamiSection = () => {
               title="Map Bank"
             />
           </div>
-          <div className="contact">
-            <h1>Head Office</h1>
-            <p>
-              PT Bank Jago Tbk Menara BTPN Lt. 46 Jl. Dr. Ide Anak Agung Gde
-              Agung Kav.5.5 – 5.6 Jakarta Selatan
-            </p>
-            <div className="no_telp">
-              <p>
-                <FaPhone /> (021) 50927460
-              </p>
-              <p>
-                <FiMail /> kbpr.pati@gmail.com
-              </p>
+
+          {dataPusat && (
+            <div className="contact">
+              <h1>{dataPusat.judul}</h1>
+              <p>{dataPusat.alamat}</p>
+              <div className="no_telp">
+                {dataPusat.no &&
+                  dataPusat.no.map((item, i) => (
+                    <p key={i}>
+                      <item.icon /> {item.value}
+                    </p>
+                  ))}
+              </div>
+              <Button
+                icon={FaAccusoft}
+                label="Form Pengaduan"
+                to="./hubungi-kami"
+              />
             </div>
-            <Button
-              icon={FaAccusoft}
-              label="Form Pengaduan"
-              to="./hubungi-kami"
-            />
-          </div>
+          )}
         </div>
-        <div className="tentang_cabang">
-          <h1>Kantor Cabang</h1>
-          <div className="cabang_bank">
-            <div className="cabang_content">
-              <h1>Jakarta</h1>
-              <p>
-                KC Mega Kuningan Menara BTPN Lt. GF Jl. Dr. Ide Anak Agung Gde
-                Agung Kav. 5.5 - 5.6 Jakarta Selatan 12950
-              </p>
-              <div className="no_telp">
-                <p>
-                  <FaPhone /> (021) 50927460
-                </p>
-                <p>
-                  <FiMail /> kbpr.pati@gmail.com
-                </p>
-              </div>
-            </div>
-            <div className="cabang_content">
-              <h1>Jakarta</h1>
-              <p>
-                KC Mega Kuningan Menara BTPN Lt. GF Jl. Dr. Ide Anak Agung Gde
-                Agung Kav. 5.5 - 5.6 Jakarta Selatan 12950
-              </p>
-              <div className="no_telp">
-                <p>
-                  <FaPhone /> (021) 50927460
-                </p>
-                <p>
-                  <FiMail /> kbpr.pati@gmail.com
-                </p>
-              </div>
-            </div>
-            <div className="cabang_content">
-              <h1>Jakarta</h1>
-              <p>
-                KC Mega Kuningan Menara BTPN Lt. GF Jl. Dr. Ide Anak Agung Gde
-                Agung Kav. 5.5 - 5.6 Jakarta Selatan 12950
-              </p>
-              <div className="no_telp">
-                <p>
-                  <FaPhone /> (021) 50927460
-                </p>
-                <p>
-                  <FiMail /> kbpr.pati@gmail.com
-                </p>
-              </div>
+        {dataCabang && (
+          <div className="tentang_cabang">
+            <h1>{dataCabang.judul}</h1>
+            <div className="cabang_bank">
+              {dataCabang.cabang &&
+                dataCabang.cabang.map((item, i) => (
+                  <div key={i} className="cabang_content">
+                    <h1>{item.judul}</h1>
+                    <p>{item.alamat}</p>
+                    <div className="no_telp">
+                      {item.no &&
+                        item.no.map((no_telp, i) => (
+                          <p key={i}>
+                            <no_telp.icon /> {no_telp.value}
+                          </p>
+                        ))}
+                    </div>
+                  </div>
+                ))}
             </div>
           </div>
-        </div>
+        )}
       </div>
     </KontakKamiSite>
   );
@@ -678,7 +652,7 @@ const CardInformasiSection = () => {
       <div className="informasi_container">
         <div className="informasi_content">
           <HeadingComponent
-            Heading="Form Pengaduan"
+            Heading="Suku Bunga per Tahun"
             Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
           />
           <div className="informasi_card_content">
