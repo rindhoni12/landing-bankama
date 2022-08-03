@@ -22,10 +22,10 @@ const DetailBeritaComponents = ({ newItem }) => {
                   <nav className="berita_breadcrum">
                     <ol className="breadcrum">
                       <li className="breadcrum_item">
-                        <a href="/web-landing">Home</a>
+                        <a href="/">Home</a>
                       </li>
                       <li className="breadcrum_item">
-                        <a href="/web-landing/berita-kami">Berita</a>
+                        <a href="/berita-kami">Berita</a>
                       </li>
                       <li className="breadcrum_item">
                         <p>{itemBerita.judul}</p>
@@ -75,10 +75,10 @@ export const DetailSupportComponents = (item) => {
               <nav className="support_breadcrum">
                 <ol className="breadcrum">
                   <li className="breadcrum_item">
-                    <a href="/web-landing">Home</a>
+                    <a href="/">Home</a>
                   </li>
                   <li className="breadcrum_item">
-                    <a href="/web-landing/support">Support</a>
+                    <a href="/support">Support</a>
                   </li>
                   <li className="breadcrum_item">
                     <p>{item.itemNew.judul}</p>
