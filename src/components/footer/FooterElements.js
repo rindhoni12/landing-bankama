@@ -157,9 +157,9 @@ export const FooterSite = styled.footer`
         font-size: 12px;
 
         ${devices.smartphone} {
-          display: grid;
-          grid-template-columns: repeat(2, auto);
-          gap: 10px;
+          display: flex;
+          flex-wrap: wrap;
+          row-gap: 10px;
           place-items: baseline;
           padding: 0;
         }

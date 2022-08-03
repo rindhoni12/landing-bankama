@@ -17,7 +17,7 @@ import {
   Galery,
   Berita,
   Home,
-  Support,
+  // Support,
   SupportLayanan,
 } from "../pages";
 
@@ -54,7 +54,7 @@ export const RouteSite = () => {
 
         <Route exact path="/galeri-kami" element={<Galery />} />
 
-        <Route exact path="/support" element={<Support />} />
+        {/* <Route exact path="/support" element={<Support />} /> */}
         <Route exact path="/support/:id" element={<SupportLayanan />} />
       </Route>
       <Route path="*" element={<NotFound />} />

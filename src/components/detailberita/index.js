@@ -78,7 +78,7 @@ export const DetailSupportComponents = (item) => {
                     <a href="/web-landing">Home</a>
                   </li>
                   <li className="breadcrum_item">
-                    <a href="/web-landing/support">Support</a>
+                    <a href="/web-landing">Support</a>
                   </li>
                   <li className="breadcrum_item">
                     <p>{item.itemNew.judul}</p>
