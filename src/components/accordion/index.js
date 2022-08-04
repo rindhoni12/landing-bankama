@@ -1,12 +1,12 @@
+import { HeadingComponent } from "../atom";
+import { img1, img2 } from "../../assets";
 import React, { useState } from "react";
 import {
   AccordionContainer,
   AccordionContent,
-  AccordionImg,
   AccordionSite,
+  AccordionImg,
 } from "./AccordionElements";
-import { img1, img2 } from "../../assets";
-import { HeadingComponent } from "../atom";
 
 const render = () => {
   let items = [

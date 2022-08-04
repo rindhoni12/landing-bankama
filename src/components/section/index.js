@@ -1,13 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FaAccusoft } from "react-icons/fa";
 import { HeadingComponent, ReactHelmet } from "../atom";
-import {
-  Button,
-  ButtonTransparent,
-  FormInput,
-  FormInputSelectNew,
-  TextArea,
-} from "../form";
+import { FormInput, FormInputSelectNew, FormTextArea } from "../form";
 import {
   CardInformasiSite,
   ContentTabSite,
@@ -20,12 +14,14 @@ import {
   PenyaluranSite,
   Tabs,
   KontakKamiSite,
+  PimpinanSite,
 } from "./SectionElements";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import ModalItem from "../modal";
 import { FormContent } from "../form/FormElements";
 import { ORGANISASI, KONTAK_KAMI } from "../../config";
+import { Button, ButtonTransparent } from "../button";
 
 const KontakKamiSection = () => {
   const dataCabang = KONTAK_KAMI.kantor_cabang[0];
@@ -131,7 +127,11 @@ const OrganisasiSection = () => {
         </div>
         <div className="organisasi_page">
           <div className="button_organisasi">
-            <ButtonFilter filter={filter} button={buttons} active={active} />
+            <ButtonFilterComponent
+              filter={filter}
+              button={buttons}
+              active={active}
+            />
           </div>
           <motion.div layout className="card_organisasi">
             <AnimatePresence>
@@ -149,7 +149,7 @@ const OrganisasiSection = () => {
   );
 };
 
-const ButtonFilter = ({ filter, button, active }) => {
+const ButtonFilterComponent = ({ filter, button, active }) => {
   return (
     <>
       {button.map((buttonItem, i) => (
@@ -562,7 +562,7 @@ const HubungiSection = () => {
                           onChange={set("number")}
                         />
                       </div>
-                      <TextArea
+                      <FormTextArea
                         value={values.textArea}
                         onChange={set("textArea")}
                       />
@@ -1231,6 +1231,88 @@ const PenyaluranSection = () => {
   );
 };
 
+const Organisasi = ({ item }) => {
+  return (
+    <OrganisasiSite>
+      <motion.div className="informasi" layout>
+        <div className="gambar_img">
+          <img src={item.img} alt={item.label} />
+        </div>
+        <div className="text_nama">
+          <h1>{item.label}</h1>
+          <p>{item.jabatan}</p>
+        </div>
+      </motion.div>
+    </OrganisasiSite>
+  );
+};
+
+const DetailOrganisasiSection = () => {
+  const allOrganisasi = [
+    "All",
+    ...new Set(ORGANISASI.map((item) => item.jabatan)),
+  ];
+
+  const [organisasi, setOrganisasi] = useState(ORGANISASI);
+
+  const buttons = allOrganisasi;
+
+  const [active, setActive] = useState("All");
+
+  const filter = (button) => {
+    if (button === "All") {
+      setOrganisasi(ORGANISASI);
+      setActive(button);
+      return;
+    }
+    const filteredData = ORGANISASI.filter((item) => item.jabatan === button);
+    setOrganisasi(filteredData);
+    setActive(button);
+  };
+
+  return (
+    <PimpinanSite>
+      <div className="organisasi_container">
+        <HeadingComponent
+          Heading="Pimpinan Kami"
+          Text="Kami percaya bahwa pengalaman transaksi perbankan yang berfokus pada kehidupan Anda akan memungkinkan Anda untuk terus bertumbuh."
+        />
+
+        <div className="organisasi_all">
+          <div className="organisasi_button">
+            <ButtonFilterComponent
+              filter={filter}
+              button={buttons}
+              active={active}
+            />
+          </div>
+
+          {organisasi.length === 1 ? (
+            <motion.div className="organisasi_content_active" layout>
+              <AnimatePresence>
+                {organisasi.map((item, i) => (
+                  <Organisasi key={i} item={item} />
+                ))}
+              </AnimatePresence>
+            </motion.div>
+          ) : (
+            <motion.div className="organisasi_content" layout>
+              <AnimatePresence>
+                {organisasi.map((item, i) => (
+                  <Organisasi key={i} item={item} />
+                ))}
+              </AnimatePresence>
+            </motion.div>
+          )}
+        </div>
+        <div className="download">
+          <a href="#try">Download Struktur Organisasi</a>
+        </div>
+      </div>
+    </PimpinanSite>
+  );
+};
+
 export {
   KontakKamiSection,
   OrganisasiSection,
@@ -1242,4 +1324,5 @@ export {
   PengajuanSection,
   FormNasabahSection,
   PenyaluranSection,
+  DetailOrganisasiSection,
 };

@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import {
-  ButtonAll,
-  ButtonTransparentAll,
-  FormContent,
-  FormSite,
-} from "./FormElements";
+import { FormContent, FormSite } from "./FormElements";
 import CurrencyInput from "react-currency-input-field";
 import { FaAccusoft } from "react-icons/fa";
 import { HeadingComponent } from "../atom";
 import { banner } from "../../assets";
+import { Button } from "../button";
 
 export const FormInputCurrency = (item) => {
   return (
@@ -87,7 +83,7 @@ export const FormInput = (item) => {
   );
 };
 
-export const TextArea = (item) => {
+export const FormTextArea = (item) => {
   return (
     <div className="form_content_input">
       <label>Pesan</label>
@@ -101,39 +97,6 @@ export const TextArea = (item) => {
         rows="10"
       ></textarea>
     </div>
-  );
-};
-
-export const Button = (item) => {
-  return (
-    <ButtonAll>
-      <button
-        style={item.style}
-        onClick={item.onClick}
-        id={item.id}
-        to={item.to}
-        className="button_my-course"
-      >
-        <item.icon />
-        <a href={item.to}>{item.label}</a>
-      </button>
-    </ButtonAll>
-  );
-};
-
-export const ButtonTransparent = (item) => {
-  return (
-    <ButtonTransparentAll>
-      <button
-        style={item.style}
-        onClick={item.onClick}
-        id={item.id}
-        className={`button_my-course ${item.active}`}
-      >
-        <item.icon />
-        {item.label}
-      </button>
-    </ButtonTransparentAll>
   );
 };
 

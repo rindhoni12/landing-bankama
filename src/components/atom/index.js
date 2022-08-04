@@ -5,17 +5,13 @@ import {
   DetailComponents,
   FocusComponentSite,
   FocusComponentSiteContact,
-  HeadingAll,
+  HeadingContent,
   InformasiSite,
   OjkComponents,
-  OrganisasiSite,
-  PimpinanComponent,
   SlideContent,
   WaItemSite,
 } from "./AtomElements";
-import { Button, ButtonTransparent } from "../form";
 import { FaAccusoft } from "react-icons/fa";
-import { motion, AnimatePresence } from "framer-motion";
 import Slider from "react-slick";
 import SliderWrapper from "../carousel/_SlickSliderStyle";
 import DOMPurify from "dompurify";
@@ -23,7 +19,7 @@ import styled from "styled-components";
 import { devices } from "../../assets/_respondTo";
 import { Helmet } from "react-helmet-async";
 import { ayosyariah, logoWhite, lps1, ojk, two, wbsIcon } from "../../assets";
-import { ORGANISASI } from "../../config";
+import { Button } from "../button";
 
 const Informasi = () => {
   return (
@@ -463,36 +459,38 @@ const OjkInformasi = () => {
   );
 };
 
+const ReactHelmet = (item) => {
+  return (
+    <Helmet prioritizeSeoTags>
+      <title>{item.title}</title>
+      <meta
+        name="description"
+        content="Ini adalah halaman Baru Here you can find all the basic elements that should never report any issue, in every page of the website."
+      />
+      <link rel="canonical" href={item.url} />
+      <meta property="og:type" content="Text" />
+      <meta property="og:title" content="Bank Artha Mas Abadi | Home" />
+      <meta
+        property="og:image"
+        content="https://id-prawito.github.io/web-landing/static/media/jago-3.6318b27de2998085a42f.jpg"
+      />
+      <meta
+        property="og:description"
+        content="hIni adalah halaman Baru Here you can find all the basic elements that should never report any issue, in every page of the website."
+      />
+      <meta property="og:url" content={item.url} />
+    </Helmet>
+  );
+};
+
 const HeadingComponent = (item) => {
   return (
-    <HeadingAll>
+    <HeadingContent>
       <div className="heading" style={item.Style}>
         <h2>{item.Heading}</h2>
         <p>{item.Text}</p>
       </div>
-    </HeadingAll>
-  );
-};
-
-const FocusComponent = ({ backgroundColor }) => {
-  return (
-    <FocusComponentSite>
-      <div className="focus_container">
-        <div className="gambar_bg" style={{ backgroundColor: backgroundColor }}>
-          <HeadingComponent
-            Style={{
-              textAlign: "center",
-              width: "100%",
-              color: "#fff",
-              padding: "0px 20px",
-            }}
-            Heading="Coba simulasi kredit sekarang!"
-            Text="Untuk mengetahui berapa biaya yang harus digunakan untuk melakukan kredit KPR."
-          />
-          <Button icon={FaAccusoft} label="Hitung KPR" to="./berita-kami" />
-        </div>
-      </div>
-    </FocusComponentSite>
+    </HeadingContent>
   );
 };
 
@@ -554,126 +552,7 @@ const FocusComponentColor = ({ img, backgroundColor }) => {
   );
 };
 
-const Organisasi = ({ item }) => {
-  return (
-    <OrganisasiSite>
-      <motion.div className="informasi" layout>
-        <div className="gambar_img">
-          <img src={item.img} alt={item.label} />
-        </div>
-        <div className="text_nama">
-          <h1>{item.label}</h1>
-          <p>{item.jabatan}</p>
-        </div>
-      </motion.div>
-    </OrganisasiSite>
-  );
-};
-
-const ButtonFilter = ({ filter, button, active }) => {
-  return (
-    <>
-      {button.map((buttonItem, i) => (
-        <ButtonTransparent
-          active={active === buttonItem ? "active" : ""}
-          key={i}
-          style={{ fontWeight: "400", border: "2px solid var(--colorMain)" }}
-          icon={FaAccusoft}
-          label={buttonItem}
-          onClick={() => filter(buttonItem)}
-        />
-      ))}
-    </>
-  );
-};
-
-const DetailOrganisasi = () => {
-  const allOrganisasi = [
-    "All",
-    ...new Set(ORGANISASI.map((item) => item.jabatan)),
-  ];
-
-  const [organisasi, setOrganisasi] = useState(ORGANISASI);
-
-  const buttons = allOrganisasi;
-
-  const [active, setActive] = useState("All");
-
-  const filter = (button) => {
-    if (button === "All") {
-      setOrganisasi(ORGANISASI);
-      setActive(button);
-      return;
-    }
-    const filteredData = ORGANISASI.filter((item) => item.jabatan === button);
-    setOrganisasi(filteredData);
-    setActive(button);
-  };
-
-  return (
-    <PimpinanComponent>
-      <div className="organisasi_container">
-        <HeadingComponent
-          Heading="Pimpinan Kami"
-          Text="Kami percaya bahwa pengalaman transaksi perbankan yang berfokus pada kehidupan Anda akan memungkinkan Anda untuk terus bertumbuh."
-        />
-
-        <div className="organisasi_all">
-          <div className="organisasi_button">
-            <ButtonFilter filter={filter} button={buttons} active={active} />
-          </div>
-
-          {organisasi.length === 1 ? (
-            <motion.div className="organisasi_content_active" layout>
-              <AnimatePresence>
-                {organisasi.map((item, i) => (
-                  <Organisasi key={i} item={item} />
-                ))}
-              </AnimatePresence>
-            </motion.div>
-          ) : (
-            <motion.div className="organisasi_content" layout>
-              <AnimatePresence>
-                {organisasi.map((item, i) => (
-                  <Organisasi key={i} item={item} />
-                ))}
-              </AnimatePresence>
-            </motion.div>
-          )}
-        </div>
-        <div className="download">
-          <a href="#try">Download Struktur Organisasi</a>
-        </div>
-      </div>
-    </PimpinanComponent>
-  );
-};
-
-const ReactHelmet = (item) => {
-  return (
-    <Helmet prioritizeSeoTags>
-      <title>{item.title}</title>
-      <meta
-        name="description"
-        content="Ini adalah halaman Baru Here you can find all the basic elements that should never report any issue, in every page of the website."
-      />
-      <link rel="canonical" href={item.url} />
-      <meta property="og:type" content="Text" />
-      <meta property="og:title" content="Bank Artha Mas Abadi | Home" />
-      <meta
-        property="og:image"
-        content="https://id-prawito.github.io/web-landing/static/media/jago-3.6318b27de2998085a42f.jpg"
-      />
-      <meta
-        property="og:description"
-        content="hIni adalah halaman Baru Here you can find all the basic elements that should never report any issue, in every page of the website."
-      />
-      <meta property="og:url" content={item.url} />
-    </Helmet>
-  );
-};
-
-const WaItem = () => {
+const WaItemContent = () => {
   return (
     <WaItemSite>
       <div className="wa_content">
@@ -696,12 +575,10 @@ export {
   Detail,
   OjkInformasi,
   HeadingComponent,
-  FocusComponent,
-  DetailOrganisasi,
   DetailLayanan,
   DetailLayananPages,
   FocusComponentColor,
   FocusComponentWithLogo,
   ReactHelmet,
-  WaItem,
+  WaItemContent,
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import { FooterSite, Media } from "./FooterElements";
 import gambarOjk from "../../assets/img/ojk.png";
-import { WaItem } from "../atom";
+import { WaItemContent } from "../atom";
 import { logoBawah, lps } from "../../assets";
 import { MEDIA_SOSIAL } from "../../config";
 
@@ -96,7 +96,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <WaItem />
+      <WaItemContent />
     </FooterSite>
   );
 };

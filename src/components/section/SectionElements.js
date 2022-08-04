@@ -1313,3 +1313,76 @@ export const PenyaluranSite = styled.section`
     }
   }
 `;
+
+export const PimpinanSite = styled.section`
+  ${devices.smartphone} {
+    padding: 50px 0;
+  }
+
+  .organisasi {
+    &_container {
+      padding: 0 100px;
+
+      ${devices.smartphone} {
+        padding: 0 25px;
+      }
+    }
+
+    &_all {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    &_button {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+
+      ${devices.smartphone} {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+      }
+    }
+
+    &_content_active {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-column-gap: 20px;
+      grid-row-gap: 20px;
+
+      ${devices.smartphone} {
+        grid-template-columns: repeat(1, auto);
+      }
+    }
+
+    &_content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-column-gap: 20px;
+      grid-row-gap: 20px;
+
+      ${devices.smartphone} {
+        grid-template-columns: repeat(2, auto);
+      }
+    }
+  }
+
+  .download {
+    background-color: #f4f4f4;
+    width: max-content;
+    border-radius: 8px;
+    padding: 8px 15px;
+    font-weight: 400;
+    margin-top: 60px;
+    font-size: 13px;
+    color: #a606ae;
+    margin: auto;
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+`;
