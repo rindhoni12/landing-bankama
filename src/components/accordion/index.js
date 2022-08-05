@@ -8,7 +8,7 @@ import {
   AccordionImg,
 } from "./AccordionElements";
 
-const render = () => {
+const Accordion = () => {
   let items = [
     {
       name: "Header 1",
@@ -84,4 +84,4 @@ const AccordionComponent = ({ items }) => {
   );
 };
 
-export default render;
+export default Accordion;

@@ -1,25 +1,25 @@
 import React, { useEffect, useRef, useState } from "react";
+import { ayosyariah, logoWhite, lps1, ojk, two, wbsIcon } from "../../assets";
+import SliderWrapper from "../carousel/_SlickSliderStyle";
+import { devices } from "../../assets/_respondTo";
+import { FaAccusoft } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
+import { Button } from "../../components";
+import styled from "styled-components";
+import DOMPurify from "dompurify";
+import Slider from "react-slick";
 import {
-  CardComponents,
+  FocusComponentSiteContact,
+  FocusComponentSite,
   CardItemComponents,
   DetailComponents,
-  FocusComponentSite,
-  FocusComponentSiteContact,
   HeadingContent,
-  InformasiSite,
+  CardComponents,
   OjkComponents,
+  InformasiSite,
   SlideContent,
   WaItemSite,
 } from "./AtomElements";
-import { FaAccusoft } from "react-icons/fa";
-import Slider from "react-slick";
-import SliderWrapper from "../carousel/_SlickSliderStyle";
-import DOMPurify from "dompurify";
-import styled from "styled-components";
-import { devices } from "../../assets/_respondTo";
-import { Helmet } from "react-helmet-async";
-import { ayosyariah, logoWhite, lps1, ojk, two, wbsIcon } from "../../assets";
-import { Button } from "../button";
 
 const Informasi = () => {
   return (
@@ -82,12 +82,12 @@ const CardItem = ({ item }) => {
 const BeritaContent = styled.div`
   .card_content {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: flex-start;
     justify-content: center;
+    align-items: flex-start;
+    grid-template-columns: repeat(3, 1fr);
+    transition: all 0.35s ease-in-out;
     height: 100%;
     gap: 30px;
-    transition: all 0.35s ease-in-out;
 
     ${devices.smartphone} {
       grid-template-columns: repeat(1, 1fr);
@@ -105,11 +105,11 @@ const BeritaContent = styled.div`
 
 const Card = ({ itemBerita, text }) => {
   const [start, setStart] = useState(3);
-  const posts = itemBerita;
   const [isActive, setActive] = useState(false);
   const testRef = useRef();
   const cardRef = useRef();
-  // console.log(cardRef.current.offsetTop);
+  const posts = itemBerita;
+
   const LoadMore = () => {
     setStart((prevValue) => prevValue + 3);
 
@@ -194,13 +194,6 @@ const Detail = (item) => {
               <div className="detail_text_heading">{item.judul}</div>
               <div className="detail_text_p">{item.deskripsi}</div>
             </div>
-            {/* <div className="visi_misi">
-              <div className="detail_text_heading">Misi</div>
-              <div className="detail_text_p">
-                Menjadi BPR yang kuat, dipercaya dan selalu dihati masyarakat di
-                seluruh wilayah kerja Kabupaten Pati dan sekitarnya.
-              </div>
-            </div> */}
           </div>
         </div>
       </div>

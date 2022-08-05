@@ -6,15 +6,15 @@ import { themeList } from "../../config";
 
 const AccordionSite = styled.section`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  flex-direction: column;
   min-height: 80vh;
   padding: 0px;
 
   ${devices.screen_large} {
-    padding: 100px 0;
     max-width: 1580px;
+    padding: 100px 0;
   }
 
   .accordion_container {
@@ -41,15 +41,15 @@ const AccordionSite = styled.section`
   .accordion_pembungkus {
     display: flex;
     flex-direction: column;
-    gap: 40px;
     align-items: center;
+    gap: 40px;
   }
 
   .accordion_bungkus {
     display: flex;
     flex-direction: row;
-    gap: 40px;
     padding: 50px 0;
+    gap: 40px;
 
     ${devices.smartphone} {
       flex-direction: column-reverse;
@@ -61,8 +61,8 @@ const AccordionSite = styled.section`
 
     .pembungkus {
       ${devices.ipads} {
-        align-items: center;
         display: flex;
+        align-items: center;
         flex-direction: column;
       }
       ${devices.laptops} {
@@ -76,18 +76,17 @@ const AccordionSite = styled.section`
   }
 
   .content_accordion {
-    margin-bottom: 20px;
-    background-color: ${({ theme: { theme } }) =>
-      theme === themeList.light ? "#fff" : "var(--mediumColor)"};
+    box-shadow: ${({ theme: { theme } }) =>
+      theme === themeList.light ? "0 8px 24px rgb(185 185 185 / 25%)" : ""};
     border: 1px solid
       ${({ theme: { theme } }) =>
         theme === themeList.light ? "#969696" : "var(--mediumColor)"};
-    border-radius: 8px;
-    box-shadow: ${({ theme: { theme } }) =>
-      theme === themeList.light ? "0 8px 24px rgb(185 185 185 / 25%)" : ""};
-    /* box-shadow: 0 8px 24px rgb(185 185 185 / 25%); */
-    width: 500px;
+    background-color: ${({ theme: { theme } }) =>
+      theme === themeList.light ? "#fff" : "var(--mediumColor)"};
     height: max-content;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    width: 500px;
 
     ${devices.smartphone} {
       width: 100%;
@@ -116,31 +115,29 @@ const AccordionSite = styled.section`
 
 const AccordionContainer = styled.div`
   overflow: hidden;
-  /* width: 500px; */
 `;
 
 const Inner = styled.div`
   position: absolute;
   padding: 16px;
-  /* color: #222; */
 `;
 
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  height: 64px;
+  text-align: left;
+  font-weight: 500;
   padding: 0 16px;
   font-size: 14px;
-  text-align: left;
   cursor: pointer;
+  height: 64px;
+  width: 100%;
   color: ${(props) =>
     props.isActive
       ? "var(--colorMain);"
       : ({ theme: { theme } }) =>
           theme === themeList.light ? "#000" : "#fff"};
-  font-weight: 500;
 `;
 
 const HeaderIcon = styled.span`
@@ -149,21 +146,25 @@ const HeaderIcon = styled.span`
 `;
 
 const Content = styled.div`
+  transition: height 0.35s;
   position: relative;
+  font-weight: 400;
+  font-size: 12px;
   overflow: hidden;
   height: ${(props) => {
     const inner = document.getElementById(props.itemName);
     return `${props.isActive && inner ? inner.clientHeight : 0}px`;
   }};
-  transition: height 0.35s;
-  font-size: 12px;
-  font-weight: 400;
 `;
 
 const Gambar = styled.div`
   display: ${(props) => (props.isActive ? "initial" : "none")};
-  height: 350px;
   transition: height 0.35s;
+  height: 350px;
+
+  img {
+    width: 300px;
+  }
 `;
 
 const AccordionContent = ({ onClick, itemName, itemContent, isActive }) => {
@@ -187,7 +188,7 @@ const AccordionContent = ({ onClick, itemName, itemContent, isActive }) => {
 const AccordionImg = ({ isActive, itemImg }) => {
   return (
     <Gambar isActive={isActive}>
-      <img style={{ width: "300px" }} src={itemImg} alt="item_gamnbar" />
+      <img src={itemImg} alt="item_gambar" />
     </Gambar>
   );
 };

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FaAccusoft } from "react-icons/fa";
-import { HeadingComponent, ReactHelmet } from "../atom";
 import { FormInput, FormInputSelectNew, FormTextArea } from "../form";
 import {
   CardInformasiSite,
@@ -21,7 +20,12 @@ import { Link, useLocation } from "react-router-dom";
 import ModalItem from "../modal";
 import { FormContent } from "../form/FormElements";
 import { ORGANISASI, KONTAK_KAMI } from "../../config";
-import { Button, ButtonTransparent } from "../button";
+import {
+  Button,
+  ButtonTransparent,
+  ReactHelmet,
+  HeadingComponent,
+} from "../../components";
 
 const KontakKamiSection = () => {
   const dataCabang = KONTAK_KAMI.kantor_cabang[0];
@@ -939,6 +943,7 @@ const FormNasabahSection = () => {
     const data = {
       ...values,
       file: selectedFile,
+      fileNew: preview.userImage,
     };
     console.log(data);
     setValues({

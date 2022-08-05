@@ -467,7 +467,6 @@ export const SlideContent = styled.div`
     padding: 10px;
     border-radius: 8px;
     height: 120px;
-    /* background-color: red; */
   }
 
   .ojk_img {
@@ -497,6 +496,7 @@ export const SlideContent = styled.div`
 export const HeadingContent = styled.div`
   width: 100%;
   z-index: 2;
+
   .heading {
     display: flex;
     flex-direction: column;
@@ -745,123 +745,50 @@ export const OrganisasiSite = styled.div`
   }
 `;
 
-// export const PimpinanSite = styled.section`
-//   ${devices.smartphone} {
-//     padding: 50px 0;
-//   }
-
-//   .organisasi {
-//     &_container {
-//       padding: 0 100px;
-
-//       ${devices.smartphone} {
-//         padding: 0 25px;
-//       }
-//     }
-
-//     &_all {
-//       display: flex;
-//       flex-direction: column;
-//       gap: 20px;
-//     }
-
-//     &_button {
-//       display: flex;
-//       flex-direction: row;
-//       justify-content: center;
-//       align-items: center;
-//       gap: 20px;
-
-//       ${devices.smartphone} {
-//         display: grid;
-//         grid-template-columns: repeat(2, auto);
-//       }
-//     }
-
-//     &_content_active {
-//       display: grid;
-//       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-//       grid-column-gap: 20px;
-//       grid-row-gap: 20px;
-
-//       ${devices.smartphone} {
-//         grid-template-columns: repeat(1, auto);
-//       }
-//     }
-
-//     &_content {
-//       display: grid;
-//       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-//       grid-column-gap: 20px;
-//       grid-row-gap: 20px;
-
-//       ${devices.smartphone} {
-//         grid-template-columns: repeat(2, auto);
-//       }
-//     }
-//   }
-
-//   .download {
-//     background-color: #f4f4f4;
-//     width: max-content;
-//     border-radius: 8px;
-//     padding: 8px 15px;
-//     font-weight: 400;
-//     margin-top: 60px;
-//     font-size: 13px;
-//     color: #a606ae;
-//     margin: auto;
-
-//     a:hover {
-//       text-decoration: underline;
-//     }
-//   }
-// `;
-
 export const WaItemSite = styled.div`
   .wa {
     &_content {
       position: fixed;
-      z-index: 99;
-      bottom: 15px;
-      right: 15px;
+      background: #1bd741aa;
+      border-radius: 50px;
       text-align: right;
+      overflow: hidden;
+      bottom: 15px;
       width: 150px;
       height: 50px;
-      border-radius: 50px;
-      overflow: hidden;
-      background: #1bd741aa;
+      right: 15px;
+      z-index: 99;
       box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 
       a {
-        width: 100%;
-        height: 50px;
         display: flex;
         align-items: center;
+        height: 50px;
+        width: 100%;
       }
     }
 
     &_text {
       display: inline-block;
-      width: 90px;
       color: ${({ theme: { theme } }) =>
         theme === themeList.light ? "#fff" : "#000"};
-      line-height: 1.2;
       letter-spacing: 0.2px;
       padding-left: 20px;
+      text-align: center;
+      line-height: 1.2;
       background: 0 0;
       font-size: 10px;
-      text-align: center;
+      width: 90px;
     }
 
     &_icon {
       display: inline-block;
-      margin-left: auto;
-      width: 50px;
-      height: 50px;
-      border-radius: 50px;
       background: url(${whatsapp}) #1bd741 center center no-repeat;
       background-size: 90%;
+      border-radius: 50px;
+      margin-left: auto;
+      height: 50px;
+      width: 50px;
     }
   }
 `;

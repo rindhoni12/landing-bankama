@@ -23,7 +23,6 @@ import {
   FocusComponentWithLogo,
   FocusComponentColor,
   DetailLayananPages,
-  // DetailOrganisasiSection,
   HeadingComponent,
   DetailLayanan,
   OjkInformasi,
@@ -33,6 +32,7 @@ import {
   Detail,
   Card,
 } from "./atom";
+import { Button, ButtonTransparent } from "./button";
 
 export {
   FormNasabahSection,
@@ -66,4 +66,6 @@ export {
   FocusComponentWithLogo,
   ReactHelmet,
   WaItemContent,
+  Button,
+  ButtonTransparent,
 };
