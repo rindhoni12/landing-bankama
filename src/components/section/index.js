@@ -1086,7 +1086,16 @@ const PenyaluranSection = () => {
 
   const handleUpload = (e) => {
     if (e.target.files.length !== 0) {
-      setPreview({ image: URL.createObjectURL(e.target.files[0]) });
+      const file = e.target.files[0];
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+
+      reader.onloadend = () => {
+        setPreview({
+          // image: URL.createObjectURL(file),
+          userImage: reader.result,
+        });
+      };
     }
     const file = e.target.files[0];
     setSelectedFile(file);
@@ -1214,7 +1223,7 @@ const PenyaluranSection = () => {
                         ) : (
                           <img
                             style={{ height: "100%", width: "100%" }}
-                            src={preview.image}
+                            src={preview.userImage}
                             alt="seletedFile"
                           />
                         )}
