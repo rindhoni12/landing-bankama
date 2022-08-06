@@ -147,7 +147,7 @@ export const GaleryNewSite = styled.section`
     opacity: 0;
     transform: scale(0);
     overflow: hidden;
-    z-index: 99;
+    z-index: 102;
 
     img {
       width: auto;
