@@ -3,9 +3,10 @@ import { useLocation } from "react-router-dom";
 import { contactUs } from "../../assets";
 import {
   FocusComponentColor,
-  GalerySection,
+  // GalerySection,
   ReactHelmet,
 } from "../../components";
+import { GaleryNewSection } from "../../components/galery";
 
 const Galery = () => {
   const location = useLocation();
@@ -16,7 +17,8 @@ const Galery = () => {
         url={location.pathname}
       />
       <FocusComponentColor backgroundColor="#e9bf45" img={contactUs} />
-      <GalerySection />
+      {/* <GalerySection /> */}
+      <GaleryNewSection />
     </>
   );
 };
