@@ -32,7 +32,7 @@ import {
   Detail,
   Card,
 } from "./atom";
-import { Button, ButtonTransparent } from "./button";
+import { Button, ButtonTransparent, ButtonDownload } from "./button";
 
 export {
   FormNasabahSection,
@@ -68,4 +68,5 @@ export {
   WaItemContent,
   Button,
   ButtonTransparent,
+  ButtonDownload,
 };

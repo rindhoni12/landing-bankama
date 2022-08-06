@@ -13,7 +13,7 @@ const ContentDrop = styled.div`
 
   .megamenu {
     position: absolute;
-    top: 5rem;
+    top: 4rem;
     background-color: ${({ theme: { theme } }) =>
       theme === themeList.light ? "#fff" : "#1b1d29"};
 
@@ -38,7 +38,7 @@ const ContentDrop = styled.div`
       bottom: auto;
       border: 10px solid transparent;
       border-bottom-color: ${({ theme: { theme } }) =>
-        theme === themeList.light ? "#fff" : "#1b1d29"};
+        theme === themeList.light ? "var(--colorMain)" : "var(--colorMain)"};
     }
 
     ${devices.smartphone} {

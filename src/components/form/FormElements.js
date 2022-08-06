@@ -52,6 +52,15 @@ export const FormSite = styled.section`
     }
   }
 
+  .text_keterangan {
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 300;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+
   .form_currency {
     padding: 14px 26px;
     /* border: 1.2px solid #aaa; */
@@ -76,18 +85,6 @@ export const FormSite = styled.section`
     :focus {
       border: 1px solid #aaa;
       outline: none;
-    }
-  }
-
-  .form_content {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    text-align: left;
-
-    label {
-      font-weight: 500;
-      font-size: 16px;
     }
   }
 
@@ -169,6 +166,10 @@ export const FormContent = styled.div`
     border-radius: 10px;
     width: max-content;
     color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
 
     ${devices.smartphone} {
       width: 100%;
@@ -176,6 +177,16 @@ export const FormContent = styled.div`
 
     ${devices.ipads} {
       width: 100%;
+    }
+
+    button {
+      display: flex;
+      background: none;
+      color: #fff;
+      margin: auto;
+      padding: 0px;
+      cursor: pointer;
+      transition: all 0.4s ease-in-out;
     }
   }
 
@@ -413,6 +424,12 @@ export const FormContent = styled.div`
     label {
       font-weight: 500;
       font-size: 16px;
+      width: 100%;
+
+      ::after {
+        content: "*";
+        color: red;
+      }
     }
   }
 

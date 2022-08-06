@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { themeList } from "../../config";
 
 export const ButtonTransparentContent = styled.div`
   display: initial;
@@ -40,7 +41,7 @@ export const ButtonContent = styled.div`
     display: flex;
     align-items: center;
     background-color: var(--colorMain);
-    padding: 14px 20px;
+    padding: 14px 24px;
     border-radius: 20px;
     max-height: 100%;
     cursor: pointer;
@@ -53,6 +54,28 @@ export const ButtonContent = styled.div`
       background-color: #038100;
       transition: 0.3s all ease;
       transform: scale(1.05);
+    }
+  }
+
+  .button_organisasi {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+
+    background-color: ${({ theme: { theme } }) =>
+      theme === themeList.light ? "#f4f4f4" : "var(--mediumColor)"};
+
+    padding: 8px 15px;
+    border-radius: 8px;
+    width: max-content;
+    color: var(--colorMain);
+    margin: auto;
+    margin-top: 60px;
+    gap: 10px;
+
+    :hover {
+      text-decoration: underline;
+      cursor: pointer;
     }
   }
 `;

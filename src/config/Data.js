@@ -1,6 +1,7 @@
 import { FiFacebook, FiMail, FiPhone, FiTwitter } from "react-icons/fi";
 import { FaEllipsisV, FaInstagram, FaPhone } from "react-icons/fa";
 import { blog, organisasi } from "../assets";
+import fileDownload from "../assets/cv_prawito.pdf";
 
 export const DATA_PUBLIKASI = [
   {
@@ -13,12 +14,12 @@ export const DATA_PUBLIKASI = [
         {
           judul: "Seleksi Pemasok dan Perlindungan Hak Kreditur",
           tanggal: "2021 | April",
-          buttonDonwload: "link",
+          buttonDonwload: fileDownload,
         },
         {
           judul: "Seleksi Pemasok dan Perlindungan Hak Kreditur",
           tanggal: "2022 | April",
-          buttonDonwload: "link",
+          buttonDonwload: fileDownload,
         },
       ],
     },
@@ -33,12 +34,12 @@ export const DATA_PUBLIKASI = [
         {
           judul: "Seleksi Pemasok dan Perlindungan Hak Kreditur CDC",
           tanggal: "2021 | April",
-          buttonDonwload: "link",
+          buttonDonwload: fileDownload,
         },
         {
           judul: "Seleksi Pemasok dan Perlindungan Hak Kreditur CDC",
           tanggal: "2022 | April",
-          buttonDonwload: "link",
+          buttonDonwload: fileDownload,
         },
       ],
     },
@@ -137,6 +138,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa yang Dimaksud dengan Tabungan Wadiah?",
             p: "Tabungan iB Wadiah merupakan tabungan yang dikelola dengan sistem titipan (wadiah)",
+            fileImg: blog,
             fitur: [
               {
                 judul: "Fitur & Biaya",
@@ -176,6 +178,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa yang Dimaksud dengan Tabungan iB Mudharabah ?",
             p: "Tabungan iB Mudharabah merupakan tabungan yang dikelola dengan sistem bagi hasil.",
+            fileImg: blog,
             fitur: [
               {
                 judul: "1. Tabungan iB Haji",
@@ -242,6 +245,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa itu Deposito iB Mudharabah ?",
             p: "Deposito iB Mudharabah merupakan layanan investasi berjangka yang dikelola dengan sistem bagi hasil (Mudharabah).",
+            fileImg: blog,
             fitur: [
               {
                 judul: "1. Deposito iB Mudharabah",
@@ -283,6 +287,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa yang Dimaksud dengan Pembiayaan iB Murabahah?",
             p: "Pembiayaan iB Murabahah merupakan jenis pembiayaan yang menggunakan prinsip jual beli.",
+            fileImg: blog,
             fitur: [
               {
                 judul: "Kegunaan",
@@ -358,6 +363,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa yang Dimaksud dengan Pembiayaan iB Musyarakah ?",
             p: "Pembiayaan iB Musyarakah merupakan jenis pembiayaan yang menggunakan prinsip bagi hasil.",
+            fileImg: blog,
             fitur: [
               {
                 judul: "Kegunaan",
@@ -433,6 +439,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa itu Pembiayaan iB Multijasa ?",
             p: "Pembiayaan iB Multijasa merupakan jenis pembiayaan yang menggunakan akad ijarah.",
+            fileImg: blog,
             fitur: [
               {
                 judul: "Kegunaan",
@@ -506,6 +513,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa itu Pembiayaan iB Multijasa ?",
             p: "Pembiayaan iB Gadai Emas merupakan jenis pembiayaan dengan menggunakan prisnsip Qardh, Ijarah dan Rahn.",
+            fileImg: blog,
             fitur: [
               {
                 judul: "Kegunaan",

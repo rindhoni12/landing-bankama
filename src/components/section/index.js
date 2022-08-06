@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FaAccusoft } from "react-icons/fa";
+import { FaAccusoft, FaDownload } from "react-icons/fa";
 import { FormInput, FormInputSelectNew, FormTextArea } from "../form";
 import {
   CardInformasiSite,
@@ -23,9 +23,13 @@ import { ORGANISASI, KONTAK_KAMI } from "../../config";
 import {
   Button,
   ButtonTransparent,
+  ButtonDownload,
   ReactHelmet,
   HeadingComponent,
 } from "../../components";
+import { ButtonDownloadOrganisasi } from "../button";
+import cvPrawito from "../../assets/cv_prawito.pdf";
+import { FiX } from "react-icons/fi";
 
 const KontakKamiSection = () => {
   const dataCabang = KONTAK_KAMI.kantor_cabang[0];
@@ -125,7 +129,7 @@ const OrganisasiSection = () => {
       <div className="organisasi_container">
         <div className="organisasi_content">
           <HeadingComponent
-            Heading="Pimpinan Kamis"
+            Heading="Pimpinan Kami"
             Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
           />
         </div>
@@ -145,9 +149,11 @@ const OrganisasiSection = () => {
             </AnimatePresence>
           </motion.div>
         </div>
-        <div className="organisasi_download">
-          <a href="#try">Download Struktur Organisasi</a>
-        </div>
+        <ButtonDownloadOrganisasi
+          icon={FaDownload}
+          label="Download Struktur Organisasi"
+          file={cvPrawito}
+        />
       </div>
     </OrganisasiSite>
   );
@@ -256,7 +262,9 @@ const ContentTab = (item) => {
   return (
     <ContentTabSite>
       <div className="tab_content">
-        <div className="judul">{item.judul}</div>
+        <div className="gambar_banner">
+          <img src={item.item?.fileImg} alt="blog" />
+        </div>
         <div className="value">
           <h1>Apa yang Dimaksud dengan {item.judul} ?</h1>
           <p>{item.p}</p>
@@ -427,10 +435,10 @@ const TabPublikasi = ({ children, active }) => {
 };
 
 const ContentTabPublikasi = (item) => {
+  console.log(item);
   return (
     <ContentTabSite>
       <div className="tab_content">
-        <div className="judul">{item.judul}</div>
         <div className="value">
           <h1>Apa yang Dimaksud dengan {item.judul} ?</h1>
           <p>{item.item && item.item.p}</p>
@@ -442,10 +450,11 @@ const ContentTabPublikasi = (item) => {
                     <h1>{item.judul}</h1>
                     <p>{item.tanggal}</p>
                   </div>
-                  <Button
-                    icon={FaAccusoft}
-                    label="Hitung KPR"
-                    to="./berita-kami"
+                  <ButtonDownload
+                    icon={FaDownload}
+                    label="Donwload"
+                    file={item.buttonDonwload}
+                    judul={item.judul}
                   />
                 </div>
               ))}
@@ -516,6 +525,8 @@ const HubungiSection = () => {
     textArea: "",
   });
 
+  const [berhasil, setBerhasil] = useState(false);
+
   const set = (name) => {
     return ({ target: { value } }) => {
       setValues((oldValues) => ({ ...oldValues, [name]: value }));
@@ -526,7 +537,9 @@ const HubungiSection = () => {
     e.preventDefault();
     console.log(values);
     setValues({ nama: "", number: "", textArea: "" });
+    setBerhasil(true);
   };
+
   return (
     <HubungiSite>
       <div className="hubungi_container">
@@ -575,11 +588,19 @@ const HubungiSection = () => {
                         pengaduan akan dikirimkan melalui No. Hp yang di
                         masukan.
                       </p>
-                      <p className="informasi">
-                        <b>Informasi : </b>
-                        Data Berhasil Dikirim, silahkan cek pesan WhatsApp
-                        secara berkala.
-                      </p>
+                      {berhasil ? (
+                        <p className="informasi">
+                          <b>Informasi : </b>
+                          Data Berhasil Dikirim, silahkan cek pesan WhatsApp
+                          secara berkala.
+                          <button onClick={() => setBerhasil(false)}>
+                            <FiX />
+                          </button>
+                        </p>
+                      ) : (
+                        ""
+                      )}
+
                       <div className="button_flex">
                         <Button
                           id="form_baru"
@@ -666,12 +687,12 @@ const CardInformasiSection = () => {
                 <div className="class_table">
                   <table>
                     <thead>
-                      <tr style={{ background: "#b8bcb8" }}>
+                      <tr style={{ background: "#079607" }}>
                         <th rowSpan="2">Jenis Investasi</th>
                         <th rowSpan="2">Nisbah</th>
                         <th colSpan="3">Tingkat Imbalan/Tahun (%)</th>
                       </tr>
-                      <tr style={{ background: "#b8bcb8" }}>
+                      <tr style={{ background: "#007c00" }}>
                         <th className="text">April 2022</th>
                         <th className="text">Mei 2022</th>
                         <th className="text">Juni 2022</th>
@@ -718,12 +739,12 @@ const CardInformasiSection = () => {
                 <div className="class_table">
                   <table>
                     <thead>
-                      <tr style={{ background: "#b8bcb8" }}>
+                      <tr style={{ background: "#079607" }}>
                         <th rowSpan="2">Jenis Investasi</th>
                         <th rowSpan="2">Nisbah</th>
                         <th colSpan="3">Tingkat Imbalan/Tahun (%)</th>
                       </tr>
-                      <tr style={{ background: "#b8bcb8" }}>
+                      <tr style={{ background: "#007c00" }}>
                         <th className="text">April 2022</th>
                         <th className="text">Mei 2022</th>
                         <th className="text">Juni 2022</th>
@@ -910,6 +931,7 @@ const FormNasabahSection = () => {
 
   const [selectedFile, setSelectedFile] = useState(null);
   const [preview, setPreview] = useState(null);
+  const [berhasil, setBerhasil] = useState(false);
 
   const set = (name) => {
     return ({ target: { value } }) => {
@@ -953,6 +975,7 @@ const FormNasabahSection = () => {
       noIdentitas: "",
     });
     inputRef.current.value = null;
+    setBerhasil(true);
   };
   return (
     <FormNasabahSite>
@@ -1021,11 +1044,18 @@ const FormNasabahSection = () => {
                         pengaduan akan dikirimkan melalui No. Hp yang di
                         masukan.
                       </p>
-                      <p className="informasi">
-                        <b>Informasi : </b>
-                        Data Berhasil Dikirim, silahkan cek pesan WhatsApp
-                        secara berkala.
-                      </p>
+                      {berhasil ? (
+                        <p className="informasi">
+                          <b>Informasi : </b>
+                          Data Berhasil Dikirim, silahkan cek pesan WhatsApp
+                          secara berkala.
+                          <button onClick={() => setBerhasil(false)}>
+                            <FiX />
+                          </button>
+                        </p>
+                      ) : (
+                        ""
+                      )}
                       <div className="button_flex">
                         <Button
                           id="form_baru"
@@ -1071,6 +1101,7 @@ const PenyaluranSection = () => {
   });
 
   const [select, setSelect] = useState("");
+  const [berhasil, setBerhasil] = useState(false);
 
   const handleSelect = (e) => {
     setSelect(e.target.value);
@@ -1114,6 +1145,7 @@ const PenyaluranSection = () => {
     });
     setSelect("");
     inputRef.current.value = null;
+    setBerhasil(true);
   };
   return (
     <PenyaluranSite>
@@ -1196,11 +1228,18 @@ const PenyaluranSection = () => {
                         pengaduan akan dikirimkan melalui No. Hp yang di
                         masukan.
                       </p>
-                      <p className="informasi">
-                        <b>Informasi : </b>
-                        Data Berhasil Dikirim, silahkan cek pesan WhatsApp
-                        secara berkala.
-                      </p>
+                      {berhasil ? (
+                        <p className="informasi">
+                          <b>Informasi : </b>
+                          Data Berhasil Dikirim, silahkan cek pesan WhatsApp
+                          secara berkala.
+                          <button onClick={() => setBerhasil(false)}>
+                            <FiX />
+                          </button>
+                        </p>
+                      ) : (
+                        ""
+                      )}
                       <div className="button_flex">
                         <Button
                           id="form_baru"

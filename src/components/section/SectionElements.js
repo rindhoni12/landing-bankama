@@ -580,6 +580,18 @@ export const ContentTabSite = styled.div`
       }
     }
 
+    .gambar_banner {
+      overflow: hidden;
+      border-radius: 10px;
+      object-fit: contain;
+
+      img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
     .value {
       display: flex;
       flex-direction: column;
@@ -665,14 +677,14 @@ export const ContentTabSite = styled.div`
 
       .card_download {
         border-radius: 10px;
-        border: 1px solid #b8b8b8;
+        border: 1px solid #929292;
         padding: 20px 20px;
         width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        color: #b8b8b8;
+        color: #929292;
 
         :hover {
           border: 1px solid var(--colorMain);

@@ -57,6 +57,10 @@ const Footer = () => {
             </div>
           </div>
           <div className="footer_media">
+            <div className="footer_desc_p">
+              <b>Kantor Pusat :</b> Jl. Raya Pati – Tayu Km. 19. Kampunganyar,
+              Waturoyo, Kec. Margoyoso, Kabupaten Pati, Jawa Tengah 59154.
+            </div>
             <Media>
               {MEDIA_SOSIAL.map((item, i) => (
                 <li key={i} className="item_li">
@@ -77,10 +81,10 @@ const Footer = () => {
               <img className="img_class" src={gambarOjk} alt="gambarOjk" />
               <img className="img_class" src={lps} alt="lps" />
             </div>
-            <div className="footer_desc_p">
+            {/* <div className="footer_desc_p">
               <b>Kantor Pusat :</b> Jl. Raya Pati – Tayu Km. 19. Kampunganyar,
               Waturoyo, Kec. Margoyoso, Kabupaten Pati, Jawa Tengah 59154.
-            </div>
+            </div> */}
 
             <div className="footer_desc_kebijakan">
               <a className="end" href="/web-landing/support/kebijakan-privasi">

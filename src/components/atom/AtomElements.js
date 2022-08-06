@@ -442,7 +442,7 @@ export const OjkComponents = styled.section`
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 40px;
+      margin-top: 100px;
       flex-direction: column;
 
       .mitra {
@@ -543,7 +543,8 @@ export const FocusComponentSite = styled.section`
     background-color: aliceblue;
     padding: 0;
 
-    .gambar_bg {
+    .gambar_bg,
+    .gambar_bg_new {
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;

@@ -222,14 +222,17 @@ const FormKpr = () => {
             angsuran per-bulan yang harus dibayarkan dan besarannya sudah sesuai
             aturan bunga yang ditetapkan perusahaan per tanggal 01 Januari 2021."
         />
+        <div className="text_keterangan">
+          <b>Keterangan : </b>Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Illo laboriosam animi exercitationem.
+        </div>
         <FormContent>
           <div className="card_form">
             <div className="content">
-              <p>
-                <b>Keteragan : </b>Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Illo laboriosam animi exercitationem.
-              </p>
               <div className="content_form">
+                <div className="gambar_pemanis">
+                  <img src={banner} alt="banner" />
+                </div>
                 <form
                   className="form_style"
                   onSubmit={handleSubmit}
@@ -259,9 +262,6 @@ const FormKpr = () => {
                     />
                   </div>
                 </form>
-                <div className="gambar_pemanis">
-                  <img src={banner} alt="banner" />
-                </div>
               </div>
             </div>
           </div>
@@ -270,7 +270,7 @@ const FormKpr = () => {
             <div className="card_form">
               <div className="content">
                 <p>
-                  <b>Keteragan : </b>Simulasi Pinjaman Anda
+                  <b>Keteragan : </b>Hasil Perhitungan Simulasi KPR
                 </p>
                 <div className="text_keterangan">
                   <ul>
@@ -371,8 +371,9 @@ const FormKpr = () => {
           ) : (
             <div className="card_form">
               <div className="content">
-                <p style={{ borderBottom: "none" }}>
-                  <b>Keteragan : </b>Lakukan Perihitungan Terlebih Dahulu.
+                <p style={{ borderBottom: "none", paddingBottom: "0px" }}>
+                  <b>Keterangan : </b>Lakukan perhitungan terlebih dahulu untuk
+                  melihat Hasil Perhitungan Simulasi KPR.
                 </p>
               </div>
             </div>

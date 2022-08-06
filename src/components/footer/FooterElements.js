@@ -95,15 +95,23 @@ export const FooterSite = styled.footer`
     &_media {
       display: flex;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: space-between;
       width: 100%;
 
       ${devices.smartphone} {
         justify-content: flex-start;
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+        width: 100%;
       }
 
       ${devices.ipads} {
-        justify-content: flex-end;
+        justify-content: flex-start;
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+        width: 100%;
       }
     }
 
@@ -204,17 +212,18 @@ export const FooterSite = styled.footer`
       &_p {
         font-size: 13px;
         font-weight: 300;
-        width: 50%;
+        width: 30%;
         text-align: left;
+        line-height: 1.5;
 
         ${devices.smartphone} {
-          width: 100%;
+          width: 80%;
           line-height: 1.5;
           font-size: 12px;
         }
 
         ${devices.ipads} {
-          width: 100%;
+          width: 80%;
           line-height: 1.5;
           font-size: 12px;
         }

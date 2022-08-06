@@ -104,7 +104,7 @@ const BeritaContent = styled.div`
 `;
 
 const Card = ({ itemBerita, text }) => {
-  const [start, setStart] = useState(3);
+  const [start, setStart] = useState(6);
   const [isActive, setActive] = useState(false);
   const testRef = useRef();
   const cardRef = useRef();
@@ -491,7 +491,16 @@ const FocusComponentWithLogo = ({ backgroundColor }) => {
   return (
     <FocusComponentSite>
       <div className="focus_container">
-        <div className="gambar_bg" style={{ backgroundColor: backgroundColor }}>
+        <div
+          className="gambar_bg_new"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            gap: "40px",
+            backgroundColor: backgroundColor,
+          }}
+        >
           <div className="class_tambahan">
             <img src={logoWhite} className="new" alt="logoWhite" />
             <img src={logoWhite} className="new" alt="logoWhite" />
@@ -510,7 +519,7 @@ const FocusComponentWithLogo = ({ backgroundColor }) => {
           <Button
             style={{ zIndex: "2" }}
             icon={FaAccusoft}
-            label="Hitung KPR"
+            label="Simulasi KPR"
             to="./simulasi"
           />
         </div>
@@ -546,9 +555,28 @@ const FocusComponentColor = ({ img, backgroundColor }) => {
 };
 
 const WaItemContent = () => {
+  const waRef = useRef(null);
+
+  useEffect(() => {
+    const shrinkHeader = () => {
+      if (
+        document.body.scrollTop >= 300 ||
+        document.documentElement.scrollTop >= 300
+      ) {
+        waRef.current.classList.add("active");
+      } else {
+        waRef.current.classList.remove("active");
+      }
+    };
+    window.addEventListener("scroll", shrinkHeader);
+    return () => {
+      window.removeEventListener("scroll", shrinkHeader);
+    };
+  }, []);
+
   return (
     <WaItemSite>
-      <div className="wa_content">
+      <div ref={waRef} className="wa_content">
         <a
           href="https://wa.me/6282137925172"
           target="_blank"
