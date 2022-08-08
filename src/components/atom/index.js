@@ -169,7 +169,7 @@ const Card = ({ itemBerita, text }) => {
             <div ref={cardRef} className="class_baru">
               <Button
                 icon={FaAccusoft}
-                label={start >= posts.length + 1 ? "Show Less" : text}
+                label={start >= posts.length + 1 ? "Lihat Sedikit" : text}
                 style={{ margin: "auto", marginTop: "40px" }}
                 onClick={start >= posts.length + 1 ? ShowLess : LoadMore}
               />
