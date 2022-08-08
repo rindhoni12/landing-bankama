@@ -9,7 +9,7 @@ import { GlobalStyles, ThemeContext } from "../config";
 function App() {
   const { theme } = useContext(ThemeContext);
   return (
-    <BrowserRouter basename="">
+    <BrowserRouter basename="web-landing">
       <ThemeProvider theme={{ theme }}>
         <GlobalStyles />
         <RouteSite />
