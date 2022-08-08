@@ -14,7 +14,7 @@ const Berita = () => {
         url={location.pathname}
       />
       <FocusComponentColor backgroundColor="#f9b418" img={contactUs} />
-      <Card itemBerita={itemBerita} text="Load More" />
+      <Card itemBerita={itemBerita} text="Lebih Banyak" />
     </>
   );
 };
