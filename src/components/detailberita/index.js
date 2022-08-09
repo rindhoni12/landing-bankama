@@ -4,9 +4,9 @@ import DOMPurify from "dompurify";
 import { useLocation } from "react-router-dom";
 import { ReactHelmet } from "../atom";
 
-const DetailBeritaComponents = ({ newItem }) => {
-  // console.log(newItem);
+const DetailBeritaComponents = ({ newItem, loading }) => {
   const location = useLocation();
+
   return (
     <>
       <ReactHelmet
@@ -14,7 +14,7 @@ const DetailBeritaComponents = ({ newItem }) => {
         url={location.pathname}
       />
       <DetailBeritaSite>
-        {newItem ? (
+        {!loading && newItem ? (
           <>
             {newItem.map((itemBerita, i) => (
               <div className="berita_container" key={i}>
@@ -38,7 +38,10 @@ const DetailBeritaComponents = ({ newItem }) => {
                   </div>
                   <div className="berita_full">
                     <div className="berita_gambar">
-                      <img src={itemBerita.img} alt="" />
+                      <img
+                        src={`https://admin.arthamasabadi.co.id/storage/images/blogs/${itemBerita.img}`}
+                        alt={itemBerita.judul}
+                      />
                     </div>
                     <div
                       className="berita_text"

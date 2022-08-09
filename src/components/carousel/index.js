@@ -2,16 +2,17 @@ import React, { useEffect, useState } from "react";
 import { CorouselSection, CorouselSectionFicture } from "./CarouselElements";
 import imgTryMobile from "../../assets/img/jago-mobile.jpg";
 import {
-  jago,
-  jago2,
+  // jago,
+  // jago2,
   jago2Mobile,
-  jago3,
+  // jago3,
   jago3Mobile,
   two,
 } from "../../assets";
 import Slider from "react-slick";
 import SliderWrapper from "./_SlickSliderStyle";
 import { DetailLayanan, HeadingComponent } from "../atom";
+import { DATAFETCH } from "../../config";
 
 const SimpleSlider = () => {
   const [isMobile, setIsMobile] = useState(
@@ -42,6 +43,12 @@ const SimpleSlider = () => {
     });
   }, []);
 
+  const DATABANNERS = DATAFETCH(
+    "https://admin.arthamasabadi.co.id/api/v1/banners"
+  )?.data;
+
+  console.log(DATABANNERS);
+
   return (
     <CorouselSection>
       <SliderWrapper>
@@ -65,21 +72,15 @@ const SimpleSlider = () => {
           </Slider>
         ) : (
           <Slider {...settings}>
-            <div className="class_img">
-              <img src={jago} alt="jago" />
-            </div>
-            <div className="class_img">
-              <img src={jago2} alt="jago2" />
-            </div>
-            <div className="class_img">
-              <img src={jago3} alt="jago3" />
-            </div>
-            <div className="class_img">
-              <img src={jago2} alt="jago2" />
-            </div>
-            <div className="class_img">
-              <img src={jago3} alt="jago3" />
-            </div>
+            {DATABANNERS &&
+              DATABANNERS.map((item, i) => (
+                <div className="class_img">
+                  <img
+                    src={`https://admin.arthamasabadi.co.id/storage/images/banners/${item.banner}`}
+                    alt="jago"
+                  />
+                </div>
+              ))}
           </Slider>
         )}
       </SliderWrapper>

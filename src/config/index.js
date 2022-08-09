@@ -14,6 +14,7 @@ import {
   TABS,
   KONTAK_KAMI,
   DATA_FOOTER,
+  DATAFETCH,
 } from "./data";
 
 export {
@@ -32,4 +33,5 @@ export {
   TABS,
   KONTAK_KAMI,
   DATA_FOOTER,
+  DATAFETCH,
 };

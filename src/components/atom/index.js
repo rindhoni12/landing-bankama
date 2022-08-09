@@ -20,6 +20,7 @@ import {
   SlideContent,
   WaItemSite,
 } from "./AtomElements";
+import { DATAFETCH } from "../../config";
 
 const Informasi = () => {
   return (
@@ -51,17 +52,14 @@ const Informasi = () => {
 };
 
 const CardItem = ({ item }) => {
-  let text = item.judul;
-  let result = text.toLowerCase();
-  const judulBerita = result.split(" ").join("-");
-  const idNumber = item.id.toString();
-  const gabunganJudul = idNumber + "-" + judulBerita;
-
   return (
     <CardItemComponents>
-      <a href={`./berita-kami/${gabunganJudul}`} className="card_item">
+      <a href={`./berita-kami/${item.slug}`} className="card_item">
         <div className="card_img">
-          <img src={item.img} alt="blog_img" />
+          <img
+            src={`https://admin.arthamasabadi.co.id/storage/images/blogs/${item.img}`}
+            alt="blog_img"
+          />
         </div>
         <div className="card_body">
           <h3>{item.judul}</h3>
@@ -103,12 +101,19 @@ const BeritaContent = styled.div`
   }
 `;
 
-const Card = ({ itemBerita, text }) => {
+const Card = ({ text }) => {
   const [start, setStart] = useState(6);
   const [isActive, setActive] = useState(false);
   const testRef = useRef();
   const cardRef = useRef();
-  const posts = itemBerita;
+
+  const dataBerita = DATAFETCH(
+    "https://admin.arthamasabadi.co.id/api/v1/posts"
+  )?.data;
+
+  const posts = dataBerita;
+
+  console.log(posts);
 
   const LoadMore = () => {
     setStart((prevValue) => prevValue + 3);
@@ -138,7 +143,7 @@ const Card = ({ itemBerita, text }) => {
             <div className="card_content">
               {posts ? (
                 <>
-                  {posts.slice(0, 6).map((item, i) => (
+                  {posts?.slice(0, 6).map((item, i) => (
                     <CardItem key={i} item={item} />
                   ))}
                 </>
@@ -158,7 +163,7 @@ const Card = ({ itemBerita, text }) => {
             <div className="card_content">
               {posts ? (
                 <>
-                  {posts.slice(0, start).map((item, i) => (
+                  {posts?.slice(0, start).map((item, i) => (
                     <CardItem key={i} item={item} />
                   ))}
                 </>
