@@ -628,4 +628,23 @@ export const FormContent = styled.div`
       }
     }
   }
+
+  .heading {
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    width: 100%;
+  }
+
+  .body {
+    width: 100%;
+  }
+
+  .footer {
+    font-size: 12px;
+    font-weight: 400;
+    text-align: left;
+    width: 100%;
+    margin-top: 20px;
+  }
 `;
