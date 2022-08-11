@@ -74,7 +74,7 @@ const SimpleSlider = () => {
           <Slider {...settings}>
             {DATABANNERS &&
               DATABANNERS.map((item, i) => (
-                <div className="class_img">
+                <div key={i} className="class_img">
                   <img
                     src={`https://admin.arthamasabadi.co.id/storage/images/banners/${item.banner}`}
                     alt="jago"

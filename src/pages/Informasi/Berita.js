@@ -1,11 +1,9 @@
 import React from "react";
 import { Card, FocusComponentColor, ReactHelmet } from "../../components/atom";
-import { BERITA } from "../../config";
 import { useLocation } from "react-router-dom";
 import { contactUs } from "../../assets";
 
 const Berita = () => {
-  const itemBerita = BERITA;
   const location = useLocation();
   return (
     <>
@@ -14,7 +12,7 @@ const Berita = () => {
         url={location.pathname}
       />
       <FocusComponentColor backgroundColor="#f9b418" img={contactUs} />
-      <Card itemBerita={itemBerita} text="Lebih Banyak" />
+      <Card text="Lebih Banyak" />
     </>
   );
 };

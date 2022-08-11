@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ayosyariah, logoWhite, lps1, ojk, two, wbsIcon } from "../../assets";
+import { ayosyariah, logoWhite, lps1, ojk, wbsIcon } from "../../assets";
 import SliderWrapper from "../carousel/_SlickSliderStyle";
 import { devices } from "../../assets/_respondTo";
 import { FaAccusoft } from "react-icons/fa";
@@ -113,7 +113,7 @@ const Card = ({ text }) => {
 
   const posts = dataBerita;
 
-  console.log(posts);
+  // console.log(posts);
 
   const LoadMore = () => {
     setStart((prevValue) => prevValue + 3);
@@ -174,9 +174,9 @@ const Card = ({ text }) => {
             <div ref={cardRef} className="class_baru">
               <Button
                 icon={FaAccusoft}
-                label={start >= posts.length + 1 ? "Lihat Sedikit" : text}
+                label={start >= posts?.length + 1 ? "Lihat Sedikit" : text}
                 style={{ margin: "auto", marginTop: "40px" }}
-                onClick={start >= posts.length + 1 ? ShowLess : LoadMore}
+                onClick={start >= posts?.length + 1 ? ShowLess : LoadMore}
               />
             </div>
           </BeritaContent>
@@ -192,12 +192,37 @@ const Detail = (item) => {
       <div className="detail_container">
         <div className="detail_content">
           <div className="detail_img">
-            <img src={two} alt="two" />
+            <img src={item.img} alt="two" />
           </div>
           <div className="detail_text">
             <div className="visi_misi">
               <div className="detail_text_heading">{item.judul}</div>
               <div className="detail_text_p">{item.deskripsi}</div>
+            </div>
+            <div className="visi_misi">
+              <div className="detail_text_heading">{item.judulMisi}</div>
+              <div className="detail_text_p">
+                <div className="value_all">
+                  <ol>
+                    <div>
+                      <li>{item.deskripsiMisi}</li>
+                      <li>
+                        Mensosialisasikan serta menanamkan pola, sistem, dan
+                        konsep perbankan syariah dalam perekonomian masyarakat.
+                      </li>
+                      <li>
+                        Mengembangkan jaringan layanan kantor di wilayah eks
+                        Karesidenan Pati.
+                      </li>
+                      <li>
+                        Melakukan inovasi produk sesuai dengan kebutuhan dan
+                        perkembangan ekonomi masyarakat.
+                      </li>
+                      <li>Membangun kerja sama dengan berbagai lembaga.</li>
+                    </div>
+                  </ol>
+                </div>
+              </div>
             </div>
           </div>
         </div>
