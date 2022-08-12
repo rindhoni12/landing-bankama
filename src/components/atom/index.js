@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ayosyariah, logoWhite, lps1, ojk, two, wbsIcon } from "../../assets";
+import { ayosyariah, logoWhite, lps1, ojk, wbsIcon } from "../../assets";
 import SliderWrapper from "../carousel/_SlickSliderStyle";
 import { devices } from "../../assets/_respondTo";
 import { FaAccusoft } from "react-icons/fa";
@@ -20,6 +20,7 @@ import {
   SlideContent,
   WaItemSite,
 } from "./AtomElements";
+import { DATAFETCH } from "../../config";
 
 const Informasi = () => {
   return (
@@ -51,17 +52,14 @@ const Informasi = () => {
 };
 
 const CardItem = ({ item }) => {
-  let text = item.judul;
-  let result = text.toLowerCase();
-  const judulBerita = result.split(" ").join("-");
-  const idNumber = item.id.toString();
-  const gabunganJudul = idNumber + "-" + judulBerita;
-
   return (
     <CardItemComponents>
-      <a href={`./berita-kami/${gabunganJudul}`} className="card_item">
+      <a href={`./berita-kami/${item.slug}`} className="card_item">
         <div className="card_img">
-          <img src={item.img} alt="blog_img" />
+          <img
+            src={`https://admin.arthamasabadi.co.id/storage/images/blogs/${item.img}`}
+            alt="blog_img"
+          />
         </div>
         <div className="card_body">
           <h3>{item.judul}</h3>
@@ -103,12 +101,19 @@ const BeritaContent = styled.div`
   }
 `;
 
-const Card = ({ itemBerita, text }) => {
+const Card = ({ text }) => {
   const [start, setStart] = useState(6);
   const [isActive, setActive] = useState(false);
   const testRef = useRef();
   const cardRef = useRef();
-  const posts = itemBerita;
+
+  const dataBerita = DATAFETCH(
+    "https://admin.arthamasabadi.co.id/api/v1/posts"
+  )?.data;
+
+  const posts = dataBerita;
+
+  // console.log(posts);
 
   const LoadMore = () => {
     setStart((prevValue) => prevValue + 3);
@@ -138,7 +143,7 @@ const Card = ({ itemBerita, text }) => {
             <div className="card_content">
               {posts ? (
                 <>
-                  {posts.slice(0, 6).map((item, i) => (
+                  {posts?.slice(0, 6).map((item, i) => (
                     <CardItem key={i} item={item} />
                   ))}
                 </>
@@ -158,7 +163,7 @@ const Card = ({ itemBerita, text }) => {
             <div className="card_content">
               {posts ? (
                 <>
-                  {posts.slice(0, start).map((item, i) => (
+                  {posts?.slice(0, start).map((item, i) => (
                     <CardItem key={i} item={item} />
                   ))}
                 </>
@@ -169,9 +174,9 @@ const Card = ({ itemBerita, text }) => {
             <div ref={cardRef} className="class_baru">
               <Button
                 icon={FaAccusoft}
-                label={start >= posts.length + 1 ? "Lihat Sedikit" : text}
+                label={start >= posts?.length + 1 ? "Lihat Sedikit" : text}
                 style={{ margin: "auto", marginTop: "40px" }}
-                onClick={start >= posts.length + 1 ? ShowLess : LoadMore}
+                onClick={start >= posts?.length + 1 ? ShowLess : LoadMore}
               />
             </div>
           </BeritaContent>
@@ -187,12 +192,37 @@ const Detail = (item) => {
       <div className="detail_container">
         <div className="detail_content">
           <div className="detail_img">
-            <img src={two} alt="two" />
+            <img src={item.img} alt="two" />
           </div>
           <div className="detail_text">
             <div className="visi_misi">
               <div className="detail_text_heading">{item.judul}</div>
               <div className="detail_text_p">{item.deskripsi}</div>
+            </div>
+            <div className="visi_misi">
+              <div className="detail_text_heading">{item.judulMisi}</div>
+              <div className="detail_text_p">
+                <div className="value_all">
+                  <ol>
+                    <div>
+                      <li>{item.deskripsiMisi}</li>
+                      <li>
+                        Mensosialisasikan serta menanamkan pola, sistem, dan
+                        konsep perbankan syariah dalam perekonomian masyarakat.
+                      </li>
+                      <li>
+                        Mengembangkan jaringan layanan kantor di wilayah eks
+                        Karesidenan Pati.
+                      </li>
+                      <li>
+                        Melakukan inovasi produk sesuai dengan kebutuhan dan
+                        perkembangan ekonomi masyarakat.
+                      </li>
+                      <li>Membangun kerja sama dengan berbagai lembaga.</li>
+                    </div>
+                  </ol>
+                </div>
+              </div>
             </div>
           </div>
         </div>

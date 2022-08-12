@@ -2,7 +2,7 @@ import React from "react";
 import { FooterSite, Media } from "./FooterElements";
 import gambarOjk from "../../assets/img/ojk.png";
 import { WaItemContent } from "../atom";
-import { logoBawah, lps } from "../../assets";
+import { logoAma, lps } from "../../assets";
 import { MEDIA_SOSIAL } from "../../config";
 
 const Footer = () => {
@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="footer_content">
           <div className="footer_header">
             <div className="footer_logo">
-              <img src={logoBawah} alt="logo_bawah" />
+              <img src={logoAma} alt="logo_bawah" />
             </div>
             <div className="footer_header_content">
               <nav>

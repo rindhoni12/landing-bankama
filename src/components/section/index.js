@@ -19,7 +19,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import ModalItem from "../modal";
 import { FormContent } from "../form/FormElements";
-import { ORGANISASI, KONTAK_KAMI } from "../../config";
+import { ORGANISASI, KONTAK_KAMI, DATAFETCH } from "../../config";
 import {
   Button,
   ButtonTransparent,
@@ -672,6 +672,18 @@ const HubungiSection = () => {
 };
 
 const CardInformasiSection = () => {
+  const dataBunga = DATAFETCH(
+    "https://admin.arthamasabadi.co.id/api/v1/bunga"
+  )?.data;
+
+  const withoutDeposito = dataBunga?.filter(
+    (item) => !item.jenis_investasi.includes("Deposito")
+  );
+
+  const withDeposito = dataBunga?.filter((item) =>
+    item.jenis_investasi.includes("Deposito")
+  );
+
   return (
     <CardInformasiSite>
       <div className="informasi_container">
@@ -699,31 +711,15 @@ const CardInformasiSection = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>Tabungan Wadiah</td>
-                        <td>-</td>
-                        <td>1.5%</td>
-                        <td>1.5%</td>
-                        <td>1.5%</td>
-                      </tr>
-                      <tr>
-                        <td style={{ width: "35%" }}>
-                          Tabungan Mudhrabah (iB Haji dan Masa Depan)
-                        </td>
-                        <td>11%</td>
-                        <td>1.5%</td>
-                        <td>1.5%</td>
-                        <td>1.5%</td>
-                      </tr>
-                      <tr>
-                        <td style={{ width: "35%" }}>
-                          Tabungan Mudhrabah (iB Haji dan Masa Depan)
-                        </td>
-                        <td>11%</td>
-                        <td>1.5%</td>
-                        <td>1.5%</td>
-                        <td>1.5%</td>
-                      </tr>
+                      {withoutDeposito?.map((item, i) => (
+                        <tr key={i}>
+                          <td>{item.jenis_investasi}</td>
+                          <td>{item.nisbah}</td>
+                          <td>{item.bunga_bulan1}%</td>
+                          <td>{item.bunga_bulan2}%</td>
+                          <td>{item.bunga_bulan3}%</td>
+                        </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>
@@ -751,27 +747,15 @@ const CardInformasiSection = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>Deposito 3 Bulan</td>
-                        <td>-</td>
-                        <td>1.5%</td>
-                        <td>1.5%</td>
-                        <td>1.5%</td>
-                      </tr>
-                      <tr>
-                        <td>Deposito 6 Bulan</td>
-                        <td>-</td>
-                        <td>1.5%</td>
-                        <td>1.5%</td>
-                        <td>1.5%</td>
-                      </tr>
-                      <tr>
-                        <td>Deposito 12 Bulan</td>
-                        <td>-</td>
-                        <td>1.5%</td>
-                        <td>1.5%</td>
-                        <td>1.5%</td>
-                      </tr>
+                      {withDeposito?.map((item, i) => (
+                        <tr key={i}>
+                          <td>{item.jenis_investasi}</td>
+                          <td>{item.nisbah}</td>
+                          <td>{item.bunga_bulan1}%</td>
+                          <td>{item.bunga_bulan2}%</td>
+                          <td>{item.bunga_bulan3}%</td>
+                        </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>

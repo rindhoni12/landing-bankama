@@ -55,6 +55,9 @@ export const ButtonContent = styled.div`
       transition: 0.3s all ease;
       transform: scale(1.05);
     }
+    a {
+      background-color: transparent;
+    }
   }
 
   .button_organisasi {

@@ -2,6 +2,28 @@ import { FiFacebook, FiMail, FiPhone, FiTwitter } from "react-icons/fi";
 import { FaEllipsisV, FaInstagram, FaPhone } from "react-icons/fa";
 import { blog, organisasi } from "../assets";
 import fileDownload from "../assets/cv_prawito.pdf";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+export const DATAFETCH = (url) => {
+  const [data, setData] = useState();
+  const [isloading, setLoading] = useState(true);
+  useEffect(() => {
+    const getData = async () => {
+      setLoading(true);
+      try {
+        const response = await axios(url);
+        setData(response.data.data);
+      } catch {
+        console.log("error");
+      }
+      setLoading(false);
+    };
+    getData();
+  }, [url]);
+
+  return { data, isloading };
+};
 
 export const DATA_PUBLIKASI = [
   {

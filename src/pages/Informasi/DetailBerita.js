@@ -1,20 +1,28 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { DetailBeritaComponents } from "../../components";
-import { BERITA } from "../../config";
+import { DATAFETCH } from "../../config";
 
 const DetailBerita = () => {
   const { id } = useParams();
 
-  const activeServiceList = BERITA.filter((item) => {
-    let text = item.judul;
-    let result = text.toLowerCase();
-    const judulBerita = result.split(" ").join("-");
+  const DATABERITA = DATAFETCH(
+    "https://admin.arthamasabadi.co.id/api/v1/posts"
+  );
 
-    return id.includes(judulBerita);
-  });
+  if (DATABERITA?.data) {
+    const activeServiceList = DATABERITA?.data.filter((item) => {
+      return id.includes(item.slug);
+    });
 
-  return <DetailBeritaComponents item={id} newItem={activeServiceList} />;
+    return (
+      <DetailBeritaComponents
+        loading={DATABERITA.isloading}
+        item={id}
+        newItem={activeServiceList}
+      />
+    );
+  }
 };
 
 export default DetailBerita;

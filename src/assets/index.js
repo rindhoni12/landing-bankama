@@ -5,9 +5,11 @@ import ayosyariah from "./img/ayosyariah.jpeg";
 import contactUs from "./img/contact-us.png";
 import logoBawah from "./img/logo_bawah.png";
 import logoWhite from "./img/logo_white.png";
+import visimisi from "./img/visimisi.webp";
 import whatsapp from "./img/whatsapp.png";
 import wbsIcon from "./img/wbs-icon.png";
 import logoNew from "./img/logo_new.png";
+import logoAma from "./img/logo_ama_long.png";
 import banner from "./img/banner.png";
 import jago2 from "./img/jago-2.jpeg";
 import jago3 from "./img/jago-3.jpg";
@@ -29,8 +31,10 @@ export {
   logoWhite,
   logoBawah,
   whatsapp,
+  visimisi,
   wbsIcon,
   logoNew,
+  logoAma,
   banner,
   jago3,
   jago2,

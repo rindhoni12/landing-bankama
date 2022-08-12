@@ -13,6 +13,7 @@ import {
   Detail,
   Card,
 } from "../../components";
+import { visimisi } from "../../assets";
 
 const Home = () => {
   const location = useLocation();
@@ -24,9 +25,11 @@ const Home = () => {
       />
       <SimpleSlider />
       <Detail
+        img={visimisi}
         judul="Visi"
-        deskripsi="Menjadi BPR yang kuat, dipercaya dan selalu dihati masyarakat di
-                seluruh wilayah kerja Kabupaten Pati dan sekitarnya."
+        deskripsi="Menjadi BPR Syariah pilihan masyarakat yang sehat, unggul, dan terpercaya di wilayah eks Karesidenan Pati."
+        judulMisi="Misi"
+        deskripsiMisi="Menjadi BPR Syariah pilihan masyarakat yang sehat, unggul, dan terpercaya di wilayah eks Karesidenan Pati."
       />
       <OjkInformasi />
       <SimpleSliderFicture

@@ -1,6 +1,6 @@
 import React from "react";
 import { FocusComponentColor, ReactHelmet } from "../../components/atom";
-import { FormKpr } from "../../components";
+import { FormSimulasi } from "../../components";
 import { useLocation } from "react-router-dom";
 import { contactUs } from "../../assets";
 
@@ -13,7 +13,8 @@ const Simulasi = () => {
         url={location.pathname}
       />
       <FocusComponentColor backgroundColor="#26ac42" img={contactUs} />
-      <FormKpr />
+      {/* <FormKpr /> */}
+      <FormSimulasi />
     </>
   );
 };
