@@ -141,6 +141,7 @@ export const CardItemComponents = styled.div`
       position: relative;
       object-fit: cover;
       width: 100%;
+      height: 150px;
 
       img {
         object-fit: cover;

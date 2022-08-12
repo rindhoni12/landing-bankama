@@ -31,6 +31,7 @@ import {
   WaItemContent,
   Detail,
   Card,
+  CardItemLoad,
 } from "./atom";
 import { Button, ButtonTransparent, ButtonDownload } from "./button";
 
@@ -70,4 +71,5 @@ export {
   ButtonTransparent,
   ButtonDownload,
   FormSimulasi,
+  CardItemLoad,
 };
