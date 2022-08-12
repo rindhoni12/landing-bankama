@@ -141,6 +141,23 @@ export const FormContent = styled.div`
     }
   }
 
+  .card_content_flex {
+    display: flex;
+    flex-direction: row;
+
+    ${devices.smartphone} {
+      flex-direction: column;
+    }
+
+    ${devices.ipads} {
+      flex-direction: column;
+    }
+
+    ${devices.laptops} {
+      flex-direction: column;
+    }
+  }
+
   .content_form_buka {
     display: initial;
     /* flex-direction: row;

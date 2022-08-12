@@ -495,10 +495,7 @@ export const FormSimulasi = () => {
         </div>
         <FormContent>
           <div className="card_form">
-            <div
-              style={{ display: "flex", flexDirection: "row" }}
-              className="card_content_flex"
-            >
+            <div className="card_content_flex">
               <div className="content">
                 <div className="heading">Tabungan</div>
                 <div className="body">
@@ -628,7 +625,7 @@ export const FormSimulasi = () => {
             )}
           </div>
 
-          {show ? (
+          {show && showSimu ? (
             <div className="card_form">
               <div className="content">
                 <p>
@@ -642,7 +639,7 @@ export const FormSimulasi = () => {
                       <thead>
                         <tr style={{ background: "#079607" }}>
                           <th rowSpan="2">Jenis Investasi</th>
-                          <th colSpan="3">Simulasi Saldo (%)</th>
+                          <th colSpan="3">Simulasi Saldo (Rp)</th>
                         </tr>
                         <tr style={{ background: "#007c00" }}>
                           <th className="text">April 2022</th>

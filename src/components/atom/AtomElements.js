@@ -309,7 +309,7 @@ export const DetailComponents = styled.section`
       img {
         width: 100%;
         height: 100%;
-        border-radius: 20px;
+        border-radius: 10px;
       }
 
       ${devices.smartphone} {
