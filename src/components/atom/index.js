@@ -77,6 +77,32 @@ const CardItem = ({ item }) => {
   );
 };
 
+const CardItemLoad = ({ item }) => {
+  return (
+    <CardItemComponents>
+      <div className="card_img">
+        <img
+          src={`https://admin.arthamasabadi.co.id/storage/images/blogs/1660194491-4-keuntungan-utama-hidup-bebas-dari-utang.jpg`}
+          alt="blog_img"
+        />
+      </div>
+      <div className="card_body">
+        <h3>Loading..</h3>
+
+        <div
+          className="berita_text"
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(
+              "Pengguna dapat menghubungi Call BRI atas setiap permasalahan yang berkaitan dengan akses layanan www.bri.co.id"
+            ),
+          }}
+        />
+      </div>
+      <div className="card_footer">loading..</div>
+    </CardItemComponents>
+  );
+};
+
 const BeritaContent = styled.div`
   .card_content {
     display: grid;
@@ -148,7 +174,7 @@ const Card = ({ text }) => {
                   ))}
                 </>
               ) : (
-                "Tidak ada data"
+                <CardItemLoad />
               )}
             </div>
             <Button
@@ -168,7 +194,7 @@ const Card = ({ text }) => {
                   ))}
                 </>
               ) : (
-                "Tidak ada data"
+                <CardItemLoad />
               )}
             </div>
             <div ref={cardRef} className="class_baru">
@@ -205,20 +231,9 @@ const Detail = (item) => {
                 <div className="value_all">
                   <ol>
                     <div>
-                      <li>{item.deskripsiMisi}</li>
-                      <li>
-                        Mensosialisasikan serta menanamkan pola, sistem, dan
-                        konsep perbankan syariah dalam perekonomian masyarakat.
-                      </li>
-                      <li>
-                        Mengembangkan jaringan layanan kantor di wilayah eks
-                        Karesidenan Pati.
-                      </li>
-                      <li>
-                        Melakukan inovasi produk sesuai dengan kebutuhan dan
-                        perkembangan ekonomi masyarakat.
-                      </li>
-                      <li>Membangun kerja sama dengan berbagai lembaga.</li>
+                      {item.misi?.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
                     </div>
                   </ol>
                 </div>
@@ -632,4 +647,5 @@ export {
   FocusComponentWithLogo,
   ReactHelmet,
   WaItemContent,
+  CardItemLoad,
 };

@@ -141,6 +141,7 @@ export const CardItemComponents = styled.div`
       position: relative;
       object-fit: cover;
       width: 100%;
+      height: 150px;
 
       img {
         object-fit: cover;
@@ -305,11 +306,13 @@ export const DetailComponents = styled.section`
       overflow: hidden;
       padding: 10px;
       width: 50%;
+      max-height: 350px;
 
       img {
         width: 100%;
         height: 100%;
         border-radius: 10px;
+        object-fit: cover;
       }
 
       ${devices.smartphone} {

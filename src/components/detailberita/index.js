@@ -34,7 +34,7 @@ const DetailBeritaComponents = ({ newItem, loading }) => {
                   </nav>
                   <div className="berita_judul">
                     <div className="judul">{itemBerita.judul}</div>
-                    <p>18 Juli 2020</p>
+                    <p>{itemBerita.date}</p>
                   </div>
                   <div className="berita_full">
                     <div className="berita_gambar">
