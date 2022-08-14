@@ -231,20 +231,9 @@ const Detail = (item) => {
                 <div className="value_all">
                   <ol>
                     <div>
-                      <li>{item.deskripsiMisi}</li>
-                      <li>
-                        Mensosialisasikan serta menanamkan pola, sistem, dan
-                        konsep perbankan syariah dalam perekonomian masyarakat.
-                      </li>
-                      <li>
-                        Mengembangkan jaringan layanan kantor di wilayah eks
-                        Karesidenan Pati.
-                      </li>
-                      <li>
-                        Melakukan inovasi produk sesuai dengan kebutuhan dan
-                        perkembangan ekonomi masyarakat.
-                      </li>
-                      <li>Membangun kerja sama dengan berbagai lembaga.</li>
+                      {item.misi?.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
                     </div>
                   </ol>
                 </div>

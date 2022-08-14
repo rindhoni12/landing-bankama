@@ -17,6 +17,14 @@ import { visimisi } from "../../assets";
 
 const Home = () => {
   const location = useLocation();
+
+  const DATAMISI = [
+    "Mensosialisasikan serta menanamkan pola, sistem, dan konsep perbankan syariah dalam perekonomian masyarakat.",
+    "Mengembangkan jaringan layanan kantor di wilayah eks Karesidenan Pati.",
+    "Melakukan inovasi produk sesuai dengan kebutuhan dan perkembangan ekonomi masyarakat.",
+    "Membangun kerja sama dengan berbagai lembaga.",
+  ];
+
   return (
     <>
       <ReactHelmet
@@ -29,6 +37,7 @@ const Home = () => {
         judul="Visi"
         deskripsi="Menjadi BPR Syariah pilihan masyarakat yang sehat, unggul, dan terpercaya di wilayah eks Karesidenan Pati."
         judulMisi="Misi"
+        misi={DATAMISI}
         deskripsiMisi="Menjadi BPR Syariah pilihan masyarakat yang sehat, unggul, dan terpercaya di wilayah eks Karesidenan Pati."
       />
       <OjkInformasi />
