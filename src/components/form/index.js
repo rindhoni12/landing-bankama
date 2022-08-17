@@ -72,6 +72,7 @@ export const FormInput = (item) => {
     <div className="form_content_input">
       <label>{item.judul}</label>
       <input
+        name={item.name}
         id={item.judul}
         className="form_input"
         type={item.type}

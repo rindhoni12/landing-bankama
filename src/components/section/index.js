@@ -30,6 +30,7 @@ import {
 import { ButtonDownloadOrganisasi } from "../button";
 import cvPrawito from "../../assets/cv_prawito.pdf";
 import { FiX } from "react-icons/fi";
+import axios from "axios";
 
 const KontakKamiSection = () => {
   const dataCabang = KONTAK_KAMI.kantor_cabang[0];
@@ -909,8 +910,10 @@ const FormNasabahSection = () => {
   const [values, setValues] = useState({
     nama: "",
     alamat: "",
-    jenisIdentitas: "",
-    noIdentitas: "",
+    jenis_produk: "",
+    nik: "",
+    no_hp: "",
+    tgl_lahir: "",
   });
 
   const [selectedFile, setSelectedFile] = useState(null);
@@ -939,28 +942,50 @@ const FormNasabahSection = () => {
           userImage: reader.result,
         });
       };
+      setSelectedFile(file);
     }
-    const file = e.target.files[0];
-    setSelectedFile(file);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
       ...values,
-      file: selectedFile,
-      fileNew: preview.userImage,
+      foto_ktp: selectedFile,
+      // fileNew: preview.userImage,
     };
-    console.log(data);
     setValues({
       nama: "",
       alamat: "",
-      jenisIdentitas: "",
-      noIdentitas: "",
+      jenis_produk: "",
+      nik: "",
+      no_hp: "",
+      tgl_lahir: "",
     });
     inputRef.current.value = null;
+
+    const config = {
+      headers: { "content-type": "multipart/form-data" },
+    };
+
+    axios
+      .post("https://admin.arthamasabadi.co.id/api/v1/nasabah", data, config)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log("data tidak berhasil disimpan");
+        } else if (error.request) {
+          console.log("jaringan error");
+        } else {
+          console.log(error);
+        }
+      });
+
     setBerhasil(true);
   };
+
   return (
     <FormNasabahSite>
       <div className="nasabah_container">
@@ -1002,23 +1027,40 @@ const FormNasabahSection = () => {
                       </div>
                       <div className="inputan">
                         <FormInput
-                          judul="Jenis Identitas"
-                          placeholder="Jenis Identitas"
+                          judul="No HP"
+                          placeholder="No HP"
+                          type="number"
+                          value={values.no_hp}
+                          onChange={set("no_hp")}
+                        />
+                        <FormInput
+                          judul="Tanggal Lahir"
+                          placeholder="Tanggal Lahir"
+                          type="date"
+                          value={values.tgl_lahir}
+                          onChange={set("tgl_lahir")}
+                        />
+                      </div>
+                      <div className="inputan">
+                        <FormInput
+                          judul="Jenis Produk"
+                          placeholder="Jenis Produk"
                           type="text"
-                          value={values.jenisIdentitas}
-                          onChange={set("jenisIdentitas")}
+                          value={values.jenis_produk}
+                          onChange={set("jenis_produk")}
                         />
                         <FormInput
                           judul="No. Identitas"
                           placeholder="No. Identitas"
                           type="text"
-                          value={values.noIdentitas}
-                          onChange={set("noIdentitas")}
+                          value={values.nik}
+                          onChange={set("nik")}
                         />
                         <FormInput
                           judul="File Identitas"
                           placeholder="File Identitas"
                           type="file"
+                          name="ktp"
                           onChange={handleUpload}
                           innerRef={inputRef}
                         />
@@ -1079,8 +1121,8 @@ const PenyaluranSection = () => {
   const [values, setValues] = useState({
     nama: "",
     alamat: "",
-    jenisIdentitas: "",
-    noIdentitas: "",
+    jenis_produk: "",
+    nik: "",
     namaIbu: "",
   });
 
@@ -1123,8 +1165,8 @@ const PenyaluranSection = () => {
     setValues({
       nama: "",
       alamat: "",
-      jenisIdentitas: "",
-      noIdentitas: "",
+      jenis_produk: "",
+      nik: "",
       namaIbu: "",
     });
     setSelect("");
@@ -1189,15 +1231,15 @@ const PenyaluranSection = () => {
                           judul="Jenis Identitas"
                           placeholder="Jenis Identitas"
                           type="text"
-                          value={values.jenisIdentitas}
-                          onChange={set("jenisIdentitas")}
+                          value={values.jenis_produk}
+                          onChange={set("jenis_produk")}
                         />
                         <FormInput
                           judul="No. Identitas"
                           placeholder="No. Identitas"
                           type="text"
-                          value={values.noIdentitas}
-                          onChange={set("noIdentitas")}
+                          value={values.nik}
+                          onChange={set("nik")}
                         />
                         <FormInput
                           judul="File Identitas"
