@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/web-landing/static/css/main.d026f199.css",
-    "main.js": "/web-landing/static/js/main.8fc0f0ce.js",
+    "main.js": "/web-landing/static/js/main.43b5a250.js",
     "static/media/blog.jpg": "/web-landing/static/media/blog.490bef791b07bdd7f7d8.jpg",
     "static/media/jago-2.jpeg": "/web-landing/static/media/jago-2.40254e148c07e8c3b7fd.jpeg",
     "static/media/visimisi.webp": "/web-landing/static/media/visimisi.ab64675c9a7b94489b8a.webp",
@@ -31,10 +31,10 @@
     "index.html": "/web-landing/index.html",
     "static/media/slick.woff": "/web-landing/static/media/slick.295183786cd8a1389865.woff",
     "main.d026f199.css.map": "/web-landing/static/css/main.d026f199.css.map",
-    "main.8fc0f0ce.js.map": "/web-landing/static/js/main.8fc0f0ce.js.map"
+    "main.43b5a250.js.map": "/web-landing/static/js/main.43b5a250.js.map"
   },
   "entrypoints": [
     "static/css/main.d026f199.css",
-    "static/js/main.8fc0f0ce.js"
+    "static/js/main.43b5a250.js"
   ]
 }
