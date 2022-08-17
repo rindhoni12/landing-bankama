@@ -47,8 +47,6 @@ const SimpleSlider = () => {
     "https://admin.arthamasabadi.co.id/api/v1/banners"
   )?.data;
 
-  console.log(DATABANNERS);
-
   return (
     <CorouselSection>
       <SliderWrapper>
@@ -73,7 +71,7 @@ const SimpleSlider = () => {
         ) : (
           <Slider {...settings}>
             {DATABANNERS &&
-              DATABANNERS.map((item, i) => (
+              DATABANNERS?.map((item, i) => (
                 <div key={i} className="class_img">
                   <img
                     src={`https://admin.arthamasabadi.co.id/storage/images/banners/${item.banner}`}

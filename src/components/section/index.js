@@ -1,6 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FaAccusoft, FaDownload } from "react-icons/fa";
-import { FormInput, FormInputSelectNew, FormTextArea } from "../form";
+import {
+  FormInput,
+  FormInputSelectNew,
+  FormInputSelectProduct,
+  FormTextArea,
+} from "../form";
 import {
   CardInformasiSite,
   ContentTabSite,
@@ -35,7 +40,6 @@ import axios from "axios";
 const KontakKamiSection = () => {
   const dataCabang = KONTAK_KAMI.kantor_cabang[0];
   const dataPusat = KONTAK_KAMI.kantor_pusat[0];
-  console.log(dataPusat);
   return (
     <KontakKamiSite>
       <div className="tentang_container">
@@ -685,6 +689,12 @@ const CardInformasiSection = () => {
     item.jenis_investasi.includes("Deposito")
   );
 
+  let dataBaru = [];
+
+  for (let i = 0; i < withDeposito?.length; i++) {
+    dataBaru.push(withDeposito[0]);
+  }
+
   return (
     <CardInformasiSite>
       <div className="informasi_container">
@@ -706,9 +716,9 @@ const CardInformasiSection = () => {
                         <th colSpan="3">Tingkat Imbalan/Tahun (%)</th>
                       </tr>
                       <tr style={{ background: "#007c00" }}>
-                        <th className="text">April 2022</th>
-                        <th className="text">Mei 2022</th>
-                        <th className="text">Juni 2022</th>
+                        <th className="text">{dataBaru[0]?.nama_bulan1}</th>
+                        <th className="text">{dataBaru[0]?.nama_bulan2}</th>
+                        <th className="text">{dataBaru[0]?.nama_bulan3}</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -742,9 +752,9 @@ const CardInformasiSection = () => {
                         <th colSpan="3">Tingkat Imbalan/Tahun (%)</th>
                       </tr>
                       <tr style={{ background: "#007c00" }}>
-                        <th className="text">April 2022</th>
-                        <th className="text">Mei 2022</th>
-                        <th className="text">Juni 2022</th>
+                        <th className="text">{dataBaru[0]?.nama_bulan1}</th>
+                        <th className="text">{dataBaru[0]?.nama_bulan2}</th>
+                        <th className="text">{dataBaru[0]?.nama_bulan3}</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -919,6 +929,7 @@ const FormNasabahSection = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [preview, setPreview] = useState(null);
   const [berhasil, setBerhasil] = useState(false);
+  const [dataresponse, setDataResponse] = useState([]);
 
   const set = (name) => {
     return ({ target: { value } }) => {
@@ -927,8 +938,6 @@ const FormNasabahSection = () => {
   };
 
   const inputRef = useRef(null);
-
-  // console.log(selectedFile);
 
   const handleUpload = (e) => {
     if (e.target.files.length !== 0) {
@@ -970,7 +979,7 @@ const FormNasabahSection = () => {
     axios
       .post("https://admin.arthamasabadi.co.id/api/v1/nasabah", data, config)
       .then((response) => {
-        console.log(response);
+        setDataResponse(response.data);
       })
       .catch((error) => {
         if (error.response) {
@@ -983,6 +992,7 @@ const FormNasabahSection = () => {
         }
       });
 
+    setPreview(null);
     setBerhasil(true);
   };
 
@@ -1042,10 +1052,15 @@ const FormNasabahSection = () => {
                         />
                       </div>
                       <div className="inputan">
-                        <FormInput
+                        {/* <FormInput
                           judul="Jenis Produk"
                           placeholder="Jenis Produk"
                           type="text"
+                          value={values.jenis_produk}
+                          onChange={set("jenis_produk")}
+                        /> */}
+                        <FormInputSelectProduct
+                          placeholder="Jenis Layanan"
                           value={values.jenis_produk}
                           onChange={set("jenis_produk")}
                         />
@@ -1070,10 +1085,10 @@ const FormNasabahSection = () => {
                         pengaduan akan dikirimkan melalui No. Hp yang di
                         masukan.
                       </p>
-                      {berhasil ? (
+                      {dataresponse?.success && berhasil ? (
                         <p className="informasi">
                           <b>Informasi : </b>
-                          Data Berhasil Dikirim, silahkan cek pesan WhatsApp
+                          {dataresponse?.message}, silahkan cek pesan WhatsApp
                           secara berkala.
                           <button onClick={() => setBerhasil(false)}>
                             <FiX />
@@ -1082,6 +1097,20 @@ const FormNasabahSection = () => {
                       ) : (
                         ""
                       )}
+                      <div className="bungkus_image">
+                        {preview === null ? (
+                          ""
+                        ) : (
+                          <>
+                            <div className="text">Preview Gambar</div>
+                            <img
+                              style={{ height: "100%", width: "100%" }}
+                              src={preview.userImage}
+                              alt="seletedFile"
+                            />
+                          </>
+                        )}
+                      </div>
                       <div className="button_flex">
                         <Button
                           id="form_baru"
@@ -1091,19 +1120,6 @@ const FormNasabahSection = () => {
                         >
                           Hitung
                         </Button>
-                      </div>
-                      <div className="bungkus_image">
-                        <div className="text">Test Gambar</div>
-
-                        {preview === null ? (
-                          ""
-                        ) : (
-                          <img
-                            style={{ height: "100%", width: "100%" }}
-                            src={preview.userImage}
-                            alt="seletedFile"
-                          />
-                        )}
                       </div>
                     </form>
                   </div>

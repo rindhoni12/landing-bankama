@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ayosyariah, logoWhite, lps1, ojk, wbsIcon } from "../../assets";
+import { ayosyariah, blog, logoWhite, lps1, ojk, wbsIcon } from "../../assets";
 import SliderWrapper from "../carousel/_SlickSliderStyle";
 import { devices } from "../../assets/_respondTo";
 import { FaAccusoft } from "react-icons/fa";
@@ -77,17 +77,14 @@ const CardItem = ({ item }) => {
   );
 };
 
-const CardItemLoad = ({ item }) => {
+const CardItemLoad = (item) => {
   return (
     <CardItemComponents>
       <div className="card_img">
-        <img
-          src={`https://admin.arthamasabadi.co.id/storage/images/blogs/1660194491-4-keuntungan-utama-hidup-bebas-dari-utang.jpg`}
-          alt="blog_img"
-        />
+        <img src={blog} alt="blog_img" />
       </div>
       <div className="card_body">
-        <h3>Loading..</h3>
+        <h3>{item.judul}</h3>
 
         <div
           className="berita_text"
@@ -164,48 +161,59 @@ const Card = ({ text }) => {
           Text="Kami percaya bahwa pengalaman transaksi perbankan yang berfokus pada
           kehidupan Anda akan memungkinkan Anda untuk terus bertumbuh."
         />
-        {text === "Lihat Lebih" ? (
-          <BeritaContent isActive={isActive}>
-            <div className="card_content">
-              {posts ? (
-                <>
-                  {posts?.slice(0, 6).map((item, i) => (
-                    <CardItem key={i} item={item} />
-                  ))}
-                </>
-              ) : (
-                <CardItemLoad />
-              )}
-            </div>
-            <Button
-              icon={FaAccusoft}
-              label={text}
-              style={{ margin: "auto", marginTop: "40px" }}
-              to="./berita-kami"
-            />
-          </BeritaContent>
-        ) : (
+
+        {posts?.length === 0 ? (
           <BeritaContent>
             <div className="card_content">
-              {posts ? (
-                <>
-                  {posts?.slice(0, start).map((item, i) => (
-                    <CardItem key={i} item={item} />
-                  ))}
-                </>
-              ) : (
-                <CardItemLoad />
-              )}
-            </div>
-            <div ref={cardRef} className="class_baru">
-              <Button
-                icon={FaAccusoft}
-                label={start >= posts?.length + 1 ? "Lihat Sedikit" : text}
-                style={{ margin: "auto", marginTop: "40px" }}
-                onClick={start >= posts?.length + 1 ? ShowLess : LoadMore}
-              />
+              <CardItemLoad judul="Tidak Ada Berita, semoga segera ada berita baru yaa.." />
             </div>
           </BeritaContent>
+        ) : (
+          <>
+            {text === "Lihat Lebih" ? (
+              <BeritaContent isActive={isActive}>
+                <div className="card_content">
+                  {posts ? (
+                    <>
+                      {posts?.slice(0, 6).map((item, i) => (
+                        <CardItem key={i} item={item} />
+                      ))}
+                    </>
+                  ) : (
+                    <CardItemLoad judul="Loading..." />
+                  )}
+                </div>
+                <Button
+                  icon={FaAccusoft}
+                  label={text}
+                  style={{ margin: "auto", marginTop: "40px" }}
+                  to="./berita-kami"
+                />
+              </BeritaContent>
+            ) : (
+              <BeritaContent>
+                <div className="card_content">
+                  {posts ? (
+                    <>
+                      {posts?.slice(0, start).map((item, i) => (
+                        <CardItem key={i} item={item} />
+                      ))}
+                    </>
+                  ) : (
+                    <CardItemLoad judul="Loading..." />
+                  )}
+                </div>
+                <div ref={cardRef} className="class_baru">
+                  <Button
+                    icon={FaAccusoft}
+                    label={start >= posts?.length + 1 ? "Lihat Sedikit" : text}
+                    style={{ margin: "auto", marginTop: "40px" }}
+                    onClick={start >= posts?.length + 1 ? ShowLess : LoadMore}
+                  />
+                </div>
+              </BeritaContent>
+            )}
+          </>
         )}
       </div>
     </CardComponents>

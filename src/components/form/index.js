@@ -67,6 +67,36 @@ export const FormInputSelectNew = (item) => {
   );
 };
 
+export const FormInputSelectProduct = (item) => {
+  return (
+    <div className="form_content_input">
+      <label>{item.placeholder}</label>
+      <select
+        className="style_selectNew"
+        onChange={item.onChange}
+        required
+        // defaultValue={item.value}
+        value={item.value}
+      >
+        <option value="" disabled>
+          {item.placeholder}
+        </option>
+        <option value="Tabungan iB Wadiah">Tabungan iB Wadiah</option>
+        <option value="Tabungan iB Multijasa">Tabungan iB Multijasa</option>
+        <option value="Tabungan iB Mudharabah">Tabungan iB Mudharabah</option>
+        <option value="Pembiayaan iB Wadiah">Pembiayaan iB Wadiah</option>
+        <option value="Pembiayaan iB Musyarakah">
+          Pembiayaan iB Musyarakah
+        </option>
+        <option value="Pembiayaan iB Multijasa">Pembiayaan iB Multijasa</option>
+        <option value="Pembiayaan iB Gadai Emas">
+          Pembiayaan iB Gadai Emas
+        </option>
+      </select>
+    </div>
+  );
+};
+
 export const FormInput = (item) => {
   return (
     <div className="form_content_input">
