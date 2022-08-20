@@ -1,6 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FaAccusoft, FaDownload } from "react-icons/fa";
-import { FormInput, FormInputSelectNew, FormTextArea } from "../form";
+import {
+  FormInput,
+  FormInputSelectNew,
+  FormInputSelectProduct,
+  FormTextArea,
+} from "../form";
 import {
   CardInformasiSite,
   ContentTabSite,
@@ -30,18 +35,18 @@ import {
 import { ButtonDownloadOrganisasi } from "../button";
 import cvPrawito from "../../assets/cv_prawito.pdf";
 import { FiX } from "react-icons/fi";
+import axios from "axios";
 
-const KontakKamiSection = () => {
+const KontakKamiSection = ({ dataWording }) => {
   const dataCabang = KONTAK_KAMI.kantor_cabang[0];
   const dataPusat = KONTAK_KAMI.kantor_pusat[0];
-  console.log(dataPusat);
   return (
     <KontakKamiSite>
       <div className="tentang_container">
         <div className="tentang_content">
           <HeadingComponent
-            Heading="Kontak Kami"
-            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+            Heading={dataWording ? dataWording[3]?.text : ""}
+            Text={dataWording ? dataWording[3]?.desc : ""}
           />
         </div>
         <div className="tentang_maps">
@@ -101,7 +106,7 @@ const KontakKamiSection = () => {
   );
 };
 
-const OrganisasiSection = () => {
+const OrganisasiSection = ({ dataWording }) => {
   const allOrganisasi = [
     "All",
     ...new Set(ORGANISASI.map((item) => item.jabatan)),
@@ -129,8 +134,8 @@ const OrganisasiSection = () => {
       <div className="organisasi_container">
         <div className="organisasi_content">
           <HeadingComponent
-            Heading="Pimpinan Kami"
-            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+            Heading={dataWording ? dataWording[2]?.text : ""}
+            Text={dataWording ? dataWording[2]?.desc : ""}
           />
         </div>
         <div className="organisasi_page">
@@ -443,21 +448,32 @@ const ContentTabPublikasi = (item) => {
           <h1>Apa yang Dimaksud dengan {item.judul} ?</h1>
           <p>{item.item && item.item.p}</p>
           <div className="button_download">
-            {item.item &&
-              item.item.fitur.map((item, i) => (
-                <div key={i} className="card_download">
-                  <div className="text_download">
-                    <h1>{item.judul}</h1>
-                    <p>{item.tanggal}</p>
-                  </div>
-                  <ButtonDownload
-                    icon={FaDownload}
-                    label="Donwload"
-                    file={item.buttonDonwload}
-                    judul={item.judul}
-                  />
-                </div>
-              ))}
+            {!item.item ? (
+              <>
+                {item?.item &&
+                  item?.item.fitur.map((item, i) => (
+                    <div key={i} className="card_download">
+                      <div className="text_download">
+                        <h1>{item.judul}</h1>
+                        <p>{item.tanggal}</p>
+                      </div>
+                      <ButtonDownload
+                        icon={FaDownload}
+                        label="Donwload"
+                        file={item.buttonDonwload}
+                        judul={item.judul}
+                      />
+                    </div>
+                  ))}
+              </>
+            ) : (
+              <div
+                style={{ textAlign: "left", fontSize: "14px" }}
+                className="none"
+              >
+                Keterangan : Sedang tidak ada data file yang tersedia.
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -471,7 +487,7 @@ const TabPanelPublikasi = ({ children }) => {
 
 TabPublikasi.TabPanelPublikasi = TabPanelPublikasi;
 
-const PublikasiSection = ({ judul, DATA_TABS }) => {
+const PublikasiSection = ({ DATA_TABS, dataWording }) => {
   const TABS = DATA_TABS;
 
   return (
@@ -479,8 +495,8 @@ const PublikasiSection = ({ judul, DATA_TABS }) => {
       <div className="layanan_container">
         <div className="layanan_content">
           <HeadingComponent
-            Heading={judul}
-            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+            Heading={dataWording ? dataWording[1]?.text : ""}
+            Text={dataWording ? dataWording[1]?.desc : ""}
           />
           <div className="layanan_tabs">
             <div className="content">
@@ -526,6 +542,7 @@ const HubungiSection = () => {
   });
 
   const [berhasil, setBerhasil] = useState(false);
+  // const [dataresponse, setDataResponse] = useState([]);
 
   const set = (name) => {
     return ({ target: { value } }) => {
@@ -538,6 +555,22 @@ const HubungiSection = () => {
     console.log(values);
     setValues({ nama: "", number: "", textArea: "" });
     setBerhasil(true);
+    // axios
+    //   .post("https://admin.arthamasabadi.co.id/api/v1/nasabah", data, config)
+    //   .then((response) => {
+    //     setDataResponse(response.data);
+    //   })
+    //   .catch((error) => {
+    //     if (error.response) {
+    //       console.log(error.response);
+    //       console.log("data tidak berhasil disimpan");
+    //     } else if (error.request) {
+    //       console.log("jaringan error");
+    //     } else {
+    //       console.log(error);
+    //     }
+    //   });
+    // console.log(dataresponse);
   };
 
   return (
@@ -671,7 +704,7 @@ const HubungiSection = () => {
   );
 };
 
-const CardInformasiSection = () => {
+const CardInformasiSection = ({ dataWording }) => {
   const dataBunga = DATAFETCH(
     "https://admin.arthamasabadi.co.id/api/v1/bunga"
   )?.data;
@@ -684,13 +717,19 @@ const CardInformasiSection = () => {
     item.jenis_investasi.includes("Deposito")
   );
 
+  let dataBaru = [];
+
+  for (let i = 0; i < withDeposito?.length; i++) {
+    dataBaru.push(withDeposito[0]);
+  }
+
   return (
     <CardInformasiSite>
       <div className="informasi_container">
         <div className="informasi_content">
           <HeadingComponent
-            Heading="Suku Bunga per Tahun"
-            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+            Heading={dataWording ? dataWording[2]?.text : ""}
+            Text={dataWording ? dataWording[2]?.desc : ""}
           />
           <div className="informasi_card_content">
             <div className="card_content">
@@ -698,72 +737,98 @@ const CardInformasiSection = () => {
               <div className="body">
                 <div className="class_table">
                   <table>
-                    <thead>
-                      <tr style={{ background: "#079607" }}>
-                        <th rowSpan="2">Jenis Investasi</th>
-                        <th rowSpan="2">Nisbah</th>
-                        <th colSpan="3">Tingkat Imbalan/Tahun (%)</th>
-                      </tr>
-                      <tr style={{ background: "#007c00" }}>
-                        <th className="text">April 2022</th>
-                        <th className="text">Mei 2022</th>
-                        <th className="text">Juni 2022</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {withoutDeposito?.map((item, i) => (
-                        <tr key={i}>
-                          <td>{item.jenis_investasi}</td>
-                          <td>{item.nisbah}</td>
-                          <td>{item.bunga_bulan1}%</td>
-                          <td>{item.bunga_bulan2}%</td>
-                          <td>{item.bunga_bulan3}%</td>
-                        </tr>
-                      ))}
-                    </tbody>
+                    {withoutDeposito ? (
+                      <>
+                        <thead>
+                          <tr style={{ background: "#079607" }}>
+                            <th rowSpan="2">Jenis Investasi</th>
+                            <th rowSpan="2">Nisbah</th>
+                            <th colSpan="3">Tingkat Imbalan/Tahun (%)</th>
+                          </tr>
+                          <tr style={{ background: "#007c00" }}>
+                            <th className="text">{dataBaru[0]?.nama_bulan1}</th>
+                            <th className="text">{dataBaru[0]?.nama_bulan2}</th>
+                            <th className="text">{dataBaru[0]?.nama_bulan3}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {withoutDeposito?.map((item, i) => (
+                            <tr key={i}>
+                              <td>{item.jenis_investasi}</td>
+                              <td>{item.nisbah}</td>
+                              <td>{item.bunga_bulan1}%</td>
+                              <td>{item.bunga_bulan2}%</td>
+                              <td>{item.bunga_bulan3}%</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </>
+                    ) : (
+                      <div className="footer">
+                        <b>Keterangan:</b> Maaf, data Tabungan saat ini sedang
+                        tidak tersedia!
+                      </div>
+                    )}
                   </table>
                 </div>
               </div>
-              <div className="footer">
-                Keterangan: Simpanan sampai dengan 2 Milyar Rupiah dijamin oleh
-                LPS.
-              </div>
+              {withoutDeposito ? (
+                <div className="footer">
+                  Keterangan: Simpanan sampai dengan 2 Milyar Rupiah dijamin
+                  oleh LPS.
+                </div>
+              ) : (
+                ""
+              )}
             </div>
             <div className="card_content">
               <div className="heading">Deposito</div>
               <div className="body">
                 <div className="class_table">
                   <table>
-                    <thead>
-                      <tr style={{ background: "#079607" }}>
-                        <th rowSpan="2">Jenis Investasi</th>
-                        <th rowSpan="2">Nisbah</th>
-                        <th colSpan="3">Tingkat Imbalan/Tahun (%)</th>
-                      </tr>
-                      <tr style={{ background: "#007c00" }}>
-                        <th className="text">April 2022</th>
-                        <th className="text">Mei 2022</th>
-                        <th className="text">Juni 2022</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {withDeposito?.map((item, i) => (
-                        <tr key={i}>
-                          <td>{item.jenis_investasi}</td>
-                          <td>{item.nisbah}</td>
-                          <td>{item.bunga_bulan1}%</td>
-                          <td>{item.bunga_bulan2}%</td>
-                          <td>{item.bunga_bulan3}%</td>
-                        </tr>
-                      ))}
-                    </tbody>
+                    {withDeposito ? (
+                      <>
+                        <thead>
+                          <tr style={{ background: "#079607" }}>
+                            <th rowSpan="2">Jenis Investasi</th>
+                            <th rowSpan="2">Nisbah</th>
+                            <th colSpan="3">Tingkat Imbalan/Tahun (%)</th>
+                          </tr>
+                          <tr style={{ background: "#007c00" }}>
+                            <th className="text">{dataBaru[0]?.nama_bulan1}</th>
+                            <th className="text">{dataBaru[0]?.nama_bulan2}</th>
+                            <th className="text">{dataBaru[0]?.nama_bulan3}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {withDeposito?.map((item, i) => (
+                            <tr key={i}>
+                              <td>{item.jenis_investasi}</td>
+                              <td>{item.nisbah}</td>
+                              <td>{item.bunga_bulan1}%</td>
+                              <td>{item.bunga_bulan2}%</td>
+                              <td>{item.bunga_bulan3}%</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </>
+                    ) : (
+                      <div className="footer">
+                        <b>Keterangan:</b> Maaf, data Deposito saat ini sedang
+                        tidak tersedia!
+                      </div>
+                    )}
                   </table>
                 </div>
               </div>
-              <div className="footer">
-                Keterangan: Simpanan sampai dengan 2 Milyar Rupiah dijamin oleh
-                LPS.
-              </div>
+              {withDeposito ? (
+                <div className="footer">
+                  Keterangan: Simpanan sampai dengan 2 Milyar Rupiah dijamin
+                  oleh LPS.
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>
@@ -909,13 +974,16 @@ const FormNasabahSection = () => {
   const [values, setValues] = useState({
     nama: "",
     alamat: "",
-    jenisIdentitas: "",
-    noIdentitas: "",
+    jenis_produk: "",
+    nik: "",
+    no_hp: "",
+    tgl_lahir: "",
   });
 
   const [selectedFile, setSelectedFile] = useState(null);
   const [preview, setPreview] = useState(null);
   const [berhasil, setBerhasil] = useState(false);
+  const [dataresponse, setDataResponse] = useState([]);
 
   const set = (name) => {
     return ({ target: { value } }) => {
@@ -924,8 +992,6 @@ const FormNasabahSection = () => {
   };
 
   const inputRef = useRef(null);
-
-  // console.log(selectedFile);
 
   const handleUpload = (e) => {
     if (e.target.files.length !== 0) {
@@ -939,28 +1005,51 @@ const FormNasabahSection = () => {
           userImage: reader.result,
         });
       };
+      setSelectedFile(file);
     }
-    const file = e.target.files[0];
-    setSelectedFile(file);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
       ...values,
-      file: selectedFile,
-      fileNew: preview.userImage,
+      foto_ktp: selectedFile,
+      // fileNew: preview.userImage,
     };
-    console.log(data);
     setValues({
       nama: "",
       alamat: "",
-      jenisIdentitas: "",
-      noIdentitas: "",
+      jenis_produk: "",
+      nik: "",
+      no_hp: "",
+      tgl_lahir: "",
     });
     inputRef.current.value = null;
+
+    const config = {
+      headers: { "content-type": "multipart/form-data" },
+    };
+
+    axios
+      .post("https://admin.arthamasabadi.co.id/api/v1/nasabah", data, config)
+      .then((response) => {
+        setDataResponse(response.data);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log("data tidak berhasil disimpan");
+        } else if (error.request) {
+          console.log("jaringan error");
+        } else {
+          console.log(error);
+        }
+      });
+
+    setPreview(null);
     setBerhasil(true);
   };
+
   return (
     <FormNasabahSite>
       <div className="nasabah_container">
@@ -1002,23 +1091,45 @@ const FormNasabahSection = () => {
                       </div>
                       <div className="inputan">
                         <FormInput
-                          judul="Jenis Identitas"
-                          placeholder="Jenis Identitas"
+                          judul="No HP"
+                          placeholder="No HP"
+                          type="number"
+                          value={values.no_hp}
+                          onChange={set("no_hp")}
+                        />
+                        <FormInput
+                          judul="Tanggal Lahir"
+                          placeholder="Tanggal Lahir"
+                          type="date"
+                          value={values.tgl_lahir}
+                          onChange={set("tgl_lahir")}
+                        />
+                      </div>
+                      <div className="inputan">
+                        {/* <FormInput
+                          judul="Jenis Produk"
+                          placeholder="Jenis Produk"
                           type="text"
-                          value={values.jenisIdentitas}
-                          onChange={set("jenisIdentitas")}
+                          value={values.jenis_produk}
+                          onChange={set("jenis_produk")}
+                        /> */}
+                        <FormInputSelectProduct
+                          placeholder="Jenis Layanan"
+                          value={values.jenis_produk}
+                          onChange={set("jenis_produk")}
                         />
                         <FormInput
                           judul="No. Identitas"
                           placeholder="No. Identitas"
                           type="text"
-                          value={values.noIdentitas}
-                          onChange={set("noIdentitas")}
+                          value={values.nik}
+                          onChange={set("nik")}
                         />
                         <FormInput
                           judul="File Identitas"
                           placeholder="File Identitas"
                           type="file"
+                          name="ktp"
                           onChange={handleUpload}
                           innerRef={inputRef}
                         />
@@ -1028,10 +1139,10 @@ const FormNasabahSection = () => {
                         pengaduan akan dikirimkan melalui No. Hp yang di
                         masukan.
                       </p>
-                      {berhasil ? (
+                      {dataresponse?.success && berhasil ? (
                         <p className="informasi">
                           <b>Informasi : </b>
-                          Data Berhasil Dikirim, silahkan cek pesan WhatsApp
+                          {dataresponse?.message}, silahkan cek pesan WhatsApp
                           secara berkala.
                           <button onClick={() => setBerhasil(false)}>
                             <FiX />
@@ -1040,6 +1151,20 @@ const FormNasabahSection = () => {
                       ) : (
                         ""
                       )}
+                      <div className="bungkus_image">
+                        {preview === null ? (
+                          ""
+                        ) : (
+                          <>
+                            <div className="text">Preview Gambar</div>
+                            <img
+                              style={{ height: "100%", width: "100%" }}
+                              src={preview.userImage}
+                              alt="seletedFile"
+                            />
+                          </>
+                        )}
+                      </div>
                       <div className="button_flex">
                         <Button
                           id="form_baru"
@@ -1049,19 +1174,6 @@ const FormNasabahSection = () => {
                         >
                           Hitung
                         </Button>
-                      </div>
-                      <div className="bungkus_image">
-                        <div className="text">Test Gambar</div>
-
-                        {preview === null ? (
-                          ""
-                        ) : (
-                          <img
-                            style={{ height: "100%", width: "100%" }}
-                            src={preview.userImage}
-                            alt="seletedFile"
-                          />
-                        )}
                       </div>
                     </form>
                   </div>
@@ -1079,8 +1191,8 @@ const PenyaluranSection = () => {
   const [values, setValues] = useState({
     nama: "",
     alamat: "",
-    jenisIdentitas: "",
-    noIdentitas: "",
+    jenis_produk: "",
+    nik: "",
     namaIbu: "",
   });
 
@@ -1123,8 +1235,8 @@ const PenyaluranSection = () => {
     setValues({
       nama: "",
       alamat: "",
-      jenisIdentitas: "",
-      noIdentitas: "",
+      jenis_produk: "",
+      nik: "",
       namaIbu: "",
     });
     setSelect("");
@@ -1189,15 +1301,15 @@ const PenyaluranSection = () => {
                           judul="Jenis Identitas"
                           placeholder="Jenis Identitas"
                           type="text"
-                          value={values.jenisIdentitas}
-                          onChange={set("jenisIdentitas")}
+                          value={values.jenis_produk}
+                          onChange={set("jenis_produk")}
                         />
                         <FormInput
                           judul="No. Identitas"
                           placeholder="No. Identitas"
                           type="text"
-                          value={values.noIdentitas}
-                          onChange={set("noIdentitas")}
+                          value={values.nik}
+                          onChange={set("nik")}
                         />
                         <FormInput
                           judul="File Identitas"

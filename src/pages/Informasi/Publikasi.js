@@ -6,22 +6,27 @@ import {
   PublikasiSection,
   ReactHelmet,
 } from "../../components";
-import { DATA_PUBLIKASI } from "../../config";
+import { DATA_PUBLIKASI, WORDING } from "../../config";
 
 const Publikasi = () => {
   const DataPublikasi = DATA_PUBLIKASI;
   const location = useLocation();
+  const dataWording = WORDING;
   return (
     <>
       <ReactHelmet
         title="Publikasi | Bank Artha Mas Abadi"
         url={location.pathname}
       />
-      <FocusComponentColor backgroundColor="#e9bf45" img={contactUs} />
+      <FocusComponentColor
+        dataWording={dataWording ? dataWording?.publikasi : ""}
+        backgroundColor="#e9bf45"
+        img={contactUs}
+      />
       <PublikasiSection
-        judul="Publikasi"
         link="publikasi"
         DATA_TABS={DataPublikasi}
+        dataWording={dataWording ? dataWording?.publikasi : ""}
       />
     </>
   );

@@ -11,7 +11,6 @@ import Berita from "./Informasi/Berita";
 import Galery from "./Informasi/Galery";
 import NotFound from "./Informasi/404";
 import Home from "./Informasi/Home";
-import Support from "./Informasi/Support";
 import SupportLayanan from "./Informasi/SupportLayanan";
 
 export {
@@ -29,6 +28,5 @@ export {
   Galery,
   NotFound,
   Home,
-  Support,
   SupportLayanan,
 };

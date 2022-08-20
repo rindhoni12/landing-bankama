@@ -15,6 +15,7 @@ import {
   KONTAK_KAMI,
   DATA_FOOTER,
   DATAFETCH,
+  WORDING,
 } from "./data";
 
 export {
@@ -34,4 +35,5 @@ export {
   KONTAK_KAMI,
   DATA_FOOTER,
   DATAFETCH,
+  WORDING,
 };

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ayosyariah, logoWhite, lps1, ojk, wbsIcon } from "../../assets";
+import { ayosyariah, blog, logoWhite, lps1, ojk, wbsIcon } from "../../assets";
 import SliderWrapper from "../carousel/_SlickSliderStyle";
 import { devices } from "../../assets/_respondTo";
 import { FaAccusoft } from "react-icons/fa";
@@ -22,7 +22,7 @@ import {
 } from "./AtomElements";
 import { DATAFETCH } from "../../config";
 
-const Informasi = () => {
+const Informasi = ({ dataWording }) => {
   return (
     <InformasiSite>
       <div className="informasi_container">
@@ -32,10 +32,9 @@ const Informasi = () => {
           </div>
           <div className="text_content">
             <div className="content">
-              <h1>AYO LAPORKAN SEGERA!</h1>
+              <h1>{dataWording ? dataWording[4]?.text : ""}</h1>
               <p className="text_p">
-                Jika anda melihat dan mendengar Pelanggaran/Kecurangan yang
-                dilakukan oleh Pejabat/Pegawai di lingkungan Bank Jago.
+                {dataWording ? dataWording[4]?.desc : ""}
               </p>
               <Button
                 style={{ margin: "auto" }}
@@ -77,17 +76,14 @@ const CardItem = ({ item }) => {
   );
 };
 
-const CardItemLoad = ({ item }) => {
+const CardItemLoad = (item) => {
   return (
     <CardItemComponents>
       <div className="card_img">
-        <img
-          src={`https://admin.arthamasabadi.co.id/storage/images/blogs/1660194491-4-keuntungan-utama-hidup-bebas-dari-utang.jpg`}
-          alt="blog_img"
-        />
+        <img src={blog} alt="blog_img" />
       </div>
       <div className="card_body">
-        <h3>Loading..</h3>
+        <h3>{item.judul}</h3>
 
         <div
           className="berita_text"
@@ -127,7 +123,7 @@ const BeritaContent = styled.div`
   }
 `;
 
-const Card = ({ text }) => {
+const Card = ({ text, dataWording }) => {
   const [start, setStart] = useState(6);
   const [isActive, setActive] = useState(false);
   const testRef = useRef();
@@ -160,52 +156,62 @@ const Card = ({ text }) => {
     <CardComponents>
       <div ref={testRef} className="card_container">
         <HeadingComponent
-          Heading="Berita Kami"
-          Text="Kami percaya bahwa pengalaman transaksi perbankan yang berfokus pada
-          kehidupan Anda akan memungkinkan Anda untuk terus bertumbuh."
+          Heading={dataWording ? dataWording[1]?.text : ""}
+          Text={dataWording ? dataWording[1]?.desc : ""}
         />
-        {text === "Lihat Lebih" ? (
-          <BeritaContent isActive={isActive}>
-            <div className="card_content">
-              {posts ? (
-                <>
-                  {posts?.slice(0, 6).map((item, i) => (
-                    <CardItem key={i} item={item} />
-                  ))}
-                </>
-              ) : (
-                <CardItemLoad />
-              )}
-            </div>
-            <Button
-              icon={FaAccusoft}
-              label={text}
-              style={{ margin: "auto", marginTop: "40px" }}
-              to="./berita-kami"
-            />
-          </BeritaContent>
-        ) : (
+
+        {posts?.length === 0 ? (
           <BeritaContent>
             <div className="card_content">
-              {posts ? (
-                <>
-                  {posts?.slice(0, start).map((item, i) => (
-                    <CardItem key={i} item={item} />
-                  ))}
-                </>
-              ) : (
-                <CardItemLoad />
-              )}
-            </div>
-            <div ref={cardRef} className="class_baru">
-              <Button
-                icon={FaAccusoft}
-                label={start >= posts?.length + 1 ? "Lihat Sedikit" : text}
-                style={{ margin: "auto", marginTop: "40px" }}
-                onClick={start >= posts?.length + 1 ? ShowLess : LoadMore}
-              />
+              <CardItemLoad judul="Tidak Ada Berita, semoga segera ada berita baru yaa.." />
             </div>
           </BeritaContent>
+        ) : (
+          <>
+            {text === "Lihat Lebih" ? (
+              <BeritaContent isActive={isActive}>
+                <div className="card_content">
+                  {posts ? (
+                    <>
+                      {posts?.slice(0, 6).map((item, i) => (
+                        <CardItem key={i} item={item} />
+                      ))}
+                    </>
+                  ) : (
+                    <CardItemLoad judul="Loading..." />
+                  )}
+                </div>
+                <Button
+                  icon={FaAccusoft}
+                  label={text}
+                  style={{ margin: "auto", marginTop: "40px" }}
+                  to="./berita-kami"
+                />
+              </BeritaContent>
+            ) : (
+              <BeritaContent>
+                <div className="card_content">
+                  {posts ? (
+                    <>
+                      {posts?.slice(0, start).map((item, i) => (
+                        <CardItem key={i} item={item} />
+                      ))}
+                    </>
+                  ) : (
+                    <CardItemLoad judul="Loading..." />
+                  )}
+                </div>
+                <div ref={cardRef} className="class_baru">
+                  <Button
+                    icon={FaAccusoft}
+                    label={start >= posts?.length + 1 ? "Lihat Sedikit" : text}
+                    style={{ margin: "auto", marginTop: "40px" }}
+                    onClick={start >= posts?.length + 1 ? ShowLess : LoadMore}
+                  />
+                </div>
+              </BeritaContent>
+            )}
+          </>
         )}
       </div>
     </CardComponents>
@@ -422,7 +428,7 @@ const NewSlide = () => {
   );
 };
 
-const OjkInformasi = () => {
+const OjkInformasi = ({ dataWording }) => {
   const [isMobile, setIsMobile] = useState(
     window.matchMedia("(max-width: 480px)").matches
   );
@@ -455,9 +461,8 @@ const OjkInformasi = () => {
     <OjkComponents>
       <div className="ojk_container">
         <HeadingComponent
-          Heading="Terdaftar dan Diawasi oleh"
-          Text="Kami percaya bahwa pengalaman transaksi perbankan yang berfokus pada
-          kehidupan Anda akan memungkinkan Anda untuk terus bertumbuh."
+          Heading={dataWording ? dataWording[0]?.text : ""}
+          Text={dataWording ? dataWording[0]?.desc : ""}
         />
 
         {isMobile ? (
@@ -532,7 +537,7 @@ const HeadingComponent = (item) => {
   );
 };
 
-const FocusComponentWithLogo = ({ backgroundColor }) => {
+const FocusComponentWithLogo = ({ backgroundColor, dataWording }) => {
   return (
     <FocusComponentSite>
       <div className="focus_container">
@@ -558,8 +563,8 @@ const FocusComponentWithLogo = ({ backgroundColor }) => {
               padding: "0px 20px",
               zIndex: "2",
             }}
-            Heading="Coba simulasi kredit sekarang!"
-            Text="Untuk mengetahui berapa biaya yang harus digunakan untuk melakukan kredit KPR."
+            Heading={dataWording ? dataWording[0]?.text : ""}
+            Text={dataWording ? dataWording[0]?.desc : ""}
           />
           <Button
             style={{ zIndex: "2" }}
@@ -573,7 +578,7 @@ const FocusComponentWithLogo = ({ backgroundColor }) => {
   );
 };
 
-const FocusComponentColor = ({ img, backgroundColor }) => {
+const FocusComponentColor = ({ img, backgroundColor, dataWording }) => {
   return (
     <FocusComponentSiteContact>
       <div className="focus_container">
@@ -587,8 +592,8 @@ const FocusComponentColor = ({ img, backgroundColor }) => {
               width: "100%",
               color: "#fff",
             }}
-            Heading="Coba simulasi kredit sekarang!"
-            Text="Untuk mengetahui berapa biaya yang harus digunakan untuk melakukan kredit KPR."
+            Heading={dataWording ? dataWording[0]?.text : ""}
+            Text={dataWording ? dataWording[0]?.desc : ""}
           />
           <div className="gambar_img">
             <img src={img} alt="imgContact" />

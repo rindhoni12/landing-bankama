@@ -3,18 +3,27 @@ import { FocusComponentColor, ReactHelmet } from "../../components/atom";
 import { FormSimulasi } from "../../components";
 import { useLocation } from "react-router-dom";
 import { contactUs } from "../../assets";
+import { WORDING } from "../../config";
 
 const Simulasi = () => {
   const location = useLocation();
+  const dataWording = WORDING;
+
   return (
     <>
       <ReactHelmet
         title="Simulasi KPR | Bank Artha Mas Abadi"
         url={location.pathname}
       />
-      <FocusComponentColor backgroundColor="#26ac42" img={contactUs} />
+      <FocusComponentColor
+        dataWording={dataWording ? dataWording?.simulasi_kredit : ""}
+        backgroundColor="#26ac42"
+        img={contactUs}
+      />
       {/* <FormKpr /> */}
-      <FormSimulasi />
+      <FormSimulasi
+        dataWording={dataWording ? dataWording?.simulasi_kredit : ""}
+      />
     </>
   );
 };
