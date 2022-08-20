@@ -86,7 +86,7 @@ const SimpleSlider = () => {
   );
 };
 
-export const SimpleSliderFicture = (itemNew) => {
+export const SimpleSliderFicture = ({ dataWording }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -109,7 +109,10 @@ export const SimpleSliderFicture = (itemNew) => {
   return (
     <CorouselSectionFicture>
       <div className="carousel_container">
-        <HeadingComponent Heading={itemNew.judul} Text={itemNew.deskripsi} />
+        <HeadingComponent
+          Heading={dataWording ? dataWording[1]?.text : ""}
+          Text={dataWording ? dataWording[1]?.desc : ""}
+        />
         <div className="carousel_container_slide">
           <SliderWrapper>
             <Slider {...settings}>

@@ -68,6 +68,16 @@ export const FormInputSelectNew = (item) => {
 };
 
 export const FormInputSelectProduct = (item) => {
+  let dataDrop = [
+    "Tabungan iB Wadiah",
+    "Tabungan iB Multijasa",
+    "Tabungan iB Mudharabah",
+    "Pembiayaan iB Wadiah",
+    "Pembiayaan iB Musyarakah",
+    "Pembiayaan iB Multijasa",
+    "Pembiayaan iB Gadai Emas",
+  ];
+
   return (
     <div className="form_content_input">
       <label>{item.placeholder}</label>
@@ -81,17 +91,11 @@ export const FormInputSelectProduct = (item) => {
         <option value="" disabled>
           {item.placeholder}
         </option>
-        <option value="Tabungan iB Wadiah">Tabungan iB Wadiah</option>
-        <option value="Tabungan iB Multijasa">Tabungan iB Multijasa</option>
-        <option value="Tabungan iB Mudharabah">Tabungan iB Mudharabah</option>
-        <option value="Pembiayaan iB Wadiah">Pembiayaan iB Wadiah</option>
-        <option value="Pembiayaan iB Musyarakah">
-          Pembiayaan iB Musyarakah
-        </option>
-        <option value="Pembiayaan iB Multijasa">Pembiayaan iB Multijasa</option>
-        <option value="Pembiayaan iB Gadai Emas">
-          Pembiayaan iB Gadai Emas
-        </option>
+        {dataDrop?.map((item, i) => (
+          <option key={i} value={item}>
+            {item}
+          </option>
+        ))}
       </select>
     </div>
   );
@@ -417,7 +421,7 @@ const FormKpr = () => {
   );
 };
 
-export const FormSimulasi = () => {
+export const FormSimulasi = ({ dataWording }) => {
   const [dataBungaItems, setDataBunga] = useState([]);
   const [show, setShow] = useState(false);
 
@@ -515,10 +519,8 @@ export const FormSimulasi = () => {
     <FormSite>
       <div className="form_container">
         <HeadingComponent
-          Heading="Simulasi Kredit Standar!"
-          Text="Simulasi ini untuk memudahkan calon kreditur mengetahui besaran
-            angsuran per-bulan yang harus dibayarkan dan besarannya sudah sesuai
-            aturan bunga yang ditetapkan perusahaan per tanggal 01 Januari 2021."
+          Heading={dataWording ? dataWording[1]?.text : ""}
+          Text={dataWording ? dataWording[1]?.desc : ""}
         />
         <div className="text_keterangan">
           <b>Keterangan : </b>Lorem ipsum dolor sit amet consectetur adipisicing

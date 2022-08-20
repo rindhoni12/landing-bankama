@@ -1,7 +1,7 @@
 import React from "react";
 // import { Accordion } from "../components";
 import { useLocation } from "react-router-dom";
-import { BERITA } from "../../config";
+import { BERITA, WORDING } from "../../config";
 import {
   CardInformasiSection,
   FocusComponentWithLogo,
@@ -17,6 +17,7 @@ import { visimisi } from "../../assets";
 
 const Home = () => {
   const location = useLocation();
+  const dataWording = WORDING;
 
   const DATAMISI = [
     "Mensosialisasikan serta menanamkan pola, sistem, dan konsep perbankan syariah dalam perekonomian masyarakat.",
@@ -40,15 +41,21 @@ const Home = () => {
         misi={DATAMISI}
         deskripsiMisi="Menjadi BPR Syariah pilihan masyarakat yang sehat, unggul, dan terpercaya di wilayah eks Karesidenan Pati."
       />
-      <OjkInformasi />
-      <SimpleSliderFicture
-        judul="Produk dan Layanan Kami"
-        deskripsi="Kami percaya bahwa pengalaman transaksi perbankan yang pada produk unggulan kami."
+      <OjkInformasi dataWording={dataWording ? dataWording?.home : ""} />
+      <SimpleSliderFicture dataWording={dataWording ? dataWording?.home : ""} />
+      <CardInformasiSection
+        dataWording={dataWording ? dataWording?.home : ""}
       />
-      <CardInformasiSection />
-      <FocusComponentWithLogo backgroundColor="#06aed5" />
-      <Card itemBerita={BERITA} text="Lihat Lebih" />
-      <Informasi />
+      <FocusComponentWithLogo
+        dataWording={dataWording ? dataWording?.simulasi_kredit : ""}
+        backgroundColor="#06aed5"
+      />
+      <Card
+        itemBerita={BERITA}
+        text="Lihat Lebih"
+        dataWording={dataWording ? dataWording?.berita_kami : ""}
+      />
+      <Informasi dataWording={dataWording ? dataWording?.home : ""} />
 
       {/* <Accordion /> */}
     </>

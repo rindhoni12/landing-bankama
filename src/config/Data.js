@@ -971,3 +971,110 @@ export const DATA_FOOTER = {
     },
   ],
 };
+
+export const WORDING = {
+  home: [
+    {
+      id: 1,
+      text: "Terdaftar dan Diawasi oleh",
+      desc: "Kami percaya bahwa pengalaman transaksi perbankan yang berfokus pada kehidupan Anda akan memungkinkan Anda untuk terus bertumbuh.",
+    },
+    {
+      id: 2,
+      text: "Produk dan Layanan Kami",
+      desc: "Kami percaya bahwa pengalaman transaksi perbankan yang berfokus pada kehidupan Anda akan memungkinkan Anda untuk terus bertumbuh.",
+    },
+    {
+      id: 3,
+      text: "Suku Bunga per Tahun",
+      desc: "Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:",
+    },
+    {
+      id: 4,
+      text: "Coba simulasi kredit sekarang!",
+      desc: "Untuk mengetahui berapa biaya yang harus digunakan untuk melakukan kredit KPR.",
+    },
+    {
+      id: 5,
+      text: "AYO LAPORKAN SEGERA!!",
+      desc: "Kami percaya bahwa pengalaman transaksi perbankan yang berfokus pada kehidupan Anda akan memungkinkan Anda untuk terus bertumbuh.",
+    },
+  ],
+  produk_layanan: [
+    {
+      id: 1,
+      text: "Coba simulasi kredit sekarang!",
+      desc: "Untuk mengetahui berapa biaya yang harus digunakan untuk melakukan kredit KPR.",
+    },
+  ],
+  simulasi_kredit: [
+    {
+      id: 1,
+      text: "Coba simulasi kredit sekarang!",
+      desc: "Untuk mengetahui berapa biaya yang harus digunakan untuk melakukan kredit KPR.",
+    },
+    {
+      id: 2,
+      text: "Simulasi Kredit Standar!",
+      desc: "Simulasi ini untuk memudahkan calon kreditur mengetahui besaran angsuran per-bulan yang harus dibayarkan dan besarannya sudah sesuai aturan bunga yang ditetapkan perusahaan per tanggal 01 Januari 2021.",
+    },
+  ],
+  berita_kami: [
+    {
+      id: 1,
+      text: "Coba simulasi kredit sekarang!",
+      desc: "Untuk mengetahui berapa biaya yang harus digunakan untuk melakukan kredit KPR.",
+    },
+    {
+      id: 2,
+      text: "Berita Kami",
+      desc: "Kami percaya bahwa pengalaman transaksi perbankan yang berfokus pada kehidupan Anda akan memungkinkan Anda untuk terus bertumbuh.",
+    },
+  ],
+  publikasi: [
+    {
+      id: 1,
+      text: "Coba simulasi kredit sekarang!",
+      desc: "Untuk mengetahui berapa biaya yang harus digunakan untuk melakukan kredit KPR.",
+    },
+    {
+      id: 2,
+      text: "Publikasi",
+      desc: "Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:",
+    },
+  ],
+  galeri: [
+    {
+      id: 1,
+      text: "Coba simulasi kredit sekarang!",
+      desc: "Untuk mengetahui berapa biaya yang harus digunakan untuk melakukan kredit KPR.",
+    },
+    {
+      id: 2,
+      text: "Galeri",
+      desc: "Simulasi ini untuk memudahkan calon kreditur mengetahui besaran angsuran per-bulan yang harus dibayarkan dan besarannya sudah sesuai aturan bunga yang ditetapkan perusahaan per tanggal 01 Januari 2021.",
+    },
+  ],
+  tentang_kami: [
+    {
+      id: 1,
+      text: "Coba simulasi kredit sekarang! Tentang Kami",
+      desc: "Untuk mengetahui berapa biaya yang harus digunakan untuk melakukan kredit KPR.",
+    },
+    {
+      id: 2,
+      text: "Foto dan Informasi Tentang Kami",
+      desc: "Koperasi BPR Wedarijaksa Kabupaten Pati (KBPR Wedarijaksa) berlokasi",
+    },
+    {
+      id: 3,
+      text: "Pimpinan Kami",
+      desc: "Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:",
+    },
+    {
+      id: 4,
+      text: "Kontak Kami",
+      desc: "Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:",
+    },
+  ],
+};

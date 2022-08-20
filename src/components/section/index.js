@@ -37,7 +37,7 @@ import cvPrawito from "../../assets/cv_prawito.pdf";
 import { FiX } from "react-icons/fi";
 import axios from "axios";
 
-const KontakKamiSection = () => {
+const KontakKamiSection = ({ dataWording }) => {
   const dataCabang = KONTAK_KAMI.kantor_cabang[0];
   const dataPusat = KONTAK_KAMI.kantor_pusat[0];
   return (
@@ -45,8 +45,8 @@ const KontakKamiSection = () => {
       <div className="tentang_container">
         <div className="tentang_content">
           <HeadingComponent
-            Heading="Kontak Kami"
-            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+            Heading={dataWording ? dataWording[3]?.text : ""}
+            Text={dataWording ? dataWording[3]?.desc : ""}
           />
         </div>
         <div className="tentang_maps">
@@ -106,7 +106,7 @@ const KontakKamiSection = () => {
   );
 };
 
-const OrganisasiSection = () => {
+const OrganisasiSection = ({ dataWording }) => {
   const allOrganisasi = [
     "All",
     ...new Set(ORGANISASI.map((item) => item.jabatan)),
@@ -134,8 +134,8 @@ const OrganisasiSection = () => {
       <div className="organisasi_container">
         <div className="organisasi_content">
           <HeadingComponent
-            Heading="Pimpinan Kami"
-            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+            Heading={dataWording ? dataWording[2]?.text : ""}
+            Text={dataWording ? dataWording[2]?.desc : ""}
           />
         </div>
         <div className="organisasi_page">
@@ -448,21 +448,32 @@ const ContentTabPublikasi = (item) => {
           <h1>Apa yang Dimaksud dengan {item.judul} ?</h1>
           <p>{item.item && item.item.p}</p>
           <div className="button_download">
-            {item.item &&
-              item.item.fitur.map((item, i) => (
-                <div key={i} className="card_download">
-                  <div className="text_download">
-                    <h1>{item.judul}</h1>
-                    <p>{item.tanggal}</p>
-                  </div>
-                  <ButtonDownload
-                    icon={FaDownload}
-                    label="Donwload"
-                    file={item.buttonDonwload}
-                    judul={item.judul}
-                  />
-                </div>
-              ))}
+            {!item.item ? (
+              <>
+                {item?.item &&
+                  item?.item.fitur.map((item, i) => (
+                    <div key={i} className="card_download">
+                      <div className="text_download">
+                        <h1>{item.judul}</h1>
+                        <p>{item.tanggal}</p>
+                      </div>
+                      <ButtonDownload
+                        icon={FaDownload}
+                        label="Donwload"
+                        file={item.buttonDonwload}
+                        judul={item.judul}
+                      />
+                    </div>
+                  ))}
+              </>
+            ) : (
+              <div
+                style={{ textAlign: "left", fontSize: "14px" }}
+                className="none"
+              >
+                Keterangan : Sedang tidak ada data file yang tersedia.
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -476,7 +487,7 @@ const TabPanelPublikasi = ({ children }) => {
 
 TabPublikasi.TabPanelPublikasi = TabPanelPublikasi;
 
-const PublikasiSection = ({ judul, DATA_TABS }) => {
+const PublikasiSection = ({ DATA_TABS, dataWording }) => {
   const TABS = DATA_TABS;
 
   return (
@@ -484,8 +495,8 @@ const PublikasiSection = ({ judul, DATA_TABS }) => {
       <div className="layanan_container">
         <div className="layanan_content">
           <HeadingComponent
-            Heading={judul}
-            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+            Heading={dataWording ? dataWording[1]?.text : ""}
+            Text={dataWording ? dataWording[1]?.desc : ""}
           />
           <div className="layanan_tabs">
             <div className="content">
@@ -531,6 +542,7 @@ const HubungiSection = () => {
   });
 
   const [berhasil, setBerhasil] = useState(false);
+  // const [dataresponse, setDataResponse] = useState([]);
 
   const set = (name) => {
     return ({ target: { value } }) => {
@@ -543,6 +555,22 @@ const HubungiSection = () => {
     console.log(values);
     setValues({ nama: "", number: "", textArea: "" });
     setBerhasil(true);
+    // axios
+    //   .post("https://admin.arthamasabadi.co.id/api/v1/nasabah", data, config)
+    //   .then((response) => {
+    //     setDataResponse(response.data);
+    //   })
+    //   .catch((error) => {
+    //     if (error.response) {
+    //       console.log(error.response);
+    //       console.log("data tidak berhasil disimpan");
+    //     } else if (error.request) {
+    //       console.log("jaringan error");
+    //     } else {
+    //       console.log(error);
+    //     }
+    //   });
+    // console.log(dataresponse);
   };
 
   return (
@@ -676,7 +704,7 @@ const HubungiSection = () => {
   );
 };
 
-const CardInformasiSection = () => {
+const CardInformasiSection = ({ dataWording }) => {
   const dataBunga = DATAFETCH(
     "https://admin.arthamasabadi.co.id/api/v1/bunga"
   )?.data;
@@ -700,8 +728,8 @@ const CardInformasiSection = () => {
       <div className="informasi_container">
         <div className="informasi_content">
           <HeadingComponent
-            Heading="Suku Bunga per Tahun"
-            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+            Heading={dataWording ? dataWording[2]?.text : ""}
+            Text={dataWording ? dataWording[2]?.desc : ""}
           />
           <div className="informasi_card_content">
             <div className="card_content">
@@ -709,72 +737,98 @@ const CardInformasiSection = () => {
               <div className="body">
                 <div className="class_table">
                   <table>
-                    <thead>
-                      <tr style={{ background: "#079607" }}>
-                        <th rowSpan="2">Jenis Investasi</th>
-                        <th rowSpan="2">Nisbah</th>
-                        <th colSpan="3">Tingkat Imbalan/Tahun (%)</th>
-                      </tr>
-                      <tr style={{ background: "#007c00" }}>
-                        <th className="text">{dataBaru[0]?.nama_bulan1}</th>
-                        <th className="text">{dataBaru[0]?.nama_bulan2}</th>
-                        <th className="text">{dataBaru[0]?.nama_bulan3}</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {withoutDeposito?.map((item, i) => (
-                        <tr key={i}>
-                          <td>{item.jenis_investasi}</td>
-                          <td>{item.nisbah}</td>
-                          <td>{item.bunga_bulan1}%</td>
-                          <td>{item.bunga_bulan2}%</td>
-                          <td>{item.bunga_bulan3}%</td>
-                        </tr>
-                      ))}
-                    </tbody>
+                    {withoutDeposito ? (
+                      <>
+                        <thead>
+                          <tr style={{ background: "#079607" }}>
+                            <th rowSpan="2">Jenis Investasi</th>
+                            <th rowSpan="2">Nisbah</th>
+                            <th colSpan="3">Tingkat Imbalan/Tahun (%)</th>
+                          </tr>
+                          <tr style={{ background: "#007c00" }}>
+                            <th className="text">{dataBaru[0]?.nama_bulan1}</th>
+                            <th className="text">{dataBaru[0]?.nama_bulan2}</th>
+                            <th className="text">{dataBaru[0]?.nama_bulan3}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {withoutDeposito?.map((item, i) => (
+                            <tr key={i}>
+                              <td>{item.jenis_investasi}</td>
+                              <td>{item.nisbah}</td>
+                              <td>{item.bunga_bulan1}%</td>
+                              <td>{item.bunga_bulan2}%</td>
+                              <td>{item.bunga_bulan3}%</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </>
+                    ) : (
+                      <div className="footer">
+                        <b>Keterangan:</b> Maaf, data Tabungan saat ini sedang
+                        tidak tersedia!
+                      </div>
+                    )}
                   </table>
                 </div>
               </div>
-              <div className="footer">
-                Keterangan: Simpanan sampai dengan 2 Milyar Rupiah dijamin oleh
-                LPS.
-              </div>
+              {withoutDeposito ? (
+                <div className="footer">
+                  Keterangan: Simpanan sampai dengan 2 Milyar Rupiah dijamin
+                  oleh LPS.
+                </div>
+              ) : (
+                ""
+              )}
             </div>
             <div className="card_content">
               <div className="heading">Deposito</div>
               <div className="body">
                 <div className="class_table">
                   <table>
-                    <thead>
-                      <tr style={{ background: "#079607" }}>
-                        <th rowSpan="2">Jenis Investasi</th>
-                        <th rowSpan="2">Nisbah</th>
-                        <th colSpan="3">Tingkat Imbalan/Tahun (%)</th>
-                      </tr>
-                      <tr style={{ background: "#007c00" }}>
-                        <th className="text">{dataBaru[0]?.nama_bulan1}</th>
-                        <th className="text">{dataBaru[0]?.nama_bulan2}</th>
-                        <th className="text">{dataBaru[0]?.nama_bulan3}</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {withDeposito?.map((item, i) => (
-                        <tr key={i}>
-                          <td>{item.jenis_investasi}</td>
-                          <td>{item.nisbah}</td>
-                          <td>{item.bunga_bulan1}%</td>
-                          <td>{item.bunga_bulan2}%</td>
-                          <td>{item.bunga_bulan3}%</td>
-                        </tr>
-                      ))}
-                    </tbody>
+                    {withDeposito ? (
+                      <>
+                        <thead>
+                          <tr style={{ background: "#079607" }}>
+                            <th rowSpan="2">Jenis Investasi</th>
+                            <th rowSpan="2">Nisbah</th>
+                            <th colSpan="3">Tingkat Imbalan/Tahun (%)</th>
+                          </tr>
+                          <tr style={{ background: "#007c00" }}>
+                            <th className="text">{dataBaru[0]?.nama_bulan1}</th>
+                            <th className="text">{dataBaru[0]?.nama_bulan2}</th>
+                            <th className="text">{dataBaru[0]?.nama_bulan3}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {withDeposito?.map((item, i) => (
+                            <tr key={i}>
+                              <td>{item.jenis_investasi}</td>
+                              <td>{item.nisbah}</td>
+                              <td>{item.bunga_bulan1}%</td>
+                              <td>{item.bunga_bulan2}%</td>
+                              <td>{item.bunga_bulan3}%</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </>
+                    ) : (
+                      <div className="footer">
+                        <b>Keterangan:</b> Maaf, data Deposito saat ini sedang
+                        tidak tersedia!
+                      </div>
+                    )}
                   </table>
                 </div>
               </div>
-              <div className="footer">
-                Keterangan: Simpanan sampai dengan 2 Milyar Rupiah dijamin oleh
-                LPS.
-              </div>
+              {withDeposito ? (
+                <div className="footer">
+                  Keterangan: Simpanan sampai dengan 2 Milyar Rupiah dijamin
+                  oleh LPS.
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>

@@ -53,7 +53,7 @@ const GalerySection = () => {
   );
 };
 
-const GaleryNewSection = () => {
+const GaleryNewSection = ({ dataWording }) => {
   const [modal, setModal] = useState(false);
   const [temImg, setTemImg] = useState("");
   const modalRefGalery = useRef();
@@ -116,10 +116,8 @@ const GaleryNewSection = () => {
     <GaleryNewSite>
       <div className="galeryNew_container">
         <HeadingComponent
-          Heading="Simulasi Kredit Standar!"
-          Text="Simulasi ini untuk memudahkan calon kreditur mengetahui besaran
-            angsuran per-bulan yang harus dibayarkan dan besarannya sudah sesuai
-            aturan bunga yang ditetapkan perusahaan per tanggal 01 Januari 2021."
+          Heading={dataWording ? dataWording[1]?.text : ""}
+          Text={dataWording ? dataWording[1]?.desc : ""}
         />
         <div
           onClick={closeModal}
