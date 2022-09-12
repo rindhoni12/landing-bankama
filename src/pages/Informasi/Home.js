@@ -5,7 +5,7 @@ import { BERITA, WORDING } from "../../config";
 import {
   CardInformasiSection,
   FocusComponentWithLogo,
-  SimpleSliderFicture,
+  // SimpleSliderFicture,
   SimpleSlider,
   OjkInformasi,
   ReactHelmet,
@@ -42,7 +42,7 @@ const Home = () => {
         deskripsiMisi="Menjadi BPR Syariah pilihan masyarakat yang sehat, unggul, dan terpercaya di wilayah eks Karesidenan Pati."
       />
       <OjkInformasi dataWording={dataWording ? dataWording?.home : ""} />
-      <SimpleSliderFicture dataWording={dataWording ? dataWording?.home : ""} />
+      {/* <SimpleSliderFicture dataWording={dataWording ? dataWording?.home : ""} /> */}
       <CardInformasiSection
         dataWording={dataWording ? dataWording?.home : ""}
       />

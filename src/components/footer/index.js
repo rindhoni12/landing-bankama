@@ -87,13 +87,22 @@ const Footer = () => {
             </div> */}
 
             <div className="footer_desc_kebijakan">
-              <a className="end" href="/web-landing/support/kebijakan-privasi">
+              {/* <a className="end" href="/web-landing/support/kebijakan-privasi">
                 Kebijakan Privasi
               </a>
               <a className="end" href="/web-landing/support/syarat-ketentuan">
                 Syarat dan Ketentuan
               </a>
               <a className="end" href="/web-landing/support/prosedur-pengaduan">
+                Prosedur Pengajuan Nasabah
+              </a> */}
+              <a className="end" href="#">
+                Kebijakan Privasi
+              </a>
+              <a className="end" href="#">
+                Syarat dan Ketentuan
+              </a>
+              <a className="end" href="#">
                 Prosedur Pengajuan Nasabah
               </a>
             </div>

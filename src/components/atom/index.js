@@ -3,6 +3,10 @@ import {
   ayosyariah,
   logoWhite,
   lps1,
+  mitra1,
+  mitra2,
+  mitra3,
+  mitra4,
   no_pic,
   ojk,
   wbsIcon,
@@ -238,7 +242,12 @@ const Detail = (item) => {
           <div className="detail_text">
             <div className="visi_misi">
               <div className="detail_text_heading">{item.judul}</div>
-              <div className="detail_text_p">{item.deskripsi}</div>
+              <div
+                className="detail_text_p"
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(item.deskripsi),
+                }}
+              />
             </div>
             <div className="visi_misi">
               <div className="detail_text_heading">{item.judulMisi}</div>
@@ -261,7 +270,7 @@ const Detail = (item) => {
   );
 };
 
-const DetailLayanan = ({ item, imgDetail }) => {
+const DetailLayanan = ({ item, imgDetail, deskripsi }) => {
   return (
     <DetailComponents>
       <div className="detail_content">
@@ -270,18 +279,8 @@ const DetailLayanan = ({ item, imgDetail }) => {
         </div>
         <div className="detail_text">
           <div className="visi_misi">
-            <div className="detail_text_heading">Visi {item}</div>
-            <div className="detail_text_p">
-              Menjadi BPR yang kuat, dipercaya dan selalu dihati masyarakat di
-              seluruh wilayah kerja Kabupaten Pati dan sekitarnya.
-            </div>
-          </div>
-          <div className="visi_misi">
-            <div className="detail_text_heading">Misi</div>
-            <div className="detail_text_p">
-              Menjadi BPR yang kuat, dipercaya dan selalu dihati masyarakat di
-              seluruh wilayah kerja Kabupaten Pati dan sekitarnya.
-            </div>
+            <div className="detail_text_heading">{item ? item : ""}</div>
+            <div className="detail_text_p">{deskripsi ? deskripsi : ""}</div>
           </div>
         </div>
       </div>
@@ -367,32 +366,22 @@ const NewSlide = () => {
           <Slider {...settingsMobile}>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={ayosyariah} alt="ayosyariah" />
+                <img src={mitra1} alt="mitra1" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={lps1} alt="lps1" />
+                <img src={mitra2} alt="mitra2" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={ayosyariah} alt="ayosyariah" />
+                <img src={mitra3} alt="mitra3" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={ayosyariah} alt="ayosyariah" />
-              </div>
-            </div>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={lps1} alt="lps1" />
-              </div>
-            </div>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={ayosyariah} alt="ayosyariah" />
+                <img src={mitra4} alt="mitra4" />
               </div>
             </div>
           </Slider>
@@ -402,32 +391,22 @@ const NewSlide = () => {
           <Slider {...settings}>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={ayosyariah} alt="ayosyariah" />
+                <img src={mitra1} alt="mitra1" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={lps1} alt="lps1" />
+                <img src={mitra2} alt="mitra2" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={ayosyariah} alt="ayosyariah" />
+                <img src={mitra3} alt="mitra3" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={ayosyariah} alt="ayosyariah" />
-              </div>
-            </div>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={lps1} alt="lps1" />
-              </div>
-            </div>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={ayosyariah} alt="ayosyariah" />
+                <img src={mitra4} alt="mitra4" />
               </div>
             </div>
           </Slider>
@@ -578,7 +557,7 @@ const FocusComponentWithLogo = ({ backgroundColor, dataWording }) => {
           <Button
             style={{ zIndex: "2" }}
             icon={FaAccusoft}
-            label="Simulasi KPR"
+            label="Simulasi"
             to="./simulasi"
           />
         </div>
@@ -637,7 +616,7 @@ const WaItemContent = () => {
     <WaItemSite>
       <div ref={waRef} className="wa_content">
         <a
-          href="https://wa.me/6282137925172"
+          href="https://wa.me/6282137925173"
           target="_blank"
           rel="noopener noreferrer"
         >

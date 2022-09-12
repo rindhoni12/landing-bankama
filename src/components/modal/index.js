@@ -1,3 +1,4 @@
+import DOMPurify from "dompurify";
 import React, { useEffect, useRef } from "react";
 import { organisasi } from "../../assets";
 import {
@@ -50,11 +51,11 @@ const ModalItem = ({ showModal, setShowModal, id, item }) => {
                   </div>
                 </div>
                 <div className="heading">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Cupiditate laborum perferendis sapiente, excepturi nostrum
-                    debitis blanditiis iste, corporis, laudantium dolore
-                  </p>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(item.desc),
+                    }}
+                  />
                 </div>
               </div>
             </ModalContent>

@@ -597,6 +597,9 @@ export const FormContent = styled.div`
 
     thead {
       tr {
+        .text {
+          font-size: 12px;
+        }
         th {
           padding: 0.75rem;
           border: 1px solid
