@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/web-landing/static/css/main.d026f199.css",
-    "main.js": "/web-landing/static/js/main.752da409.js",
+    "main.js": "/web-landing/static/js/main.cb25183d.js",
     "static/media/blog.jpg": "/web-landing/static/media/blog.490bef791b07bdd7f7d8.jpg",
     "static/media/jago-2.jpeg": "/web-landing/static/media/jago-2.40254e148c07e8c3b7fd.jpeg",
     "static/media/visimisi.webp": "/web-landing/static/media/visimisi.ab64675c9a7b94489b8a.webp",
@@ -15,15 +15,24 @@
     "static/media/jago-3-mobile.jpg": "/web-landing/static/media/jago-3-mobile.dac5971b3de2ef15bb0f.jpg",
     "static/media/contact-us.png": "/web-landing/static/media/contact-us.9665044e2f32fad67f86.png",
     "static/media/img-2.png": "/web-landing/static/media/img-2.e7c6588d2a4432cd3351.png",
+    "static/media/penghargaan-5.png": "/web-landing/static/media/penghargaan-5.ad7f79560c43b23f8a1d.png",
     "static/media/img-1.png": "/web-landing/static/media/img-1.854a2cdc9fd2535cb8bd.png",
+    "static/media/penghargaan-3.png": "/web-landing/static/media/penghargaan-3.728780464cdf1a07ec73.png",
+    "static/media/penghargaan-4.png": "/web-landing/static/media/penghargaan-4.bbec2821e472ba565e89.png",
+    "static/media/mitra-1.png": "/web-landing/static/media/mitra-1.ae1bb0f035abdceb21c0.png",
     "static/media/logo_new.png": "/web-landing/static/media/logo_new.497b76dbcbb2ea58c652.png",
+    "static/media/penghargaan-1.png": "/web-landing/static/media/penghargaan-1.dfd4f15decd5d7c4a563.png",
+    "static/media/penghargaan-2.png": "/web-landing/static/media/penghargaan-2.2fb8dc77b5461ecc7602.png",
     "static/media/banner.png": "/web-landing/static/media/banner.9fe475d22f5bbbbeefa6.png",
     "static/media/logo_bawah.png": "/web-landing/static/media/logo_bawah.0ae4b70b35e229c33f26.png",
     "static/media/logo_ama_long.png": "/web-landing/static/media/logo_ama_long.9b079bf39083b4b16b64.png",
+    "static/media/mitra-4.png": "/web-landing/static/media/mitra-4.5fbe48e302ea3ed5a26c.png",
     "static/media/lps.png": "/web-landing/static/media/lps.10b34851941f49114be9.png",
+    "static/media/mitra-3.png": "/web-landing/static/media/mitra-3.0c45303e5cc9f64b1e4c.png",
     "static/media/logo_white.png": "/web-landing/static/media/logo_white.92a378cc2c65f9ce6374.png",
     "static/media/ayosyariah.jpeg": "/web-landing/static/media/ayosyariah.b0685a80b3456216f497.jpeg",
     "static/media/ojk.png": "/web-landing/static/media/ojk.f2246f8e0b9a808a1e67.png",
+    "static/media/mitra-2.png": "/web-landing/static/media/mitra-2.b8e2c4b921279a926828.png",
     "static/media/lps.1.png": "/web-landing/static/media/lps.1.f23bb6aada03ccdb4706.png",
     "static/media/slick.svg": "/web-landing/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/web-landing/static/media/slick.a4e97f5a2a64f0ab1323.eot",
@@ -31,10 +40,10 @@
     "index.html": "/web-landing/index.html",
     "static/media/slick.woff": "/web-landing/static/media/slick.295183786cd8a1389865.woff",
     "main.d026f199.css.map": "/web-landing/static/css/main.d026f199.css.map",
-    "main.752da409.js.map": "/web-landing/static/js/main.752da409.js.map"
+    "main.cb25183d.js.map": "/web-landing/static/js/main.cb25183d.js.map"
   },
   "entrypoints": [
     "static/css/main.d026f199.css",
-    "static/js/main.752da409.js"
+    "static/js/main.cb25183d.js"
   ]
 }
