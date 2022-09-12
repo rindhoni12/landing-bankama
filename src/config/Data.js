@@ -631,7 +631,7 @@ export const NAVLINKS = [
             judul: "Pembiayaan iB Wadiah",
           },
           {
-            to: "layanan-kami/penyaluran-dana/1",
+            to: "/layanan-kami/penyaluran-dana/1",
             judul: "Pembiayaan iB Musyarakah",
           },
           {
