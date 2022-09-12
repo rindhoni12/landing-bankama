@@ -1,20 +1,28 @@
 import React from "react";
 import { Card, FocusComponentColor, ReactHelmet } from "../../components/atom";
-import { BERITA } from "../../config";
 import { useLocation } from "react-router-dom";
 import { contactUs } from "../../assets";
+import { WORDING } from "../../config";
 
 const Berita = () => {
-  const itemBerita = BERITA;
   const location = useLocation();
+  const dataWording = WORDING;
+
   return (
     <>
       <ReactHelmet
         title="Berita | Bank Artha Mas Abadi"
         url={location.pathname}
       />
-      <FocusComponentColor backgroundColor="#f9b418" img={contactUs} />
-      <Card itemBerita={itemBerita} text="Load More" />
+      <FocusComponentColor
+        dataWording={dataWording ? dataWording?.berita_kami : ""}
+        backgroundColor="#f9b418"
+        img={contactUs}
+      />
+      <Card
+        text="Lebih Banyak"
+        dataWording={dataWording ? dataWording?.berita_kami : ""}
+      />
     </>
   );
 };

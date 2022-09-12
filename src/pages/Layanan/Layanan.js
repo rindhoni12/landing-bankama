@@ -7,7 +7,7 @@ import {
 } from "../../components/atom";
 import { LayananSection } from "../../components/section";
 import { FaAccusoft } from "react-icons/fa";
-import { DATA_BARU } from "../../config";
+import { DATA_BARU, WORDING } from "../../config";
 import { contactUs, two } from "../../assets";
 
 const Layanan = () => {
@@ -40,13 +40,18 @@ const Layanan = () => {
 
 const LayananSatu = () => {
   const location = useLocation();
+  const dataWording = WORDING;
   return (
     <>
       <ReactHelmet
         title="Layanan & Produk | Bank Artha Mas Abadi"
         url={location.pathname}
       />
-      <FocusComponentColor backgroundColor="#f9b418" img={contactUs} />
+      <FocusComponentColor
+        dataWording={dataWording ? dataWording?.produk_layanan : ""}
+        backgroundColor="#f9b418"
+        img={contactUs}
+      />
       <DetailLayananPages
         imgDetail={two}
         label="Penyimpanan Dana"

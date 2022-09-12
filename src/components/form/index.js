@@ -4,7 +4,8 @@ import CurrencyInput from "react-currency-input-field";
 import { FaAccusoft } from "react-icons/fa";
 import { HeadingComponent } from "../atom";
 import { banner } from "../../assets";
-import { Button } from "../button";
+import { Button, ButtonTransparent } from "../button";
+import { DATAFETCH } from "../../config";
 
 export const FormInputCurrency = (item) => {
   return (
@@ -19,6 +20,7 @@ export const FormInputCurrency = (item) => {
         decimalSeparator=","
         groupSeparator="."
         className="form_currency"
+        required
       />
     </div>
   );
@@ -65,11 +67,46 @@ export const FormInputSelectNew = (item) => {
   );
 };
 
+export const FormInputSelectProduct = (item) => {
+  let dataDrop = [
+    "Tabungan iB Wadiah",
+    "Tabungan iB Multijasa",
+    "Tabungan iB Mudharabah",
+    "Pembiayaan iB Wadiah",
+    "Pembiayaan iB Musyarakah",
+    "Pembiayaan iB Multijasa",
+    "Pembiayaan iB Gadai Emas",
+  ];
+
+  return (
+    <div className="form_content_input">
+      <label>{item.placeholder}</label>
+      <select
+        className="style_selectNew"
+        onChange={item.onChange}
+        required
+        // defaultValue={item.value}
+        value={item.value}
+      >
+        <option value="" disabled>
+          {item.placeholder}
+        </option>
+        {dataDrop?.map((item, i) => (
+          <option key={i} value={item}>
+            {item}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+};
+
 export const FormInput = (item) => {
   return (
     <div className="form_content_input">
       <label>{item.judul}</label>
       <input
+        name={item.name}
         id={item.judul}
         className="form_input"
         type={item.type}
@@ -374,6 +411,316 @@ const FormKpr = () => {
                 <p style={{ borderBottom: "none", paddingBottom: "0px" }}>
                   <b>Keterangan : </b>Lakukan perhitungan terlebih dahulu untuk
                   melihat Hasil Perhitungan Simulasi KPR.
+                </p>
+              </div>
+            </div>
+          )}
+        </FormContent>
+      </div>
+    </FormSite>
+  );
+};
+
+export const FormSimulasi = ({ dataWording }) => {
+  const [dataBungaItems, setDataBunga] = useState([]);
+  const [show, setShow] = useState(false);
+  const [dataJumlah, setDataJumlah] = useState("");
+  const [showSimu, setShowSimu] = useState(false);
+
+  const [showButton, setShowButton] = useState(false);
+
+  const state = {
+    button: 1,
+  };
+
+  const handelButton = () => {
+    setShowSimu(true);
+    setShowButton(true);
+  };
+
+  const handleButtonNon = () => {
+    setShowSimu(false);
+    setShowButton(false);
+  };
+
+  const formReset = document.getElementById("form_table");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = new FormData(e.target);
+
+    if (state.button === 1) {
+      hitungTabel(Object.fromEntries(data.entries()));
+      setShow(true);
+    }
+    if (state.button === 2) {
+      console.log("Button 2 clicked!");
+      setShow(false);
+      formReset.reset();
+    }
+  };
+
+  const dataBunga = DATAFETCH(
+    "https://admin.arthamasabadi.co.id/api/v1/bunga"
+  )?.data;
+
+  const withoutDeposito = dataBunga?.filter(
+    (item) => !item.jenis_investasi.includes("Deposito")
+  );
+
+  const withDeposito = dataBunga?.filter((item) =>
+    item.jenis_investasi.includes("Deposito")
+  );
+
+  let dataBaru = [];
+
+  for (let i = 0; i < withDeposito?.length; i++) {
+    dataBaru.push(withDeposito[0]);
+  }
+
+  const hitungTabel = (dataUang) => {
+    const formatRupiah = (angka, prefix) => {
+      let number_string = angka.toString(),
+        split = number_string.split(","),
+        sisa = split[0].length % 3,
+        rupiah = split[0].substr(0, sisa),
+        ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+      // tambahkan titik jika yang di input sudah menjadi angka ribuan
+      if (ribuan) {
+        let separator = sisa ? "." : "";
+        rupiah += separator + ribuan.join(".");
+      }
+
+      rupiah = split[1] !== undefined ? rupiah + "," + split[1] : rupiah;
+      return prefix === undefined ? rupiah : rupiah ? "Rp " + rupiah : "";
+    };
+
+    setDataJumlah(dataUang?.jumlah);
+
+    let itemsBunga = [];
+
+    for (let i = 0; i < dataBunga.length; i++) {
+      let toNumber = parseFloat(
+        dataUang?.jumlah
+          .replace("Rp ", "")
+          .replace(/[&\\#,+()$~%.'":*?<>{}]/g, "")
+      );
+
+      // console.log(toNumber);
+      let dataBulan1 = (dataBunga[i].bunga_bulan1 * toNumber) / 100;
+      let dataBulan2 = (dataBunga[i].bunga_bulan2 * toNumber) / 100;
+      let dataBulan3 = (dataBunga[i].bunga_bulan3 * toNumber) / 100;
+
+      let dataTabel = {
+        jenis_investasi: dataBunga[i].jenis_investasi,
+        bungaBulan1: formatRupiah((dataBulan1 / 12).toFixed(2), "Rp "),
+        bungaBulan2: formatRupiah((dataBulan2 / 12).toFixed(2), "Rp "),
+        bungaBulan3: formatRupiah((dataBulan3 / 12).toFixed(2), "Rp "),
+      };
+      itemsBunga.push(dataTabel);
+    }
+    setDataBunga(itemsBunga);
+  };
+
+  return (
+    <FormSite>
+      <div className="form_container">
+        <HeadingComponent
+          Heading={dataWording ? dataWording[1]?.text : ""}
+          Text={dataWording ? dataWording[1]?.desc : ""}
+        />
+        <div className="text_keterangan">
+          <b>Keterangan : </b>Klik button Simulasi untuk memulai perhitungan.
+          Setelah itu akan muncul field untuk input Jumlah Pinjaman.
+        </div>
+        <FormContent>
+          <div className="card_form">
+            <div className="card_content_flex">
+              <div className="content">
+                <div className="heading">Tabungan</div>
+                <div className="body">
+                  <div className="class_table">
+                    <table>
+                      <thead>
+                        <tr style={{ background: "#079607" }}>
+                          <th rowSpan="2">Jenis Investasi</th>
+                          <th rowSpan="2">Nisbah</th>
+                          <th colSpan="3">Tingkat Imbalan/Tahun (%)</th>
+                        </tr>
+                        <tr style={{ background: "#007c00" }}>
+                          <th className="text">{dataBaru[0]?.nama_bulan1}</th>
+                          <th className="text">{dataBaru[0]?.nama_bulan2}</th>
+                          <th className="text">{dataBaru[0]?.nama_bulan3}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {withoutDeposito?.map((item, i) => (
+                          <tr key={i}>
+                            <td style={{ textAlign: "left" }}>
+                              {item.jenis_investasi}
+                            </td>
+                            <td>{item.nisbah}</td>
+                            <td>{item.bunga_bulan1}%</td>
+                            <td>{item.bunga_bulan2}%</td>
+                            <td>{item.bunga_bulan3}%</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div className="footer">
+                  Keterangan: Simpanan sampai dengan 2 Milyar Rupiah dijamin
+                  oleh LPS.
+                </div>
+              </div>
+              <div className="content">
+                <div className="heading">Deposito</div>
+                <div className="body">
+                  <div className="class_table">
+                    <table>
+                      <thead>
+                        <tr style={{ background: "#079607" }}>
+                          <th rowSpan="2">Jenis Investasi</th>
+                          <th rowSpan="2">Nisbah</th>
+                          <th colSpan="3">Tingkat Imbalan/Tahun (%)</th>
+                        </tr>
+                        <tr style={{ background: "#007c00" }}>
+                          <th className="text">{dataBaru[0]?.nama_bulan1}</th>
+                          <th className="text">{dataBaru[0]?.nama_bulan2}</th>
+                          <th className="text">{dataBaru[0]?.nama_bulan3}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {withDeposito?.map((item, i) => (
+                          <tr key={i}>
+                            <td style={{ textAlign: "left" }}>
+                              {item.jenis_investasi}
+                            </td>
+                            <td>{item.nisbah}</td>
+                            <td>{item.bunga_bulan1}%</td>
+                            <td>{item.bunga_bulan2}%</td>
+                            <td>{item.bunga_bulan3}%</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div className="footer">
+                  Keterangan: Simpanan sampai dengan 2 Milyar Rupiah dijamin
+                  oleh LPS.
+                </div>
+                {showButton ? (
+                  <Button
+                    onClick={handleButtonNon}
+                    id="Batal Simulasi"
+                    icon={FaAccusoft}
+                    label="Batal Simulasi"
+                  />
+                ) : (
+                  <Button
+                    onClick={handelButton}
+                    id="Simulasi"
+                    icon={FaAccusoft}
+                    label="Simulasi"
+                  />
+                )}
+              </div>
+            </div>
+            {showSimu ? (
+              <div className="content">
+                <div className="content_form">
+                  <div className="gambar_pemanis">
+                    <img src={banner} alt="banner" />
+                  </div>
+                  <form
+                    className="form_style"
+                    onSubmit={handleSubmit}
+                    id="form_table"
+                  >
+                    <FormInputCurrency
+                      nama="jumlah"
+                      placeholder="Jumlah Pinjamanan"
+                    />
+                    <div className="button_flex">
+                      <Button
+                        onClick={() => (state.button = 1)}
+                        id="Hitung"
+                        icon={FaAccusoft}
+                        label="Hitung"
+                      />
+                      <ButtonTransparent
+                        onClick={() => (state.button = 2)}
+                        id="Ulangi"
+                        icon={FaAccusoft}
+                        label="Ulangi"
+                      />
+                    </div>
+                  </form>
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
+
+          {show && showSimu ? (
+            <div className="card_form">
+              <div className="content">
+                <p>
+                  <b>Hasil Perhitungan Simulasi KPR</b>
+                </p>
+              </div>
+              <div className="content" style={{ marginTop: "-40px" }}>
+                <div className="body">
+                  <div className="class_table">
+                    <table>
+                      <thead>
+                        <tr style={{ background: "#079607" }}>
+                          <th rowSpan="2">Jenis Investasi</th>
+                          <th colSpan="3">Simulasi Saldo ({dataJumlah})</th>
+                        </tr>
+                        <tr style={{ background: "#007c00" }}>
+                          <th className="text">April 2022</th>
+                          <th className="text">Mei 2022</th>
+                          <th className="text">Juni 2022</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {dataBungaItems?.map((item, i) => (
+                          <tr key={i}>
+                            <td style={{ textAlign: "left" }}>
+                              {item.jenis_investasi}
+                            </td>
+                            <td style={{ textAlign: "left" }}>
+                              {item.bungaBulan1}
+                            </td>
+                            <td style={{ textAlign: "left" }}>
+                              {item.bungaBulan2}
+                            </td>
+                            <td style={{ textAlign: "left" }}>
+                              {item.bungaBulan3}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div className="footer">
+                  Keterangan: Simpanan sampai dengan 2 Milyar Rupiah dijamin
+                  oleh LPS.
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="card_form">
+              <div className="content">
+                <p style={{ borderBottom: "none", paddingBottom: "0px" }}>
+                  <b>Keterangan : </b>Lakukan perhitungan atau Simulasi terlebih
+                  dahulu untuk melihat Hasil Perhitungan Simulasi KPR.
                 </p>
               </div>
             </div>

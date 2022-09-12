@@ -4,9 +4,9 @@ import DOMPurify from "dompurify";
 import { useLocation } from "react-router-dom";
 import { ReactHelmet } from "../atom";
 
-const DetailBeritaComponents = ({ newItem }) => {
-  // console.log(newItem);
+const DetailBeritaComponents = ({ newItem, loading }) => {
   const location = useLocation();
+
   return (
     <>
       <ReactHelmet
@@ -14,7 +14,7 @@ const DetailBeritaComponents = ({ newItem }) => {
         url={location.pathname}
       />
       <DetailBeritaSite>
-        {newItem ? (
+        {!loading && newItem ? (
           <>
             {newItem.map((itemBerita, i) => (
               <div className="berita_container" key={i}>
@@ -22,10 +22,10 @@ const DetailBeritaComponents = ({ newItem }) => {
                   <nav className="berita_breadcrum">
                     <ol className="breadcrum">
                       <li className="breadcrum_item">
-                        <a href="/web-landing">Home</a>
+                        <a href="/">Home</a>
                       </li>
                       <li className="breadcrum_item">
-                        <a href="/web-landing/berita-kami">Berita</a>
+                        <a href="/berita-kami">Berita</a>
                       </li>
                       <li className="breadcrum_item">
                         <p>{itemBerita.judul}</p>
@@ -34,11 +34,14 @@ const DetailBeritaComponents = ({ newItem }) => {
                   </nav>
                   <div className="berita_judul">
                     <div className="judul">{itemBerita.judul}</div>
-                    <p>18 Juli 2020</p>
+                    <p>{itemBerita.date}</p>
                   </div>
                   <div className="berita_full">
                     <div className="berita_gambar">
-                      <img src={itemBerita.img} alt="" />
+                      <img
+                        src={`https://admin.arthamasabadi.co.id/storage/images/blogs/${itemBerita.img}`}
+                        alt={itemBerita.judul}
+                      />
                     </div>
                     <div
                       className="berita_text"
@@ -75,10 +78,10 @@ export const DetailSupportComponents = (item) => {
               <nav className="support_breadcrum">
                 <ol className="breadcrum">
                   <li className="breadcrum_item">
-                    <a href="/web-landing">Home</a>
+                    <a href="/">Home</a>
                   </li>
                   <li className="breadcrum_item">
-                    <a href="/web-landing">Support</a>
+                    <a href="/">Support</a>
                   </li>
                   <li className="breadcrum_item">
                     <p>{item.itemNew.judul}</p>

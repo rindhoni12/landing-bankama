@@ -902,7 +902,7 @@ export const CardInformasiSite = styled.section`
         box-sizing: border-box;
         border-radius: 10px;
         transition: box-shadow 1s;
-        height: 450px;
+        height: max-content;
 
         ${devices.smartphone} {
           width: 100% !important;

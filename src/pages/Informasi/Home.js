@@ -1,11 +1,11 @@
 import React from "react";
 // import { Accordion } from "../components";
 import { useLocation } from "react-router-dom";
-import { BERITA } from "../../config";
+import { BERITA, WORDING } from "../../config";
 import {
   CardInformasiSection,
   FocusComponentWithLogo,
-  SimpleSliderFicture,
+  // SimpleSliderFicture,
   SimpleSlider,
   OjkInformasi,
   ReactHelmet,
@@ -13,9 +13,19 @@ import {
   Detail,
   Card,
 } from "../../components";
+import { visimisi } from "../../assets";
 
 const Home = () => {
   const location = useLocation();
+  const dataWording = WORDING;
+
+  const DATAMISI = [
+    "Mensosialisasikan serta menanamkan pola, sistem, dan konsep perbankan syariah dalam perekonomian masyarakat.",
+    "Mengembangkan jaringan layanan kantor di wilayah eks Karesidenan Pati.",
+    "Melakukan inovasi produk sesuai dengan kebutuhan dan perkembangan ekonomi masyarakat.",
+    "Membangun kerja sama dengan berbagai lembaga.",
+  ];
+
   return (
     <>
       <ReactHelmet
@@ -24,19 +34,28 @@ const Home = () => {
       />
       <SimpleSlider />
       <Detail
+        img={visimisi}
         judul="Visi"
-        deskripsi="Menjadi BPR yang kuat, dipercaya dan selalu dihati masyarakat di
-                seluruh wilayah kerja Kabupaten Pati dan sekitarnya."
+        deskripsi="Menjadi BPR Syariah pilihan masyarakat yang sehat, unggul, dan terpercaya di wilayah eks Karesidenan Pati."
+        judulMisi="Misi"
+        misi={DATAMISI}
+        deskripsiMisi="Menjadi BPR Syariah pilihan masyarakat yang sehat, unggul, dan terpercaya di wilayah eks Karesidenan Pati."
       />
-      <OjkInformasi />
-      <SimpleSliderFicture
-        judul="Produk dan Layanan Kami"
-        deskripsi="Kami percaya bahwa pengalaman transaksi perbankan yang pada produk unggulan kami."
+      <OjkInformasi dataWording={dataWording ? dataWording?.home : ""} />
+      {/* <SimpleSliderFicture dataWording={dataWording ? dataWording?.home : ""} /> */}
+      <CardInformasiSection
+        dataWording={dataWording ? dataWording?.home : ""}
       />
-      <CardInformasiSection />
-      <FocusComponentWithLogo backgroundColor="#06aed5" />
-      <Card itemBerita={BERITA} text="Lihat Lebih" />
-      <Informasi />
+      <FocusComponentWithLogo
+        dataWording={dataWording ? dataWording?.simulasi_kredit : ""}
+        backgroundColor="#06aed5"
+      />
+      <Card
+        itemBerita={BERITA}
+        text="Lihat Lebih"
+        dataWording={dataWording ? dataWording?.berita_kami : ""}
+      />
+      <Informasi dataWording={dataWording ? dataWording?.home : ""} />
 
       {/* <Accordion /> */}
     </>

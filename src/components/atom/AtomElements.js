@@ -141,6 +141,7 @@ export const CardItemComponents = styled.div`
       position: relative;
       object-fit: cover;
       width: 100%;
+      height: 150px;
 
       img {
         object-fit: cover;
@@ -305,10 +306,13 @@ export const DetailComponents = styled.section`
       overflow: hidden;
       padding: 10px;
       width: 50%;
+      max-height: 350px;
 
       img {
         width: 100%;
         height: 100%;
+        border-radius: 10px;
+        object-fit: cover;
       }
 
       ${devices.smartphone} {
@@ -357,6 +361,43 @@ export const DetailComponents = styled.section`
         font-weight: 300;
         line-height: 1.5;
         font-size: 14px;
+      }
+    }
+  }
+
+  .value_all {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+
+    h1 {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.5;
+
+      ${devices.ipads} {
+        text-align: left;
+      }
+    }
+    ol {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-left: 40px;
+      list-style-type: decimal;
+
+      li {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 1.5;
+        display: list-item;
+        list-style: decimal;
+        text-align: left;
       }
     }
   }

@@ -141,6 +141,23 @@ export const FormContent = styled.div`
     }
   }
 
+  .card_content_flex {
+    display: flex;
+    flex-direction: row;
+
+    ${devices.smartphone} {
+      flex-direction: column;
+    }
+
+    ${devices.ipads} {
+      flex-direction: column;
+    }
+
+    ${devices.laptops} {
+      flex-direction: column;
+    }
+  }
+
   .content_form_buka {
     display: initial;
     /* flex-direction: row;
@@ -580,6 +597,9 @@ export const FormContent = styled.div`
 
     thead {
       tr {
+        .text {
+          font-size: 12px;
+        }
         th {
           padding: 0.75rem;
           border: 1px solid
@@ -627,5 +647,24 @@ export const FormContent = styled.div`
         }
       }
     }
+  }
+
+  .heading {
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    width: 100%;
+  }
+
+  .body {
+    width: 100%;
+  }
+
+  .footer {
+    font-size: 12px;
+    font-weight: 400;
+    text-align: left;
+    width: 100%;
+    margin-top: 20px;
   }
 `;

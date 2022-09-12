@@ -1,5 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ayosyariah, logoWhite, lps1, ojk, two, wbsIcon } from "../../assets";
+import {
+  ayosyariah,
+  logoWhite,
+  lps1,
+  mitra1,
+  mitra2,
+  mitra3,
+  mitra4,
+  no_pic,
+  ojk,
+  wbsIcon,
+} from "../../assets";
 import SliderWrapper from "../carousel/_SlickSliderStyle";
 import { devices } from "../../assets/_respondTo";
 import { FaAccusoft } from "react-icons/fa";
@@ -20,8 +31,9 @@ import {
   SlideContent,
   WaItemSite,
 } from "./AtomElements";
+import { DATAFETCH } from "../../config";
 
-const Informasi = () => {
+const Informasi = ({ dataWording }) => {
   return (
     <InformasiSite>
       <div className="informasi_container">
@@ -31,10 +43,9 @@ const Informasi = () => {
           </div>
           <div className="text_content">
             <div className="content">
-              <h1>AYO LAPORKAN SEGERA!</h1>
+              <h1>{dataWording ? dataWording[4]?.text : ""}</h1>
               <p className="text_p">
-                Jika anda melihat dan mendengar Pelanggaran/Kecurangan yang
-                dilakukan oleh Pejabat/Pegawai di lingkungan Bank Jago.
+                {dataWording ? dataWording[4]?.desc : ""}
               </p>
               <Button
                 style={{ margin: "auto" }}
@@ -51,17 +62,14 @@ const Informasi = () => {
 };
 
 const CardItem = ({ item }) => {
-  let text = item.judul;
-  let result = text.toLowerCase();
-  const judulBerita = result.split(" ").join("-");
-  const idNumber = item.id.toString();
-  const gabunganJudul = idNumber + "-" + judulBerita;
-
   return (
     <CardItemComponents>
-      <a href={`./berita-kami/${gabunganJudul}`} className="card_item">
+      <a href={`./berita-kami/${item.slug}`} className="card_item">
         <div className="card_img">
-          <img src={item.img} alt="blog_img" />
+          <img
+            src={`https://admin.arthamasabadi.co.id/storage/images/blogs/${item.img}`}
+            alt="blog_img"
+          />
         </div>
         <div className="card_body">
           <h3>{item.judul}</h3>
@@ -75,6 +83,31 @@ const CardItem = ({ item }) => {
         </div>
         <div className="card_footer">{item.date}</div>
       </a>
+    </CardItemComponents>
+  );
+};
+
+const CardItemLoad = (item) => {
+  return (
+    <CardItemComponents>
+      <div className="card_item">
+        <div className="card_img">
+          <img src={no_pic} alt="blog_img" />
+        </div>
+        <div className="card_body">
+          <h3>{item.judul}</h3>
+
+          <div
+            className="berita_text"
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(
+                "Sepertinya belum ada berita terbaru nih.."
+              ),
+            }}
+          />
+        </div>
+        <div className="card_footer">sabar yaa..</div>
+      </div>
     </CardItemComponents>
   );
 };
@@ -103,12 +136,19 @@ const BeritaContent = styled.div`
   }
 `;
 
-const Card = ({ itemBerita, text }) => {
+const Card = ({ text, dataWording }) => {
   const [start, setStart] = useState(6);
   const [isActive, setActive] = useState(false);
   const testRef = useRef();
   const cardRef = useRef();
-  const posts = itemBerita;
+
+  const dataBerita = DATAFETCH(
+    "https://admin.arthamasabadi.co.id/api/v1/posts"
+  )?.data;
+
+  const posts = dataBerita;
+
+  // console.log(posts);
 
   const LoadMore = () => {
     setStart((prevValue) => prevValue + 3);
@@ -129,52 +169,62 @@ const Card = ({ itemBerita, text }) => {
     <CardComponents>
       <div ref={testRef} className="card_container">
         <HeadingComponent
-          Heading="Berita Kami"
-          Text="Kami percaya bahwa pengalaman transaksi perbankan yang berfokus pada
-          kehidupan Anda akan memungkinkan Anda untuk terus bertumbuh."
+          Heading={dataWording ? dataWording[1]?.text : ""}
+          Text={dataWording ? dataWording[1]?.desc : ""}
         />
-        {text === "Lihat Lebih" ? (
-          <BeritaContent isActive={isActive}>
-            <div className="card_content">
-              {posts ? (
-                <>
-                  {posts.slice(0, 6).map((item, i) => (
-                    <CardItem key={i} item={item} />
-                  ))}
-                </>
-              ) : (
-                "Tidak ada data"
-              )}
-            </div>
-            <Button
-              icon={FaAccusoft}
-              label={text}
-              style={{ margin: "auto", marginTop: "40px" }}
-              to="./berita-kami"
-            />
-          </BeritaContent>
-        ) : (
+
+        {posts?.length === 0 ? (
           <BeritaContent>
             <div className="card_content">
-              {posts ? (
-                <>
-                  {posts.slice(0, start).map((item, i) => (
-                    <CardItem key={i} item={item} />
-                  ))}
-                </>
-              ) : (
-                "Tidak ada data"
-              )}
-            </div>
-            <div ref={cardRef} className="class_baru">
-              <Button
-                icon={FaAccusoft}
-                label={start >= posts.length + 1 ? "Show Less" : text}
-                style={{ margin: "auto", marginTop: "40px" }}
-                onClick={start >= posts.length + 1 ? ShowLess : LoadMore}
-              />
+              <CardItemLoad judul="Berita tidak ditemukan.." />
             </div>
           </BeritaContent>
+        ) : (
+          <>
+            {text === "Lihat Lebih" ? (
+              <BeritaContent isActive={isActive}>
+                <div className="card_content">
+                  {posts ? (
+                    <>
+                      {posts?.slice(0, 6).map((item, i) => (
+                        <CardItem key={i} item={item} />
+                      ))}
+                    </>
+                  ) : (
+                    <CardItemLoad judul="Loading..." />
+                  )}
+                </div>
+                <Button
+                  icon={FaAccusoft}
+                  label={text}
+                  style={{ margin: "auto", marginTop: "40px" }}
+                  to="./berita-kami"
+                />
+              </BeritaContent>
+            ) : (
+              <BeritaContent>
+                <div className="card_content">
+                  {posts ? (
+                    <>
+                      {posts?.slice(0, start).map((item, i) => (
+                        <CardItem key={i} item={item} />
+                      ))}
+                    </>
+                  ) : (
+                    <CardItemLoad judul="Loading..." />
+                  )}
+                </div>
+                <div ref={cardRef} className="class_baru">
+                  <Button
+                    icon={FaAccusoft}
+                    label={start >= posts?.length + 1 ? "Lihat Sedikit" : text}
+                    style={{ margin: "auto", marginTop: "40px" }}
+                    onClick={start >= posts?.length + 1 ? ShowLess : LoadMore}
+                  />
+                </div>
+              </BeritaContent>
+            )}
+          </>
         )}
       </div>
     </CardComponents>
@@ -187,12 +237,31 @@ const Detail = (item) => {
       <div className="detail_container">
         <div className="detail_content">
           <div className="detail_img">
-            <img src={two} alt="two" />
+            <img src={item.img} alt="two" />
           </div>
           <div className="detail_text">
             <div className="visi_misi">
               <div className="detail_text_heading">{item.judul}</div>
-              <div className="detail_text_p">{item.deskripsi}</div>
+              <div
+                className="detail_text_p"
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(item.deskripsi),
+                }}
+              />
+            </div>
+            <div className="visi_misi">
+              <div className="detail_text_heading">{item.judulMisi}</div>
+              <div className="detail_text_p">
+                <div className="value_all">
+                  <ol>
+                    <div>
+                      {item.misi?.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </div>
+                  </ol>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -201,7 +270,7 @@ const Detail = (item) => {
   );
 };
 
-const DetailLayanan = ({ item, imgDetail }) => {
+const DetailLayanan = ({ item, imgDetail, deskripsi }) => {
   return (
     <DetailComponents>
       <div className="detail_content">
@@ -210,18 +279,8 @@ const DetailLayanan = ({ item, imgDetail }) => {
         </div>
         <div className="detail_text">
           <div className="visi_misi">
-            <div className="detail_text_heading">Visi {item}</div>
-            <div className="detail_text_p">
-              Menjadi BPR yang kuat, dipercaya dan selalu dihati masyarakat di
-              seluruh wilayah kerja Kabupaten Pati dan sekitarnya.
-            </div>
-          </div>
-          <div className="visi_misi">
-            <div className="detail_text_heading">Misi</div>
-            <div className="detail_text_p">
-              Menjadi BPR yang kuat, dipercaya dan selalu dihati masyarakat di
-              seluruh wilayah kerja Kabupaten Pati dan sekitarnya.
-            </div>
+            <div className="detail_text_heading">{item ? item : ""}</div>
+            <div className="detail_text_p">{deskripsi ? deskripsi : ""}</div>
           </div>
         </div>
       </div>
@@ -307,32 +366,22 @@ const NewSlide = () => {
           <Slider {...settingsMobile}>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={ayosyariah} alt="ayosyariah" />
+                <img src={mitra1} alt="mitra1" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={lps1} alt="lps1" />
+                <img src={mitra2} alt="mitra2" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={ayosyariah} alt="ayosyariah" />
+                <img src={mitra3} alt="mitra3" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={ayosyariah} alt="ayosyariah" />
-              </div>
-            </div>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={lps1} alt="lps1" />
-              </div>
-            </div>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={ayosyariah} alt="ayosyariah" />
+                <img src={mitra4} alt="mitra4" />
               </div>
             </div>
           </Slider>
@@ -342,32 +391,22 @@ const NewSlide = () => {
           <Slider {...settings}>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={ayosyariah} alt="ayosyariah" />
+                <img src={mitra1} alt="mitra1" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={lps1} alt="lps1" />
+                <img src={mitra2} alt="mitra2" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={ayosyariah} alt="ayosyariah" />
+                <img src={mitra3} alt="mitra3" />
               </div>
             </div>
             <div className="slide_content">
               <div className="ojk_img">
-                <img src={ayosyariah} alt="ayosyariah" />
-              </div>
-            </div>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={lps1} alt="lps1" />
-              </div>
-            </div>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={ayosyariah} alt="ayosyariah" />
+                <img src={mitra4} alt="mitra4" />
               </div>
             </div>
           </Slider>
@@ -377,7 +416,7 @@ const NewSlide = () => {
   );
 };
 
-const OjkInformasi = () => {
+const OjkInformasi = ({ dataWording }) => {
   const [isMobile, setIsMobile] = useState(
     window.matchMedia("(max-width: 480px)").matches
   );
@@ -410,9 +449,8 @@ const OjkInformasi = () => {
     <OjkComponents>
       <div className="ojk_container">
         <HeadingComponent
-          Heading="Terdaftar dan Diawasi oleh"
-          Text="Kami percaya bahwa pengalaman transaksi perbankan yang berfokus pada
-          kehidupan Anda akan memungkinkan Anda untuk terus bertumbuh."
+          Heading={dataWording ? dataWording[0]?.text : ""}
+          Text={dataWording ? dataWording[0]?.desc : ""}
         />
 
         {isMobile ? (
@@ -487,7 +525,7 @@ const HeadingComponent = (item) => {
   );
 };
 
-const FocusComponentWithLogo = ({ backgroundColor }) => {
+const FocusComponentWithLogo = ({ backgroundColor, dataWording }) => {
   return (
     <FocusComponentSite>
       <div className="focus_container">
@@ -513,13 +551,13 @@ const FocusComponentWithLogo = ({ backgroundColor }) => {
               padding: "0px 20px",
               zIndex: "2",
             }}
-            Heading="Coba simulasi kredit sekarang!"
-            Text="Untuk mengetahui berapa biaya yang harus digunakan untuk melakukan kredit KPR."
+            Heading={dataWording ? dataWording[0]?.text : ""}
+            Text={dataWording ? dataWording[0]?.desc : ""}
           />
           <Button
             style={{ zIndex: "2" }}
             icon={FaAccusoft}
-            label="Simulasi KPR"
+            label="Simulasi"
             to="./simulasi"
           />
         </div>
@@ -528,7 +566,7 @@ const FocusComponentWithLogo = ({ backgroundColor }) => {
   );
 };
 
-const FocusComponentColor = ({ img, backgroundColor }) => {
+const FocusComponentColor = ({ img, backgroundColor, dataWording }) => {
   return (
     <FocusComponentSiteContact>
       <div className="focus_container">
@@ -542,8 +580,8 @@ const FocusComponentColor = ({ img, backgroundColor }) => {
               width: "100%",
               color: "#fff",
             }}
-            Heading="Coba simulasi kredit sekarang!"
-            Text="Untuk mengetahui berapa biaya yang harus digunakan untuk melakukan kredit KPR."
+            Heading={dataWording ? dataWording[0]?.text : ""}
+            Text={dataWording ? dataWording[0]?.desc : ""}
           />
           <div className="gambar_img">
             <img src={img} alt="imgContact" />
@@ -578,7 +616,7 @@ const WaItemContent = () => {
     <WaItemSite>
       <div ref={waRef} className="wa_content">
         <a
-          href="https://wa.me/6282137925172"
+          href="https://wa.me/6282137925173"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -602,4 +640,5 @@ export {
   FocusComponentWithLogo,
   ReactHelmet,
   WaItemContent,
+  CardItemLoad,
 };

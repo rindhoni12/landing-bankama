@@ -5,7 +5,7 @@ import Accordion from "./accordion";
 import ModalItem from "./modal";
 import Header from "./header";
 import Footer from "./footer";
-import FormKpr from "./form";
+import FormKpr, { FormSimulasi } from "./form";
 import {
   CardInformasiSection,
   FormNasabahSection,
@@ -31,6 +31,7 @@ import {
   WaItemContent,
   Detail,
   Card,
+  CardItemLoad,
 } from "./atom";
 import { Button, ButtonTransparent, ButtonDownload } from "./button";
 
@@ -69,4 +70,6 @@ export {
   Button,
   ButtonTransparent,
   ButtonDownload,
+  FormSimulasi,
+  CardItemLoad,
 };

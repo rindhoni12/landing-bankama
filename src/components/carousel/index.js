@@ -2,16 +2,21 @@ import React, { useEffect, useState } from "react";
 import { CorouselSection, CorouselSectionFicture } from "./CarouselElements";
 import imgTryMobile from "../../assets/img/jago-mobile.jpg";
 import {
-  jago,
-  jago2,
+  // jago,
+  // jago2,
   jago2Mobile,
-  jago3,
+  // jago3,
   jago3Mobile,
-  two,
+  peng1,
+  peng2,
+  peng3,
+  peng4,
+  peng5,
 } from "../../assets";
 import Slider from "react-slick";
 import SliderWrapper from "./_SlickSliderStyle";
 import { DetailLayanan, HeadingComponent } from "../atom";
+import { DATAFETCH } from "../../config";
 
 const SimpleSlider = () => {
   const [isMobile, setIsMobile] = useState(
@@ -42,6 +47,10 @@ const SimpleSlider = () => {
     });
   }, []);
 
+  const DATABANNERS = DATAFETCH(
+    "https://admin.arthamasabadi.co.id/api/v1/banners"
+  )?.data;
+
   return (
     <CorouselSection>
       <SliderWrapper>
@@ -65,21 +74,15 @@ const SimpleSlider = () => {
           </Slider>
         ) : (
           <Slider {...settings}>
-            <div className="class_img">
-              <img src={jago} alt="jago" />
-            </div>
-            <div className="class_img">
-              <img src={jago2} alt="jago2" />
-            </div>
-            <div className="class_img">
-              <img src={jago3} alt="jago3" />
-            </div>
-            <div className="class_img">
-              <img src={jago2} alt="jago2" />
-            </div>
-            <div className="class_img">
-              <img src={jago3} alt="jago3" />
-            </div>
+            {DATABANNERS &&
+              DATABANNERS?.map((item, i) => (
+                <div key={i} className="class_img">
+                  <img
+                    src={`https://admin.arthamasabadi.co.id/storage/images/banners/${item.banner}`}
+                    alt="jago"
+                  />
+                </div>
+              ))}
           </Slider>
         )}
       </SliderWrapper>
@@ -87,7 +90,7 @@ const SimpleSlider = () => {
   );
 };
 
-export const SimpleSliderFicture = (itemNew) => {
+export const SimpleSliderFicture = ({ dataWording }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -107,16 +110,59 @@ export const SimpleSliderFicture = (itemNew) => {
     // ),
   };
 
+  const dataPenghargaan = [
+    {
+      key: "penghargaan 1",
+      label: "Penghargaan 1",
+      img: peng1,
+      desc: "BPRS Predikat “ SANGAT BAGUS”  Sharia Finance Awards 2013 versi Majalah Infobank.",
+    },
+    {
+      key: "penghargaan 2",
+      label: "Penghargaan 2",
+      img: peng2,
+      desc: "BPRS Predikat “ SANGAT BAGUS”  Sharia Finance Awards 2014 versi Majalah Infobank.",
+    },
+    {
+      key: "penghargaan 3",
+      label: "Penghargaan 3",
+      img: peng3,
+      desc: "BPRS Predikat “ SANGAT BAGUS”  Sharia Finance Awards 2016 versi Majalah Infobank.",
+    },
+    {
+      key: "penghargaan 4",
+      label: "Penghargaan 4",
+      img: peng4,
+      desc: "BPRS Predikat “ EXCELLENT”  Sharia Finance Awards 2018 versi Majalah Infobank.",
+    },
+    {
+      key: "penghargaan 5",
+      label: "Penghargaan 5",
+      img: peng5,
+      desc: "BPRS Predikat “ EXCELLENT” Financial Performance 2020 versi MES Sharia Institution ",
+    },
+  ];
+
   return (
     <CorouselSectionFicture>
       <div className="carousel_container">
-        <HeadingComponent Heading={itemNew.judul} Text={itemNew.deskripsi} />
+        <HeadingComponent
+          Heading={dataWording ? dataWording[1]?.text : ""}
+          Text={dataWording ? dataWording[1]?.desc : ""}
+        />
         <div className="carousel_container_slide">
           <SliderWrapper>
             <Slider {...settings}>
-              <DetailLayanan item="Label 1" imgDetail={two} />
-              <DetailLayanan item="Label 2" imgDetail={two} />
-              <DetailLayanan item="Label 3" imgDetail={two} />
+              {dataPenghargaan
+                ? dataPenghargaan.map((item, i) => (
+                    <DetailLayanan
+                      deskripsi={item.desc}
+                      key={i}
+                      item={item.label}
+                      imgDetail={item.img}
+                    />
+                  ))
+                : ""}
             </Slider>
           </SliderWrapper>
         </div>

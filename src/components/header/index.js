@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import { BiCaretDown } from "react-icons/bi";
 import styled from "styled-components";
 import { devices } from "../../assets/_respondTo";
-import { logoNew } from "../../assets";
+import { logoAma, logoNew } from "../../assets";
 import { NAVLINKS, themeList, ThemeSwitcher } from "../../config";
 
 const ContentDrop = styled.div`
@@ -393,7 +393,7 @@ const Header = () => {
                 return { color: isActive ? "red" : "grey" };
               }}
             >
-              <img alt="logoNew" src={logoNew} className="logo__img" />
+              <img alt="logoNew" src={logoAma} className="logo__img" />
             </NavLink>
             <ThemeSwitcher />
           </div>

@@ -2,6 +2,28 @@ import { FiFacebook, FiMail, FiPhone, FiTwitter } from "react-icons/fi";
 import { FaEllipsisV, FaInstagram, FaPhone } from "react-icons/fa";
 import { blog, organisasi } from "../assets";
 import fileDownload from "../assets/cv_prawito.pdf";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+export const DATAFETCH = (url) => {
+  const [data, setData] = useState();
+  const [isloading, setLoading] = useState(true);
+  useEffect(() => {
+    const getData = async () => {
+      setLoading(true);
+      try {
+        const response = await axios(url);
+        setData(response.data.data);
+      } catch {
+        console.log("error");
+      }
+      setLoading(false);
+    };
+    getData();
+  }, [url]);
+
+  return { data, isloading };
+};
 
 export const DATA_PUBLIKASI = [
   {
@@ -48,22 +70,22 @@ export const DATA_PUBLIKASI = [
 
 export const MEDIA_SOSIAL = [
   {
-    to: "https://www.instagram.com/praw.ito/",
+    to: "https://www.instagram.com/xxx/",
     label: "Instagram",
     icon: FaInstagram,
   },
   {
-    to: "https://twitter.com/id_praw",
+    to: "https://twitter.com/xxx",
     label: "Twitter",
     icon: FiTwitter,
   },
   {
-    to: "https://twitter.com/id_praw",
+    to: "https://twitter.com/xxx",
     label: "Facebook",
     icon: FiFacebook,
   },
   {
-    to: "tel:+6282137925172",
+    to: "tel:+6282137925173",
     label: "Phone",
     icon: FiPhone,
   },
@@ -72,57 +94,38 @@ export const MEDIA_SOSIAL = [
 export const ORGANISASI = [
   {
     id: 1,
-    label: "Github",
+    label: "H. Ahmad Mutamakin, S.Pd.I.",
     img: organisasi,
-    jabatan: "Komisaris",
+    jabatan: "Dewan Komisaris",
+    desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Dasar Pengangkatan: Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },
   {
     id: 2,
-    label: "Github",
+    label: "H. Wakhrodi, S.Pd.I., M.Si",
     img: organisasi,
-    jabatan: "Dewan Direksi",
-  },
-  {
-    id: 7,
-    label: "Github",
-    img: organisasi,
-    jabatan: "Dewan Direksi",
-  },
-  {
-    id: 8,
-    label: "Github",
-    img: organisasi,
-    jabatan: "Dewan Direksi",
+    jabatan: "Dewan Komisaris",
+    desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },
   {
     id: 3,
-    label: "Github",
+    label: "H. Ghufron Halim, S.E, MM",
     img: organisasi,
-    jabatan: "Dewan Direksi",
+    jabatan: "Dewan Pengawas Syariah",
+    desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },
   {
     id: 4,
-    label: "Github",
+    label: "Dr. H. Ahmad Dimyati,",
     img: organisasi,
-    jabatan: "Anggota",
-  },
-  {
-    id: 8,
-    label: "Github",
-    img: organisasi,
-    jabatan: "Anggota",
+    jabatan: "Dewan Pengawas Syariah",
+    desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },
   {
     id: 5,
-    label: "Github",
+    label: "H. Mumu Mubarok,SS,M",
     img: organisasi,
-    jabatan: "Komisaris",
-  },
-  {
-    id: 6,
-    label: "Github",
-    img: organisasi,
-    jabatan: "Komisaris",
+    jabatan: "Direktur Utama",
+    desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },
 ];
 
@@ -144,8 +147,8 @@ export const DATA_BARU = {
                 judul: "Fitur & Biaya",
                 text_a: "",
                 text: [
-                  "Berdasarkan prinsip syariah dengan akad wadiah",
-                  "Bonus tabungan kompetitif",
+                  "Dapat disetor setiap waktu.",
+                  "Dapat di tarik setiap waktu.",
                   "Minimum setoran awal Rp. 25.000",
                   "Minimum setoran berikutnya Rp. 5.000",
                   "Saldo minimum Rp. 10.000",
@@ -165,7 +168,8 @@ export const DATA_BARU = {
                 judul: "Apa Saja Persyaratannya?",
                 text_a: "",
                 text: [
-                  "Warga Negara Indonesia: KTP/SIM/Paspor, NPWP",
+                  "Mengisi Form Pembukaan Rekening",
+                  "Warga Negara Indonesia: FC KTP/SIM/Paspor, NPWP (opsional).",
                   "Warga Negara Asing: Paspor dan Kartu Izin Menetap Sementara (KIM/KITAS)",
                 ],
               },
@@ -174,6 +178,39 @@ export const DATA_BARU = {
         },
         {
           id: 2,
+          judul: "Tabungan Simpel",
+          content: {
+            apa: "Apa yang Dimaksud dengan Tabungan iB Simpel ?",
+            p: "-",
+            fileImg: blog,
+            fitur: [
+              {
+                judul: "1. Tabungan Simpel",
+                text_a:
+                  "Tabungan perorangan untuk siswa Warga Negara Indonesia di peruntukan bagi siswa yang masih dibawah usia 17 tahun. Ketentuan :",
+                text: [
+                  "Mengisi Permohonan Pembukaan rekening.",
+                  "FC Identitas : KTP Orang tua/wali, KK atau Akta Lahir.",
+                  "FC Surat Pelajar atau Surat Keterangan sebagai siswa dari Sekolah.",
+                ],
+              },
+              {
+                judul: "2. Tabungan Simpel Ayah",
+                text_a:
+                  "Tabungan perorangan untuk pelajar Warga Negara Indonesia khusus bagi yatim atau yatim piatu. Ketentuan :",
+                text: [
+                  "FC Akta Kelahiran.",
+                  "FC Kartu Keluarga.",
+                  "FC KTP Orang tua/ Wali.",
+                  "FC Surat Kematian Ayah (bagi Yatim).",
+                  "FC Surat Kematian ayah dan ibu (bagi yatim piatu).",
+                ],
+              },
+            ],
+          },
+        },
+        {
+          id: 4,
           judul: "Tabungan iB Mudharabah",
           content: {
             apa: "Apa yang Dimaksud dengan Tabungan iB Mudharabah ?",
@@ -189,6 +226,7 @@ export const DATA_BARU = {
                   "Setoran selanjutnya minimal Rp. 100.000",
                   "Nisbah bagi hasil ditetapkan sesuai dengan akad perjanjian",
                   "Pengambilan tabungan hanya dapat dilakukan untuk pembayaran ongkos naik haji (ONH)",
+                  "Dikelola dengan akad Mudharabah Mutlaqoh",
                 ],
               },
               {
@@ -200,6 +238,7 @@ export const DATA_BARU = {
                   "Setoran selanjutnya minimal Rp. 50.000",
                   "Nisbah bagi hasil ditetapkan sesuai dengan akad perjanjian",
                   "Penarikan tabungan dapat dilakukan pada awal bulan Dzulhijjah atau jika pengendapan sudah sampai satu tahun",
+                  "Dikelola dengan akad Mudharabah Mutlaqoh.",
                 ],
               },
               {
@@ -211,6 +250,7 @@ export const DATA_BARU = {
                   "Setoran selanjutnya minimal Rp. 100.000",
                   "Nisbah bagi hasil ditetapkan sesuai dengan akad perjanjian",
                   "Jangka waktu minimal 3 Tahun.",
+                  "Dikelola dengan akad Mudharabah Mutlaqoh.",
                 ],
               },
               {
@@ -222,6 +262,21 @@ export const DATA_BARU = {
                   "Setoran selanjutnya minimal Rp. 50.000",
                   "Nisbah bagi hasil ditetapkan sesuai dengan akad perjanjian",
                   "Jangka waktu menyesuaikan dengan jenjang pendidikan anak.",
+                  "Dikelola dengan akad Mudharabah Mutlaqoh.",
+                ],
+              },
+              {
+                judul: "5. Tabungan iB siMuda",
+                text_a:
+                  "Membantu Mahasiswa dan Pemuda dalama merencanakan masa depan. Ketentuan :",
+                text: [
+                  "Usia Nasabah 18 s/d 30 tahun.",
+                  "Setoran pembukaan rekening Rp. 25.000.",
+                  "Setoran berikutnya Rp. 25.000",
+                  "Jangka waktu 1 tahun dapat di perpanjang.",
+                  "Penarikan Tabungan pada akhir jangka waktu.",
+                  "Tabungan dijamin oleh LPS.",
+                  "Dikelola dengan akad Mudharabah Mutlaqoh.",
                 ],
               },
               {
@@ -305,10 +360,8 @@ export const DATA_BARU = {
                 judul: "Persyaratan",
                 text_a: "",
                 text: [
-                  "Mengisi formulir pendaftaran",
-                  "Foto copy e-KTP berlaku pemohon (suami istri) rangkap lima",
-                  "Foto copy e-KTP berlaku salah satu orang tua (bila pemohon masih lajang)",
-                  "Foto copy Kartu Keluarga pemohon",
+                  "Mengisi Form Permohonan Pembiayaan sesuai syarat dan ketentuan berlaku [E. Form Pembiayan]",
+                  "Menyiapkan Berkas Foto KTP",
                 ],
               },
               {
@@ -378,13 +431,11 @@ export const DATA_BARU = {
                 ],
               },
               {
-                judul: "Persyaratan :",
+                judul: "Persyaratan",
                 text_a: "",
                 text: [
-                  "Mengisi formulir pendaftaran",
-                  "Foto copy e-KTP berlaku pemohon (suami istri) rangkap lima",
-                  "Foto copy e-KTP berlaku salah satu orang tua (bila pemohon masih lajang)",
-                  "Foto copy Kartu Keluarga pemohon",
+                  "Mengisi Form Permohonan Pembiayaan sesuai syarat dan ketentuan berlaku [E. Form Pembiayan]",
+                  "Menyiapkan Berkas Foto KTP",
                 ],
               },
               {
@@ -452,13 +503,11 @@ export const DATA_BARU = {
                 ],
               },
               {
-                judul: "Persyaratan :",
+                judul: "Persyaratan",
                 text_a: "",
                 text: [
-                  "Mengisi formulir pendaftaran",
-                  "Foto copy e-KTP berlaku pemohon (suami istri) rangkap lima",
-                  "Foto copy e-KTP berlaku salah satu orang tua (bila pemohon masih lajang)",
-                  "Foto copy Kartu Keluarga pemohon",
+                  "Mengisi Form Permohonan Pembiayaan sesuai syarat dan ketentuan berlaku [E. Form Pembiayan]",
+                  "Menyiapkan Berkas Foto KTP",
                 ],
               },
               {
@@ -525,11 +574,11 @@ export const DATA_BARU = {
                 ],
               },
               {
-                judul: "Persyaratan :",
+                judul: "Persyaratan",
                 text_a: "",
                 text: [
-                  "Mengisi formulir pendaftaran",
-                  "Foto copy e-KTP berlaku pemohon (suami istri) rangkap lima",
+                  "Mengisi Form Permohonan Pembiayaan sesuai syarat dan ketentuan berlaku [E. Form Pembiayan]",
+                  "Menyiapkan Berkas Foto KTP",
                 ],
               },
             ],
@@ -559,15 +608,15 @@ export const NAVLINKS = [
         name: "PENYIMPANAN DANA",
         sub: [
           {
-            to: "/web-landing/layanan-kami/penyimpanan-dana/0",
+            to: "/layanan-kami/penyimpanan-dana/0",
             judul: "Tabungan iB Wadiah",
           },
           {
-            to: "/web-landing/layanan-kami/penyimpanan-dana/1",
+            to: "/layanan-kami/penyimpanan-dana/1",
             judul: "Tabungan iB Mudharabah",
           },
           {
-            to: "/web-landing/layanan-kami/penyimpanan-dana/2",
+            to: "/layanan-kami/penyimpanan-dana/2",
             judul: "Deposito iB Mudharabah",
           },
         ],
@@ -578,19 +627,19 @@ export const NAVLINKS = [
         name: "PENYALURAN DANA",
         sub: [
           {
-            to: "/web-landing/layanan-kami/penyaluran-dana/0",
+            to: "/layanan-kami/penyaluran-dana/0",
             judul: "Pembiayaan iB Wadiah",
           },
           {
-            to: "/web-landing/layanan-kami/penyaluran-dana/1",
+            to: "layanan-kami/penyaluran-dana/1",
             judul: "Pembiayaan iB Musyarakah",
           },
           {
-            to: "/web-landing/layanan-kami/penyaluran-dana/2",
+            to: "/layanan-kami/penyaluran-dana/2",
             judul: "Pembiayaan iB Multijasa",
           },
           {
-            to: "/web-landing/layanan-kami/penyaluran-dana/3",
+            to: "/layanan-kami/penyaluran-dana/3",
             judul: "iB Gadai Emas",
           },
         ],
@@ -761,7 +810,7 @@ export const KONTAK_KAMI = {
   kantor_pusat: [
     {
       id: 1,
-      judul: "Head Office",
+      judul: "Kantor Pusat",
       alamat:
         "Jl. Raya Pati – Tayu Km. 19. Kampunganyar, Waturoyo, Kec. Margoyoso, Kabupaten Pati, Jawa Tengah 59154",
       no: [
@@ -946,6 +995,113 @@ export const DATA_FOOTER = {
           ],
         },
       ],
+    },
+  ],
+};
+
+export const WORDING = {
+  home: [
+    {
+      id: 1,
+      text: "Terdaftar dan Diawasi oleh",
+      desc: "Kami percaya bahwa pengalaman transaksi perbankan yang berfokus pada kehidupan Anda akan memungkinkan Anda untuk terus bertumbuh.",
+    },
+    {
+      id: 2,
+      text: "Produk dan Layanan Kami",
+      desc: "Kami percaya bahwa pengalaman transaksi perbankan yang berfokus pada kehidupan Anda akan memungkinkan Anda untuk terus bertumbuh.",
+    },
+    {
+      id: 3,
+      text: "Suku Bunga per Tahun",
+      desc: "Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:",
+    },
+    {
+      id: 4,
+      text: "Coba simulasi kredit sekarang!",
+      desc: "Untuk mengetahui berapa biaya yang harus digunakan untuk melakukan kredit KPR.",
+    },
+    {
+      id: 5,
+      text: "AYO LAPORKAN SEGERA!!",
+      desc: "Kami percaya bahwa pengalaman transaksi perbankan yang berfokus pada kehidupan Anda akan memungkinkan Anda untuk terus bertumbuh.",
+    },
+  ],
+  produk_layanan: [
+    {
+      id: 1,
+      text: "Produk dan Layanan Kami",
+      desc: "-",
+    },
+  ],
+  simulasi_kredit: [
+    {
+      id: 1,
+      text: "Coba simulasi penyimpanan sekarang!",
+      desc: "Untuk mengetahui berapa biaya yang harus digunakan untuk melakukan Simulasi Penyimpanan Dana.",
+    },
+    {
+      id: 2,
+      text: "Simulasi Penyimpanan!",
+      desc: "Realisasi Bagi Hasil Bpr Syariah Artha Mas Abadi Tahun 2022",
+    },
+  ],
+  berita_kami: [
+    {
+      id: 1,
+      text: "Pusat Media",
+      desc: "Temukan cerita dan berita terbaru mengenai BPR Syariah Artha Mas Abadi di sini.",
+    },
+    {
+      id: 2,
+      text: "Berita Kami",
+      desc: "Berikut beberapa berita informasi dari pada BPR Syariah Artha Mas Abadi.",
+    },
+  ],
+  publikasi: [
+    {
+      id: 1,
+      text: "Fearless Creativity",
+      desc: "Mendobrak normalitas secara produktif untuk menciptakan solusi kreatif.",
+    },
+    {
+      id: 2,
+      text: "Publikasi",
+      desc: "Informasi seputar dokumen publikasi daripada BPR Syariah Artha Mas Abadi.",
+    },
+  ],
+  galeri: [
+    {
+      id: 1,
+      text: "Galeri",
+      desc: "Memandang pekerjaan dan keuangan dari perspektif kehidupan.",
+    },
+    {
+      id: 2,
+      text: "Foto",
+      desc: "Beradaptasi terhadap perubahan serta mengambil keputusan dengan cepat.",
+    },
+  ],
+  tentang_kami: [
+    {
+      id: 1,
+      text: "Tentang Kami",
+      desc: "Semangat mengembangkan diri dan meningkatkan pertumbuhan nasabah yang dicapai melalui proses pengenalan diri dan peningkatan keahlian.",
+    },
+    {
+      id: 2,
+      text: "Foto dan Informasi Penghargaan",
+      desc: "",
+    },
+    {
+      id: 3,
+      text: "Pimpinan Kami",
+      desc: "Kami percaya bahwa pengalaman transaksi perbankan yang berfokus pada kehidupan Anda akan memungkinkan Anda untuk terus bertumbuh.",
+    },
+    {
+      id: 4,
+      text: "Kontak Kami",
+      desc: "Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:",
     },
   ],
 };
