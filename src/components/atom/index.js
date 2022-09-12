@@ -1,5 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ayosyariah, blog, logoWhite, lps1, ojk, wbsIcon } from "../../assets";
+import {
+  ayosyariah,
+  logoWhite,
+  lps1,
+  no_pic,
+  ojk,
+  wbsIcon,
+} from "../../assets";
 import SliderWrapper from "../carousel/_SlickSliderStyle";
 import { devices } from "../../assets/_respondTo";
 import { FaAccusoft } from "react-icons/fa";
@@ -79,22 +86,24 @@ const CardItem = ({ item }) => {
 const CardItemLoad = (item) => {
   return (
     <CardItemComponents>
-      <div className="card_img">
-        <img src={blog} alt="blog_img" />
-      </div>
-      <div className="card_body">
-        <h3>{item.judul}</h3>
+      <div className="card_item">
+        <div className="card_img">
+          <img src={no_pic} alt="blog_img" />
+        </div>
+        <div className="card_body">
+          <h3>{item.judul}</h3>
 
-        <div
-          className="berita_text"
-          dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(
-              "Pengguna dapat menghubungi Call BRI atas setiap permasalahan yang berkaitan dengan akses layanan www.bri.co.id"
-            ),
-          }}
-        />
+          <div
+            className="berita_text"
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(
+                "Sepertinya belum ada berita terbaru nih.."
+              ),
+            }}
+          />
+        </div>
+        <div className="card_footer">sabar yaa..</div>
       </div>
-      <div className="card_footer">loading..</div>
     </CardItemComponents>
   );
 };
@@ -163,7 +172,7 @@ const Card = ({ text, dataWording }) => {
         {posts?.length === 0 ? (
           <BeritaContent>
             <div className="card_content">
-              <CardItemLoad judul="Tidak Ada Berita, semoga segera ada berita baru yaa.." />
+              <CardItemLoad judul="Berita tidak ditemukan.." />
             </div>
           </BeritaContent>
         ) : (
