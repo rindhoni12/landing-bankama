@@ -48,7 +48,7 @@ const LayananSatu = () => {
         url={location.pathname}
       />
       <FocusComponentColor
-        dataWording={dataWording ? dataWording?.galeri : ""}
+        dataWording={dataWording ? dataWording?.produk_layanan : ""}
         backgroundColor="#f9b418"
         img={contactUs}
       />

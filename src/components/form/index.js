@@ -424,7 +424,7 @@ const FormKpr = () => {
 export const FormSimulasi = ({ dataWording }) => {
   const [dataBungaItems, setDataBunga] = useState([]);
   const [show, setShow] = useState(false);
-
+  const [dataJumlah, setDataJumlah] = useState("");
   const [showSimu, setShowSimu] = useState(false);
 
   const [showButton, setShowButton] = useState(false);
@@ -472,6 +472,12 @@ export const FormSimulasi = ({ dataWording }) => {
     item.jenis_investasi.includes("Deposito")
   );
 
+  let dataBaru = [];
+
+  for (let i = 0; i < withDeposito?.length; i++) {
+    dataBaru.push(withDeposito[0]);
+  }
+
   const hitungTabel = (dataUang) => {
     const formatRupiah = (angka, prefix) => {
       let number_string = angka.toString(),
@@ -489,6 +495,8 @@ export const FormSimulasi = ({ dataWording }) => {
       rupiah = split[1] !== undefined ? rupiah + "," + split[1] : rupiah;
       return prefix === undefined ? rupiah : rupiah ? "Rp " + rupiah : "";
     };
+
+    setDataJumlah(dataUang?.jumlah);
 
     let itemsBunga = [];
 
@@ -523,8 +531,8 @@ export const FormSimulasi = ({ dataWording }) => {
           Text={dataWording ? dataWording[1]?.desc : ""}
         />
         <div className="text_keterangan">
-          <b>Keterangan : </b>Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Illo laboriosam animi exercitationem.
+          <b>Keterangan : </b>Klik button Simulasi untuk memulai perhitungan.
+          Setelah itu akan muncul field untuk input Jumlah Pinjaman.
         </div>
         <FormContent>
           <div className="card_form">
@@ -541,9 +549,9 @@ export const FormSimulasi = ({ dataWording }) => {
                           <th colSpan="3">Tingkat Imbalan/Tahun (%)</th>
                         </tr>
                         <tr style={{ background: "#007c00" }}>
-                          <th className="text">April 2022</th>
-                          <th className="text">Mei 2022</th>
-                          <th className="text">Juni 2022</th>
+                          <th className="text">{dataBaru[0]?.nama_bulan1}</th>
+                          <th className="text">{dataBaru[0]?.nama_bulan2}</th>
+                          <th className="text">{dataBaru[0]?.nama_bulan3}</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -579,9 +587,9 @@ export const FormSimulasi = ({ dataWording }) => {
                           <th colSpan="3">Tingkat Imbalan/Tahun (%)</th>
                         </tr>
                         <tr style={{ background: "#007c00" }}>
-                          <th className="text">April 2022</th>
-                          <th className="text">Mei 2022</th>
-                          <th className="text">Juni 2022</th>
+                          <th className="text">{dataBaru[0]?.nama_bulan1}</th>
+                          <th className="text">{dataBaru[0]?.nama_bulan2}</th>
+                          <th className="text">{dataBaru[0]?.nama_bulan3}</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -672,7 +680,7 @@ export const FormSimulasi = ({ dataWording }) => {
                       <thead>
                         <tr style={{ background: "#079607" }}>
                           <th rowSpan="2">Jenis Investasi</th>
-                          <th colSpan="3">Simulasi Saldo (Rp)</th>
+                          <th colSpan="3">Simulasi Saldo ({dataJumlah})</th>
                         </tr>
                         <tr style={{ background: "#007c00" }}>
                           <th className="text">April 2022</th>

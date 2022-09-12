@@ -23,6 +23,15 @@ import lps from "./img/lps.png";
 import ojk from "./img/ojk.png";
 import two from "./img/2.png";
 import no_pic from "./img/no-picture.jpg";
+import peng1 from "./img/penghargaan-1.png";
+import peng2 from "./img/penghargaan-2.png";
+import peng3 from "./img/penghargaan-3.png";
+import peng4 from "./img/penghargaan-4.png";
+import peng5 from "./img/penghargaan-5.png";
+import mitra1 from "./img/mitra-1.png";
+import mitra2 from "./img/mitra-2.png";
+import mitra3 from "./img/mitra-3.png";
+import mitra4 from "./img/mitra-4.png";
 
 export {
   jago2Mobile,
@@ -50,4 +59,13 @@ export {
   ojk,
   lps,
   no_pic,
+  peng1,
+  peng2,
+  peng3,
+  peng4,
+  peng5,
+  mitra1,
+  mitra2,
+  mitra3,
+  mitra4,
 };

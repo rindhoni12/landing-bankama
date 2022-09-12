@@ -272,7 +272,7 @@ const ContentTab = (item) => {
         </div>
         <div className="value">
           <h1>Apa yang Dimaksud dengan {item.judul} ?</h1>
-          <p>{item.p}</p>
+          <p style={{ fontSize: "14px" }}>{item?.item?.p}</p>
           <div className="value_b">
             {item.item &&
               item.item.fitur.map((item, i) => (
@@ -316,7 +316,9 @@ const LayananSection = ({ judul, id, DATA_TABS, link }) => {
           <div className="layanan_content">
             <HeadingComponent
               Heading={judul}
-              Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+              Text={`Berikut ini adalah Layanan ${
+                link === "penyimpanan-dana" ? "Penyimpanan" : "Penyaluran"
+              } daripada BPR Syariah Artha Mas Abadi:`}
             />
 
             {link === "penyimpanan-dana" ? (
@@ -736,8 +738,8 @@ const CardInformasiSection = ({ dataWording }) => {
               <div className="heading">Tabungan</div>
               <div className="body">
                 <div className="class_table">
-                  <table>
-                    {!withoutDeposito ? (
+                  {withoutDeposito ? (
+                    <table>
                       <>
                         <thead>
                           <tr style={{ background: "#079607" }}>
@@ -763,16 +765,16 @@ const CardInformasiSection = ({ dataWording }) => {
                           ))}
                         </tbody>
                       </>
-                    ) : (
-                      <div className="footer">
-                        <b>Keterangan:</b> Maaf, data Tabungan saat ini sedang
-                        tidak tersedia!
-                      </div>
-                    )}
-                  </table>
+                    </table>
+                  ) : (
+                    <div className="footer">
+                      <b>Keterangan:</b> Maaf, data Tabungan saat ini sedang
+                      tidak tersedia!
+                    </div>
+                  )}
                 </div>
               </div>
-              {!withoutDeposito ? (
+              {withoutDeposito ? (
                 <div className="footer">
                   Keterangan: Simpanan sampai dengan 2 Milyar Rupiah dijamin
                   oleh LPS.
@@ -785,8 +787,8 @@ const CardInformasiSection = ({ dataWording }) => {
               <div className="heading">Deposito</div>
               <div className="body">
                 <div className="class_table">
-                  <table>
-                    {!withDeposito ? (
+                  {withDeposito ? (
+                    <table>
                       <>
                         <thead>
                           <tr style={{ background: "#079607" }}>
@@ -812,13 +814,13 @@ const CardInformasiSection = ({ dataWording }) => {
                           ))}
                         </tbody>
                       </>
-                    ) : (
-                      <div className="footer">
-                        <b>Keterangan:</b> Maaf, data Deposito saat ini sedang
-                        tidak tersedia!
-                      </div>
-                    )}
-                  </table>
+                    </table>
+                  ) : (
+                    <div className="footer">
+                      <b>Keterangan:</b> Maaf, data Deposito saat ini sedang
+                      tidak tersedia!
+                    </div>
+                  )}
                 </div>
               </div>
               {!withDeposito ? (
