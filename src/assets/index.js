@@ -10,6 +10,7 @@ import whatsapp from "./img/whatsapp.png";
 import wbsIcon from "./img/wbs-icon.png";
 import logoNew from "./img/logo_new.png";
 import logoAma from "./img/logo_ama_long.png";
+import img_bro from "./img/broken-image.png";
 import banner from "./img/banner.png";
 import jago2 from "./img/jago-2.jpeg";
 import jago3 from "./img/jago-3.jpg";
@@ -21,6 +22,7 @@ import blog from "./img/blog.jpg";
 import lps from "./img/lps.png";
 import ojk from "./img/ojk.png";
 import two from "./img/2.png";
+import no_pic from "./img/no-picture.jpg";
 
 export {
   jago2Mobile,
@@ -36,6 +38,7 @@ export {
   logoNew,
   logoAma,
   banner,
+  img_bro,
   jago3,
   jago2,
   jago,
@@ -46,4 +49,5 @@ export {
   two,
   ojk,
   lps,
+  no_pic,
 };

@@ -737,7 +737,7 @@ const CardInformasiSection = ({ dataWording }) => {
               <div className="body">
                 <div className="class_table">
                   <table>
-                    {withoutDeposito ? (
+                    {!withoutDeposito ? (
                       <>
                         <thead>
                           <tr style={{ background: "#079607" }}>
@@ -772,7 +772,7 @@ const CardInformasiSection = ({ dataWording }) => {
                   </table>
                 </div>
               </div>
-              {withoutDeposito ? (
+              {!withoutDeposito ? (
                 <div className="footer">
                   Keterangan: Simpanan sampai dengan 2 Milyar Rupiah dijamin
                   oleh LPS.
@@ -786,7 +786,7 @@ const CardInformasiSection = ({ dataWording }) => {
               <div className="body">
                 <div className="class_table">
                   <table>
-                    {withDeposito ? (
+                    {!withDeposito ? (
                       <>
                         <thead>
                           <tr style={{ background: "#079607" }}>
@@ -821,7 +821,7 @@ const CardInformasiSection = ({ dataWording }) => {
                   </table>
                 </div>
               </div>
-              {withDeposito ? (
+              {!withDeposito ? (
                 <div className="footer">
                   Keterangan: Simpanan sampai dengan 2 Milyar Rupiah dijamin
                   oleh LPS.
