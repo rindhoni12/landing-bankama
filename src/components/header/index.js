@@ -254,6 +254,13 @@ const Header = () => {
     window.location.reload(item.to);
   };
 
+  const humberHandleDisable = (item) => {
+    item.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setIsNavOpen(false);
+    window.location.reload(item.to);
+  };
+
   const humberHandle2 = (item) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     setDropdown(item.name === dropdown ? null : item.name);
@@ -306,13 +313,23 @@ const Header = () => {
                         <div className="header__item">
                           <div className="text_menu">
                             {item.megamenu === false ? (
-                              <NavLink
-                                className="navmenu"
-                                onClick={() => humberHandle()}
-                                to={item.to}
-                              >
-                                {item.name}
-                              </NavLink>
+                              item.disabled === true ? (
+                                <NavLink
+                                  className="navmenu"
+                                  onClick={() => humberHandleDisable()}
+                                  to={item.to}
+                                >
+                                  {item.name}
+                                </NavLink>
+                              ) : (
+                                <NavLink
+                                  className="navmenu"
+                                  onClick={() => humberHandle()}
+                                  to={item.to}
+                                >
+                                  {item.name}
+                                </NavLink>
+                              )
                             ) : (
                               <>
                                 <NavLink

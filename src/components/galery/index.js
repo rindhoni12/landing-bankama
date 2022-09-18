@@ -3,8 +3,9 @@ import { GaleryNewSite, GalerySite } from "./GaleryElements";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import { HeadingComponent } from "../atom";
-import { PHOTOS } from "../../config";
+import { DATAFETCH, PHOTOS } from "../../config";
 import { FiX } from "react-icons/fi";
+import { DATAFETCHVIDEO } from "../../config/data";
 
 const GalerySection = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -57,32 +58,13 @@ const GaleryNewSection = ({ dataWording }) => {
   const [modal, setModal] = useState(false);
   const [temImg, setTemImg] = useState("");
   const modalRefGalery = useRef();
-  let dataPhotos = [
-    {
-      src: "https://source.unsplash.com/2ShvY8Lf6l0/800x599",
-      id: 1,
-    },
-    {
-      src: "https://source.unsplash.com/Dm-qxdynoEc/800x799",
-      id: 2,
-    },
-    {
-      src: "https://source.unsplash.com/qDkso9nvCg0/600x799",
-      id: 3,
-    },
-    {
-      src: "https://source.unsplash.com/iecJiKe_RNg/600x799",
-      id: 4,
-    },
-    {
-      src: "https://source.unsplash.com/epcsn8Ed8kY/600x799",
-      id: 5,
-    },
-    {
-      src: "https://source.unsplash.com/NQSWvyVRIJk/800x599",
-      id: 6,
-    },
-  ];
+  const dataGambar = DATAFETCH(
+    "https://admin.arthamasabadi.co.id/api/v1/galeri"
+  )?.data;
+
+  const dataVideo = DATAFETCHVIDEO(
+    "https://admin.arthamasabadi.co.id/api/v1/galeri"
+  )?.data;
 
   const getImages = (item) => {
     setTemImg(item);
@@ -110,7 +92,7 @@ const GaleryNewSection = ({ dataWording }) => {
     }
   }, [modal]);
 
-  console.log(dataPhotos);
+  console.log(dataVideo);
 
   return (
     <GaleryNewSite>
@@ -119,19 +101,45 @@ const GaleryNewSection = ({ dataWording }) => {
           Heading={dataWording ? dataWording[1]?.text : ""}
           Text={dataWording ? dataWording[1]?.desc : ""}
         />
+        <div className="galeryNew_video" style={{ marginBottom: "40px" }}>
+          <div className="video">
+            <iframe
+              src={dataVideo ? dataVideo : ""}
+              frameBorder="0"
+              allowFullScreen
+              title="Video"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+      <div className="galeryNew_container">
+        <HeadingComponent
+          Heading={dataWording ? dataWording[2]?.text : ""}
+          Text={dataWording ? dataWording[2]?.desc : ""}
+        />
         <div
           onClick={closeModal}
           ref={modalRefGalery}
           className={modal ? "modal open" : "modal"}
         >
-          <img src={temImg} alt="judul_images" />
+          <img
+            src={`https://admin.arthamasabadi.co.id/storage/images/galeris/${temImg}`}
+            alt="judul_images"
+          />
           <FiX onClick={() => setModal(false)} />
         </div>
         <div className="galeryNew_galery">
-          {dataPhotos.map((item, i) => {
+          {dataGambar?.map((item, i) => {
             return (
-              <div key={i} className="pics" onClick={() => getImages(item.src)}>
-                <img src={item.src} alt="item_judul" />
+              <div
+                key={i}
+                className="pics"
+                onClick={() => getImages(item?.photo)}
+              >
+                <img
+                  src={`https://admin.arthamasabadi.co.id/storage/images/galeris/${item?.photo}`}
+                  alt="item_judul"
+                />
               </div>
             );
           })}

@@ -15,6 +15,8 @@ const Layanan = () => {
   const { index } = useParams();
   const penyimpanan_dana = DATA_BARU.penyimpanan_dana[0];
   const penyaluran_dana = DATA_BARU.penyaluran_dana[0];
+  const penyimpanan_dana_mudharabah = DATA_BARU.penyimpanan_dana_mudharabah[0];
+  const deposito_dana_mudharabah = DATA_BARU.deposito_dana_mudharabah[0];
   return (
     <>
       {id === "penyimpanan-dana" ? (
@@ -23,6 +25,8 @@ const Layanan = () => {
           id={index}
           link={id}
           DATA_TABS={penyimpanan_dana}
+          DATA_TABS_BARU={penyimpanan_dana_mudharabah}
+          DATA_TABS_DEP={deposito_dana_mudharabah}
         />
       ) : id === "penyaluran-dana" ? (
         <LayananSection
@@ -30,6 +34,8 @@ const Layanan = () => {
           id={index}
           link={id}
           DATA_TABS={penyaluran_dana}
+          DATA_TABS_BARU=""
+          DATA_TABS_DEP=""
         />
       ) : (
         ""

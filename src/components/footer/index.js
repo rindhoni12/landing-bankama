@@ -2,7 +2,7 @@ import React from "react";
 import { FooterSite, Media } from "./FooterElements";
 import gambarOjk from "../../assets/img/ojk.png";
 import { WaItemContent } from "../atom";
-import { logoAma, lps } from "../../assets";
+import { logoAma, lps, lps_text, ojk_text } from "../../assets";
 import { MEDIA_SOSIAL } from "../../config";
 
 const Footer = () => {
@@ -58,8 +58,8 @@ const Footer = () => {
           </div>
           <div className="footer_media">
             <div className="footer_desc_p">
-              <b>Kantor Pusat :</b> Jl. Raya Pati – Tayu Km. 19. Kampunganyar,
-              Waturoyo, Kec. Margoyoso, Kabupaten Pati, Jawa Tengah 59154.
+              <b>Kantor Pusat :</b> Jl. Raya Pati – Tayu Km. 19. Waturoyo, Kec.
+              Margoyoso, Kabupaten Pati, Jawa Tengah 59154.
             </div>
             <Media>
               {MEDIA_SOSIAL.map((item, i) => (
@@ -78,8 +78,8 @@ const Footer = () => {
           </div>
           <div className="footer_desc">
             <div className="footer_desc_img">
-              <img className="img_class" src={gambarOjk} alt="gambarOjk" />
-              <img className="img_class" src={lps} alt="lps" />
+              <img className="img_class" src={ojk_text} alt="gambarOjk" />
+              <img className="img_class" src={lps_text} alt="lps" />
             </div>
             {/* <div className="footer_desc_p">
               <b>Kantor Pusat :</b> Jl. Raya Pati – Tayu Km. 19. Kampunganyar,

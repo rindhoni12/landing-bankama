@@ -109,6 +109,7 @@ export const DetailBeritaSite = styled.section`
         line-height: 1.5;
         font-weight: 300;
         text-align: left;
+        text-align: justify;
       }
     }
 

@@ -715,6 +715,30 @@ export const ContentTabSite = styled.div`
       }
     }
   }
+  .button_form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    ._text {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    ._pembiayaan {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .text_baru {
+    font-size: 12px;
+    text-align: left;
+    margin-top: 10px;
+    font-weight: 300;
+  }
 `;
 
 export const ErrorSite = styled.section`
@@ -1398,3 +1422,5 @@ export const PimpinanSite = styled.section`
     }
   }
 `;
+
+export const SimulasiBankSite = styled.section``;

@@ -129,6 +129,61 @@ export const GaleryNewSite = styled.section`
         }
       }
     }
+
+    &_video {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      .video {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+
+        iframe {
+          width: 70%;
+          height: 300px;
+
+          ${devices.smartphone} {
+            height: 200px;
+            width: 100%;
+          }
+
+          ${devices.ipads} {
+            height: 240px;
+            width: 100%;
+          }
+
+          ${devices.laptops} {
+            height: 300px;
+          }
+
+          ${devices.screen_large} {
+            height: 300px;
+          }
+        }
+      }
+    }
+  }
+
+  .videowrapper {
+    float: none;
+    clear: both;
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: 0;
+  }
+  .videowrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .modal {

@@ -473,7 +473,7 @@ export const OjkComponents = styled.section`
         width: 150px;
 
         ${devices.smartphone} {
-          width: 200px !important;
+          width: 250px !important;
           object-fit: contain;
         }
       }
