@@ -1,5 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FaAccusoft, FaDownload } from "react-icons/fa";
+import {
+  FaAccusoft,
+  FaDownload,
+  FaFacebook,
+  FaFax,
+  FaInstagram,
+  FaPhone,
+  FaWhatsapp,
+} from "react-icons/fa";
 import {
   FormInput,
   FormInputSelectNew,
@@ -19,6 +27,7 @@ import {
   Tabs,
   KontakKamiSite,
   PimpinanSite,
+  SimulasiBankSite,
 } from "./SectionElements";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
@@ -290,6 +299,20 @@ const ContentTab = (item) => {
               ))}
           </div>
         </div>
+        <div className="button_form">
+          <div className="button_form_text">
+            Apa anda tertarik dengan produk layanan ini?**
+            <p className="text_baru">**Syarat dan ketentuan berlaku</p>
+          </div>
+          <div className="button_form_pembiayaan">
+            <Button
+              icon={FaAccusoft}
+              label="Daftar Disini"
+              style={{ margin: "auto" }}
+              to="./berita-kami"
+            />
+          </div>
+        </div>
       </div>
     </ContentTabSite>
   );
@@ -301,10 +324,19 @@ const TabPanel = ({ children }) => {
 
 Tab.TabPanel = TabPanel;
 
-const LayananSection = ({ judul, id, DATA_TABS, link }) => {
+const LayananSection = ({
+  judul,
+  id,
+  DATA_TABS,
+  link,
+  DATA_TABS_BARU,
+  DATA_TABS_DEP,
+}) => {
   const TABS = DATA_TABS.contentFull;
   const number = parseInt(id);
   const location = useLocation();
+  const TABS_BARU = DATA_TABS_BARU.contentFull;
+  const TABS_DEP = DATA_TABS_DEP.contentFull;
   return (
     <>
       <ReactHelmet
@@ -323,7 +355,7 @@ const LayananSection = ({ judul, id, DATA_TABS, link }) => {
 
             {link === "penyimpanan-dana" ? (
               <>
-                {number === 0 || number === 1 || number === 2 ? (
+                {number === 0 ? (
                   <div className="layanan_tabs">
                     <div className="content">
                       {number ? (
@@ -337,6 +369,50 @@ const LayananSection = ({ judul, id, DATA_TABS, link }) => {
                       ) : (
                         <Tab active={0}>
                           {TABS.map((tab, idx) => (
+                            <Tab.TabPanel key={`Tab-${idx}`} tab={tab.judul}>
+                              {tab.content}
+                            </Tab.TabPanel>
+                          ))}
+                        </Tab>
+                      )}
+                    </div>
+                  </div>
+                ) : number === 1 ? (
+                  <div className="layanan_tabs">
+                    <div className="content">
+                      {number ? (
+                        <Tab active={0}>
+                          {TABS_BARU.map((tab, idx) => (
+                            <Tab.TabPanel key={`Tab-${idx}`} tab={tab.judul}>
+                              {tab.content}
+                            </Tab.TabPanel>
+                          ))}
+                        </Tab>
+                      ) : (
+                        <Tab active={0}>
+                          {TABS_BARU.map((tab, idx) => (
+                            <Tab.TabPanel key={`Tab-${idx}`} tab={tab.judul}>
+                              {tab.content}
+                            </Tab.TabPanel>
+                          ))}
+                        </Tab>
+                      )}
+                    </div>
+                  </div>
+                ) : number === 2 ? (
+                  <div className="layanan_tabs">
+                    <div className="content">
+                      {number ? (
+                        <Tab active={0}>
+                          {TABS_DEP.map((tab, idx) => (
+                            <Tab.TabPanel key={`Tab-${idx}`} tab={tab.judul}>
+                              {tab.content}
+                            </Tab.TabPanel>
+                          ))}
+                        </Tab>
+                      ) : (
+                        <Tab active={0}>
+                          {TABS_DEP.map((tab, idx) => (
                             <Tab.TabPanel key={`Tab-${idx}`} tab={tab.judul}>
                               {tab.content}
                             </Tab.TabPanel>
@@ -544,7 +620,7 @@ const HubungiSection = () => {
   });
 
   const [berhasil, setBerhasil] = useState(false);
-  // const [dataresponse, setDataResponse] = useState([]);
+  const [dataresponse, setDataResponse] = useState([]);
 
   const set = (name) => {
     return ({ target: { value } }) => {
@@ -554,27 +630,29 @@ const HubungiSection = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(values);
+    const data = {
+      nama: values.nama,
+      no_hp: values.number,
+      pesan: values.textArea,
+    };
     setValues({ nama: "", number: "", textArea: "" });
+    axios
+      .post("https://admin.arthamasabadi.co.id/api/v1/pengaduan", data)
+      .then((response) => {
+        setDataResponse(response.data);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log("data tidak berhasil disimpan");
+        } else if (error.request) {
+          console.log("jaringan error");
+        } else {
+          console.log(error);
+        }
+      });
     setBerhasil(true);
-    // axios
-    //   .post("https://admin.arthamasabadi.co.id/api/v1/nasabah", data, config)
-    //   .then((response) => {
-    //     setDataResponse(response.data);
-    //   })
-    //   .catch((error) => {
-    //     if (error.response) {
-    //       console.log(error.response);
-    //       console.log("data tidak berhasil disimpan");
-    //     } else if (error.request) {
-    //       console.log("jaringan error");
-    //     } else {
-    //       console.log(error);
-    //     }
-    //   });
-    // console.log(dataresponse);
   };
-
   return (
     <HubungiSite>
       <div className="hubungi_container">
@@ -623,10 +701,10 @@ const HubungiSection = () => {
                         pengaduan akan dikirimkan melalui No. Hp yang di
                         masukan.
                       </p>
-                      {berhasil ? (
+                      {dataresponse?.success && berhasil ? (
                         <p className="informasi">
                           <b>Informasi : </b>
-                          Data Berhasil Dikirim, silahkan cek pesan WhatsApp
+                          {dataresponse?.message}, silahkan cek pesan WhatsApp
                           secara berkala.
                           <button onClick={() => setBerhasil(false)}>
                             <FiX />
@@ -659,40 +737,46 @@ const HubungiSection = () => {
                     <div className="contact_item">
                       <div className="item_contactNew">
                         <div className="icon_text">
-                          <FaAccusoft />
-                          WhatsApps
+                          <FaWhatsapp />
+                          Whatsapp
+                        </div>
+                        <div className="label">085225100893</div>
+                      </div>
+                      <div className="item_contactNew">
+                        <div className="icon_text">
+                          <FaPhone />
+                          Telp.
                         </div>
                         <div className="label">082137926172</div>
                       </div>
                       <div className="item_contactNew">
                         <div className="icon_text">
-                          <FaAccusoft />
-                          Email
-                        </div>
-                        <div className="label">082137926172</div>
-                      </div>
-                      <div className="item_contactNew">
-                        <div className="icon_text">
-                          <FaAccusoft />
-                          Twitter
-                        </div>
-                        <div className="label">082137926172</div>
-                      </div>
-                      <div className="item_contactNew">
-                        <div className="icon_text">
-                          <FaAccusoft />
+                          <FaInstagram />
                           Instagram
                         </div>
                         <div className="label">
-                          082137926172 sdfsdfsdfsddfsdfsdfsdf
+                          <a href="https://www.instagram.com/bprsarthamasabadi/">
+                            Artha Mas Abadi
+                          </a>
                         </div>
                       </div>
                       <div className="item_contactNew">
                         <div className="icon_text">
-                          <FaAccusoft />
+                          <FaFacebook />
                           Facebook
                         </div>
-                        <div className="label">082137926172 sdfsdfsdf</div>
+                        <div className="label">
+                          <a href="https://www.facebook.com/achmadsupriyono.supriyono">
+                            Supriyono
+                          </a>
+                        </div>
+                      </div>
+                      <div className="item_contactNew">
+                        <div className="icon_text">
+                          <FaFax />
+                          Fax
+                        </div>
+                        <div className="label">4150400</div>
                       </div>
                     </div>
                   </div>
@@ -745,7 +829,7 @@ const CardInformasiSection = ({ dataWording }) => {
                           <tr style={{ background: "#079607" }}>
                             <th rowSpan="2">Jenis Investasi</th>
                             <th rowSpan="2">Nisbah</th>
-                            <th colSpan="3">Tingkat Imbalan/Tahun (%)</th>
+                            <th colSpan="3">Equivalen Rate(%)</th>
                           </tr>
                           <tr style={{ background: "#007c00" }}>
                             <th className="text">{dataBaru[0]?.nama_bulan1}</th>
@@ -794,7 +878,7 @@ const CardInformasiSection = ({ dataWording }) => {
                           <tr style={{ background: "#079607" }}>
                             <th rowSpan="2">Jenis Investasi</th>
                             <th rowSpan="2">Nisbah</th>
-                            <th colSpan="3">Tingkat Imbalan/Tahun (%)</th>
+                            <th colSpan="3">Equivalen Rate(%)</th>
                           </tr>
                           <tr style={{ background: "#007c00" }}>
                             <th className="text">{dataBaru[0]?.nama_bulan1}</th>
@@ -1455,6 +1539,10 @@ const DetailOrganisasiSection = () => {
   );
 };
 
+const SimulasiBankSection = () => {
+  return <SimulasiBankSite>Test</SimulasiBankSite>;
+};
+
 export {
   KontakKamiSection,
   OrganisasiSection,
@@ -1467,4 +1555,5 @@ export {
   FormNasabahSection,
   PenyaluranSection,
   DetailOrganisasiSection,
+  SimulasiBankSection,
 };

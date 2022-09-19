@@ -95,6 +95,25 @@ export const FormSite = styled.section`
     width: 100%;
   }
 
+  .content_hasil {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .text {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .hasil {
+      font-size: 18px;
+      font-weight: 600;
+      margin-left: 10px;
+      color: #ff6d00;
+    }
+  }
+
   .gambar_pemanis {
     display: flex;
     width: 100%;
@@ -105,7 +124,7 @@ export const FormSite = styled.section`
 
     img {
       width: 100%;
-      height: 100%;
+      /* height: 100%; */
     }
 
     ${devices.smartphone} {
@@ -303,7 +322,7 @@ export const FormContent = styled.div`
   }
 
   .form_input {
-    padding: 12px 20px;
+    padding: 14px 26px;
     /* border: 1.2px solid #aaa; */
 
     border: 1px solid
@@ -459,7 +478,7 @@ export const FormContent = styled.div`
 
     label {
       font-weight: 500;
-      font-size: 14px;
+      font-size: 16px;
       width: 100%;
 
       ::after {
@@ -547,7 +566,7 @@ export const FormContent = styled.div`
 
     img {
       width: 100%;
-      height: 100%;
+      /* height: 100%; */
     }
 
     ${devices.smartphone} {

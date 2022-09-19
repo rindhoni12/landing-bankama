@@ -32,6 +32,8 @@ import mitra1 from "./img/mitra-1.png";
 import mitra2 from "./img/mitra-2.png";
 import mitra3 from "./img/mitra-3.png";
 import mitra4 from "./img/mitra-4.png";
+import lps_text from "./img/logo-lps-text.png";
+import ojk_text from "./img/logo-ojk-text.png";
 
 export {
   jago2Mobile,
@@ -68,4 +70,6 @@ export {
   mitra2,
   mitra3,
   mitra4,
+  lps_text,
+  ojk_text,
 };

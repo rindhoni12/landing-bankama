@@ -1,29 +1,44 @@
 import React from "react";
 import { FocusComponentColor, ReactHelmet } from "../../components/atom";
-import { FormSimulasi } from "../../components";
-import { useLocation } from "react-router-dom";
+import { FormKpr, FormSimulasi } from "../../components";
+import { useLocation, useParams } from "react-router-dom";
 import { contactUs } from "../../assets";
 import { WORDING } from "../../config";
 
 const Simulasi = () => {
   const location = useLocation();
   const dataWording = WORDING;
-
+  const { id } = useParams();
+  console.log(id);
   return (
     <>
       <ReactHelmet
-        title="Simulasi KPR | Bank Artha Mas Abadi"
+        title="Simulasi Penyimpanan | Bank Artha Mas Abadi"
         url={location.pathname}
       />
-      <FocusComponentColor
-        dataWording={dataWording ? dataWording?.simulasi_kredit : ""}
-        backgroundColor="#26ac42"
-        img={contactUs}
-      />
-      {/* <FormKpr /> */}
-      <FormSimulasi
-        dataWording={dataWording ? dataWording?.simulasi_kredit : ""}
-      />
+      {id === "simulasi" ? (
+        <>
+          <FocusComponentColor
+            dataWording={dataWording ? dataWording?.simulasi_kredit : ""}
+            backgroundColor="#26ac42"
+            img={contactUs}
+          />
+          <FormSimulasi
+            dataWording={dataWording ? dataWording?.simulasi_kredit : ""}
+          />
+        </>
+      ) : id === "simulasi-kredit" ? (
+        <>
+          <FocusComponentColor
+            dataWording={dataWording ? dataWording?.simulasi_tabungan : ""}
+            backgroundColor="#26ac42"
+            img={contactUs}
+          />
+          <FormKpr />
+        </>
+      ) : (
+        <div className="text">Tidak Terdapat Form</div>
+      )}
     </>
   );
 };

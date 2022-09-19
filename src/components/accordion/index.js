@@ -48,7 +48,7 @@ const AccordionComponent = ({ items }) => {
     <AccordionContainer>
       <HeadingComponent
         Heading="Coba simulasi kredit sekarang!"
-        Text="Untuk mengetahui berapa biaya yang harus digunakan untuk melakukan kredit KPR."
+        Text="Untuk mengetahui berapa biaya yang harus digunakan untuk melakukan kredit Tabungan."
       />
       <div className="accordion_bungkus">
         <div className="pembungkus">

@@ -12,6 +12,7 @@ import Galery from "./Informasi/Galery";
 import NotFound from "./Informasi/404";
 import Home from "./Informasi/Home";
 import SupportLayanan from "./Informasi/SupportLayanan";
+import SimulasiBank from "./Informasi/SimulasiBank";
 
 export {
   Layanan,
@@ -29,4 +30,5 @@ export {
   NotFound,
   Home,
   SupportLayanan,
+  SimulasiBank,
 };
