@@ -2,13 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import {
   ayosyariah,
   logoWhite,
-  lps1,
+  lps_text,
   mitra1,
   mitra2,
   mitra3,
   mitra4,
   no_pic,
-  ojk,
+  ojk_text,
   wbsIcon,
 } from "../../assets";
 import SliderWrapper from "../carousel/_SlickSliderStyle";
@@ -457,10 +457,10 @@ const OjkInformasi = ({ dataWording }) => {
           <SliderWrapper>
             <Slider {...settings}>
               <div className="ojk_img">
-                <img src={ojk} alt="ojk" />
+                <img src={ojk_text} alt="ojk" />
               </div>
               <div className="ojk_img">
-                <img src={lps1} alt="lps1" />
+                <img src={lps_text} alt="lps1" />
               </div>
               <div className="ojk_img">
                 <img src={ayosyariah} alt="ayosyariah" />
@@ -470,10 +470,10 @@ const OjkInformasi = ({ dataWording }) => {
         ) : (
           <div className="ojk_content">
             <div className="ojk_img">
-              <img src={ojk} alt="ojk" />
+              <img style={{ width: "250px" }} src={ojk_text} alt="ojk" />
             </div>
             <div className="ojk_img">
-              <img src={lps1} alt="lps1" />
+              <img style={{ width: "250px" }} src={lps_text} alt="lps1" />
             </div>
             <div className="ojk_img">
               <img src={ayosyariah} alt="ayosyariah" />

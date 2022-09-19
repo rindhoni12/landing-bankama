@@ -39,9 +39,53 @@ export const FormInputSelect = (item) => {
         <option value="" disabled>
           {item.placeholder}
         </option>
-        <option value="10Bulan">10 Bulan (2.5% per Bulan)</option>
-        <option value="20Bulan">20 Bulan (2.0% per Bulan)</option>
+        <option value="4">4 Bulan </option>
+        <option value="5">5 Bulan </option>
+        <option value="6">6 Bulan </option>
+        <option value="9">9 Bulan </option>
       </select>
+    </div>
+  );
+};
+
+export const FormInputSelectDrop = (item) => {
+  return (
+    <div className="form_content">
+      <label>{item.placeholder}</label>
+      <select
+        className="style_select"
+        onChange={item.onChange}
+        required
+        value={item.value}
+      >
+        <option value="" disabled>
+          {item.placeholder}
+        </option>
+        <option value="Murabahah">iB Murabahah</option>
+        <option value="Musyarakah">iB Musyarakah</option>
+        <option value="Multijasa">iB Multijasa</option>
+      </select>
+    </div>
+  );
+};
+
+export const FormInputDrop = (item) => {
+  return (
+    <div className="form_content_input">
+      <label>{item.judul}</label>
+      <input
+        min={10}
+        max={60}
+        name={item.name}
+        id={item.judul}
+        className="form_input"
+        type="number"
+        placeholder={item.placeholder}
+        required
+        onChange={item.onChange}
+        value={item.value}
+        ref={item.innerRef}
+      />
     </div>
   );
 };
@@ -139,13 +183,24 @@ export const FormTextArea = (item) => {
 
 const FormKpr = () => {
   const [select, setSelect] = useState("");
-  const [data, setData] = useState([]);
-  const [items, setItems] = useState([]);
-  const [totalAngsuranPerBulan, settotalAngsuranPerBulan] = useState("");
-  const [bungaPerBulan, setbungaPerBulan] = useState("");
-  const [angsuranPerBulan, setangsuranPerBulan] = useState("");
 
+  const [selectNew, setSelectNew] = useState("");
+  const [selectNew2, setSelectNew2] = useState("");
+
+  const [dropdown, setDropdown] = useState("");
   const [show, setShow] = useState(false);
+
+  const [values, setValues] = useState({
+    jangkawaktu: "",
+  });
+
+  const [hasil, setHasil] = useState(0);
+
+  const set = (name) => {
+    return ({ target: { value } }) => {
+      setValues((oldValues) => ({ ...oldValues, [name]: value }));
+    };
+  };
 
   const state = {
     button: 1,
@@ -158,8 +213,7 @@ const FormKpr = () => {
     const data = new FormData(e.target);
 
     if (state.button === 1) {
-      setData(Object.fromEntries(data.entries()));
-      hitungTabel(Object.fromEntries(data.entries()));
+      hitungNilai(Object.fromEntries(data.entries()));
       setShow(true);
     }
     if (state.button === 2) {
@@ -167,23 +221,37 @@ const FormKpr = () => {
       setShow(false);
       formReset.reset();
       setSelect("");
-      setData([]);
+      setSelectNew("");
+      setSelectNew2("");
+      setValues([]);
     }
   };
 
   const handleSelect = (e) => {
     setSelect(e.target.value);
+    setDropdown(e.target.value);
   };
 
-  const hitungTabel = (dataUang) => {
-    var bunga;
-    var arrayData;
-    if (select === "10Bulan") {
-      arrayData = 10;
-      bunga = 0.025;
-    } else if (select === "20Bulan") {
-      arrayData = 20;
-      bunga = 0.02;
+  const handleSelectJangka = (e) => {
+    setSelectNew(e.target.value);
+  };
+
+  const handleSelectJangka2 = (e) => {
+    setSelectNew2(e.target.value);
+  };
+
+  console.log(show);
+
+  const hitungNilai = (dataUang) => {
+    const jangkawaktu = values.jangkawaktu;
+    const data = { ...dataUang, selectNew, dropdown, selectNew2, jangkawaktu };
+    var persentase;
+    if (data.dropdown === "Murabahah") {
+      persentase = 1.5 / 100;
+    } else if (data.dropdown === "Musyarakah") {
+      persentase = 2.5 / 100;
+    } else if (data.dropdown === "Multijasa") {
+      persentase = 1.75 / 100;
     }
 
     const formatRupiah = (angka, prefix) => {
@@ -203,65 +271,43 @@ const FormKpr = () => {
       return prefix === undefined ? rupiah : rupiah ? "Rp " + rupiah : "";
     };
 
-    let items = [];
-
-    let uangPokok = dataUang.jumlah;
-
+    let uangPokok = data.jumlah;
     let uangSplice = uangPokok.replace("Rp ", "");
     let uangNo = uangSplice.replace(/[&\\#,+()$~%.'":*?<>{}]/g, "");
     let toNumber = parseFloat(uangNo);
-    let angsuranPerBulan = toNumber / arrayData;
-    let bungaPerBulan = toNumber * bunga;
-    let totalPinjaman = angsuranPerBulan + bungaPerBulan;
 
-    setangsuranPerBulan(formatRupiah(angsuranPerBulan, "Rp "));
-    setbungaPerBulan(formatRupiah(bungaPerBulan, "Rp "));
-    settotalAngsuranPerBulan(formatRupiah(totalPinjaman, "Rp "));
+    if (data.dropdown === "Multijasa") {
+      const perhitunganKredit =
+        toNumber / parseFloat(data.selectNew2) + toNumber * persentase;
+      const perubahan = formatRupiah(parseInt(perhitunganKredit), "Rp ");
+      setHasil(perubahan);
 
-    let sisaPinjaman = toNumber, // 400.000
-      n2 = angsuranPerBulan, // 40.000
-      nextTerm; // 360.0000
+      console.log(data, parseInt(perhitunganKredit), perubahan);
+    } else if (data.dropdown === "Murabahah") {
+      const perhitunganKredit =
+        toNumber / parseFloat(data.selectNew) + toNumber * persentase;
+      const perubahan = formatRupiah(parseInt(perhitunganKredit), "Rp ");
+      setHasil(perubahan);
+      console.log(data, parseInt(perhitunganKredit), perubahan);
+    } else if (data.dropdown === "Musyarakah") {
+      const perhitunganKredit =
+        toNumber / parseFloat(data.jangkawaktu) + toNumber * persentase;
 
-    for (let i = 1; i <= arrayData; i++) {
-      let uangPokok = dataUang.jumlah;
+      const perubahan = formatRupiah(parseInt(perhitunganKredit), "Rp ");
 
-      let uangSplice = uangPokok.replace("Rp ", "");
-      let uangNo = uangSplice.replace(/[&\\#,+()$~%.'":*?<>{}]/g, "");
-      let toNumber = parseFloat(uangNo);
-      let angsuranPerBulan = toNumber / arrayData;
-
-      let bungaPerBulan = toNumber * bunga;
-
-      let totalAngsuranPerBulan = angsuranPerBulan + bungaPerBulan;
-
-      nextTerm = sisaPinjaman - n2;
-      sisaPinjaman = nextTerm;
-
-      let dataTabel = {
-        pokok: formatRupiah(toNumber, "Rp "),
-        angsuranpokok: formatRupiah(angsuranPerBulan, "Rp "),
-        angsuranBungaPerBulan: formatRupiah(bungaPerBulan, "Rp "),
-        totalAngsuranPerBulan: formatRupiah(totalAngsuranPerBulan, "Rp "),
-        sisaPinjaman: formatRupiah(sisaPinjaman, "Rp "),
-      };
-
-      items.push(dataTabel);
+      setHasil(perubahan);
+      console.log(data, parseInt(perhitunganKredit), perubahan);
     }
-    setItems(items);
   };
 
   return (
     <FormSite>
       <div className="form_container">
-        <HeadingComponent
-          Heading="Simulasi Kredit Standar!"
-          Text="Simulasi ini untuk memudahkan calon kreditur mengetahui besaran
-            angsuran per-bulan yang harus dibayarkan dan besarannya sudah sesuai
-            aturan bunga yang ditetapkan perusahaan per tanggal 01 Januari 2021."
-        />
+        <HeadingComponent Heading="Simulasi Pembiayaan" Text="" />
         <div className="text_keterangan">
-          <b>Keterangan : </b>Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Illo laboriosam animi exercitationem.
+          <b>Keterangan : </b>Klik button Hitung untuk memulai perhitungan.
+          Setelah itu akan muncul field untuk input Pilihan Pembiayaan, Jumlah
+          Pinjaman, dan Jangka Waktu.
         </div>
         <FormContent>
           <div className="card_form">
@@ -275,146 +321,64 @@ const FormKpr = () => {
                   onSubmit={handleSubmit}
                   id="form_table"
                 >
+                  <FormInputSelectDrop
+                    onChange={handleSelect}
+                    placeholder="Pilihan Pembiayaan"
+                    value={select}
+                  />
                   <FormInputCurrency
                     nama="jumlah"
                     placeholder="Jumlah Pinjamanan"
                   />
-                  <FormInputSelect
-                    onChange={handleSelect}
-                    placeholder="Lama Pinjamanan"
-                    value={select}
-                  />
-                  <div className="button_flex">
+                  {dropdown && dropdown === "Murabahah" ? (
+                    <FormInputSelect
+                      onChange={handleSelectJangka}
+                      placeholder="Jangka Waktu"
+                      value={selectNew}
+                    />
+                  ) : dropdown === "Musyarakah" ? (
+                    <FormInputDrop
+                      judul="Jangka Waktu"
+                      placeholder="Jangka Waktu"
+                      type="text"
+                      value={values.jangkawaktu}
+                      onChange={set("jangkawaktu")}
+                    />
+                  ) : dropdown === "Multijasa" ? (
+                    <FormInputSelect
+                      onChange={handleSelectJangka2}
+                      placeholder="Jangka Waktu"
+                      value={selectNew2}
+                    />
+                  ) : (
+                    ""
+                  )}
+
+                  <div
+                    className="button_flex"
+                    style={{ justifyContent: "flex-end" }}
+                  >
+                    <ButtonTransparent
+                      onClick={() => (state.button = 2)}
+                      id="Ulangi"
+                      icon={FaAccusoft}
+                      label="Ulangi"
+                    />
                     <Button
                       onClick={() => (state.button = 1)}
                       id="Hitung"
                       icon={FaAccusoft}
                       label="Hitung"
                     />
-                    <Button
-                      onClick={() => (state.button = 2)}
-                      id="Ulangi"
-                      icon={FaAccusoft}
-                      label="Ulangi"
-                    />
                   </div>
                 </form>
               </div>
+              <div className="content_hasil">
+                <div className="text">Angsuran per Bulan anda adalah :</div>
+                <div className="hasil">{hasil ? hasil : 0}</div>
+              </div>
             </div>
           </div>
-
-          {show ? (
-            <div className="card_form">
-              <div className="content">
-                <p>
-                  <b>Keteragan : </b>Hasil Perhitungan Simulasi KPR
-                </p>
-                <div className="text_keterangan">
-                  <ul>
-                    <li>
-                      <div style={{ width: "250px" }}>
-                        <b>Jumlah Pinjaman</b>
-                      </div>
-                      <span>: {data ? data.jumlah : ""}</span>
-                    </li>
-                    <li>
-                      <div style={{ width: "250px" }}>
-                        <b>Lama Pinjaman</b>
-                      </div>
-                      <span>
-                        {select === ""
-                          ? ":"
-                          : select === "10Bulan"
-                          ? ": 10 Bulan"
-                          : ": 20 Bulan"}
-                      </span>
-                    </li>
-                    <li>
-                      <div style={{ width: "250px" }}>
-                        <b>Bunga per Bulan</b>
-                      </div>
-                      <span>
-                        {select === ""
-                          ? ":"
-                          : select === "10Bulan"
-                          ? ": 2.5%"
-                          : ": 2.0%"}
-                      </span>
-                    </li>
-                    <li>
-                      <div style={{ width: "250px" }}>
-                        <b>Angsuran Pokok per Bulan</b>
-                      </div>
-                      <span>
-                        {select === ""
-                          ? ":"
-                          : select === "10Bulan"
-                          ? `: ${angsuranPerBulan}`
-                          : `: ${angsuranPerBulan}`}
-                      </span>
-                    </li>
-                    <li>
-                      <div style={{ width: "250px" }}>
-                        <b>Angsuran Bunga per Bulan</b>
-                      </div>
-                      <span>
-                        {select === ""
-                          ? ":"
-                          : select === "10Bulan"
-                          ? `: ${bungaPerBulan}`
-                          : `: ${bungaPerBulan}`}
-                      </span>
-                    </li>
-                    <li>
-                      <div style={{ width: "250px" }}>
-                        <b>Total Angsuran</b>
-                      </div>
-                      <span>
-                        {select === ""
-                          ? ":"
-                          : select === "10Bulan"
-                          ? `: ${totalAngsuranPerBulan}`
-                          : `: ${totalAngsuranPerBulan}`}
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-                <div className="class_table">
-                  <table>
-                    <thead>
-                      <tr style={{ background: "var(--colorMain)" }}>
-                        <th>Bulan</th>
-                        <th>Pokok</th>
-                        <th>Bunga</th>
-                        <th>Angsuran</th>
-                        <th>Sisa Pinjaman</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {items.map((item, i) => (
-                        <tr key={i}>
-                          <td>{i + 1}</td>
-                          <td>{item.angsuranpokok}</td>
-                          <td>{item.angsuranBungaPerBulan}</td>
-                          <td>{item.totalAngsuranPerBulan}</td>
-                          <td>{item.sisaPinjaman}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="card_form">
-              <div className="content">
-                <p style={{ borderBottom: "none", paddingBottom: "0px" }}>
-                  <b>Keterangan : </b>Lakukan perhitungan terlebih dahulu untuk
-                  melihat Hasil Perhitungan Simulasi KPR.
-                </p>
-              </div>
-            </div>
-          )}
         </FormContent>
       </div>
     </FormSite>
@@ -570,10 +534,6 @@ export const FormSimulasi = ({ dataWording }) => {
                     </table>
                   </div>
                 </div>
-                <div className="footer">
-                  Keterangan: Simpanan sampai dengan 2 Milyar Rupiah dijamin
-                  oleh LPS.
-                </div>
               </div>
               <div className="content">
                 <div className="heading">Deposito</div>
@@ -608,10 +568,6 @@ export const FormSimulasi = ({ dataWording }) => {
                     </table>
                   </div>
                 </div>
-                <div className="footer">
-                  Keterangan: Simpanan sampai dengan 2 Milyar Rupiah dijamin
-                  oleh LPS.
-                </div>
                 {showButton ? (
                   <Button
                     onClick={handleButtonNon}
@@ -644,18 +600,21 @@ export const FormSimulasi = ({ dataWording }) => {
                       nama="jumlah"
                       placeholder="Jumlah Pinjamanan"
                     />
-                    <div className="button_flex">
-                      <Button
-                        onClick={() => (state.button = 1)}
-                        id="Hitung"
-                        icon={FaAccusoft}
-                        label="Hitung"
-                      />
+                    <div
+                      className="button_flex"
+                      style={{ justifyContent: "flex-end" }}
+                    >
                       <ButtonTransparent
                         onClick={() => (state.button = 2)}
                         id="Ulangi"
                         icon={FaAccusoft}
                         label="Ulangi"
+                      />
+                      <Button
+                        onClick={() => (state.button = 1)}
+                        id="Hitung"
+                        icon={FaAccusoft}
+                        label="Hitung"
                       />
                     </div>
                   </form>
@@ -670,7 +629,7 @@ export const FormSimulasi = ({ dataWording }) => {
             <div className="card_form">
               <div className="content">
                 <p>
-                  <b>Hasil Perhitungan Simulasi KPR</b>
+                  <b>Hasil Perhitungan Simulasi Tabungan</b>
                 </p>
               </div>
               <div className="content" style={{ marginTop: "-40px" }}>
@@ -710,8 +669,7 @@ export const FormSimulasi = ({ dataWording }) => {
                   </div>
                 </div>
                 <div className="footer">
-                  Keterangan: Simpanan sampai dengan 2 Milyar Rupiah dijamin
-                  oleh LPS.
+                  Keterangan: Hasil simulasi diatas belum termasuk pajak.
                 </div>
               </div>
             </div>
@@ -720,7 +678,7 @@ export const FormSimulasi = ({ dataWording }) => {
               <div className="content">
                 <p style={{ borderBottom: "none", paddingBottom: "0px" }}>
                   <b>Keterangan : </b>Lakukan perhitungan atau Simulasi terlebih
-                  dahulu untuk melihat Hasil Perhitungan Simulasi KPR.
+                  dahulu untuk melihat Hasil Perhitungan Simulasi Tabungan.
                 </p>
               </div>
             </div>

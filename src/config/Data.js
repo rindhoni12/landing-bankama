@@ -25,6 +25,26 @@ export const DATAFETCH = (url) => {
   return { data, isloading };
 };
 
+export const DATAFETCHVIDEO = (url) => {
+  const [data, setData] = useState();
+  const [isloading, setLoading] = useState(true);
+  useEffect(() => {
+    const getData = async () => {
+      setLoading(true);
+      try {
+        const response = await axios(url);
+        setData(response.data.video_url);
+      } catch {
+        console.log("error");
+      }
+      setLoading(false);
+    };
+    getData();
+  }, [url]);
+
+  return { data, isloading };
+};
+
 export const DATA_PUBLIKASI = [
   {
     id: 1,
@@ -122,7 +142,7 @@ export const ORGANISASI = [
   },
   {
     id: 5,
-    label: "H. Mumu Mubarok,SS,M",
+    label: "H. Mumu Mubarok S.S., M.E.I",
     img: organisasi,
     jabatan: "Direktur Utama",
     desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
@@ -137,7 +157,7 @@ export const DATA_BARU = {
       contentFull: [
         {
           id: 1,
-          judul: "Tabungan iB Wadiyah",
+          judul: "Tabungan iB Wadiah",
           content: {
             apa: "Apa yang Dimaksud dengan Tabungan Wadiah?",
             p: "Tabungan iB Wadiah merupakan tabungan yang dikelola dengan sistem titipan (wadiah)",
@@ -181,11 +201,11 @@ export const DATA_BARU = {
           judul: "Tabungan Simpel",
           content: {
             apa: "Apa yang Dimaksud dengan Tabungan iB Simpel ?",
-            p: "-",
+            p: "",
             fileImg: blog,
             fitur: [
               {
-                judul: "1. Tabungan Simpel",
+                judul: "Tabungan Simpel",
                 text_a:
                   "Tabungan perorangan untuk siswa Warga Negara Indonesia di peruntukan bagi siswa yang masih dibawah usia 17 tahun. Ketentuan :",
                 text: [
@@ -194,8 +214,19 @@ export const DATA_BARU = {
                   "FC Surat Pelajar atau Surat Keterangan sebagai siswa dari Sekolah.",
                 ],
               },
+            ],
+          },
+        },
+        {
+          id: 4,
+          judul: "Tabungan Simpel Ayah",
+          content: {
+            apa: "Apa yang Dimaksud dengan Tabungan iB Mudharabah ?",
+            p: "Tabungan iB Mudharabah merupakan tabungan yang dikelola dengan sistem bagi hasil.",
+            fileImg: blog,
+            fitur: [
               {
-                judul: "2. Tabungan Simpel Ayah",
+                judul: "Tabungan Simpel Ayah",
                 text_a:
                   "Tabungan perorangan untuk pelajar Warga Negara Indonesia khusus bagi yatim atau yatim piatu. Ketentuan :",
                 text: [
@@ -204,125 +235,6 @@ export const DATA_BARU = {
                   "FC KTP Orang tua/ Wali.",
                   "FC Surat Kematian Ayah (bagi Yatim).",
                   "FC Surat Kematian ayah dan ibu (bagi yatim piatu).",
-                ],
-              },
-            ],
-          },
-        },
-        {
-          id: 4,
-          judul: "Tabungan iB Mudharabah",
-          content: {
-            apa: "Apa yang Dimaksud dengan Tabungan iB Mudharabah ?",
-            p: "Tabungan iB Mudharabah merupakan tabungan yang dikelola dengan sistem bagi hasil.",
-            fileImg: blog,
-            fitur: [
-              {
-                judul: "1. Tabungan iB Haji",
-                text_a:
-                  "Membantu mewujudkan niat anda beribadah haji lebih mudah dan terencana. Ketentuan :",
-                text: [
-                  "Setoran awal minimal Rp. 100.000",
-                  "Setoran selanjutnya minimal Rp. 100.000",
-                  "Nisbah bagi hasil ditetapkan sesuai dengan akad perjanjian",
-                  "Pengambilan tabungan hanya dapat dilakukan untuk pembayaran ongkos naik haji (ONH)",
-                  "Dikelola dengan akad Mudharabah Mutlaqoh",
-                ],
-              },
-              {
-                judul: "2. Tabungan iB Qurban",
-                text_a:
-                  "Membantu merencanakan dan mewujudkan niat anda untuk melaksanakan Ibadah Qurban. Ketentuan :",
-                text: [
-                  "Setoran awal minimal Rp. 50.000",
-                  "Setoran selanjutnya minimal Rp. 50.000",
-                  "Nisbah bagi hasil ditetapkan sesuai dengan akad perjanjian",
-                  "Penarikan tabungan dapat dilakukan pada awal bulan Dzulhijjah atau jika pengendapan sudah sampai satu tahun",
-                  "Dikelola dengan akad Mudharabah Mutlaqoh.",
-                ],
-              },
-              {
-                judul: "3. Tabungan iB Masa Depan",
-                text_a:
-                  "Membantu anda dalam merencanakan masa depan (rencana pernikahan, persalinan, hari tua, dll). Ketentuan :",
-                text: [
-                  "Setoran awal minimal Rp. 100.000",
-                  "Setoran selanjutnya minimal Rp. 100.000",
-                  "Nisbah bagi hasil ditetapkan sesuai dengan akad perjanjian",
-                  "Jangka waktu minimal 3 Tahun.",
-                  "Dikelola dengan akad Mudharabah Mutlaqoh.",
-                ],
-              },
-              {
-                judul: "4. Tabungan iB Pendidikan",
-                text_a:
-                  "Membantu anda dalam merencanakan biaya pendidikan anak. Ketentuan :",
-                text: [
-                  "Setoran awal minimal Rp. 100.000",
-                  "Setoran selanjutnya minimal Rp. 50.000",
-                  "Nisbah bagi hasil ditetapkan sesuai dengan akad perjanjian",
-                  "Jangka waktu menyesuaikan dengan jenjang pendidikan anak.",
-                  "Dikelola dengan akad Mudharabah Mutlaqoh.",
-                ],
-              },
-              {
-                judul: "5. Tabungan iB siMuda",
-                text_a:
-                  "Membantu Mahasiswa dan Pemuda dalama merencanakan masa depan. Ketentuan :",
-                text: [
-                  "Usia Nasabah 18 s/d 30 tahun.",
-                  "Setoran pembukaan rekening Rp. 25.000.",
-                  "Setoran berikutnya Rp. 25.000",
-                  "Jangka waktu 1 tahun dapat di perpanjang.",
-                  "Penarikan Tabungan pada akhir jangka waktu.",
-                  "Tabungan dijamin oleh LPS.",
-                  "Dikelola dengan akad Mudharabah Mutlaqoh.",
-                ],
-              },
-              {
-                judul: "Keunggulan produk tabungan iB Mudharabah",
-                text_a: "",
-                text: [
-                  "Dikelola dengan sistem syariah",
-                  "Bagi hasil kompetitif",
-                  "Bebas biaya administrasi bulanan",
-                  "Dijamin oleh LPS (Lembaga Penjamin Simpanan sampai dengan 2 Milyar Rupiah)",
-                  "Mendapatkan Souvenir menarik langsung pasa saat pembukaan rekening",
-                  "Dapat dijadikan sebagai agunan pembiayaan",
-                ],
-              },
-            ],
-          },
-        },
-        {
-          id: 3,
-          judul: "Deposito iB Mudharabah",
-          content: {
-            apa: "Apa itu Deposito iB Mudharabah ?",
-            p: "Deposito iB Mudharabah merupakan layanan investasi berjangka yang dikelola dengan sistem bagi hasil (Mudharabah).",
-            fileImg: blog,
-            fitur: [
-              {
-                judul: "1. Deposito iB Mudharabah",
-                text_a:
-                  "Deposito iB Mudharabah merupakan layanan investasi berjangka yang dikelola dengan sistem bagi hasil (Mudharabah). Ketentuan :",
-                text: [
-                  "Setoran minimal Rp. 1.000.000",
-                  "Jangka waktu 3, 6 dan 12 bulan",
-                  "Nisbah bagi hasil ditetapkan sesuai dengan akad perjanjian",
-                  "Pencairan bisa dilakukan pada saat jatuh tempo.",
-                ],
-              },
-              {
-                judul: "Keunggulan produk Deposito iB Mudharabah",
-                text_a: "",
-                text: [
-                  "Dikelola dengan sistem syariah",
-                  "Bagi hasil kompetitif",
-                  "Bebas biaya administrasi bulanan",
-                  "Dijamin oleh LPS (Lembaga Penjamin Simpanan sampai dengan 2 Milyar Rupiah)",
-                  "Mendapatkan Souvenir menarik langsung pasa saat pembukaan rekening",
-                  "Dapat dijadikan sebagai agunan pembiayaan",
                 ],
               },
             ],
@@ -587,6 +499,173 @@ export const DATA_BARU = {
       ],
     },
   ],
+  penyimpanan_dana_mudharabah: [
+    {
+      id: 1,
+      judul: "Penyimpanan Dana",
+      contentFull: [
+        {
+          id: 1,
+          judul: "Tabungan iB Haji",
+          content: {
+            apa: "",
+            p: "",
+            fileImg: blog,
+            fitur: [
+              {
+                judul: "1. Tabungan iB Haji",
+                text_a:
+                  "Membantu mewujudkan niat anda beribadah haji lebih mudah dan terencana. Ketentuan :",
+                text: [
+                  "Setoran awal minimal Rp. 100.000",
+                  "Setoran selanjutnya minimal Rp. 100.000",
+                  "Nisbah bagi hasil ditetapkan sesuai dengan akad perjanjian",
+                  "Pengambilan tabungan hanya dapat dilakukan untuk pembayaran ongkos naik haji (ONH)",
+                  "Dikelola dengan akad Mudharabah Mutlaqoh",
+                ],
+              },
+            ],
+          },
+        },
+        {
+          id: 2,
+          judul: "Tabungan iB Masa Depan",
+          content: {
+            apa: "Apa yang Dimaksud dengan Tabungan iB Masa Depan ?",
+            p: "",
+            fileImg: blog,
+            fitur: [
+              {
+                judul: "1. Tabungan iB Masa Depan",
+                text_a:
+                  "Membantu anda dalam merencanakan masa depan (rencana pernikahan, persalinan, hari tua, dll). Ketentuan :",
+                text: [
+                  "Setoran awal minimal Rp. 100.000",
+                  "Setoran selanjutnya minimal Rp. 100.000",
+                  "Nisbah bagi hasil ditetapkan sesuai dengan akad perjanjian",
+                  "Jangka waktu minimal 3 Tahun.",
+                  "Dikelola dengan akad Mudharabah Mutlaqoh.",
+                ],
+              },
+            ],
+          },
+        },
+        {
+          id: 4,
+          judul: "Tabungan iB Pendidikan",
+          content: {
+            apa: "Apa yang Dimaksud dengan Tabungan iB Pendidikan ?",
+            p: "",
+            fileImg: blog,
+            fitur: [
+              {
+                judul: "1. Tabungan iB Pendidikan",
+                text_a:
+                  "Membantu anda dalam merencanakan biaya pendidikan anak. Ketentuan :",
+                text: [
+                  "Setoran awal minimal Rp. 100.000",
+                  "Setoran selanjutnya minimal Rp. 50.000",
+                  "Nisbah bagi hasil ditetapkan sesuai dengan akad perjanjian",
+                  "Jangka waktu menyesuaikan dengan jenjang pendidikan anak.",
+                  "Dikelola dengan akad Mudharabah Mutlaqoh.",
+                ],
+              },
+            ],
+          },
+        },
+        {
+          id: 3,
+          judul: "Tabungan iB Qurban",
+          content: {
+            apa: "Apa itu Deposito iB Qurban ?",
+            p: "",
+            fileImg: blog,
+            fitur: [
+              {
+                judul: "1. Tabungan iB Qurban",
+                text_a:
+                  "Membantu merencanakan dan mewujudkan niat anda untuk melaksanakan Ibadah Qurban. Ketentuan :",
+                text: [
+                  "Setoran awal minimal Rp. 50.000",
+                  "Setoran selanjutnya minimal Rp. 50.000",
+                  "Nisbah bagi hasil ditetapkan sesuai dengan akad perjanjian",
+                  "Penarikan tabungan dapat dilakukan pada awal bulan Dzulhijjah atau jika pengendapan sudah sampai satu tahun",
+                  "Dikelola dengan akad Mudharabah Mutlaqoh.",
+                ],
+              },
+            ],
+          },
+        },
+        {
+          id: 3,
+          judul: "Tabungan iB Si Muda",
+          content: {
+            apa: "Apa itu Deposito iB Si Muda ?",
+            p: "",
+            fileImg: blog,
+            fitur: [
+              {
+                judul: "1. Tabungan iB siMuda",
+                text_a:
+                  "Membantu Mahasiswa dan Pemuda dalama merencanakan masa depan. Ketentuan :",
+                text: [
+                  "Usia Nasabah 18 s/d 30 tahun.",
+                  "Setoran pembukaan rekening Rp. 25.000.",
+                  "Setoran berikutnya Rp. 25.000",
+                  "Jangka waktu 1 tahun dapat di perpanjang.",
+                  "Penarikan Tabungan pada akhir jangka waktu.",
+                  "Tabungan dijamin oleh LPS.",
+                  "Dikelola dengan akad Mudharabah Mutlaqoh.",
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  ],
+  deposito_dana_mudharabah: [
+    {
+      id: 1,
+      judul: "Penyimpanan Dana",
+      contentFull: [
+        {
+          id: 1,
+          judul: "Deposito iB Mudharabah",
+          content: {
+            apa: "Apa itu Deposito iB Mudharabah ?",
+            p: "",
+            fileImg: blog,
+            fitur: [
+              {
+                judul: "Deposito iB Mudharabah",
+                text_a:
+                  "Deposito iB Mudharabah merupakan layanan investasi berjangka yang dikelola dengan sistem bagi hasil (Mudharabah). ketentuan",
+                text: [
+                  "Setoran minimal Rp. 1.000.000.",
+                  "Jangka waktu 3, 6 dan 12 bulan.",
+                  "Nisbah bagi hasil ditetapkan sesuai dengan akad perjanjian.",
+                  "Pencairan bisa dilakukan pada saat jatuh tempo.",
+                ],
+              },
+              {
+                judul: "Keunggulan produk Deposito iB Mudharabah",
+                text_a: "",
+                text: [
+                  "Dikelola dengan sistem syariah.",
+                  "Bagi hasil kompetitif.",
+                  "Bebas biaya administrasi bulanan.",
+                  "Dijamin oleh LPS (Lembaga Penjamin Simpanan sampai dengan 2 Milyar Rupiah).",
+                  "Mendapatkan Souvenir menarik langsung pasa saat pembukaan rekening",
+                  "Dapat dijadikan sebagai agunan pembiayaan",
+                ],
+              },
+            ],
+          },
+        },
+      ],
+    },
+  ],
 };
 
 export const NAVLINKS = [
@@ -600,6 +679,7 @@ export const NAVLINKS = [
     to: "/layanan-kami",
     icon: FaEllipsisV,
     name: "PRODUK & LAYANAN",
+    disabled: true,
     megamenu: true,
     megamenuItem: [
       {
@@ -647,10 +727,34 @@ export const NAVLINKS = [
     ],
   },
   {
-    to: "/simulasi",
+    to: "/simulasi-bank",
     icon: FaEllipsisV,
     name: "SIMULASI",
-    megamenu: false,
+    megamenu: true,
+    megamenuItem: [
+      {
+        id: 1,
+        to: "/simulasi",
+        name: "SIMULASI",
+        sub: [
+          {
+            to: "/web-landing/simulasi-bank/simulasi",
+            judul: "Simulasi Tabungan",
+          },
+        ],
+      },
+      {
+        id: 2,
+        to: "/simulasi-kredit",
+        name: "SIMULASI PEMBIAYAAN",
+        sub: [
+          {
+            to: "/web-landing/simulasi-bank/simulasi-kredit",
+            judul: "Simulasi Pembiayaan",
+          },
+        ],
+      },
+    ],
   },
   {
     to: "/berita-kami",
@@ -788,7 +892,7 @@ export const BERITA = [
 export const TABS = [
   {
     id: 1,
-    judul: "Tabungan iB Wadiyah",
+    judul: "Tabungan iB Wadiah",
     content:
       "1 Bikin anggaran, baik anggaran jangka pendek maupun jangka panjang, itu gampang-gampang susah. Gampang jika tahu apa yang mesti dilakukan, susah karena ada tantangan seperti konsistensi dan kedisiplinan. Kali ini, Jagomin mau bagikan 4 cara yang bisa diikuti supaya kamu jadi selangkah lebih jago membuat anggaran jangka panjang.",
   },
@@ -812,7 +916,7 @@ export const KONTAK_KAMI = {
       id: 1,
       judul: "Kantor Pusat",
       alamat:
-        "Jl. Raya Pati – Tayu Km. 19. Kampunganyar, Waturoyo, Kec. Margoyoso, Kabupaten Pati, Jawa Tengah 59154",
+        "Jl. Raya Pati – Tayu Km. 19. Waturoyo, Kec. Margoyoso, Kabupaten Pati, Jawa Tengah 59154",
       no: [
         {
           id: 1,
@@ -1013,13 +1117,13 @@ export const WORDING = {
     },
     {
       id: 3,
-      text: "Suku Bunga per Tahun",
-      desc: "Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:",
+      text: "Equivalen Rate per Tahun",
+      desc: "",
     },
     {
       id: 4,
       text: "Coba simulasi kredit sekarang!",
-      desc: "Untuk mengetahui berapa biaya yang harus digunakan untuk melakukan kredit KPR.",
+      desc: "Untuk mengetahui bagi hasil simpanan setiap bulan.",
     },
     {
       id: 5,
@@ -1037,12 +1141,24 @@ export const WORDING = {
   simulasi_kredit: [
     {
       id: 1,
-      text: "Coba simulasi penyimpanan sekarang!",
-      desc: "Untuk mengetahui berapa biaya yang harus digunakan untuk melakukan Simulasi Penyimpanan Dana.",
+      text: "Coba simulasi tabungan sekarang!",
+      desc: "Untuk mengetahui bagi hasil simpanan setiap bulan.",
     },
     {
       id: 2,
-      text: "Simulasi Penyimpanan!",
+      text: "Simulasi Tabungan!",
+      desc: "Realisasi Bagi Hasil Bpr Syariah Artha Mas Abadi Tahun 2022",
+    },
+  ],
+  simulasi_tabungan: [
+    {
+      id: 3,
+      text: "Coba simulasi pembiayaan sekarang!",
+      desc: "Untuk mengetahui bagi hasil simpanan setiap bulan.",
+    },
+    {
+      id: 4,
+      text: "Simulasi Pembiayaan!",
       desc: "Realisasi Bagi Hasil Bpr Syariah Artha Mas Abadi Tahun 2022",
     },
   ],
@@ -1061,8 +1177,8 @@ export const WORDING = {
   publikasi: [
     {
       id: 1,
-      text: "Fearless Creativity",
-      desc: "Mendobrak normalitas secara produktif untuk menciptakan solusi kreatif.",
+      text: "Publikasi",
+      desc: "Informasi seputar dokumen publikasi daripada BPR Syariah Artha Mas Abadi.",
     },
     {
       id: 2,
@@ -1078,6 +1194,11 @@ export const WORDING = {
     },
     {
       id: 2,
+      text: "Video",
+      desc: "Beradaptasi terhadap perubahan serta mengambil keputusan dengan cepat.",
+    },
+    {
+      id: 3,
       text: "Foto",
       desc: "Beradaptasi terhadap perubahan serta mengambil keputusan dengan cepat.",
     },

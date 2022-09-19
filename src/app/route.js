@@ -19,6 +19,7 @@ import {
   Home,
   // Support,
   SupportLayanan,
+  SimulasiBank,
 } from "../pages";
 
 const PageLayout = () => (
@@ -43,7 +44,8 @@ export const RouteSite = () => {
         <Route exact path="/berita-kami" element={<Berita />} />
         <Route exact path="/berita-kami/:id" element={<DetailBerita />} />
 
-        <Route exact path="/simulasi" element={<Simulasi />} />
+        <Route exact path="/simulasi-bank/:id" element={<Simulasi />} />
+        <Route exact path="/simulasi-bank" element={<SimulasiBank />} />
 
         <Route exact path="/publikasi" element={<Publikasi />} />
 

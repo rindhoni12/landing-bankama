@@ -146,6 +146,10 @@ export const FooterSite = styled.footer`
         align-items: center;
         justify-content: flex-start;
 
+        ${devices.smartphone} {
+          flex-direction: column;
+        }
+
         ${devices.laptops} {
           flex-direction: column;
         }
@@ -246,7 +250,7 @@ export const FooterSite = styled.footer`
   .footer {
     z-index: 1;
     height: 100%;
-    background-color: var(--colorMain);
+    background-color: #ff6d00;
     color: #fff;
     padding: 40px 50px;
 
