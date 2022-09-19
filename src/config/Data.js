@@ -708,7 +708,7 @@ export const NAVLINKS = [
         sub: [
           {
             to: "/layanan-kami/penyaluran-dana/0",
-            judul: "Pembiayaan iB Murabahah",
+            judul: "Pembiayaan iB Wadiah",
           },
           {
             to: "/web-landing/layanan-kami/penyaluran-dana/1",
