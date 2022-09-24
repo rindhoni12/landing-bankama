@@ -226,7 +226,7 @@ const Card = (item) => {
   );
 };
 
-const Tab = ({ children, active }) => {
+const Tab = ({ children, active, judul }) => {
   const [activeTab, setActiveTab] = useState(active);
   const [tabsData, setTabsData] = useState([]);
 
@@ -263,6 +263,7 @@ const Tab = ({ children, active }) => {
       <div className="tabs_content">
         <div className="tabs_content_text">
           <ContentTab
+            judulParent={judul}
             item={tabsData[activeTab] && tabsData[activeTab].children}
             judul={tabsData[activeTab] && tabsData[activeTab].tab}
           />
@@ -273,6 +274,7 @@ const Tab = ({ children, active }) => {
 };
 
 const ContentTab = (item) => {
+  console.log(item.judulParent);
   return (
     <ContentTabSite>
       <div className="tab_content">
@@ -309,7 +311,13 @@ const ContentTab = (item) => {
               icon={FaAccusoft}
               label="Daftar Disini"
               style={{ margin: "auto" }}
-              to="./berita-kami"
+              to={
+                item?.judulParent === "Penyaluran Dana"
+                  ? "/web-landing/form/pembiayaan"
+                  : item?.judulParent === "Penyimpanan Dana"
+                  ? "/web-landing/form/tabungan"
+                  : null
+              }
             />
           </div>
         </div>
@@ -359,7 +367,7 @@ const LayananSection = ({
                   <div className="layanan_tabs">
                     <div className="content">
                       {number ? (
-                        <Tab active={number}>
+                        <Tab judul={judul} active={number}>
                           {TABS.map((tab, idx) => (
                             <Tab.TabPanel key={`Tab-${idx}`} tab={tab.judul}>
                               {tab.content}
@@ -367,7 +375,7 @@ const LayananSection = ({
                           ))}
                         </Tab>
                       ) : (
-                        <Tab active={0}>
+                        <Tab judul={judul} active={0}>
                           {TABS.map((tab, idx) => (
                             <Tab.TabPanel key={`Tab-${idx}`} tab={tab.judul}>
                               {tab.content}
@@ -381,7 +389,7 @@ const LayananSection = ({
                   <div className="layanan_tabs">
                     <div className="content">
                       {number ? (
-                        <Tab active={0}>
+                        <Tab judul={judul} active={0}>
                           {TABS_BARU.map((tab, idx) => (
                             <Tab.TabPanel key={`Tab-${idx}`} tab={tab.judul}>
                               {tab.content}
@@ -389,7 +397,7 @@ const LayananSection = ({
                           ))}
                         </Tab>
                       ) : (
-                        <Tab active={0}>
+                        <Tab judul={judul} active={0}>
                           {TABS_BARU.map((tab, idx) => (
                             <Tab.TabPanel key={`Tab-${idx}`} tab={tab.judul}>
                               {tab.content}
@@ -403,7 +411,7 @@ const LayananSection = ({
                   <div className="layanan_tabs">
                     <div className="content">
                       {number ? (
-                        <Tab active={0}>
+                        <Tab judul={judul} active={0}>
                           {TABS_DEP.map((tab, idx) => (
                             <Tab.TabPanel key={`Tab-${idx}`} tab={tab.judul}>
                               {tab.content}
@@ -411,7 +419,7 @@ const LayananSection = ({
                           ))}
                         </Tab>
                       ) : (
-                        <Tab active={0}>
+                        <Tab judul={judul} active={0}>
                           {TABS_DEP.map((tab, idx) => (
                             <Tab.TabPanel key={`Tab-${idx}`} tab={tab.judul}>
                               {tab.content}
@@ -437,7 +445,7 @@ const LayananSection = ({
                   <div className="layanan_tabs">
                     <div className="content">
                       {number ? (
-                        <Tab active={number}>
+                        <Tab judul={judul} active={number}>
                           {TABS.map((tab, idx) => (
                             <Tab.TabPanel key={`Tab-${idx}`} tab={tab.judul}>
                               {tab.content}
@@ -445,7 +453,7 @@ const LayananSection = ({
                           ))}
                         </Tab>
                       ) : (
-                        <Tab active={0}>
+                        <Tab judul={judul} active={0}>
                           {TABS.map((tab, idx) => (
                             <Tab.TabPanel key={`Tab-${idx}`} tab={tab.judul}>
                               {tab.content}
@@ -1273,7 +1281,7 @@ const FormNasabahSection = () => {
   );
 };
 
-const PenyaluranSection = () => {
+const PenyaluranSection = ({ id }) => {
   const [values, setValues] = useState({
     nama: "",
     alamat: "",
@@ -1310,7 +1318,9 @@ const PenyaluranSection = () => {
     setSelectedFile(file);
   };
 
-  const handleSubmit = (e) => {
+  const [local, setLocal] = useState([]);
+
+  const HandleSubmit = (e) => {
     e.preventDefault();
     const data = {
       ...values,
@@ -1328,129 +1338,271 @@ const PenyaluranSection = () => {
     setSelect("");
     inputRef.current.value = null;
     setBerhasil(true);
+    setLocal(data);
   };
+
+  useEffect(() => {
+    localStorage.setItem("item", JSON.stringify(local));
+  }, [local]);
+
   return (
     <PenyaluranSite>
       <div className="penyaluran_container">
         <div className="penyaluran_section">
-          <HeadingComponent
-            Heading="Form Penyimpanan atau Penyaluran Dana"
-            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
-          />
-          <FormContent>
-            <div className="content_form_buka">
-              <div className="card_form">
-                <div className="content">
-                  <p>
-                    <b>Keteragan : </b>Kirimkan pesan atau pengaduan kepada
-                    kami, senang melayani anda sebagai nasabah kami,
-                    Terimakasih.
-                  </p>
-                  <div className="content_form">
-                    <form
-                      className="form_style"
-                      onSubmit={handleSubmit}
-                      id="form_baru"
-                    >
-                      <div className="inputan">
-                        <FormInputSelectNew
-                          onChange={handleSelect}
-                          placeholder="Jenis Layanan"
-                          value={select}
-                        />
-                        <FormInput
-                          judul="Nama"
-                          placeholder="Nama"
-                          type="text"
-                          value={values.nama}
-                          onChange={set("nama")}
-                        />
-                      </div>
-                      <div className="inputan">
-                        <FormInput
-                          judul="Nama Ibu Kandung"
-                          placeholder="Nama Ibu Kandung"
-                          type="text"
-                          value={values.namaIbu}
-                          onChange={set("namaIbu")}
-                        />
-                        <FormInput
-                          judul="Alamat"
-                          placeholder="Alamat"
-                          type="text"
-                          value={values.alamat}
-                          onChange={set("alamat")}
-                        />
-                      </div>
-                      <div className="inputan">
-                        <FormInput
-                          judul="Jenis Identitas"
-                          placeholder="Jenis Identitas"
-                          type="text"
-                          value={values.jenis_produk}
-                          onChange={set("jenis_produk")}
-                        />
-                        <FormInput
-                          judul="No. Identitas"
-                          placeholder="No. Identitas"
-                          type="text"
-                          value={values.nik}
-                          onChange={set("nik")}
-                        />
-                        <FormInput
-                          judul="File Identitas"
-                          placeholder="File Identitas"
-                          type="file"
-                          onChange={handleUpload}
-                          innerRef={inputRef}
-                        />
-                      </div>
-                      <p style={{ fontSize: "12px", borderBottom: "none" }}>
-                        <b>Catatan Lain : </b> Pesan balasan daripada form
-                        pengaduan akan dikirimkan melalui No. Hp yang di
-                        masukan.
-                      </p>
-                      {berhasil ? (
-                        <p className="informasi">
-                          <b>Informasi : </b>
-                          Data Berhasil Dikirim, silahkan cek pesan WhatsApp
-                          secara berkala.
-                          <button onClick={() => setBerhasil(false)}>
-                            <FiX />
-                          </button>
-                        </p>
-                      ) : (
-                        ""
-                      )}
-                      <div className="button_flex">
-                        <Button
-                          id="form_baru"
-                          icon={FaAccusoft}
-                          label="Kirim Pesan Pengaduan"
-                          style={{ fontSize: "12px" }}
-                        >
-                          Hitung
-                        </Button>
-                      </div>
-                      <div className="bungkus_image">
-                        <div className="text">Test Gambar</div>
-
-                        {preview === null ? (
-                          ""
-                        ) : (
-                          <img
-                            style={{ height: "100%", width: "100%" }}
-                            src={preview.image}
-                            alt="seletedFile"
+          {id === "tabungan" ? (
+            <HeadingComponent
+              Heading={
+                id === "tabungan"
+                  ? "Form Permohonan Tabungan"
+                  : id === "pembiayaan"
+                  ? "Form Pengajuan Pembiayaan"
+                  : null
+              }
+              Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+            />
+          ) : id === "pembiayaan" ? (
+            <HeadingComponent
+              Heading={
+                id === "tabungan"
+                  ? "Form Permohonan Tabungan"
+                  : id === "pembiayaan"
+                  ? "Form Pengajuan Pembiayaan"
+                  : null
+              }
+              Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+            />
+          ) : null}
+          {id === "tabungan" ? (
+            <FormContent>
+              <div className="content_form_buka">
+                <div className="card_form">
+                  <div className="content">
+                    <p>
+                      <b>Keteragan : </b>Kirimkan pesan atau pengaduan kepada
+                      kami, senang melayani anda sebagai nasabah kami,
+                      Terimakasih.
+                    </p>
+                    <div className="content_form">
+                      <form
+                        className="form_style"
+                        onSubmit={HandleSubmit}
+                        id="form_baru"
+                      >
+                        <div className="inputan">
+                          <FormInputSelectNew
+                            onChange={handleSelect}
+                            placeholder="Jenis Layanan"
+                            value={select}
                           />
+                          <FormInput
+                            judul="Nama"
+                            placeholder="Nama"
+                            type="text"
+                            value={values.nama}
+                            onChange={set("nama")}
+                          />
+                        </div>
+                        <div className="inputan">
+                          <FormInput
+                            judul="Nama Ibu Kandung"
+                            placeholder="Nama Ibu Kandung"
+                            type="text"
+                            value={values.namaIbu}
+                            onChange={set("namaIbu")}
+                          />
+                          <FormInput
+                            judul="Alamat"
+                            placeholder="Alamat"
+                            type="text"
+                            value={values.alamat}
+                            onChange={set("alamat")}
+                          />
+                        </div>
+                        <div className="inputan">
+                          <FormInput
+                            judul="Jenis Identitas"
+                            placeholder="Jenis Identitas"
+                            type="text"
+                            value={values.jenis_produk}
+                            onChange={set("jenis_produk")}
+                          />
+                          <FormInput
+                            judul="No. Identitas"
+                            placeholder="No. Identitas"
+                            type="text"
+                            value={values.nik}
+                            onChange={set("nik")}
+                          />
+                          <FormInput
+                            judul="File Identitas"
+                            placeholder="File Identitas"
+                            type="file"
+                            onChange={handleUpload}
+                            innerRef={inputRef}
+                          />
+                        </div>
+                        <p style={{ fontSize: "12px", borderBottom: "none" }}>
+                          <b>Catatan Lain : </b> Pesan balasan daripada form
+                          pengaduan akan dikirimkan melalui No. Hp yang di
+                          masukan.
+                        </p>
+                        {berhasil ? (
+                          <p className="informasi">
+                            <b>Informasi : </b>
+                            Data Berhasil Dikirim, silahkan cek pesan WhatsApp
+                            secara berkala.
+                            <button onClick={() => setBerhasil(false)}>
+                              <FiX />
+                            </button>
+                          </p>
+                        ) : (
+                          ""
                         )}
-                      </div>
-                    </form>
+                        <div className="button_flex">
+                          <Button
+                            id="form_baru"
+                            icon={FaAccusoft}
+                            label="Kirim Pesan Pengaduan"
+                            style={{ fontSize: "12px" }}
+                          >
+                            Hitung
+                          </Button>
+                        </div>
+                        <div className="bungkus_image">
+                          <div className="text">Test Gambar</div>
+
+                          {preview === null ? (
+                            ""
+                          ) : (
+                            <img
+                              style={{ height: "100%", width: "100%" }}
+                              src={preview.image}
+                              alt="seletedFile"
+                            />
+                          )}
+                        </div>
+                      </form>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </FormContent>
+            </FormContent>
+          ) : id === "pembiayaan" ? (
+            <FormContent>
+              <div className="content_form_buka">
+                <div className="card_form">
+                  <div className="content">
+                    <p>
+                      <b>Keteragan : </b>Kirimkan pesan atau pengaduan kepada
+                      kami, senang melayani anda sebagai nasabah kami,
+                      Terimakasih.
+                    </p>
+                    <div className="content_form">
+                      <form
+                        className="form_style"
+                        onSubmit={HandleSubmit}
+                        id="form_baru"
+                      >
+                        <div className="inputan">
+                          <FormInputSelectNew
+                            onChange={handleSelect}
+                            placeholder="Jenis Layanan"
+                            value={select}
+                          />
+                          <FormInput
+                            judul="Nama"
+                            placeholder="Nama"
+                            type="text"
+                            value={values.nama}
+                            onChange={set("nama")}
+                          />
+                        </div>
+                        <div className="inputan">
+                          <FormInput
+                            judul="Nama Ibu Kandung"
+                            placeholder="Nama Ibu Kandung"
+                            type="text"
+                            value={values.namaIbu}
+                            onChange={set("namaIbu")}
+                          />
+                          <FormInput
+                            judul="Alamat"
+                            placeholder="Alamat"
+                            type="text"
+                            value={values.alamat}
+                            onChange={set("alamat")}
+                          />
+                        </div>
+                        <div className="inputan">
+                          <FormInput
+                            judul="Jenis Identitas"
+                            placeholder="Jenis Identitas"
+                            type="text"
+                            value={values.jenis_produk}
+                            onChange={set("jenis_produk")}
+                          />
+                          <FormInput
+                            judul="No. Identitas"
+                            placeholder="No. Identitas"
+                            type="text"
+                            value={values.nik}
+                            onChange={set("nik")}
+                          />
+                          <FormInput
+                            judul="File Identitas"
+                            placeholder="File Identitas"
+                            type="file"
+                            onChange={handleUpload}
+                            innerRef={inputRef}
+                          />
+                        </div>
+                        <p style={{ fontSize: "12px", borderBottom: "none" }}>
+                          <b>Catatan Lain : </b> Pesan balasan daripada form
+                          pengaduan akan dikirimkan melalui No. Hp yang di
+                          masukan.
+                        </p>
+                        {berhasil ? (
+                          <p className="informasi">
+                            <b>Informasi : </b>
+                            Data Berhasil Dikirim, silahkan cek pesan WhatsApp
+                            secara berkala.
+                            <button onClick={() => setBerhasil(false)}>
+                              <FiX />
+                            </button>
+                          </p>
+                        ) : (
+                          ""
+                        )}
+                        <div className="button_flex">
+                          <Button
+                            id="form_baru"
+                            icon={FaAccusoft}
+                            label="Kirim Pesan Pengaduan"
+                            style={{ fontSize: "12px" }}
+                          >
+                            Hitung
+                          </Button>
+                        </div>
+                        <div className="bungkus_image">
+                          <div className="text">Test Gambar</div>
+
+                          {preview === null ? (
+                            ""
+                          ) : (
+                            <img
+                              style={{ height: "100%", width: "100%" }}
+                              src={preview.image}
+                              alt="seletedFile"
+                            />
+                          )}
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FormContent>
+          ) : null}
         </div>
       </div>
     </PenyaluranSite>

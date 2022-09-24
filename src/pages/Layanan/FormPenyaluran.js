@@ -1,19 +1,23 @@
 import React from "react";
-import { FocusComponentColor, ReactHelmet } from "../../components/atom";
-import { useLocation } from "react-router-dom";
-import { PenyaluranSection } from "../../components/section";
-import { contactUs } from "../../assets";
+import { ReactHelmet } from "../../components/atom";
+import { useLocation, useParams } from "react-router-dom";
+import { ErrorSection } from "../../components/section";
+// import { contactUs } from "../../assets";
+import Form from "./Form";
 
 const FormPenyaluran = () => {
   const location = useLocation();
+  const { id } = useParams();
+  console.log(id);
   return (
     <div>
       <ReactHelmet
         title="Publikasi | Bank Artha Mas Abadi"
         url={location.pathname}
       />
-      <FocusComponentColor backgroundColor="#8a47ff" img={contactUs} />
-      <PenyaluranSection />
+      {/* <FocusComponentColor backgroundColor="#8a47ff" img={contactUs} /> */}
+      {id === "pembiayaan" ? null : id === "tabungan" ? null : <ErrorSection />}
+      <Form id={id} />
     </div>
   );
 };
