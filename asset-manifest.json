@@ -1,10 +1,21 @@
 {
   "files": {
     "main.css": "/web-landing/static/css/main.d026f199.css",
-    "main.js": "/web-landing/static/js/main.4d3c0e55.js",
+    "main.js": "/web-landing/static/js/main.bc982b31.js",
+    "static/media/tentang-kami.jpg": "/web-landing/static/media/tentang-kami.2f39ddb0de7b81bc5e30.jpg",
+    "static/media/simulasi.jpg": "/web-landing/static/media/simulasi.ab785e7f49f86923337d.jpg",
+    "static/media/produk-layanan.jpg": "/web-landing/static/media/produk-layanan.c682c807a228b5f3c2c5.jpg",
+    "static/media/berita.jpg": "/web-landing/static/media/berita.d1acb7e9036a174b8b10.jpg",
+    "static/media/publikasi.jpg": "/web-landing/static/media/publikasi.f9d13d95967a235410f4.jpg",
+    "static/media/galeri.jpg": "/web-landing/static/media/galeri.7d1150ee33988bdbb711.jpg",
+    "static/media/penghargaan-5.jpg": "/web-landing/static/media/penghargaan-5.9ea71ea8cbefd866f7e6.jpg",
+    "static/media/penghargaan-3.jpg": "/web-landing/static/media/penghargaan-3.d6e450cf8fb64b3e9d9d.jpg",
+    "static/media/penghargaan-1.jpg": "/web-landing/static/media/penghargaan-1.a337bfa405c958c731dc.jpg",
+    "static/media/penghargaan-4.jpg": "/web-landing/static/media/penghargaan-4.7b0c6c2062e0d5fcf113.jpg",
     "static/media/blog.jpg": "/web-landing/static/media/blog.490bef791b07bdd7f7d8.jpg",
     "static/media/jago-2.jpeg": "/web-landing/static/media/jago-2.40254e148c07e8c3b7fd.jpeg",
-    "static/media/visimisi.webp": "/web-landing/static/media/visimisi.ab64675c9a7b94489b8a.webp",
+    "static/media/visimisi.jpg": "/web-landing/static/media/visimisi.e1ca8aa342b3821b1e1e.jpg",
+    "static/media/penghargaan-2.jpg": "/web-landing/static/media/penghargaan-2.c1d27b77698290b667d7.jpg",
     "static/media/jago-3.jpg": "/web-landing/static/media/jago-3.6318b27de2998085a42f.jpg",
     "static/media/jago.jpeg": "/web-landing/static/media/jago.6318b27de2998085a42f.jpeg",
     "static/media/jago-2-mobile.jpg": "/web-landing/static/media/jago-2-mobile.9e076cc0843525aeb4b9.jpg",
@@ -15,14 +26,9 @@
     "static/media/jago-3-mobile.jpg": "/web-landing/static/media/jago-3-mobile.dac5971b3de2ef15bb0f.jpg",
     "static/media/contact-us.png": "/web-landing/static/media/contact-us.9665044e2f32fad67f86.png",
     "static/media/img-2.png": "/web-landing/static/media/img-2.e7c6588d2a4432cd3351.png",
-    "static/media/penghargaan-5.png": "/web-landing/static/media/penghargaan-5.ad7f79560c43b23f8a1d.png",
     "static/media/img-1.png": "/web-landing/static/media/img-1.854a2cdc9fd2535cb8bd.png",
-    "static/media/penghargaan-3.png": "/web-landing/static/media/penghargaan-3.728780464cdf1a07ec73.png",
-    "static/media/penghargaan-4.png": "/web-landing/static/media/penghargaan-4.bbec2821e472ba565e89.png",
     "static/media/mitra-1.png": "/web-landing/static/media/mitra-1.ae1bb0f035abdceb21c0.png",
     "static/media/logo_new.png": "/web-landing/static/media/logo_new.497b76dbcbb2ea58c652.png",
-    "static/media/penghargaan-1.png": "/web-landing/static/media/penghargaan-1.dfd4f15decd5d7c4a563.png",
-    "static/media/penghargaan-2.png": "/web-landing/static/media/penghargaan-2.2fb8dc77b5461ecc7602.png",
     "static/media/banner.png": "/web-landing/static/media/banner.9fe475d22f5bbbbeefa6.png",
     "static/media/logo-ojk-text.png": "/web-landing/static/media/logo-ojk-text.2a6b11866cce261a6f15.png",
     "static/media/logo_bawah.png": "/web-landing/static/media/logo_bawah.0ae4b70b35e229c33f26.png",
@@ -42,10 +48,10 @@
     "index.html": "/web-landing/index.html",
     "static/media/slick.woff": "/web-landing/static/media/slick.295183786cd8a1389865.woff",
     "main.d026f199.css.map": "/web-landing/static/css/main.d026f199.css.map",
-    "main.4d3c0e55.js.map": "/web-landing/static/js/main.4d3c0e55.js.map"
+    "main.bc982b31.js.map": "/web-landing/static/js/main.bc982b31.js.map"
   },
   "entrypoints": [
     "static/css/main.d026f199.css",
-    "static/js/main.4d3c0e55.js"
+    "static/js/main.bc982b31.js"
   ]
 }
