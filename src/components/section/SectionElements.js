@@ -1423,4 +1423,117 @@ export const PimpinanSite = styled.section`
   }
 `;
 
-export const SimulasiBankSite = styled.section``;
+export const SimulasiBankSite = styled.section`
+  ${devices.smartphone} {
+    padding: 50px 0;
+  }
+  .simulasi {
+    &_container {
+      padding: 0 100px;
+
+      ${devices.smartphone} {
+        padding: 0 25px;
+      }
+    }
+
+    &_content {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+    }
+
+    &_judul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .heading {
+        font-size: 22px;
+        font-weight: 500;
+        text-align: center;
+      }
+      .desc {
+        font-size: 16px;
+        font-weight: 300;
+      }
+    }
+
+    &_body {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      width: 100%;
+
+      ${devices.smartphone} {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+      }
+
+      ${devices.ipads} {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+      }
+
+      .card_content {
+        height: max-content;
+        /* border-radius: 8px; */
+        background-color: ${({ theme: { theme } }) =>
+          theme === themeList.light ? "#fff" : "var(--mediumColor)"};
+        border: 1px solid
+          ${({ theme: { theme } }) =>
+            theme === themeList.light ? "#bdbdbd" : "var(--mediumColor)"};
+        box-sizing: border-box;
+        border-radius: 20px;
+        transition: box-shadow 1s;
+        width: 100%;
+        overflow: hidden;
+        ${devices.smartphone} {
+          width: 100% !important;
+        }
+
+        ${devices.ipads} {
+          width: 100% !important;
+        }
+
+        ${devices.laptops} {
+          width: 100% !important;
+        }
+
+        :hover {
+          border: 1px solid var(--colorMain);
+          box-shadow: 0 0 10px rgb(0 0 0 / 15%);
+        }
+
+        .img_card {
+          overflow: hidden;
+          display: flex;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            overflow: hidden;
+          }
+        }
+
+        .text_card {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          padding: 20px;
+          gap: 10px;
+
+          p {
+            font-size: 14px;
+            font-weight: 400;
+            text-align: left;
+            width: 55%;
+          }
+        }
+      }
+    }
+  }
+`;

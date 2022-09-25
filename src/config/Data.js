@@ -735,7 +735,7 @@ export const NAVLINKS = [
       {
         id: 1,
         to: "/simulasi",
-        name: "SIMULASI",
+        name: "SIMULASI TABUNGAN",
         sub: [
           {
             to: "/web-landing/simulasi-bank/simulasi",
@@ -745,11 +745,11 @@ export const NAVLINKS = [
       },
       {
         id: 2,
-        to: "/simulasi-kredit",
+        to: "/simulasi-pembiayaan",
         name: "SIMULASI PEMBIAYAAN",
         sub: [
           {
-            to: "/web-landing/simulasi-bank/simulasi-kredit",
+            to: "/web-landing/simulasi-bank/simulasi-pembiayaan",
             judul: "Simulasi Pembiayaan",
           },
         ],

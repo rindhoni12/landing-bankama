@@ -3,14 +3,18 @@ import React from "react";
 import { FiChevronDown } from "react-icons/fi";
 import { devices } from "../../assets/_respondTo";
 import { themeList } from "../../config";
+import { ButtonLink } from "../button";
+import { FaAccusoft } from "react-icons/fa";
 
 const AccordionSite = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  min-height: 80vh;
+  /* min-height: 70vh; */
   padding: 0px;
+  margin-bottom: 50px;
+  margin-top: 50px;
 
   ${devices.screen_large} {
     max-width: 1580px;
@@ -48,7 +52,7 @@ const AccordionSite = styled.section`
   .accordion_bungkus {
     display: flex;
     flex-direction: row;
-    padding: 50px 0;
+    /* padding: 50px 0; */
     gap: 40px;
 
     ${devices.smartphone} {
@@ -60,6 +64,7 @@ const AccordionSite = styled.section`
     }
 
     .pembungkus {
+      width: 100%;
       ${devices.ipads} {
         display: flex;
         align-items: center;
@@ -86,7 +91,7 @@ const AccordionSite = styled.section`
     height: max-content;
     margin-bottom: 20px;
     border-radius: 8px;
-    width: 500px;
+    width: 100%;
 
     ${devices.smartphone} {
       width: 100%;
@@ -118,8 +123,33 @@ const AccordionContainer = styled.div`
 `;
 
 const Inner = styled.div`
-  position: absolute;
-  padding: 16px;
+  /* position: absolute; */
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  ${devices.smartphone} {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: justify;
+    gap: 20px;
+  }
+
+  ${devices.ipads} {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: justify;
+    gap: 20px;
+  }
+
+  ${devices.laptops} {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: justify;
+    gap: 20px;
+  }
 `;
 
 const Header = styled.div`
@@ -129,7 +159,7 @@ const Header = styled.div`
   text-align: left;
   font-weight: 500;
   padding: 0 16px;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
   height: 64px;
   width: 100%;
@@ -148,8 +178,8 @@ const HeaderIcon = styled.span`
 const Content = styled.div`
   transition: height 0.35s;
   position: relative;
-  font-weight: 400;
-  font-size: 12px;
+  font-weight: 300;
+  font-size: 14px;
   overflow: hidden;
   height: ${(props) => {
     const inner = document.getElementById(props.itemName);
@@ -167,7 +197,13 @@ const Gambar = styled.div`
   }
 `;
 
-const AccordionContent = ({ onClick, itemName, itemContent, isActive }) => {
+const AccordionContent = ({
+  onClick,
+  itemName,
+  itemContent,
+  isActive,
+  itemUrl,
+}) => {
   return (
     <React.Fragment>
       <div className="content_accordion">
@@ -178,7 +214,17 @@ const AccordionContent = ({ onClick, itemName, itemContent, isActive }) => {
           </HeaderIcon>
         </Header>
         <Content itemName={itemName} isActive={isActive}>
-          <Inner id={itemName}>{itemContent}</Inner>
+          <Inner id={itemName}>
+            {itemContent}
+            <div className="button">
+              <ButtonLink
+                icon={FaAccusoft}
+                label="Selengkapnya"
+                style={{ fontSize: "14px" }}
+                to={itemUrl}
+              />
+            </div>
+          </Inner>
         </Content>
       </div>
     </React.Fragment>
