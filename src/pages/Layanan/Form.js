@@ -411,9 +411,8 @@ const Form = ({ id }) => {
                             />
                           </div>
                           <p style={{ fontSize: "12px", borderBottom: "none" }}>
-                            <b>Catatan Lain : </b> Pesan balasan daripada form
-                            pengaduan akan dikirimkan melalui No. Hp yang di
-                            masukan.
+                            <b>Catatan Lain : </b> Pastikan data yang anda
+                            isikan sudah benar.
                           </p>
 
                           {dataresponse?.success && berhasil ? (
@@ -447,14 +446,22 @@ const Form = ({ id }) => {
                                 />
                               )}
                             </div>
-                            <Button
-                              id="form_baru"
-                              icon={FaAccusoft}
-                              label="Kirim Pesan Pengaduan"
-                              style={{ fontSize: "12px" }}
-                            >
-                              Hitung
-                            </Button>
+
+                            {id === "tabungan" ? (
+                              <Button
+                                id="form_baru"
+                                icon={FaAccusoft}
+                                label="Kirim Permohonan Tabungan"
+                                style={{ fontSize: "12px" }}
+                              />
+                            ) : id === "pembiayaan" ? (
+                              <Button
+                                id="form_baru"
+                                icon={FaAccusoft}
+                                label="Kirim Permohonan Pembiayaan"
+                                style={{ fontSize: "12px" }}
+                              />
+                            ) : null}
                           </div>
                         </form>
                       </div>
