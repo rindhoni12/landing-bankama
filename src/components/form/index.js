@@ -86,7 +86,7 @@ export const FormInputDrop = (item) => {
         value={item.value}
         ref={item.innerRef}
       />
-      <div className="text_keterangan">{item.text}</div>
+      {item?.text ? <div className="text_keterangan">{item?.text}</div> : null}
     </div>
   );
 };
@@ -308,12 +308,12 @@ const FormKpr = () => {
         toNumber / parseFloat(data.selectNew2) + toNumber * persentase;
       const perubahan = formatRupiah(parseInt(perhitunganKredit), "Rp ");
       setHasil(perubahan);
-    } else if (data.dropdown === "Murabahah") {
+    } else if (data.dropdown === "Musyarakah") {
       const perhitunganKredit =
         toNumber / parseFloat(data.selectNew) + toNumber * persentase;
       const perubahan = formatRupiah(parseInt(perhitunganKredit), "Rp ");
       setHasil(perubahan);
-    } else if (data.dropdown === "Musyarakah") {
+    } else if (data.dropdown === "Murabahah") {
       const perhitunganKredit =
         toNumber / parseFloat(data.jangkawaktu) + toNumber * persentase;
       const perubahan = formatRupiah(parseInt(perhitunganKredit), "Rp ");
@@ -352,18 +352,18 @@ const FormKpr = () => {
                     placeholder="Jumlah Pinjamanan"
                   />
                   {dropdown && dropdown === "Murabahah" ? (
-                    <FormInputSelect
-                      onChange={handleSelectJangka}
-                      placeholder="Jangka Waktu"
-                      value={selectNew}
-                    />
-                  ) : dropdown === "Musyarakah" ? (
                     <FormInputDrop
                       judul="Jangka Waktu"
                       placeholder="Jangka Waktu"
                       type="text"
                       value={values.jangkawaktu}
                       onChange={set("jangkawaktu")}
+                    />
+                  ) : dropdown === "Musyarakah" ? (
+                    <FormInputSelect
+                      onChange={handleSelectJangka}
+                      placeholder="Jangka Waktu"
+                      value={selectNew}
                     />
                   ) : dropdown === "Multijasa" ? (
                     <FormInputSelect
@@ -617,7 +617,7 @@ export const FormSimulasi = ({ dataWording }) => {
                   >
                     <FormInputCurrency
                       nama="jumlah"
-                      placeholder="Jumlah Pinjamanan"
+                      placeholder="Jumlah Tabungan"
                     />
                     <div
                       className="button_flex"

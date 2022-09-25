@@ -117,7 +117,7 @@ export const FormSite = styled.section`
   .gambar_pemanis {
     display: flex;
     width: 100%;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     overflow: hidden;
     padding: 20px;
@@ -292,7 +292,7 @@ export const FormContent = styled.div`
     border: 1.2px solid #aaa;
     box-sizing: border-box;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
 
     :focus {
@@ -596,7 +596,7 @@ export const FormContent = styled.div`
   .gambar_pemanis {
     display: flex;
     width: 100%;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     overflow: hidden;
     padding: 20px;

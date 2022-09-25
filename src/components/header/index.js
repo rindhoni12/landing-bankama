@@ -58,11 +58,7 @@ const ContentDrop = styled.div`
       height: ${(props) => {
         return `${props.isDropdown ? "max-content" : "0px"}`;
       }};
-      transition: ${(props) => {
-        return `${
-          props.isDropdown ? `${props.height} 0.35s` : `${props.height} 0.35s`
-        }`;
-      }};
+      transition: 319px 0.35s;
 
       ::before {
         content: "";
@@ -87,11 +83,7 @@ const ContentDrop = styled.div`
       height: ${(props) => {
         return `${props.isDropdown ? "max-content" : "0px"}`;
       }};
-      transition: ${(props) => {
-        return `${
-          props.isDropdown ? `${props.height} 0.35s` : `${props.height} 0.35s`
-        }`;
-      }};
+      transition: 319px 0.35s;
 
       ::before {
         content: "";
@@ -116,11 +108,7 @@ const ContentDrop = styled.div`
       height: ${(props) => {
         return `${props.isDropdown ? "max-content" : "0px"}`;
       }};
-      transition: ${(props) => {
-        return `${
-          props.isDropdown ? `${props.height} 0.35s` : `${props.height} 0.35s`
-        }`;
-      }};
+      transition: 319px 0.35s;
 
       ::before {
         content: "";
@@ -296,9 +284,6 @@ const Header = () => {
     });
   }, []);
 
-  const tinggiNya = document.getElementsByClassName("megamenu");
-  const tinggi = tinggiNya[0]?.clientHeight;
-  console.log(tinggi[0]?.clientHeight);
   return (
     <HeaderSite ref={headerRef}>
       <HeaderContainer>
@@ -352,7 +337,6 @@ const Header = () => {
                                   {item.name} <BiCaretDown />
                                 </NavLink>
                                 <ContentDrop
-                                  height={tinggi}
                                   isDropdown={isDropdown}
                                   itemName={item.name}
                                 >

@@ -1,61 +1,41 @@
 import { HeadingComponent } from "../atom";
-import { img1, img2 } from "../../assets";
+// import { img1, img2 } from "../../assets";
 import React, { useState } from "react";
 import {
   AccordionContainer,
   AccordionContent,
   AccordionSite,
-  AccordionImg,
+  // AccordionImg,
 } from "./AccordionElements";
 
-const Accordion = () => {
-  let items = [
-    {
-      name: "Header 1",
-      content: "Lorem Impsum dolar asmet",
-      img: img1,
-    },
-    {
-      name: "Header 2",
-      content: "Lorem Impsum dolar asmet",
-      img: img2,
-    },
-    {
-      name: "Header 3",
-      content: "Lorem Impsum dolar asmet",
-      img: img1,
-    },
-  ];
-
+const Accordion = ({ items, judul, desc }) => {
   return (
     <AccordionSite>
       <div className="accordion_container">
-        <AccordionComponent items={items} />
+        <AccordionComponent items={items} judul={judul} desc={desc} />
       </div>
     </AccordionSite>
   );
 };
 
-const AccordionComponent = ({ items }) => {
+const AccordionComponent = ({ items, judul, desc }) => {
   const [active, setActive] = useState();
 
   const handleClick = (item) => {
     setActive(item.name === active ? null : item.name);
   };
 
-  const gambarPertama = items[0].img;
+  // const gambarPertama = items[0].img;
   return (
     <AccordionContainer>
-      <HeadingComponent
-        Heading="Coba simulasi kredit sekarang!"
-        Text="Untuk mengetahui berapa biaya yang harus digunakan untuk melakukan kredit Tabungan."
-      />
+      <HeadingComponent Heading={judul} Text={desc} />
       <div className="accordion_bungkus">
         <div className="pembungkus">
           {items.map((item, i) => {
             let isActive = active === item.name;
             return (
               <AccordionContent
+                itemUrl={item.url}
                 key={i}
                 onClick={() => handleClick(item)}
                 itemName={item.name}
@@ -65,7 +45,7 @@ const AccordionComponent = ({ items }) => {
             );
           })}
         </div>
-        <div className="pembungkus_gambar">
+        {/* <div className="pembungkus_gambar">
           {active ? (
             items.map((item, i) => {
               let isActive = active === item.name;
@@ -78,7 +58,7 @@ const AccordionComponent = ({ items }) => {
           ) : (
             <img style={{ width: "300px" }} src={gambarPertama} alt="" />
           )}
-        </div>
+        </div> */}
       </div>
     </AccordionContainer>
   );

@@ -557,8 +557,8 @@ const FocusComponentWithLogo = ({ backgroundColor, dataWording }) => {
           <Button
             style={{ zIndex: "2" }}
             icon={FaAccusoft}
-            label="Simulasi"
-            to="./simulasi"
+            label="Simulasi Tabungan"
+            to="/web-landing/simulasi-bank/simulasi"
           />
         </div>
       </div>

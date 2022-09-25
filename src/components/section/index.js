@@ -41,10 +41,11 @@ import {
   ReactHelmet,
   HeadingComponent,
 } from "../../components";
-import { ButtonDownloadOrganisasi } from "../button";
+import { ButtonDownloadOrganisasi, ButtonLink } from "../button";
 import cvPrawito from "../../assets/cv_prawito.pdf";
 import { FiX } from "react-icons/fi";
 import axios from "axios";
+import { simu_pembiayaan, simu_tabungan } from "../../assets";
 
 const KontakKamiSection = ({ dataWording }) => {
   const dataCabang = KONTAK_KAMI.kantor_cabang[0];
@@ -1717,7 +1718,52 @@ const DetailOrganisasiSection = () => {
 };
 
 const SimulasiBankSection = () => {
-  return <SimulasiBankSite>Test</SimulasiBankSite>;
+  return (
+    <SimulasiBankSite>
+      <div className="simulasi_container">
+        <div className="simulasi_content">
+          <div className="simulasi_judul">
+            <div className="heading">
+              Ayo, coba untuk SIMULASI TABUNGAN atau SIMULASI PEMBIAYAAN anda!!
+            </div>
+            <div className="desc">
+              Rencanakan dan susun masa depan bersama dengan keluarga & teman.
+            </div>
+          </div>
+          <div className="simulasi_body">
+            <div className="card_content">
+              <div className="img_card">
+                <img src={simu_tabungan} alt="simu_tabungan" />
+              </div>
+              <div className="text_card">
+                <p>Coba untuk simulasi tabungan anda di Bank Artha Mas Abadi</p>
+                <ButtonLink
+                  icon={FaAccusoft}
+                  label="Simulasi Tabungan"
+                  style={{ fontSize: "14px" }}
+                  to="simulasi-bank/simulasi"
+                />
+              </div>
+            </div>
+            <div className="card_content">
+              <div className="img_card">
+                <img src={simu_pembiayaan} alt="simu_pembiayaan" />
+              </div>
+              <div className="text_card">
+                <p>Ayo Simulasi Pembiayaan anda di Bank Artha Mas Abadi</p>
+                <ButtonLink
+                  icon={FaAccusoft}
+                  label="Simulasi Pembiayaan"
+                  style={{ fontSize: "14px" }}
+                  to="simulasi-bank/simulasi-pembiayaan"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </SimulasiBankSite>
+  );
 };
 
 export {

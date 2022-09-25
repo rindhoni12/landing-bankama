@@ -1,5 +1,4 @@
 import React from "react";
-// import { Accordion } from "../components";
 import { useLocation } from "react-router-dom";
 import { BERITA, WORDING } from "../../config";
 import {
@@ -56,8 +55,6 @@ const Home = () => {
         dataWording={dataWording ? dataWording?.berita_kami : ""}
       />
       <Informasi dataWording={dataWording ? dataWording?.home : ""} />
-
-      {/* <Accordion /> */}
     </>
   );
 };

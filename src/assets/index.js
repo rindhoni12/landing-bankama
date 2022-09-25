@@ -40,6 +40,8 @@ import berita from "./img/berita.jpg";
 import simulasi from "./img/simulasi.jpg";
 import publikasi from "./img/publikasi.jpg";
 import produk from "./img/produk-layanan.jpg";
+import simu_tabungan from "./img/simulasi-tabungan.jpeg";
+import simu_pembiayaan from "./img/simulasi-pembiayaan.jpeg";
 
 export {
   jago2Mobile,
@@ -84,4 +86,6 @@ export {
   simulasi,
   publikasi,
   produk,
+  simu_tabungan,
+  simu_pembiayaan,
 };

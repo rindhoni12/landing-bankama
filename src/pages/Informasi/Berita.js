@@ -5,7 +5,7 @@ import {
   ReactHelmet,
 } from "../../components/atom";
 import { useLocation } from "react-router-dom";
-import { berita, contactUs } from "../../assets";
+import { berita } from "../../assets";
 import { WORDING } from "../../config";
 
 const Berita = () => {
@@ -18,11 +18,6 @@ const Berita = () => {
         title="Berita | Bank Artha Mas Abadi"
         url={location.pathname}
       />
-      {/* <FocusComponentColor
-        dataWording={dataWording ? dataWording?.berita_kami : ""}
-        backgroundColor="#f9b418"
-        img={contactUs}
-      /> */}
       <FocusComponentBackground image={berita} />
       <Card
         text="Lebih Banyak"
