@@ -61,7 +61,7 @@ const KontakKamiSection = ({ dataWording }) => {
         <div className="tentang_maps">
           <div className="maps">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.8803638379372!2d111.09416161436485!3d-6.66174566697648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e772ad5771a3afb%3A0xe749d504c33e504!2sKoperasi%20Bank%20Perkreditan%20Rakyat!5e0!3m2!1sid!2sid!4v1641217024980!5m2!1sid!2sid"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3963.3733661918586!2d111.0526794!3d-6.6004364!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e712af47708bd77%3A0xc3d92b5cf51f5b87!2sPT.%20BPR%20Syari&#39;ah%20Artha%20Mas%20Abadi!5e0!3m2!1sid!2sid!4v1664027823534!5m2!1sid!2sid"
               allowFullScreen
               loading="lazy"
               title="Map Bank"
@@ -274,7 +274,16 @@ const Tab = ({ children, active, judul }) => {
 };
 
 const ContentTab = (item) => {
+  const [data, setData] = useState([]);
   console.log(item.judulParent);
+
+  const handleButton = () => {
+    setData(item.judulParent);
+  };
+
+  useEffect(() => {
+    localStorage.setItem("data", JSON.stringify(data));
+  }, [data]);
   return (
     <ContentTabSite>
       <div className="tab_content">
@@ -311,13 +320,8 @@ const ContentTab = (item) => {
               icon={FaAccusoft}
               label="Daftar Disini"
               style={{ margin: "auto" }}
-              to={
-                item?.judulParent === "Penyaluran Dana"
-                  ? "/web-landing/form/pembiayaan"
-                  : item?.judulParent === "Penyimpanan Dana"
-                  ? "/web-landing/form/tabungan"
-                  : null
-              }
+              onClick={handleButton}
+              to="/web-landing/form-pengajuan"
             />
           </div>
         </div>
@@ -933,7 +937,15 @@ const CardInformasiSection = ({ dataWording }) => {
 
 const PengajuanSection = () => {
   const [checked, setChecked] = React.useState(false);
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem("data"));
+    if (items) {
+      setData(items);
+    }
+  }, []);
 
+  console.log(data);
   return (
     <PengajuanSite>
       <div className="pengajuan_container">
@@ -1045,15 +1057,28 @@ const PengajuanSection = () => {
                       Saya setuju dengan syarat dan ketentuan tersebut di atas
                     </p>
                   </label>
-                  <Link
-                    className={`pengajuan_button ${
-                      !checked ? "pengajuan_disable_button" : ""
-                    }`}
-                    to={"/form-nasabah"}
-                    state={{ state: checked }}
-                  >
-                    Buka Rekening
-                  </Link>
+
+                  {data === "Penyimpanan Dana" ? (
+                    <Link
+                      className={`pengajuan_button ${
+                        !checked ? "pengajuan_disable_button" : ""
+                      }`}
+                      to={"/form/tabungan"}
+                      state={{ state: checked }}
+                    >
+                      Buka Rekening
+                    </Link>
+                  ) : data === "Penyaluran Dana" ? (
+                    <Link
+                      className={`pengajuan_button ${
+                        !checked ? "pengajuan_disable_button" : ""
+                      }`}
+                      to={"/form/pembiayaan"}
+                      state={{ state: checked }}
+                    >
+                      Buka Rekening
+                    </Link>
+                  ) : null}
                 </div>
               </div>
             </div>

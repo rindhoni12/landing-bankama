@@ -8,14 +8,20 @@ import Form from "./Form";
 const FormPenyaluran = () => {
   const location = useLocation();
   const { id } = useParams();
-  console.log(id);
+
+  let userState = location;
+  if (userState.state === null) {
+    window.location.href = "/web-landing";
+  } else if (userState.state.state === false) {
+    window.location.href = "./pengajuan-rekening";
+  }
+
   return (
     <div>
       <ReactHelmet
         title="Publikasi | Bank Artha Mas Abadi"
         url={location.pathname}
       />
-      {/* <FocusComponentColor backgroundColor="#8a47ff" img={contactUs} /> */}
       {id === "pembiayaan" ? null : id === "tabungan" ? null : <ErrorSection />}
       <Form id={id} />
     </div>

@@ -288,7 +288,7 @@ export const FormContent = styled.div`
     background-position-x: 97%;
     background-position-y: 15px;
     border-radius: 2px;
-    padding: 14px 26px;
+    padding: 14px 20px;
     border: 1.2px solid #aaa;
     box-sizing: border-box;
     border-radius: 8px;
@@ -463,7 +463,7 @@ export const FormContent = styled.div`
 
     label {
       font-weight: 500;
-      font-size: 16px;
+      font-size: 14px;
       width: 100%;
 
       ::after {
@@ -483,7 +483,7 @@ export const FormContent = styled.div`
       border-radius: 8px;
       color: #00193e;
 
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 600;
 
       ::placeholder {
@@ -509,7 +509,7 @@ export const FormContent = styled.div`
 
     label {
       font-weight: 500;
-      font-size: 16px;
+      font-size: 14px;
       width: 100%;
 
       ::after {

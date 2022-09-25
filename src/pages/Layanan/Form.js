@@ -191,7 +191,6 @@ const Form = ({ id }) => {
     localStorage.setItem("item", JSON.stringify(local));
   }, [local]);
 
-  console.log(dataresponse);
   const dataConfig = {
     tabungan: [
       {

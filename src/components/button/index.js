@@ -12,7 +12,6 @@ const Button = (item) => {
         to={item.to}
         className="button_my-course"
       >
-        {/* <item.icon /> */}
         <a href={item.to}>{item.label}</a>
       </button>
     </ButtonContent>
@@ -28,7 +27,6 @@ const ButtonTransparent = (item) => {
         id={item.id}
         className={`button_my-course ${item.active}`}
       >
-        {/* <item.icon /> */}
         {item.label}
       </button>
     </ButtonTransparentContent>

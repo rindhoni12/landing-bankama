@@ -1212,7 +1212,7 @@ export const WORDING = {
     {
       id: 2,
       text: "Foto dan Informasi Penghargaan",
-      desc: "",
+      desc: "Berikut ini adalah beberapa penghargaan yang diterima oleh Bank Artha Mas Abadi.",
     },
     {
       id: 3,
