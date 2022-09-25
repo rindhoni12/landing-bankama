@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/web-landing/static/css/main.d026f199.css",
-    "main.js": "/web-landing/static/js/main.bc982b31.js",
+    "main.js": "/web-landing/static/js/main.3c3b52ff.js",
     "static/media/tentang-kami.jpg": "/web-landing/static/media/tentang-kami.2f39ddb0de7b81bc5e30.jpg",
     "static/media/simulasi.jpg": "/web-landing/static/media/simulasi.ab785e7f49f86923337d.jpg",
     "static/media/produk-layanan.jpg": "/web-landing/static/media/produk-layanan.c682c807a228b5f3c2c5.jpg",
@@ -23,6 +23,7 @@
     "static/media/jago-mobile.jpg": "/web-landing/static/media/jago-mobile.97206cf25897d41397a9.jpg",
     "static/media/cv_prawito.pdf": "/web-landing/static/media/cv_prawito.62769c46a2db417ecdd2.pdf",
     "static/media/organisasi.png": "/web-landing/static/media/organisasi.88263fa02c6eebf89038.png",
+    "static/media/simulasi-pembiayaan.jpeg": "/web-landing/static/media/simulasi-pembiayaan.39c6b2528d9e57a1ff9a.jpeg",
     "static/media/jago-3-mobile.jpg": "/web-landing/static/media/jago-3-mobile.dac5971b3de2ef15bb0f.jpg",
     "static/media/contact-us.png": "/web-landing/static/media/contact-us.9665044e2f32fad67f86.png",
     "static/media/img-2.png": "/web-landing/static/media/img-2.e7c6588d2a4432cd3351.png",
@@ -34,6 +35,7 @@
     "static/media/logo_bawah.png": "/web-landing/static/media/logo_bawah.0ae4b70b35e229c33f26.png",
     "static/media/logo_ama_long.png": "/web-landing/static/media/logo_ama_long.9b079bf39083b4b16b64.png",
     "static/media/logo-lps-text.png": "/web-landing/static/media/logo-lps-text.07604f50b701e43e2db3.png",
+    "static/media/simulasi-tabungan.jpeg": "/web-landing/static/media/simulasi-tabungan.aa8a49b725fcf4829c68.jpeg",
     "static/media/mitra-4.png": "/web-landing/static/media/mitra-4.5fbe48e302ea3ed5a26c.png",
     "static/media/lps.png": "/web-landing/static/media/lps.10b34851941f49114be9.png",
     "static/media/logo_white.png": "/web-landing/static/media/logo_white.92a378cc2c65f9ce6374.png",
@@ -48,10 +50,10 @@
     "index.html": "/web-landing/index.html",
     "static/media/slick.woff": "/web-landing/static/media/slick.295183786cd8a1389865.woff",
     "main.d026f199.css.map": "/web-landing/static/css/main.d026f199.css.map",
-    "main.bc982b31.js.map": "/web-landing/static/js/main.bc982b31.js.map"
+    "main.3c3b52ff.js.map": "/web-landing/static/js/main.3c3b52ff.js.map"
   },
   "entrypoints": [
     "static/css/main.d026f199.css",
-    "static/js/main.bc982b31.js"
+    "static/js/main.3c3b52ff.js"
   ]
 }
