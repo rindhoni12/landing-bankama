@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/web-landing/static/css/main.d026f199.css",
-    "main.js": "/web-landing/static/js/main.3c3b52ff.js",
+    "main.js": "/web-landing/static/js/main.e75ab7c5.js",
     "static/media/tentang-kami.jpg": "/web-landing/static/media/tentang-kami.2f39ddb0de7b81bc5e30.jpg",
     "static/media/simulasi.jpg": "/web-landing/static/media/simulasi.ab785e7f49f86923337d.jpg",
     "static/media/produk-layanan.jpg": "/web-landing/static/media/produk-layanan.c682c807a228b5f3c2c5.jpg",
@@ -50,10 +50,10 @@
     "index.html": "/web-landing/index.html",
     "static/media/slick.woff": "/web-landing/static/media/slick.295183786cd8a1389865.woff",
     "main.d026f199.css.map": "/web-landing/static/css/main.d026f199.css.map",
-    "main.3c3b52ff.js.map": "/web-landing/static/js/main.3c3b52ff.js.map"
+    "main.e75ab7c5.js.map": "/web-landing/static/js/main.e75ab7c5.js.map"
   },
   "entrypoints": [
     "static/css/main.d026f199.css",
-    "static/js/main.3c3b52ff.js"
+    "static/js/main.e75ab7c5.js"
   ]
 }
