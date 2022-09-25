@@ -745,6 +745,22 @@ export const FocusComponentSiteContact = styled.section`
         }
       }
     }
+
+    .backgroud_class {
+      height: 540px;
+      width: 100%;
+      overflow: hidden;
+
+      ${devices.smartphone} {
+        height: 100%;
+      }
+      img {
+        height: 100%;
+        width: 100%;
+        object-position: bottom;
+        object-fit: cover;
+      }
+    }
   }
 `;
 

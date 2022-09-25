@@ -1,12 +1,12 @@
 import React from "react";
 import {
   Detail,
-  FocusComponentColor,
+  FocusComponentBackground,
   ReactHelmet,
 } from "../../components/atom";
 import { SimpleSliderFicture } from "../../components/carousel";
 import { useLocation } from "react-router-dom";
-import { contactUs, visimisi } from "../../assets";
+import { ttg_kami, visimisi } from "../../assets";
 import { KontakKamiSection, OrganisasiSection } from "../../components";
 import { WORDING } from "../../config";
 
@@ -19,11 +19,7 @@ const TentangKami = () => {
         title="Tentang Kami | Bank Artha Mas Abadi"
         url={location.pathname}
       />
-      <FocusComponentColor
-        dataWording={dataWording ? dataWording?.tentang_kami : ""}
-        backgroundColor="#06aed5"
-        img={contactUs}
-      />
+      <FocusComponentBackground image={ttg_kami} />
       <Detail
         img={visimisi}
         judul="BPR Syariah Artha Mas Abadi"

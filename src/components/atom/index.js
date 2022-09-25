@@ -592,6 +592,18 @@ const FocusComponentColor = ({ img, backgroundColor, dataWording }) => {
   );
 };
 
+const FocusComponentBackground = ({ image }) => {
+  return (
+    <FocusComponentSiteContact>
+      <div className="focus_container">
+        <div className="backgroud_class">
+          <img src={image} alt="tentang_kami" />
+        </div>
+      </div>
+    </FocusComponentSiteContact>
+  );
+};
+
 const WaItemContent = () => {
   const waRef = useRef(null);
 
@@ -641,4 +653,5 @@ export {
   ReactHelmet,
   WaItemContent,
   CardItemLoad,
+  FocusComponentBackground,
 };

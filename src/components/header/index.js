@@ -50,16 +50,19 @@ const ContentDrop = styled.div`
       overflow: hidden;
       visibility: visible;
       opacity: 1;
-      height: 0;
       max-width: 200px;
       margin-left: 0px;
       gap: 20px;
       margin-top: 0px;
       margin-bottom: 0px;
       height: ${(props) => {
-        return `${props.isDropdown ? "319" : "0"}px`;
+        return `${props.isDropdown ? "max-content" : "0px"}`;
       }};
-      transition: height 0.35s;
+      transition: ${(props) => {
+        return `${
+          props.isDropdown ? `${props.height} 0.35s` : `${props.height} 0.35s`
+        }`;
+      }};
 
       ::before {
         content: "";
@@ -76,16 +79,19 @@ const ContentDrop = styled.div`
       overflow: hidden;
       visibility: visible;
       opacity: 1;
-      height: 0;
       max-width: 200px;
       margin-left: 0px;
       gap: 20px;
       margin-top: 0px;
       margin-bottom: 0px;
       height: ${(props) => {
-        return `${props.isDropdown ? "319" : "0"}px`;
+        return `${props.isDropdown ? "max-content" : "0px"}`;
       }};
-      transition: height 0.35s;
+      transition: ${(props) => {
+        return `${
+          props.isDropdown ? `${props.height} 0.35s` : `${props.height} 0.35s`
+        }`;
+      }};
 
       ::before {
         content: "";
@@ -102,16 +108,19 @@ const ContentDrop = styled.div`
       overflow: hidden;
       visibility: visible;
       opacity: 1;
-      height: 0;
       max-width: 200px;
       margin-left: 0px;
       gap: 20px;
       margin-top: 0px;
       margin-bottom: 0px;
       height: ${(props) => {
-        return `${props.isDropdown ? "319" : "0"}px`;
+        return `${props.isDropdown ? "max-content" : "0px"}`;
       }};
-      transition: height 0.35s;
+      transition: ${(props) => {
+        return `${
+          props.isDropdown ? `${props.height} 0.35s` : `${props.height} 0.35s`
+        }`;
+      }};
 
       ::before {
         content: "";
@@ -287,6 +296,9 @@ const Header = () => {
     });
   }, []);
 
+  const tinggiNya = document.getElementsByClassName("megamenu");
+  const tinggi = tinggiNya[0]?.clientHeight;
+  console.log(tinggi[0]?.clientHeight);
   return (
     <HeaderSite ref={headerRef}>
       <HeaderContainer>
@@ -340,6 +352,7 @@ const Header = () => {
                                   {item.name} <BiCaretDown />
                                 </NavLink>
                                 <ContentDrop
+                                  height={tinggi}
                                   isDropdown={isDropdown}
                                   itemName={item.name}
                                 >

@@ -1,8 +1,12 @@
 import React from "react";
-import { FocusComponentColor, ReactHelmet } from "../../components/atom";
+import {
+  FocusComponentBackground,
+  FocusComponentColor,
+  ReactHelmet,
+} from "../../components/atom";
 import { FormKpr, FormSimulasi } from "../../components";
 import { useLocation, useParams } from "react-router-dom";
-import { contactUs } from "../../assets";
+import { contactUs, simulasi } from "../../assets";
 import { WORDING } from "../../config";
 
 const Simulasi = () => {
@@ -18,22 +22,24 @@ const Simulasi = () => {
       />
       {id === "simulasi" ? (
         <>
-          <FocusComponentColor
+          {/* <FocusComponentColor
             dataWording={dataWording ? dataWording?.simulasi_kredit : ""}
             backgroundColor="#26ac42"
             img={contactUs}
-          />
+          /> */}
+          <FocusComponentBackground image={simulasi} />
           <FormSimulasi
             dataWording={dataWording ? dataWording?.simulasi_kredit : ""}
           />
         </>
       ) : id === "simulasi-kredit" ? (
         <>
-          <FocusComponentColor
+          {/* <FocusComponentColor
             dataWording={dataWording ? dataWording?.simulasi_tabungan : ""}
             backgroundColor="#26ac42"
             img={contactUs}
-          />
+          /> */}
+          <FocusComponentBackground image={simulasi} />
           <FormKpr />
         </>
       ) : (

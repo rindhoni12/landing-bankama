@@ -708,7 +708,7 @@ export const NAVLINKS = [
         sub: [
           {
             to: "/layanan-kami/penyaluran-dana/0",
-            judul: "Pembiayaan iB Wadiah",
+            judul: "Pembiayaan iB Murabahah",
           },
           {
             to: "/layanan-kami/penyaluran-dana/1",
@@ -1212,7 +1212,7 @@ export const WORDING = {
     {
       id: 2,
       text: "Foto dan Informasi Penghargaan",
-      desc: "",
+      desc: "Berikut ini adalah beberapa penghargaan yang diterima oleh Bank Artha Mas Abadi.",
     },
     {
       id: 3,

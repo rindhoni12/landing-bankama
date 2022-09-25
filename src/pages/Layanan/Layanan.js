@@ -2,13 +2,14 @@ import React from "react";
 import { useLocation, useParams } from "react-router-dom";
 import {
   DetailLayananPages,
+  FocusComponentBackground,
   FocusComponentColor,
   ReactHelmet,
 } from "../../components/atom";
 import { LayananSection } from "../../components/section";
 import { FaAccusoft } from "react-icons/fa";
 import { DATA_BARU, WORDING } from "../../config";
-import { contactUs, two } from "../../assets";
+import { contactUs, publikasi, two } from "../../assets";
 
 const Layanan = () => {
   const { id } = useParams();
@@ -53,11 +54,12 @@ const LayananSatu = () => {
         title="Layanan & Produk | Bank Artha Mas Abadi"
         url={location.pathname}
       />
-      <FocusComponentColor
+      {/* <FocusComponentColor
         dataWording={dataWording ? dataWording?.produk_layanan : ""}
         backgroundColor="#f9b418"
         img={contactUs}
-      />
+      /> */}
+      <FocusComponentBackground image={publikasi} />
       <DetailLayananPages
         imgDetail={two}
         label="Penyimpanan Dana"

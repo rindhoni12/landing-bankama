@@ -230,7 +230,7 @@ export const FormContent = styled.div`
     display: flex;
     flex-direction: row;
     gap: 20px;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     width: 100%;
 
@@ -288,7 +288,7 @@ export const FormContent = styled.div`
     background-position-x: 97%;
     background-position-y: 15px;
     border-radius: 2px;
-    padding: 14px 26px;
+    padding: 14px 20px;
     border: 1.2px solid #aaa;
     box-sizing: border-box;
     border-radius: 8px;
@@ -309,7 +309,7 @@ export const FormContent = styled.div`
     background-position-x: 97%;
     background-position-y: 15px;
     border-radius: 2px;
-    padding: 12px 20px;
+    padding: 14px 20px;
     border: 1.2px solid #aaa;
     box-sizing: border-box;
     border-radius: 8px;
@@ -322,7 +322,7 @@ export const FormContent = styled.div`
   }
 
   .form_input {
-    padding: 14px 26px;
+    padding: 14px 20px;
     /* border: 1.2px solid #aaa; */
 
     border: 1px solid
@@ -346,6 +346,10 @@ export const FormContent = styled.div`
       border: 1px solid #aaa;
       outline: none;
     }
+  }
+
+  .class_file {
+    padding: 10px 20px;
   }
 
   .button_my-course {
@@ -459,12 +463,39 @@ export const FormContent = styled.div`
 
     label {
       font-weight: 500;
-      font-size: 16px;
+      font-size: 14px;
       width: 100%;
 
       ::after {
         content: "*";
         color: red;
+      }
+    }
+
+    .form_currency {
+      padding: 14px 20px;
+      /* border: 1.2px solid #aaa; */
+
+      border: 1px solid
+        ${({ theme: { theme } }) =>
+          theme === themeList.light ? "#bdbdbd" : "var(--mediumColor)"};
+      box-sizing: border-box;
+      border-radius: 8px;
+      color: #00193e;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      ::placeholder {
+        color: #aeaeae;
+        font-size: 14px;
+        font-weight: 300;
+        text-transform: capitalize;
+      }
+
+      :focus {
+        border: 1px solid #aaa;
+        outline: none;
       }
     }
   }
@@ -478,13 +509,19 @@ export const FormContent = styled.div`
 
     label {
       font-weight: 500;
-      font-size: 16px;
+      font-size: 14px;
       width: 100%;
 
       ::after {
         content: "*";
         color: red;
       }
+    }
+
+    .text_keterangan {
+      font-size: 10px;
+      margin-top: -10px;
+      color: #a5a5a5;
     }
   }
 
