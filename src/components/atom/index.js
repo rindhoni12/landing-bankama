@@ -32,6 +32,7 @@ import {
   WaItemSite,
 } from "./AtomElements";
 import { DATAFETCH } from "../../config";
+import { ButtonLink } from "../button";
 
 const Informasi = ({ dataWording }) => {
   return (
@@ -554,11 +555,11 @@ const FocusComponentWithLogo = ({ backgroundColor, dataWording }) => {
             Heading={dataWording ? dataWording[0]?.text : ""}
             Text={dataWording ? dataWording[0]?.desc : ""}
           />
-          <Button
+          <ButtonLink
             style={{ zIndex: "2" }}
             icon={FaAccusoft}
             label="Simulasi Tabungan"
-            to="/web-landing/simulasi-bank/simulasi"
+            to="/simulasi-bank/simulasi"
           />
         </div>
       </div>
