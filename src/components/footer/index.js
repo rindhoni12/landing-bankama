@@ -47,7 +47,7 @@ const Footer = () => {
                   <li>
                     <div className="footer_item">
                       <div className="text_menu">
-                        <a href="./simulasi">SIMULASI</a>
+                        <a href="./simulasi-bank">SIMULASI</a>
                       </div>
                     </div>
                   </li>

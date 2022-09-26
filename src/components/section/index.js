@@ -760,7 +760,7 @@ const HubungiSection = () => {
                           <FaPhone />
                           Telp.
                         </div>
-                        <div className="label">082137926172</div>
+                        <div className="label">(0295) 4150477</div>
                       </div>
                       <div className="item_contactNew">
                         <div className="icon_text">
@@ -1008,43 +1008,6 @@ const PengajuanSection = () => {
                       </div>
                     </ol>
                   </div>
-                  <div className="value_keterangan">
-                    <h1>Rekening</h1>
-                    <p></p>
-                    <ol>
-                      <div>
-                        <li>
-                          Yang dimaksud rekening dalam ketentuan ini adalah
-                          pembukuan Bank atas produk-produk simpanan Bank, yang
-                          dibuka baik secara langsung maupun secara tidak
-                          langsung atas permintaan Nasabah, baik yang telah ada
-                          maupun yang akan ada dikemudian hari.
-                        </li>
-                        <li>
-                          Rekening tertentu dapat dibuka dalam mata uang rupiah
-                          ataupun mata uang asing (valas), dan Bank tidak
-                          bertanggung jawab atas perubahan nilai yang
-                          diakibatkan oleh perubahan nilai mata uang asing
-                          terhadap rupiah.
-                        </li>
-                        <li>
-                          Pembukaan rekening wajib didasarkan atas permohonan
-                          secara tertulis oleh Nasabah dengan memenuhi segala
-                          persyaratan yang ditentukan oleh Bank.
-                        </li>
-                        <li>
-                          Bank melarang segala bentuk penyalahgunaan rekening,
-                          termasuk sebagai sarana tindakan berindikasi pidana.
-                          Dalam hal terdapat indikasi penyalahgunaan rekening
-                          oleh nasabah, maka Bank berhak untuk melakukan
-                          pemblokiran rekening, mendebet kembali dana untuk
-                          diselesaikan sesuai dengan ketentuan yang berlaku dan
-                          atau sesuai kebijakan Bank, dan/atau penutupan
-                          rekening.
-                        </li>
-                      </div>
-                    </ol>
-                  </div>
                 </div>
                 <div className="pengajuan_footer">
                   <label>
@@ -1067,7 +1030,7 @@ const PengajuanSection = () => {
                       to={"/form/tabungan"}
                       state={{ state: checked }}
                     >
-                      Buka Rekening
+                      Buka Tabungan
                     </Link>
                   ) : data === "Penyaluran Dana" ? (
                     <Link
@@ -1077,7 +1040,7 @@ const PengajuanSection = () => {
                       to={"/form/pembiayaan"}
                       state={{ state: checked }}
                     >
-                      Buka Rekening
+                      Buka Pembiayaan
                     </Link>
                   ) : null}
                 </div>

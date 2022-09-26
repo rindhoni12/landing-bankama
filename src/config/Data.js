@@ -1,4 +1,4 @@
-import { FiFacebook, FiMail, FiPhone, FiTwitter } from "react-icons/fi";
+import { FiFacebook, FiMail, FiPhone } from "react-icons/fi";
 import { FaEllipsisV, FaInstagram, FaPhone } from "react-icons/fa";
 import { blog, organisasi } from "../assets";
 import fileDownload from "../assets/cv_prawito.pdf";
@@ -90,17 +90,12 @@ export const DATA_PUBLIKASI = [
 
 export const MEDIA_SOSIAL = [
   {
-    to: "https://www.instagram.com/xxx/",
+    to: "https://www.instagram.com/bprsarthamasabadi/",
     label: "Instagram",
     icon: FaInstagram,
   },
   {
-    to: "https://twitter.com/xxx",
-    label: "Twitter",
-    icon: FiTwitter,
-  },
-  {
-    to: "https://twitter.com/xxx",
+    to: "https://www.facebook.com/achmadsupriyono.supriyono",
     label: "Facebook",
     icon: FiFacebook,
   },
