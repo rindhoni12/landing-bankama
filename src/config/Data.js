@@ -733,7 +733,7 @@ export const NAVLINKS = [
         name: "SIMULASI TABUNGAN",
         sub: [
           {
-            to: "/web-landing/simulasi-bank/simulasi",
+            to: "./simulasi-bank/simulasi",
             judul: "Simulasi Tabungan",
           },
         ],
@@ -744,7 +744,7 @@ export const NAVLINKS = [
         name: "SIMULASI PEMBIAYAAN",
         sub: [
           {
-            to: "/web-landing/simulasi-bank/simulasi-pembiayaan",
+            to: "./simulasi-bank/simulasi-pembiayaan",
             judul: "Simulasi Pembiayaan",
           },
         ],
