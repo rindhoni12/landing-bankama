@@ -317,12 +317,12 @@ const ContentTab = (item) => {
             <p className="text_baru">**Syarat dan ketentuan berlaku</p>
           </div>
           <div className="button_form_pembiayaan">
-            <Button
+            <ButtonLink
               icon={FaAccusoft}
               label="Daftar Disini"
               style={{ margin: "auto" }}
               onClick={handleButton}
-              to="/web-landing/form-pengajuan"
+              to="/form-pengajuan"
             />
           </div>
         </div>
