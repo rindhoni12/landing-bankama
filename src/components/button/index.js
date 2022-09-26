@@ -12,7 +12,6 @@ const Button = (item) => {
         to={item.to}
         className="button_my-course"
       >
-        {/* <item.icon /> */}
         <a href={item.to}>{item.label}</a>
       </button>
     </ButtonContent>
@@ -26,9 +25,8 @@ const ButtonTransparent = (item) => {
         style={item.style}
         onClick={item.onClick}
         id={item.id}
-        className={`button_my-course ${item.active}`}
+        className={`button_my-course_t ${item.active}`}
       >
-        {/* <item.icon /> */}
         {item.label}
       </button>
     </ButtonTransparentContent>
@@ -73,4 +71,26 @@ const ButtonDownloadOrganisasi = (item) => {
   );
 };
 
-export { ButtonTransparent, Button, ButtonDownload, ButtonDownloadOrganisasi };
+const ButtonLink = (item) => {
+  return (
+    <ButtonContent>
+      <div
+        style={item.style}
+        onClick={item.onClick}
+        id={item.id}
+        // to={item.to}
+        className="button_my-course"
+      >
+        <a href={item.to}>{item.label}</a>
+      </div>
+    </ButtonContent>
+  );
+};
+
+export {
+  ButtonTransparent,
+  Button,
+  ButtonDownload,
+  ButtonDownloadOrganisasi,
+  ButtonLink,
+};

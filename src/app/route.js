@@ -52,7 +52,7 @@ export const RouteSite = () => {
         <Route exact path="/form-pengajuan" element={<PengajuanForm />} />
         <Route exact path="/form-nasabah" element={<FormNasabah />} />
 
-        <Route exact path="/form-penyaluran" element={<FormPenyaluran />} />
+        <Route exact path="/form/:id" element={<FormPenyaluran />} />
 
         <Route exact path="/galeri-kami" element={<Galery />} />
 

@@ -86,6 +86,7 @@ export const FormInputDrop = (item) => {
         value={item.value}
         ref={item.innerRef}
       />
+      {item?.text ? <div className="text_keterangan">{item?.text}</div> : null}
     </div>
   );
 };
@@ -107,6 +108,32 @@ export const FormInputSelectNew = (item) => {
         <option value="penyimpanan_dana">Penyimpanan Dana</option>
         <option value="penyaluran_dana">Penyaluran Dana</option>
       </select>
+    </div>
+  );
+};
+
+export const FormInputSelectNewConfig = (item) => {
+  return (
+    <div className="form_content_input">
+      <label>{item.placeholder}</label>
+      <select
+        className="style_selectNew"
+        onChange={item.onChange}
+        required
+        // defaultValue={item.value}
+        value={item.value}
+      >
+        <option value="" disabled>
+          {item.placeholder}
+        </option>
+        {item?.option &&
+          item?.option.map((item, i) => (
+            <option key={i} value={item.value}>
+              {item.text}
+            </option>
+          ))}
+      </select>
+      <div className="text_keterangan">{item.text}</div>
     </div>
   );
 };
@@ -152,7 +179,7 @@ export const FormInput = (item) => {
       <input
         name={item.name}
         id={item.judul}
-        className="form_input"
+        className={`form_input ${item.class}`}
         type={item.type}
         placeholder={item.placeholder}
         required
@@ -281,22 +308,16 @@ const FormKpr = () => {
         toNumber / parseFloat(data.selectNew2) + toNumber * persentase;
       const perubahan = formatRupiah(parseInt(perhitunganKredit), "Rp ");
       setHasil(perubahan);
-
-      console.log(data, parseInt(perhitunganKredit), perubahan);
-    } else if (data.dropdown === "Murabahah") {
+    } else if (data.dropdown === "Musyarakah") {
       const perhitunganKredit =
         toNumber / parseFloat(data.selectNew) + toNumber * persentase;
       const perubahan = formatRupiah(parseInt(perhitunganKredit), "Rp ");
       setHasil(perubahan);
-      console.log(data, parseInt(perhitunganKredit), perubahan);
-    } else if (data.dropdown === "Musyarakah") {
+    } else if (data.dropdown === "Murabahah") {
       const perhitunganKredit =
         toNumber / parseFloat(data.jangkawaktu) + toNumber * persentase;
-
       const perubahan = formatRupiah(parseInt(perhitunganKredit), "Rp ");
-
       setHasil(perubahan);
-      console.log(data, parseInt(perhitunganKredit), perubahan);
     }
   };
 
@@ -331,12 +352,6 @@ const FormKpr = () => {
                     placeholder="Jumlah Pinjamanan"
                   />
                   {dropdown && dropdown === "Murabahah" ? (
-                    <FormInputSelect
-                      onChange={handleSelectJangka}
-                      placeholder="Jangka Waktu"
-                      value={selectNew}
-                    />
-                  ) : dropdown === "Musyarakah" ? (
                     <FormInputDrop
                       judul="Jangka Waktu"
                       placeholder="Jangka Waktu"
@@ -344,15 +359,19 @@ const FormKpr = () => {
                       value={values.jangkawaktu}
                       onChange={set("jangkawaktu")}
                     />
+                  ) : dropdown === "Musyarakah" ? (
+                    <FormInputSelect
+                      onChange={handleSelectJangka}
+                      placeholder="Jangka Waktu"
+                      value={selectNew}
+                    />
                   ) : dropdown === "Multijasa" ? (
                     <FormInputSelect
                       onChange={handleSelectJangka2}
                       placeholder="Jangka Waktu"
                       value={selectNew2}
                     />
-                  ) : (
-                    ""
-                  )}
+                  ) : null}
 
                   <div
                     className="button_flex"
@@ -598,7 +617,7 @@ export const FormSimulasi = ({ dataWording }) => {
                   >
                     <FormInputCurrency
                       nama="jumlah"
-                      placeholder="Jumlah Pinjamanan"
+                      placeholder="Jumlah Tabungan"
                     />
                     <div
                       className="button_flex"

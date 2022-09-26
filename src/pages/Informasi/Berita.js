@@ -1,7 +1,11 @@
 import React from "react";
-import { Card, FocusComponentColor, ReactHelmet } from "../../components/atom";
+import {
+  Card,
+  FocusComponentBackground,
+  ReactHelmet,
+} from "../../components/atom";
 import { useLocation } from "react-router-dom";
-import { contactUs } from "../../assets";
+import { berita } from "../../assets";
 import { WORDING } from "../../config";
 
 const Berita = () => {
@@ -14,11 +18,7 @@ const Berita = () => {
         title="Berita | Bank Artha Mas Abadi"
         url={location.pathname}
       />
-      <FocusComponentColor
-        dataWording={dataWording ? dataWording?.berita_kami : ""}
-        backgroundColor="#f9b418"
-        img={contactUs}
-      />
+      <FocusComponentBackground image={berita} />
       <Card
         text="Lebih Banyak"
         dataWording={dataWording ? dataWording?.berita_kami : ""}

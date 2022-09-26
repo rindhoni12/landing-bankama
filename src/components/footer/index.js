@@ -1,8 +1,7 @@
 import React from "react";
 import { FooterSite, Media } from "./FooterElements";
-import gambarOjk from "../../assets/img/ojk.png";
 import { WaItemContent } from "../atom";
-import { logoAma, lps, lps_text, ojk_text } from "../../assets";
+import { logoAma, lps_text, ojk_text } from "../../assets";
 import { MEDIA_SOSIAL } from "../../config";
 
 const Footer = () => {
@@ -48,7 +47,7 @@ const Footer = () => {
                   <li>
                     <div className="footer_item">
                       <div className="text_menu">
-                        <a href="./simulasi">SIMULASI</a>
+                        <a href="./simulasi-bank">SIMULASI</a>
                       </div>
                     </div>
                   </li>
@@ -96,13 +95,13 @@ const Footer = () => {
               <a className="end" href="/support/prosedur-pengaduan">
                 Prosedur Pengajuan Nasabah
               </a> */}
-              <a className="end" href="#">
+              <a className="end" href="/#" style={{ pointerEvents: "none" }}>
                 Kebijakan Privasi
               </a>
-              <a className="end" href="#">
+              <a className="end" href="/#" style={{ pointerEvents: "none" }}>
                 Syarat dan Ketentuan
               </a>
-              <a className="end" href="#">
+              <a className="end" href="/#" style={{ pointerEvents: "none" }}>
                 Prosedur Pengajuan Nasabah
               </a>
             </div>

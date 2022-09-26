@@ -557,8 +557,8 @@ const FocusComponentWithLogo = ({ backgroundColor, dataWording }) => {
           <Button
             style={{ zIndex: "2" }}
             icon={FaAccusoft}
-            label="Simulasi"
-            to="./simulasi"
+            label="Simulasi Tabungan"
+            to="/web-landing/simulasi-bank/simulasi"
           />
         </div>
       </div>
@@ -586,6 +586,18 @@ const FocusComponentColor = ({ img, backgroundColor, dataWording }) => {
           <div className="gambar_img">
             <img src={img} alt="imgContact" />
           </div>
+        </div>
+      </div>
+    </FocusComponentSiteContact>
+  );
+};
+
+const FocusComponentBackground = ({ image }) => {
+  return (
+    <FocusComponentSiteContact>
+      <div className="focus_container">
+        <div className="backgroud_class">
+          <img src={image} alt="tentang_kami" />
         </div>
       </div>
     </FocusComponentSiteContact>
@@ -641,4 +653,5 @@ export {
   ReactHelmet,
   WaItemContent,
   CardItemLoad,
+  FocusComponentBackground,
 };

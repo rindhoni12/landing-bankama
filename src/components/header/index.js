@@ -50,16 +50,15 @@ const ContentDrop = styled.div`
       overflow: hidden;
       visibility: visible;
       opacity: 1;
-      height: 0;
       max-width: 200px;
       margin-left: 0px;
       gap: 20px;
       margin-top: 0px;
       margin-bottom: 0px;
       height: ${(props) => {
-        return `${props.isDropdown ? "319" : "0"}px`;
+        return `${props.isDropdown ? "max-content" : "0px"}`;
       }};
-      transition: height 0.35s;
+      transition: 319px 0.35s;
 
       ::before {
         content: "";
@@ -76,16 +75,15 @@ const ContentDrop = styled.div`
       overflow: hidden;
       visibility: visible;
       opacity: 1;
-      height: 0;
       max-width: 200px;
       margin-left: 0px;
       gap: 20px;
       margin-top: 0px;
       margin-bottom: 0px;
       height: ${(props) => {
-        return `${props.isDropdown ? "319" : "0"}px`;
+        return `${props.isDropdown ? "max-content" : "0px"}`;
       }};
-      transition: height 0.35s;
+      transition: 319px 0.35s;
 
       ::before {
         content: "";
@@ -102,16 +100,15 @@ const ContentDrop = styled.div`
       overflow: hidden;
       visibility: visible;
       opacity: 1;
-      height: 0;
       max-width: 200px;
       margin-left: 0px;
       gap: 20px;
       margin-top: 0px;
       margin-bottom: 0px;
       height: ${(props) => {
-        return `${props.isDropdown ? "319" : "0"}px`;
+        return `${props.isDropdown ? "max-content" : "0px"}`;
       }};
-      transition: height 0.35s;
+      transition: 319px 0.35s;
 
       ::before {
         content: "";

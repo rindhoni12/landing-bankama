@@ -4,7 +4,7 @@ import { themeList } from "../../config";
 export const ButtonTransparentContent = styled.div`
   display: initial;
 
-  .button_my-course {
+  .button_my-course_t {
     display: flex;
     align-items: center;
     background-color: transparent;

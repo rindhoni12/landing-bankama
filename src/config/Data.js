@@ -1,4 +1,4 @@
-import { FiFacebook, FiMail, FiPhone, FiTwitter } from "react-icons/fi";
+import { FiFacebook, FiMail, FiPhone } from "react-icons/fi";
 import { FaEllipsisV, FaInstagram, FaPhone } from "react-icons/fa";
 import { blog, organisasi } from "../assets";
 import fileDownload from "../assets/cv_prawito.pdf";
@@ -90,17 +90,12 @@ export const DATA_PUBLIKASI = [
 
 export const MEDIA_SOSIAL = [
   {
-    to: "https://www.instagram.com/xxx/",
+    to: "https://www.instagram.com/bprsarthamasabadi/",
     label: "Instagram",
     icon: FaInstagram,
   },
   {
-    to: "https://twitter.com/xxx",
-    label: "Twitter",
-    icon: FiTwitter,
-  },
-  {
-    to: "https://twitter.com/xxx",
+    to: "https://www.facebook.com/achmadsupriyono.supriyono",
     label: "Facebook",
     icon: FiFacebook,
   },
@@ -708,7 +703,7 @@ export const NAVLINKS = [
         sub: [
           {
             to: "/layanan-kami/penyaluran-dana/0",
-            judul: "Pembiayaan iB Wadiah",
+            judul: "Pembiayaan iB Murabahah",
           },
           {
             to: "/layanan-kami/penyaluran-dana/1",
@@ -735,7 +730,7 @@ export const NAVLINKS = [
       {
         id: 1,
         to: "/simulasi",
-        name: "SIMULASI",
+        name: "SIMULASI TABUNGAN",
         sub: [
           {
             to: "/web-landing/simulasi-bank/simulasi",
@@ -745,11 +740,11 @@ export const NAVLINKS = [
       },
       {
         id: 2,
-        to: "/simulasi-kredit",
+        to: "/simulasi-pembiayaan",
         name: "SIMULASI PEMBIAYAAN",
         sub: [
           {
-            to: "/web-landing/simulasi-bank/simulasi-kredit",
+            to: "/web-landing/simulasi-bank/simulasi-pembiayaan",
             judul: "Simulasi Pembiayaan",
           },
         ],
@@ -1212,7 +1207,7 @@ export const WORDING = {
     {
       id: 2,
       text: "Foto dan Informasi Penghargaan",
-      desc: "",
+      desc: "Berikut ini adalah beberapa penghargaan yang diterima oleh Bank Artha Mas Abadi.",
     },
     {
       id: 3,
