@@ -19,10 +19,11 @@ const Home = () => {
   const dataWording = WORDING;
 
   const DATAMISI = [
+    "Memberikan layanan penyimpanan dana dan pembiayaan berdasarkan prinsip syariah yang lengkap kepada masyarakat",
     "Mensosialisasikan serta menanamkan pola, sistem, dan konsep perbankan syariah dalam perekonomian masyarakat.",
-    "Mengembangkan jaringan layanan kantor di wilayah eks Karesidenan Pati.",
     "Melakukan inovasi produk sesuai dengan kebutuhan dan perkembangan ekonomi masyarakat.",
-    "Membangun kerja sama dengan berbagai lembaga.",
+    "Mengembangkan jaringan layanan kantor di wilayah eks Karesidenan Pati.",
+    "Meningkatkan kesejahteraan bagi karyawan, pengurus, dan pemegang saham.",
   ];
 
   return (

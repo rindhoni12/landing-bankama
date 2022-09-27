@@ -304,7 +304,7 @@ export const OrganisasiSite = styled.section`
             theme === themeList.light
               ? "var(--light-background)"
               : "var(--dark-background)"};
-          max-width: 320px;
+          max-width: 250px;
           height: auto;
           border-radius: 20px;
           color: #000;
@@ -320,7 +320,7 @@ export const OrganisasiSite = styled.section`
           }
 
           .gambar_img {
-            padding: 10px;
+            /* padding: 10px; */
             overflow: hidden;
             transition: all 0.3s ease-in-out;
             border-radius: 50%;
@@ -335,12 +335,15 @@ export const OrganisasiSite = styled.section`
               object-fit: cover;
               width: 100%;
               height: 100%;
+              border-radius: 50%;
+              margin-bottom: -4px;
             }
           }
           .text_nama {
             display: flex;
             flex-direction: column;
             gap: 10px;
+            width: max-content;
 
             span {
               font-size: 18px;
@@ -381,6 +384,13 @@ export const OrganisasiSite = styled.section`
         text-decoration: underline;
       }
     }
+  }
+
+  .circle {
+    background: transparent;
+    border: 15px solid #e6e6e6;
+    border-radius: 50%;
+    padding: 4px;
   }
 `;
 

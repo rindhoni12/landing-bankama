@@ -219,6 +219,7 @@ const FormKpr = () => {
 
   const [values, setValues] = useState({
     jangkawaktu: "",
+    jangkawaktu2: "",
   });
 
   const [hasil, setHasil] = useState(0);
@@ -250,7 +251,10 @@ const FormKpr = () => {
       setSelect("");
       setSelectNew("");
       setSelectNew2("");
-      setValues([]);
+      setValues({
+        jangkawaktu: "",
+        jangkawaktu2: "",
+      });
     }
   };
 
@@ -267,11 +271,19 @@ const FormKpr = () => {
     setSelectNew2(e.target.value);
   };
 
-  console.log(show);
+  console.log(show, handleSelectJangka2);
 
   const hitungNilai = (dataUang) => {
     const jangkawaktu = values.jangkawaktu;
-    const data = { ...dataUang, selectNew, dropdown, selectNew2, jangkawaktu };
+    const jangkawaktu2 = values.jangkawaktu2;
+    const data = {
+      ...dataUang,
+      selectNew,
+      dropdown,
+      selectNew2,
+      jangkawaktu,
+      jangkawaktu2,
+    };
     var persentase;
     if (data.dropdown === "Murabahah") {
       persentase = 1.5 / 100;
@@ -305,7 +317,7 @@ const FormKpr = () => {
 
     if (data.dropdown === "Multijasa") {
       const perhitunganKredit =
-        toNumber / parseFloat(data.selectNew2) + toNumber * persentase;
+        toNumber / parseFloat(data.jangkawaktu2) + toNumber * persentase;
       const perubahan = formatRupiah(parseInt(perhitunganKredit), "Rp ");
       setHasil(perubahan);
     } else if (data.dropdown === "Musyarakah") {
@@ -366,10 +378,12 @@ const FormKpr = () => {
                       value={selectNew}
                     />
                   ) : dropdown === "Multijasa" ? (
-                    <FormInputSelect
-                      onChange={handleSelectJangka2}
+                    <FormInputDrop
+                      judul="Jangka Waktu"
                       placeholder="Jangka Waktu"
-                      value={selectNew2}
+                      type="text"
+                      value={values.jangkawaktu2}
+                      onChange={set("jangkawaktu2")}
                     />
                   ) : null}
 

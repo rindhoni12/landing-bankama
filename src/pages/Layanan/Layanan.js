@@ -3,7 +3,7 @@ import { useLocation, useParams } from "react-router-dom";
 import { FocusComponentBackground, ReactHelmet } from "../../components/atom";
 import { LayananSection } from "../../components/section";
 import { DATA_BARU } from "../../config";
-import { publikasi } from "../../assets";
+import { produk } from "../../assets";
 import { Accordion } from "../../components";
 
 const Layanan = () => {
@@ -97,7 +97,7 @@ const LayananSatu = () => {
         title="Layanan & Produk | Bank Artha Mas Abadi"
         url={location.pathname}
       />
-      <FocusComponentBackground image={publikasi} />
+      <FocusComponentBackground image={produk} />
       <Accordion
         items={items?.tabungan}
         judul="Layanan Tabungan Dana"
