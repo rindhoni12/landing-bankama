@@ -208,12 +208,15 @@ const Card = (item) => {
       transition={{ type: "easeInOut", duration: 0.8 }}
     >
       <div className="card_component">
-        <div className="gambar_img">
-          <button onClick={openModal} id={item.id}>
-            <img src={item.items.img} alt={item.items.label} />
-          </button>
+        <div className="circle">
+          <div className="gambar_img">
+            <button onClick={openModal} id={item.id}>
+              <img src={item.items.img} alt={item.items.label} />
+            </button>
+          </div>
         </div>
-        <div className="text_nama">
+
+        <div className="text_nama" style={{ marginTop: "20px" }}>
           <span>{item.items.label}</span>
           <p>{item.items.jabatan}</p>
         </div>

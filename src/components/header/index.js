@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { HeaderContainer, HeaderSite } from "./HeaderElements";
 import { FiMenu, FiX } from "react-icons/fi";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { BiCaretDown } from "react-icons/bi";
 import styled from "styled-components";
 import { devices } from "../../assets/_respondTo";
@@ -354,12 +354,13 @@ const Header = () => {
                                                 className="megamenu_item"
                                               >
                                                 <div className="megamenu_link">
-                                                  <a
+                                                  <Link
+                                                    reloadDocument
                                                     className="link"
-                                                    href={`${itemnya.to}`}
+                                                    to={`${itemnya.to}`}
                                                   >
                                                     {itemnya.judul}
-                                                  </a>
+                                                  </Link>
                                                 </div>
                                               </li>
                                             ))}

@@ -1,6 +1,6 @@
 import { FiFacebook, FiMail, FiPhone } from "react-icons/fi";
 import { FaEllipsisV, FaInstagram, FaPhone } from "react-icons/fa";
-import { blog, organisasi } from "../assets";
+import { blog, pak_mumu } from "../assets";
 import fileDownload from "../assets/cv_prawito.pdf";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -110,35 +110,35 @@ export const ORGANISASI = [
   {
     id: 1,
     label: "H. Ahmad Mutamakin, S.Pd.I.",
-    img: organisasi,
+    img: pak_mumu,
     jabatan: "Dewan Komisaris",
     desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Dasar Pengangkatan: Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },
   {
     id: 2,
     label: "H. Wakhrodi, S.Pd.I., M.Si",
-    img: organisasi,
+    img: pak_mumu,
     jabatan: "Dewan Komisaris",
     desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },
   {
     id: 3,
     label: "H. Ghufron Halim, S.E, MM",
-    img: organisasi,
+    img: pak_mumu,
     jabatan: "Dewan Pengawas Syariah",
     desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },
   {
     id: 4,
     label: "Dr. H. Ahmad Dimyati,",
-    img: organisasi,
+    img: pak_mumu,
     jabatan: "Dewan Pengawas Syariah",
     desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },
   {
     id: 5,
     label: "H. Mumu Mubarok S.S., M.E.I",
-    img: organisasi,
+    img: pak_mumu,
     jabatan: "Direktur Utama",
     desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },
