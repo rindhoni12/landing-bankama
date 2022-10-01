@@ -80,11 +80,6 @@ const Footer = () => {
               <img className="img_class" src={ojk_text} alt="gambarOjk" />
               <img className="img_class" src={lps_text} alt="lps" />
             </div>
-            {/* <div className="footer_desc_p">
-              <b>Kantor Pusat :</b> Jl. Raya Pati – Tayu Km. 19. Kampunganyar,
-              Waturoyo, Kec. Margoyoso, Kabupaten Pati, Jawa Tengah 59154.
-            </div> */}
-
             <div className="footer_desc_kebijakan">
               {/* <a className="end" href="/web-landing/support/kebijakan-privasi">
                 Kebijakan Privasi
