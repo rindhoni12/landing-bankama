@@ -683,15 +683,15 @@ export const NAVLINKS = [
         name: "PENYIMPANAN DANA",
         sub: [
           {
-            to: "/layanan-kami/penyimpanan-dana/0",
+            to: "./layanan-kami/penyimpanan-dana/0",
             judul: "Tabungan iB Wadiah",
           },
           {
-            to: "/layanan-kami/penyimpanan-dana/1",
+            to: "./layanan-kami/penyimpanan-dana/1",
             judul: "Tabungan iB Mudharabah",
           },
           {
-            to: "/layanan-kami/penyimpanan-dana/2",
+            to: "./layanan-kami/penyimpanan-dana/2",
             judul: "Deposito iB Mudharabah",
           },
         ],
@@ -702,19 +702,19 @@ export const NAVLINKS = [
         name: "PENYALURAN DANA",
         sub: [
           {
-            to: "/layanan-kami/penyaluran-dana/0",
+            to: "./layanan-kami/penyaluran-dana/0",
             judul: "Pembiayaan iB Murabahah",
           },
           {
-            to: "/layanan-kami/penyaluran-dana/1",
+            to: "./layanan-kami/penyaluran-dana/1",
             judul: "Pembiayaan iB Musyarakah",
           },
           {
-            to: "/layanan-kami/penyaluran-dana/2",
+            to: "./layanan-kami/penyaluran-dana/2",
             judul: "Pembiayaan iB Multijasa",
           },
           {
-            to: "/layanan-kami/penyaluran-dana/3",
+            to: "./layanan-kami/penyaluran-dana/3",
             judul: "iB Gadai Emas",
           },
         ],
