@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/web-landing/static/css/main.d026f199.css",
-    "main.js": "/web-landing/static/js/main.595117ad.js",
+    "main.js": "/web-landing/static/js/main.a61b1d1b.js",
     "static/media/tentang-kami.jpg": "/web-landing/static/media/tentang-kami.2f39ddb0de7b81bc5e30.jpg",
     "static/media/pak-mumu.jpg": "/web-landing/static/media/pak-mumu.fe53bcfaaef2c187a03e.jpg",
     "static/media/simulasi.jpg": "/web-landing/static/media/simulasi.ab785e7f49f86923337d.jpg",
@@ -14,21 +14,14 @@
     "static/media/penghargaan-1.jpg": "/web-landing/static/media/penghargaan-1.a337bfa405c958c731dc.jpg",
     "static/media/penghargaan-4.jpg": "/web-landing/static/media/penghargaan-4.7b0c6c2062e0d5fcf113.jpg",
     "static/media/blog.jpg": "/web-landing/static/media/blog.490bef791b07bdd7f7d8.jpg",
-    "static/media/jago-2.jpeg": "/web-landing/static/media/jago-2.40254e148c07e8c3b7fd.jpeg",
     "static/media/visimisi.jpg": "/web-landing/static/media/visimisi.e1ca8aa342b3821b1e1e.jpg",
     "static/media/penghargaan-2.jpg": "/web-landing/static/media/penghargaan-2.c1d27b77698290b667d7.jpg",
-    "static/media/jago-3.jpg": "/web-landing/static/media/jago-3.6318b27de2998085a42f.jpg",
-    "static/media/jago.jpeg": "/web-landing/static/media/jago.6318b27de2998085a42f.jpeg",
     "static/media/jago-2-mobile.jpg": "/web-landing/static/media/jago-2-mobile.9e076cc0843525aeb4b9.jpg",
-    "static/media/2.png": "/web-landing/static/media/2.b3cce41b7d5307b234d6.png",
     "static/media/jago-mobile.jpg": "/web-landing/static/media/jago-mobile.97206cf25897d41397a9.jpg",
     "static/media/cv_prawito.pdf": "/web-landing/static/media/cv_prawito.62769c46a2db417ecdd2.pdf",
-    "static/media/organisasi.png": "/web-landing/static/media/organisasi.88263fa02c6eebf89038.png",
     "static/media/simulasi-pembiayaan.jpeg": "/web-landing/static/media/simulasi-pembiayaan.39c6b2528d9e57a1ff9a.jpeg",
     "static/media/jago-3-mobile.jpg": "/web-landing/static/media/jago-3-mobile.dac5971b3de2ef15bb0f.jpg",
     "static/media/contact-us.png": "/web-landing/static/media/contact-us.9665044e2f32fad67f86.png",
-    "static/media/img-2.png": "/web-landing/static/media/img-2.e7c6588d2a4432cd3351.png",
-    "static/media/img-1.png": "/web-landing/static/media/img-1.854a2cdc9fd2535cb8bd.png",
     "static/media/mitra-1.png": "/web-landing/static/media/mitra-1.ae1bb0f035abdceb21c0.png",
     "static/media/logo_new.png": "/web-landing/static/media/logo_new.497b76dbcbb2ea58c652.png",
     "static/media/banner.png": "/web-landing/static/media/banner.9fe475d22f5bbbbeefa6.png",
@@ -51,10 +44,10 @@
     "index.html": "/web-landing/index.html",
     "static/media/slick.woff": "/web-landing/static/media/slick.295183786cd8a1389865.woff",
     "main.d026f199.css.map": "/web-landing/static/css/main.d026f199.css.map",
-    "main.595117ad.js.map": "/web-landing/static/js/main.595117ad.js.map"
+    "main.a61b1d1b.js.map": "/web-landing/static/js/main.a61b1d1b.js.map"
   },
   "entrypoints": [
     "static/css/main.d026f199.css",
-    "static/js/main.595117ad.js"
+    "static/js/main.a61b1d1b.js"
   ]
 }
