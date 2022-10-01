@@ -12,11 +12,9 @@ import {
   wbsIcon,
 } from "../../assets";
 import SliderWrapper from "../carousel/_SlickSliderStyle";
-import { devices } from "../../assets/_respondTo";
 import { FaAccusoft } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 import { Button } from "../../components";
-import styled from "styled-components";
 import DOMPurify from "dompurify";
 import Slider from "react-slick";
 import {
@@ -30,6 +28,7 @@ import {
   InformasiSite,
   SlideContent,
   WaItemSite,
+  BeritaContent,
 } from "./AtomElements";
 import { DATAFETCH } from "../../config";
 import { ButtonLink } from "../button";
@@ -113,30 +112,6 @@ const CardItemLoad = (item) => {
   );
 };
 
-const BeritaContent = styled.div`
-  .card_content {
-    display: grid;
-    justify-content: center;
-    align-items: flex-start;
-    grid-template-columns: repeat(3, 1fr);
-    transition: all 0.35s ease-in-out;
-    height: 100%;
-    gap: 30px;
-
-    ${devices.smartphone} {
-      grid-template-columns: repeat(1, 1fr);
-    }
-
-    @media only screen and (min-width: 560px) and (max-width: 760px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    ${devices.ipads} {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-`;
-
 const Card = ({ text, dataWording }) => {
   const [start, setStart] = useState(6);
   const [isActive, setActive] = useState(false);
@@ -148,8 +123,6 @@ const Card = ({ text, dataWording }) => {
   )?.data;
 
   const posts = dataBerita;
-
-  // console.log(posts);
 
   const LoadMore = () => {
     setStart((prevValue) => prevValue + 3);
@@ -333,7 +306,6 @@ const NewSlide = () => {
     className: "center",
     centerMode: true,
     infinite: true,
-    // centerPadding: "60px",
     slidesToShow: 3,
     speed: 500,
     fade: false,
@@ -642,17 +614,17 @@ const WaItemContent = () => {
 };
 
 export {
-  Informasi,
-  Card,
-  Detail,
-  OjkInformasi,
+  FocusComponentBackground,
+  FocusComponentWithLogo,
+  FocusComponentColor,
+  DetailLayananPages,
   HeadingComponent,
   DetailLayanan,
-  DetailLayananPages,
-  FocusComponentColor,
-  FocusComponentWithLogo,
-  ReactHelmet,
   WaItemContent,
   CardItemLoad,
-  FocusComponentBackground,
+  OjkInformasi,
+  ReactHelmet,
+  Informasi,
+  Detail,
+  Card,
 };
