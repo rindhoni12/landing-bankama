@@ -702,7 +702,7 @@ export const NAVLINKS = [
         name: "PENYALURAN DANA",
         sub: [
           {
-            to: "/layanan-kami/penyaluran-dana/0",
+            to: "./layanan-kami/penyaluran-dana/0",
             judul: "Pembiayaan iB Murabahah",
           },
           {
