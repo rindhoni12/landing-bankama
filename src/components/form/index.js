@@ -206,19 +206,16 @@ export const FormTextArea = (item) => {
 
 export const FormKpr = () => {
   const [select, setSelect] = useState("");
-
   const [selectNew, setSelectNew] = useState("");
-  const [selectNew2, setSelectNew2] = useState("");
-
   const [dropdown, setDropdown] = useState("");
   const [show, setShow] = useState(false);
-
+  const [hasil, setHasil] = useState(0);
   const [values, setValues] = useState({
     jangkawaktu: "",
     jangkawaktu2: "",
   });
 
-  const [hasil, setHasil] = useState(0);
+  console.log(show);
 
   const set = (name) => {
     return ({ target: { value } }) => {
@@ -246,7 +243,6 @@ export const FormKpr = () => {
       formReset.reset();
       setSelect("");
       setSelectNew("");
-      setSelectNew2("");
       setValues({
         jangkawaktu: "",
         jangkawaktu2: "",
@@ -263,12 +259,6 @@ export const FormKpr = () => {
     setSelectNew(e.target.value);
   };
 
-  const handleSelectJangka2 = (e) => {
-    setSelectNew2(e.target.value);
-  };
-
-  console.log(show, handleSelectJangka2);
-
   const hitungNilai = (dataUang) => {
     const jangkawaktu = values.jangkawaktu;
     const jangkawaktu2 = values.jangkawaktu2;
@@ -276,7 +266,6 @@ export const FormKpr = () => {
       ...dataUang,
       selectNew,
       dropdown,
-      selectNew2,
       jangkawaktu,
       jangkawaktu2,
     };
@@ -455,7 +444,6 @@ export const FormSimulasi = ({ dataWording }) => {
   const [show, setShow] = useState(false);
   const [dataJumlah, setDataJumlah] = useState("");
   const [showSimu, setShowSimu] = useState(false);
-
   const [showButton, setShowButton] = useState(false);
 
   const state = {
@@ -689,7 +677,6 @@ export const FormSimulasi = ({ dataWording }) => {
               ""
             )}
           </div>
-
           {show && showSimu ? (
             <div className="card_form">
               <div className="content">

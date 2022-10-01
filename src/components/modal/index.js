@@ -1,5 +1,6 @@
 import DOMPurify from "dompurify";
 import React, { useEffect, useRef } from "react";
+import { pro_not } from "../../assets";
 import {
   Background,
   CloseModalButton,
@@ -31,7 +32,6 @@ const ModalItem = ({ showModal, setShowModal, id, item }) => {
     }
   }, [showModal]);
 
-  console.log(item);
   return (
     <>
       {showModal ? (
@@ -42,7 +42,10 @@ const ModalItem = ({ showModal, setShowModal, id, item }) => {
                 <div className="images_content">
                   <div className="circle">
                     <div className="gambar_img">
-                      <img src={item.img} alt="organisasi" />
+                      <img
+                        src={item.img ? item.img : pro_not}
+                        alt="organisasi"
+                      />
                     </div>
                   </div>
                 </div>
