@@ -32,7 +32,6 @@ const ModalItem = ({ showModal, setShowModal, id, item }) => {
     }
   }, [showModal]);
 
-  console.log(item);
   return (
     <>
       {showModal ? (

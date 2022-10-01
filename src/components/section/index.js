@@ -537,7 +537,6 @@ const TabPublikasi = ({ children, active }) => {
 };
 
 const ContentTabPublikasi = (item) => {
-  console.log(item);
   return (
     <ContentTabSite>
       <div className="tab_content">
