@@ -110,7 +110,7 @@ export const ORGANISASI = [
   {
     id: 1,
     label: "H. Ahmad Mutamakin, S.Pd.I.",
-    img: pak_mumu,
+    img: "",
     jabatan: "Dewan Komisaris",
     desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Dasar Pengangkatan: Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },

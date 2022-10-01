@@ -45,7 +45,7 @@ import { ButtonDownloadOrganisasi, ButtonLink } from "../button";
 import cvPrawito from "../../assets/cv_prawito.pdf";
 import { FiX } from "react-icons/fi";
 import axios from "axios";
-import { simu_pembiayaan, simu_tabungan } from "../../assets";
+import { pro_not, simu_pembiayaan, simu_tabungan } from "../../assets";
 
 const KontakKamiSection = ({ dataWording }) => {
   const dataCabang = KONTAK_KAMI.kantor_cabang[0];
@@ -211,7 +211,10 @@ const Card = (item) => {
         <div className="circle">
           <div className="gambar_img">
             <button onClick={openModal} id={item.id}>
-              <img src={item.items.img} alt={item.items.label} />
+              <img
+                src={item.items.img ? item.items.img : pro_not}
+                alt={item.items.label}
+              />
             </button>
           </div>
         </div>
