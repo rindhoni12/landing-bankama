@@ -320,12 +320,12 @@ const ContentTab = (item) => {
             <p className="text_baru">**Syarat dan ketentuan berlaku</p>
           </div>
           <div className="button_form_pembiayaan">
-            <ButtonLink
+            <Button
               icon={FaAccusoft}
               label="Daftar Disini"
               style={{ margin: "auto" }}
               onClick={handleButton}
-              to="/form-pengajuan"
+              to="/web-landing/form-pengajuan"
             />
           </div>
         </div>
@@ -1136,6 +1136,16 @@ const FormNasabahSection = () => {
     setBerhasil(true);
   };
 
+  const dataDrop = [
+    "Tabungan iB Wadiah",
+    "Tabungan iB Multijasa",
+    "Tabungan iB Mudharabah",
+    "Pembiayaan iB Wadiah",
+    "Pembiayaan iB Musyarakah",
+    "Pembiayaan iB Multijasa",
+    "Pembiayaan iB Gadai Emas",
+  ];
+
   return (
     <FormNasabahSite>
       <div className="nasabah_container">
@@ -1192,14 +1202,8 @@ const FormNasabahSection = () => {
                         />
                       </div>
                       <div className="inputan">
-                        {/* <FormInput
-                          judul="Jenis Produk"
-                          placeholder="Jenis Produk"
-                          type="text"
-                          value={values.jenis_produk}
-                          onChange={set("jenis_produk")}
-                        /> */}
                         <FormInputSelectProduct
+                          option={dataDrop}
                           placeholder="Jenis Layanan"
                           value={values.jenis_produk}
                           onChange={set("jenis_produk")}
@@ -1300,8 +1304,6 @@ const PenyaluranSection = ({ id }) => {
 
   const inputRef = useRef(null);
 
-  // console.log(selectedFile);
-
   const handleUpload = (e) => {
     if (e.target.files.length !== 0) {
       setPreview({ image: URL.createObjectURL(e.target.files[0]) });
@@ -1336,6 +1338,17 @@ const PenyaluranSection = ({ id }) => {
   useEffect(() => {
     localStorage.setItem("item", JSON.stringify(local));
   }, [local]);
+
+  const valueSelect = [
+    {
+      name: "Penyimpanan Dana",
+      value: "penyimpanan_dana",
+    },
+    {
+      name: "Penyaluran Dana",
+      value: "penyaluran_dana",
+    },
+  ];
 
   return (
     <PenyaluranSite>
@@ -1382,6 +1395,7 @@ const PenyaluranSection = ({ id }) => {
                       >
                         <div className="inputan">
                           <FormInputSelectNew
+                            option={valueSelect}
                             onChange={handleSelect}
                             placeholder="Jenis Layanan"
                             value={select}
@@ -1497,6 +1511,7 @@ const PenyaluranSection = ({ id }) => {
                       >
                         <div className="inputan">
                           <FormInputSelectNew
+                            option={valueSelect}
                             onChange={handleSelect}
                             placeholder="Jenis Layanan"
                             value={select}

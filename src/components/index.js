@@ -5,7 +5,7 @@ import Accordion from "./accordion";
 import ModalItem from "./modal";
 import Header from "./header";
 import Footer from "./footer";
-import FormKpr, { FormSimulasi } from "./form";
+import { FormKpr, FormSimulasi } from "./form";
 import {
   CardInformasiSection,
   FormNasabahSection,

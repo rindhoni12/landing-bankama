@@ -109,8 +109,12 @@ export const FormInputSelectNew = (item) => {
         <option value="" disabled>
           {item.placeholder}
         </option>
-        <option value="penyimpanan_dana">Penyimpanan Dana</option>
-        <option value="penyaluran_dana">Penyaluran Dana</option>
+        {item?.option &&
+          item?.option.map((item, i) => (
+            <option key={i} value={item.value}>
+              {item.name}
+            </option>
+          ))}
       </select>
     </div>
   );
@@ -124,7 +128,6 @@ export const FormInputSelectNewConfig = (item) => {
         className="style_selectNew"
         onChange={item.onChange}
         required
-        // defaultValue={item.value}
         value={item.value}
       >
         <option value="" disabled>
@@ -143,16 +146,6 @@ export const FormInputSelectNewConfig = (item) => {
 };
 
 export const FormInputSelectProduct = (item) => {
-  let dataDrop = [
-    "Tabungan iB Wadiah",
-    "Tabungan iB Multijasa",
-    "Tabungan iB Mudharabah",
-    "Pembiayaan iB Wadiah",
-    "Pembiayaan iB Musyarakah",
-    "Pembiayaan iB Multijasa",
-    "Pembiayaan iB Gadai Emas",
-  ];
-
   return (
     <div className="form_content_input">
       <label>{item.placeholder}</label>
@@ -160,13 +153,12 @@ export const FormInputSelectProduct = (item) => {
         className="style_selectNew"
         onChange={item.onChange}
         required
-        // defaultValue={item.value}
         value={item.value}
       >
         <option value="" disabled>
           {item.placeholder}
         </option>
-        {dataDrop?.map((item, i) => (
+        {item.option?.map((item, i) => (
           <option key={i} value={item}>
             {item}
           </option>
@@ -212,7 +204,7 @@ export const FormTextArea = (item) => {
   );
 };
 
-const FormKpr = () => {
+export const FormKpr = () => {
   const [select, setSelect] = useState("");
 
   const [selectNew, setSelectNew] = useState("");
@@ -761,5 +753,3 @@ export const FormSimulasi = ({ dataWording }) => {
     </FormSite>
   );
 };
-
-export default FormKpr;
