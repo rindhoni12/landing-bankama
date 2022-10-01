@@ -320,7 +320,6 @@ export const OrganisasiSite = styled.section`
           }
 
           .gambar_img {
-            /* padding: 10px; */
             overflow: hidden;
             transition: all 0.3s ease-in-out;
             border-radius: 50%;

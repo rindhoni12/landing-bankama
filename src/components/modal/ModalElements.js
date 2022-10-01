@@ -56,15 +56,42 @@ export const ModalContent = styled.div`
     gap: 20px;
     align-items: center;
 
+    .circle {
+      padding: 0px;
+    }
+
     .images_content {
       --size: 200px;
       width: var(--size);
       height: var(--size);
       margin-top: -100px;
+      transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 
       img {
         width: 100%;
         height: 100%;
+      }
+    }
+
+    .gambar_img {
+      /* padding: 10px; */
+      overflow: hidden;
+      /* transition: all 0.3s ease-in-out; */
+      border-radius: 50%;
+      transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+      button {
+        background: transparent;
+        cursor: pointer;
+        border-radius: 50%;
+      }
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        margin-bottom: -4px;
       }
     }
   }

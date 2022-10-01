@@ -39,10 +39,12 @@ export const FormInputSelect = (item) => {
         <option value="" disabled>
           {item.placeholder}
         </option>
-        <option value="4">4 Bulan </option>
-        <option value="5">5 Bulan </option>
-        <option value="6">6 Bulan </option>
-        <option value="9">9 Bulan </option>
+        {item?.data &&
+          item.data?.map((item, i) => (
+            <option key={i} value={item.value}>
+              {item.name}
+            </option>
+          ))}
       </select>
     </div>
   );
@@ -61,9 +63,12 @@ export const FormInputSelectDrop = (item) => {
         <option value="" disabled>
           {item.placeholder}
         </option>
-        <option value="Murabahah">iB Murabahah</option>
-        <option value="Musyarakah">iB Musyarakah</option>
-        <option value="Multijasa">iB Multijasa</option>
+        {item?.option &&
+          item?.option.map((item, i) => (
+            <option key={i} value={item.value}>
+              {item.name}
+            </option>
+          ))}
       </select>
     </div>
   );
@@ -99,14 +104,17 @@ export const FormInputSelectNew = (item) => {
         className="style_selectNew"
         onChange={item.onChange}
         required
-        // defaultValue={item.value}
         value={item.value}
       >
         <option value="" disabled>
           {item.placeholder}
         </option>
-        <option value="penyimpanan_dana">Penyimpanan Dana</option>
-        <option value="penyaluran_dana">Penyaluran Dana</option>
+        {item?.option &&
+          item?.option.map((item, i) => (
+            <option key={i} value={item.value}>
+              {item.name}
+            </option>
+          ))}
       </select>
     </div>
   );
@@ -120,7 +128,6 @@ export const FormInputSelectNewConfig = (item) => {
         className="style_selectNew"
         onChange={item.onChange}
         required
-        // defaultValue={item.value}
         value={item.value}
       >
         <option value="" disabled>
@@ -139,16 +146,6 @@ export const FormInputSelectNewConfig = (item) => {
 };
 
 export const FormInputSelectProduct = (item) => {
-  let dataDrop = [
-    "Tabungan iB Wadiah",
-    "Tabungan iB Multijasa",
-    "Tabungan iB Mudharabah",
-    "Pembiayaan iB Wadiah",
-    "Pembiayaan iB Musyarakah",
-    "Pembiayaan iB Multijasa",
-    "Pembiayaan iB Gadai Emas",
-  ];
-
   return (
     <div className="form_content_input">
       <label>{item.placeholder}</label>
@@ -156,13 +153,12 @@ export const FormInputSelectProduct = (item) => {
         className="style_selectNew"
         onChange={item.onChange}
         required
-        // defaultValue={item.value}
         value={item.value}
       >
         <option value="" disabled>
           {item.placeholder}
         </option>
-        {dataDrop?.map((item, i) => (
+        {item.option?.map((item, i) => (
           <option key={i} value={item}>
             {item}
           </option>
@@ -208,7 +204,7 @@ export const FormTextArea = (item) => {
   );
 };
 
-const FormKpr = () => {
+export const FormKpr = () => {
   const [select, setSelect] = useState("");
 
   const [selectNew, setSelectNew] = useState("");
@@ -333,6 +329,40 @@ const FormKpr = () => {
     }
   };
 
+  const valueInput = [
+    {
+      name: "4 Bulan",
+      value: "4",
+    },
+    {
+      name: "5 Bulan",
+      value: "5",
+    },
+    {
+      name: "6 Bulan",
+      value: "5",
+    },
+    {
+      name: "9 Bulan",
+      value: "9",
+    },
+  ];
+
+  const valueDrop = [
+    {
+      name: "iB Murabahah",
+      value: "Murabahah",
+    },
+    {
+      name: "iB Musyarakah",
+      value: "Musyarakah",
+    },
+    {
+      name: "iB Multijasa",
+      value: "Multijasa",
+    },
+  ];
+
   return (
     <FormSite>
       <div className="form_container">
@@ -355,6 +385,7 @@ const FormKpr = () => {
                   id="form_table"
                 >
                   <FormInputSelectDrop
+                    option={valueDrop}
                     onChange={handleSelect}
                     placeholder="Pilihan Pembiayaan"
                     value={select}
@@ -373,6 +404,7 @@ const FormKpr = () => {
                     />
                   ) : dropdown === "Musyarakah" ? (
                     <FormInputSelect
+                      data={valueInput}
                       onChange={handleSelectJangka}
                       placeholder="Jangka Waktu"
                       value={selectNew}
@@ -721,5 +753,3 @@ export const FormSimulasi = ({ dataWording }) => {
     </FormSite>
   );
 };
-
-export default FormKpr;
