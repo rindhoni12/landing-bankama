@@ -1,22 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { CorouselSection, CorouselSectionFicture } from "./CarouselElements";
 import imgTryMobile from "../../assets/img/jago-mobile.jpg";
-import {
-  // jago,
-  // jago2,
-  jago2Mobile,
-  // jago3,
-  jago3Mobile,
-  peng1,
-  peng2,
-  peng3,
-  peng4,
-  peng5,
-} from "../../assets";
+import { jago2Mobile, jago3Mobile } from "../../assets";
 import Slider from "react-slick";
 import SliderWrapper from "./_SlickSliderStyle";
 import { DetailLayanan, HeadingComponent } from "../atom";
 import { DATAFETCH } from "../../config";
+import { DATA_PENGAHRAGAAN } from "../../config/data";
 
 const SimpleSlider = () => {
   const [isMobile, setIsMobile] = useState(
@@ -110,39 +100,6 @@ export const SimpleSliderFicture = ({ dataWording }) => {
     // ),
   };
 
-  const dataPenghargaan = [
-    {
-      key: "penghargaan 1",
-      label: "Penghargaan 1",
-      img: peng1,
-      desc: "BPRS Predikat “ SANGAT BAGUS”  Sharia Finance Awards 2013 versi Majalah Infobank.",
-    },
-    {
-      key: "penghargaan 2",
-      label: "Penghargaan 2",
-      img: peng2,
-      desc: "BPRS Predikat “ SANGAT BAGUS”  Sharia Finance Awards 2014 versi Majalah Infobank.",
-    },
-    {
-      key: "penghargaan 3",
-      label: "Penghargaan 3",
-      img: peng3,
-      desc: "BPRS Predikat “ SANGAT BAGUS”  Sharia Finance Awards 2016 versi Majalah Infobank.",
-    },
-    {
-      key: "penghargaan 4",
-      label: "Penghargaan 4",
-      img: peng4,
-      desc: "BPRS Predikat “ EXCELLENT”  Sharia Finance Awards 2018 versi Majalah Infobank.",
-    },
-    {
-      key: "penghargaan 5",
-      label: "Penghargaan 5",
-      img: peng5,
-      desc: "BPRS Predikat “ EXCELLENT” Financial Performance 2020 versi MES Sharia Institution ",
-    },
-  ];
-
   return (
     <CorouselSectionFicture>
       <div className="carousel_container">
@@ -153,8 +110,8 @@ export const SimpleSliderFicture = ({ dataWording }) => {
         <div className="carousel_container_slide">
           <SliderWrapper>
             <Slider {...settings}>
-              {dataPenghargaan
-                ? dataPenghargaan.map((item, i) => (
+              {DATA_PENGAHRAGAAN
+                ? DATA_PENGAHRAGAAN?.map((item, i) => (
                     <DetailLayanan
                       deskripsi={item.desc}
                       key={i}
