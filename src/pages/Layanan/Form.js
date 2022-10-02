@@ -274,7 +274,7 @@ const Form = ({ id }) => {
                     ? "Form Pengajuan Pembiayaan"
                     : null
                 }
-                Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+                Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami."
               />
               <FormContent>
                 <div className="content_form_buka">

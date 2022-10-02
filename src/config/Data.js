@@ -1,7 +1,15 @@
 import { FiFacebook, FiMail, FiPhone } from "react-icons/fi";
 import { FaEllipsisV, FaInstagram, FaPhone } from "react-icons/fa";
-import { blog, pak_mumu, peng1, peng2, peng3, peng4, peng5 } from "../assets";
-import fileDownload from "../assets/cv_prawito.pdf";
+import {
+  blog,
+  pak_mumu,
+  peng1,
+  peng2,
+  peng3,
+  peng4,
+  peng5,
+  struktur,
+} from "../assets";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -51,17 +59,17 @@ export const DATA_PUBLIKASI = [
     judul: "Laporan Triwulan",
     content: {
       apa: "Seleksi Pemasok dan Perlindungan Hak Kreditur",
-      p: "Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:",
+      p: "Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami.",
       fitur: [
         {
           judul: "Seleksi Pemasok dan Perlindungan Hak Kreditur",
           tanggal: "2021 | April",
-          buttonDonwload: fileDownload,
+          buttonDonwload: struktur,
         },
         {
           judul: "Seleksi Pemasok dan Perlindungan Hak Kreditur",
           tanggal: "2022 | April",
-          buttonDonwload: fileDownload,
+          buttonDonwload: struktur,
         },
       ],
     },
@@ -71,17 +79,17 @@ export const DATA_PUBLIKASI = [
     judul: "Laporan CGC",
     content: {
       apa: "Apa yang Dimaksud dengan Tabungan iB Mudharabah ?",
-      p: "Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:",
+      p: "Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami.",
       fitur: [
         {
           judul: "Seleksi Pemasok dan Perlindungan Hak Kreditur CDC",
           tanggal: "2021 | April",
-          buttonDonwload: fileDownload,
+          buttonDonwload: struktur,
         },
         {
           judul: "Seleksi Pemasok dan Perlindungan Hak Kreditur CDC",
           tanggal: "2022 | April",
-          buttonDonwload: fileDownload,
+          buttonDonwload: struktur,
         },
       ],
     },
@@ -1217,7 +1225,7 @@ export const WORDING = {
     {
       id: 4,
       text: "Kontak Kami",
-      desc: "Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:",
+      desc: "Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami.",
     },
   ],
 };

@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { CorouselSection, CorouselSectionFicture } from "./CarouselElements";
-import imgTryMobile from "../../assets/img/jago-mobile.jpg";
-import { jago2Mobile, jago3Mobile } from "../../assets";
-import Slider from "react-slick";
-import SliderWrapper from "./_SlickSliderStyle";
 import { DetailLayanan, HeadingComponent } from "../atom";
-import { DATAFETCH } from "../../config";
 import { DATA_PENGAHRAGAAN } from "../../config/data";
+import SliderWrapper from "./_SlickSliderStyle";
+import { DATAFETCH } from "../../config";
+import Slider from "react-slick";
 
 const SimpleSlider = () => {
   const [isMobile, setIsMobile] = useState(
@@ -41,26 +39,26 @@ const SimpleSlider = () => {
     "https://admin.arthamasabadi.co.id/api/v1/banners"
   )?.data;
 
+  const DATABANNERSMOBILE = DATAFETCH(
+    "https://admin.arthamasabadi.co.id/api/v1/mobile-banners"
+  )?.data;
+
+  console.log(DATABANNERSMOBILE);
+
   return (
     <CorouselSection>
       <SliderWrapper>
         {isMobile ? (
           <Slider {...settings}>
-            <div className="class_img">
-              <img src={imgTryMobile} alt="img_try" />
-            </div>
-            <div className="class_img">
-              <img src={jago2Mobile} alt="jago2Mobile" />
-            </div>
-            <div className="class_img">
-              <img src={jago2Mobile} alt="jago2Mobile" />
-            </div>
-            <div className="class_img">
-              <img src={imgTryMobile} alt="img_try" />
-            </div>
-            <div className="class_img">
-              <img src={jago3Mobile} alt="jago3Mobile" />
-            </div>
+            {DATABANNERSMOBILE &&
+              DATABANNERSMOBILE?.map((item, i) => (
+                <div key={i} className="class_img">
+                  <img
+                    src={`https://admin.arthamasabadi.co.id/storage/images/banners-mobile/${item?.banner}`}
+                    alt={item?.no_slide}
+                  />
+                </div>
+              ))}
           </Slider>
         ) : (
           <Slider {...settings}>
