@@ -141,8 +141,6 @@ const Form = ({ id }) => {
         headers: { "content-type": "multipart/form-data" },
       };
 
-      // dataJumlah.pacthValue({ dana: "" });
-
       axios
         .post(
           "https://admin.arthamasabadi.co.id/api/v1/pembiayaan",

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { CorouselSection, CorouselSectionFicture } from "./CarouselElements";
 import { DetailLayanan, HeadingComponent } from "../atom";
-import { DATA_PENGAHRAGAAN } from "../../config/data";
 import SliderWrapper from "./_SlickSliderStyle";
-import { DATAFETCH } from "../../config";
+import { DATAFETCH, DATA_PENGAHRAGAAN } from "../../config";
 import Slider from "react-slick";
 
 const SimpleSlider = () => {
