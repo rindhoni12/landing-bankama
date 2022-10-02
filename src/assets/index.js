@@ -1,8 +1,7 @@
+import struktur from "./file/struktur-organisasi-juni-2021.xls";
 import simu_pembiayaan from "./img/simulasi-pembiayaan.jpeg";
 import simu_tabungan from "./img/simulasi-tabungan.jpeg";
 import pro_not from "./img/profile-not-found.jpeg";
-import jago2Mobile from "./img/jago-2-mobile.jpg";
-import jago3Mobile from "./img/jago-3-mobile.jpg";
 import ayosyariah from "./img/ayosyariah.jpeg";
 import lps_text from "./img/logo-lps-text.png";
 import ojk_text from "./img/logo-ojk-text.png";
@@ -41,8 +40,6 @@ import ojk from "./img/ojk.png";
 export {
   simu_pembiayaan,
   simu_tabungan,
-  jago2Mobile,
-  jago3Mobile,
   ayosyariah,
   contactUs,
   logoWhite,
@@ -55,6 +52,7 @@ export {
   visimisi,
   simulasi,
   pak_mumu,
+  struktur,
   wbsIcon,
   logoNew,
   logoAma,

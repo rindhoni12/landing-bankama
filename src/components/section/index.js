@@ -1,51 +1,55 @@
 import React, { useEffect, useRef, useState } from "react";
 import {
+  FaInstagram,
   FaAccusoft,
   FaDownload,
   FaFacebook,
-  FaFax,
-  FaInstagram,
-  FaPhone,
   FaWhatsapp,
+  FaPhone,
+  FaFax,
 } from "react-icons/fa";
 import {
-  FormInput,
-  FormInputSelectNew,
   FormInputSelectProduct,
+  FormInputSelectNew,
   FormTextArea,
+  FormInput,
 } from "../form";
 import {
   CardInformasiSite,
-  ContentTabSite,
-  ErrorSite,
+  SimulasiBankSite,
   FormNasabahSite,
+  ContentTabSite,
+  PenyaluranSite,
+  OrganisasiSite,
+  KontakKamiSite,
+  PengajuanSite,
+  PimpinanSite,
   HubungiSite,
   LayananSite,
-  OrganisasiSite,
-  PengajuanSite,
-  PenyaluranSite,
+  ErrorSite,
   Tabs,
-  KontakKamiSite,
-  PimpinanSite,
-  SimulasiBankSite,
 } from "./SectionElements";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
-import ModalItem from "../modal";
-import { FormContent } from "../form/FormElements";
-import { ORGANISASI, KONTAK_KAMI, DATAFETCH } from "../../config";
 import {
-  Button,
   ButtonTransparent,
+  HeadingComponent,
   ButtonDownload,
   ReactHelmet,
-  HeadingComponent,
+  Button,
 } from "../../components";
+import {
+  pro_not,
+  simu_pembiayaan,
+  simu_tabungan,
+  struktur,
+} from "../../assets";
+import { ORGANISASI, KONTAK_KAMI, DATAFETCH } from "../../config";
 import { ButtonDownloadOrganisasi, ButtonLink } from "../button";
-import cvPrawito from "../../assets/cv_prawito.pdf";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
+import { FormContent } from "../form/FormElements";
 import { FiX } from "react-icons/fi";
+import ModalItem from "../modal";
 import axios from "axios";
-import { pro_not, simu_pembiayaan, simu_tabungan } from "../../assets";
 
 const KontakKamiSection = ({ dataWording }) => {
   const dataCabang = KONTAK_KAMI.kantor_cabang[0];
@@ -167,7 +171,7 @@ const OrganisasiSection = ({ dataWording }) => {
         <ButtonDownloadOrganisasi
           icon={FaDownload}
           label="Download Struktur Organisasi"
-          file={cvPrawito}
+          file={struktur}
         />
       </div>
     </OrganisasiSite>
@@ -555,7 +559,7 @@ const ContentTabPublikasi = (item) => {
                       </div>
                       <ButtonDownload
                         icon={FaDownload}
-                        label="Donwload"
+                        label={item.judul}
                         file={item.buttonDonwload}
                         judul={item.judul}
                       />
@@ -677,7 +681,7 @@ const HubungiSection = () => {
         <div className="hubungi_content">
           <HeadingComponent
             Heading="Form Pengaduan"
-            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami."
           />
           <FormContent>
             <div className="content_form_pengaduan">
@@ -957,15 +961,15 @@ const PengajuanSection = () => {
       <div className="pengajuan_container">
         <div className="pengajuan_content">
           <HeadingComponent
-            Heading="Pengajuan Rekening Bank"
-            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+            Heading="Pengajuan Tabungan atau Pembiayaan"
+            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami."
           />
 
           <div className="pengajuan_card">
             <div className="card_form">
               <div className="pengajuan_body">
                 <div className="heading">
-                  Syarat dan Ketentuan Pembukaan Rekening Nasabah
+                  Syarat dan Ketentuan Pengajuan Tabungan dan Pembiayan
                 </div>
                 <p>
                   Sehubungan dengan pembukaan rekening oleh PT. Bank Rakyat
@@ -1154,7 +1158,7 @@ const FormNasabahSection = () => {
         <div className="nasabah_content">
           <HeadingComponent
             Heading="Pengajuan Buka Rekening"
-            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami."
           />
           <FormContent>
             <div className="content_form_buka">
@@ -1365,7 +1369,7 @@ const PenyaluranSection = ({ id }) => {
                   ? "Form Pengajuan Pembiayaan"
                   : null
               }
-              Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+              Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami."
             />
           ) : id === "pembiayaan" ? (
             <HeadingComponent
@@ -1376,7 +1380,7 @@ const PenyaluranSection = ({ id }) => {
                   ? "Form Pengajuan Pembiayaan"
                   : null
               }
-              Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+              Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami."
             />
           ) : null}
           {id === "tabungan" ? (

@@ -60,7 +60,7 @@ const ButtonDownloadOrganisasi = (item) => {
     <ButtonContent>
       <button
         style={item.style}
-        onClick={() => downloadFile(item.file, item.judul)}
+        onClick={() => downloadFile(item.file, item.label)}
         id={item.id}
         className="button_organisasi"
       >
