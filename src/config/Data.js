@@ -3,12 +3,24 @@ import { FaEllipsisV, FaInstagram, FaPhone } from "react-icons/fa";
 import {
   blog,
   pak_mumu,
+  pemb_ga_emas,
+  pemb_ib_mul,
+  pemb_ib_mura,
+  pemb_ib_musy,
   peng1,
   peng2,
   peng3,
   peng4,
   peng5,
   struktur,
+  tab_ib_ha,
+  tab_ib_ms,
+  tab_ib_pen,
+  tab_ib_qur,
+  tab_ib_si,
+  tab_ib_wad,
+  tab_simpel,
+  tab_simpel_ay,
 } from "../assets";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -164,7 +176,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa yang Dimaksud dengan Tabungan Wadiah?",
             p: "Tabungan iB Wadiah merupakan tabungan yang dikelola dengan sistem titipan (wadiah)",
-            fileImg: blog,
+            fileImg: tab_ib_wad,
             fitur: [
               {
                 judul: "Fitur & Biaya",
@@ -205,7 +217,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa yang Dimaksud dengan Tabungan iB Simpel ?",
             p: "",
-            fileImg: blog,
+            fileImg: tab_simpel,
             fitur: [
               {
                 judul: "Tabungan Simpel",
@@ -226,7 +238,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa yang Dimaksud dengan Tabungan iB Mudharabah ?",
             p: "Tabungan iB Mudharabah merupakan tabungan yang dikelola dengan sistem bagi hasil.",
-            fileImg: blog,
+            fileImg: tab_simpel_ay,
             fitur: [
               {
                 judul: "Tabungan Simpel Ayah",
@@ -257,7 +269,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa yang Dimaksud dengan Pembiayaan iB Murabahah?",
             p: "Pembiayaan iB Murabahah merupakan jenis pembiayaan yang menggunakan prinsip jual beli.",
-            fileImg: blog,
+            fileImg: pemb_ib_mura,
             fitur: [
               {
                 judul: "Kegunaan",
@@ -331,7 +343,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa yang Dimaksud dengan Pembiayaan iB Musyarakah ?",
             p: "Pembiayaan iB Musyarakah merupakan jenis pembiayaan yang menggunakan prinsip bagi hasil.",
-            fileImg: blog,
+            fileImg: pemb_ib_musy,
             fitur: [
               {
                 judul: "Kegunaan",
@@ -405,7 +417,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa itu Pembiayaan iB Multijasa ?",
             p: "Pembiayaan iB Multijasa merupakan jenis pembiayaan yang menggunakan akad ijarah.",
-            fileImg: blog,
+            fileImg: pemb_ib_mul,
             fitur: [
               {
                 judul: "Kegunaan",
@@ -477,7 +489,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa itu Pembiayaan iB Multijasa ?",
             p: "Pembiayaan iB Gadai Emas merupakan jenis pembiayaan dengan menggunakan prisnsip Qardh, Ijarah dan Rahn.",
-            fileImg: blog,
+            fileImg: pemb_ga_emas,
             fitur: [
               {
                 judul: "Kegunaan",
@@ -513,7 +525,7 @@ export const DATA_BARU = {
           content: {
             apa: "",
             p: "",
-            fileImg: blog,
+            fileImg: tab_ib_ha,
             fitur: [
               {
                 judul: "1. Tabungan iB Haji",
@@ -536,7 +548,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa yang Dimaksud dengan Tabungan iB Masa Depan ?",
             p: "",
-            fileImg: blog,
+            fileImg: tab_ib_ms,
             fitur: [
               {
                 judul: "1. Tabungan iB Masa Depan",
@@ -559,7 +571,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa yang Dimaksud dengan Tabungan iB Pendidikan ?",
             p: "",
-            fileImg: blog,
+            fileImg: tab_ib_pen,
             fitur: [
               {
                 judul: "1. Tabungan iB Pendidikan",
@@ -582,7 +594,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa itu Deposito iB Qurban ?",
             p: "",
-            fileImg: blog,
+            fileImg: tab_ib_qur,
             fitur: [
               {
                 judul: "1. Tabungan iB Qurban",
@@ -605,7 +617,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa itu Deposito iB Si Muda ?",
             p: "",
-            fileImg: blog,
+            fileImg: tab_ib_si,
             fitur: [
               {
                 judul: "1. Tabungan iB siMuda",
