@@ -1,6 +1,18 @@
 import struktur from "./file/struktur-organisasi-juni-2021.xls";
-import simu_pembiayaan from "./img/simulasi-pembiayaan.jpeg";
-import simu_tabungan from "./img/simulasi-tabungan.jpeg";
+import simu_pembiayaan from "./img/simulasi-pembiayaan.jpg";
+import simu_tabungan from "./img/simulasi-tabungan.jpg";
+import pemb_ib_mul from "./img/pembiayaan-ib-multijasa.jpg";
+import pemb_ga_emas from "./img/pembiayaan-ib-gadai-emas.jpg";
+import pemb_ib_musy from "./img/pembiayaan-ib-musyarakah.jpg";
+import pemb_ib_mura from "./img/pembiayaan-ib-murabahah.jpg";
+import tab_ib_wad from "./img/tabungan-ib-wadiah.jpg";
+import tab_simpel from "./img/tabungan-simpel.jpg";
+import tab_simpel_ay from "./img/tabungan-simpel-ayah.jpg";
+import tab_ib_ha from "./img/tabungan-ib-haji.jpg";
+import tab_ib_ms from "./img/tabungan-ib-masa-depan.jpg";
+import tab_ib_pen from "./img/tabungan-ib-pendidikan.jpg";
+import tab_ib_qur from "./img/tabungan-ib-qurban.jpg";
+import tab_ib_si from "./img/tabungan-ib-simuda.jpg";
 import pro_not from "./img/profile-not-found.jpeg";
 import ayosyariah from "./img/ayosyariah.jpeg";
 import lps_text from "./img/logo-lps-text.png";
@@ -45,6 +57,18 @@ export {
   logoWhite,
   logoBawah,
   publikasi,
+  pemb_ib_mul,
+  pemb_ga_emas,
+  pemb_ib_musy,
+  pemb_ib_mura,
+  tab_ib_wad,
+  tab_simpel,
+  tab_simpel_ay,
+  tab_ib_ha,
+  tab_ib_ms,
+  tab_ib_pen,
+  tab_ib_qur,
+  tab_ib_si,
   lps_text,
   ojk_text,
   ttg_kami,

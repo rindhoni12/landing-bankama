@@ -1,8 +1,8 @@
 import React from "react";
-import { FocusComponentColor, ReactHelmet } from "../../components/atom";
+import { FocusComponentBackground, ReactHelmet } from "../../components/atom";
 import { useLocation } from "react-router-dom";
 import { PengajuanSection } from "../../components/section";
-import { contactUs } from "../../assets";
+import { produk } from "../../assets";
 
 const PengajuanForm = () => {
   const location = useLocation();
@@ -12,7 +12,7 @@ const PengajuanForm = () => {
         title="Berita | Bank Artha Mas Abadi"
         url={location?.pathname}
       />
-      <FocusComponentColor backgroundColor="#f9b418" img={contactUs} />
+      <FocusComponentBackground image={produk} />
       <PengajuanSection />
     </>
   );

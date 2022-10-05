@@ -540,6 +540,7 @@ export const FormSimulasi = ({ dataWording }) => {
     setDataBunga(itemsBunga);
   };
 
+  console.log(withDeposito, withoutDeposito);
   return (
     <FormSite>
       <div className="form_container">
@@ -577,7 +578,11 @@ export const FormSimulasi = ({ dataWording }) => {
                             <td style={{ textAlign: "left" }}>
                               {item.jenis_investasi}
                             </td>
-                            <td>{item.nisbah}</td>
+                            {item.nisbah === "-" ? (
+                              <td>{item.nisbah}</td>
+                            ) : (
+                              <td>{item.nisbah}%</td>
+                            )}
                             <td>{item.bunga_bulan1}%</td>
                             <td>{item.bunga_bulan2}%</td>
                             <td>{item.bunga_bulan3}%</td>
@@ -611,7 +616,7 @@ export const FormSimulasi = ({ dataWording }) => {
                             <td style={{ textAlign: "left" }}>
                               {item.jenis_investasi}
                             </td>
-                            <td>{item.nisbah}</td>
+                            <td>{item.nisbah}%</td>
                             <td>{item.bunga_bulan1}%</td>
                             <td>{item.bunga_bulan2}%</td>
                             <td>{item.bunga_bulan3}%</td>

@@ -286,7 +286,6 @@ const Tab = ({ children, active, judul }) => {
 
 const ContentTab = (item) => {
   const [data, setData] = useState([]);
-  console.log(item.judulParent);
 
   const handleButton = () => {
     setData(item.judulParent);
