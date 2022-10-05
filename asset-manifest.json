@@ -1,23 +1,36 @@
 {
   "files": {
     "main.css": "/web-landing/static/css/main.d026f199.css",
-    "main.js": "/web-landing/static/js/main.af269798.js",
+    "main.js": "/web-landing/static/js/main.7c3a73c1.js",
     "static/media/struktur-organisasi-juni-2021.xls": "/web-landing/static/media/struktur-organisasi-juni-2021.4de4f66a267cc035f891.xls",
     "static/media/tentang-kami.jpg": "/web-landing/static/media/tentang-kami.2f39ddb0de7b81bc5e30.jpg",
     "static/media/pak-mumu.jpg": "/web-landing/static/media/pak-mumu.fe53bcfaaef2c187a03e.jpg",
+    "static/media/simulasi-tabungan.jpg": "/web-landing/static/media/simulasi-tabungan.76224a17129e1009a794.jpg",
+    "static/media/simulasi-pembiayaan.jpg": "/web-landing/static/media/simulasi-pembiayaan.920ba797370c26851a3e.jpg",
+    "static/media/pembiayaan-ib-musyarakah.jpg": "/web-landing/static/media/pembiayaan-ib-musyarakah.c7423ea0a6fe48afc53c.jpg",
+    "static/media/pembiayaan-ib-murabahah.jpg": "/web-landing/static/media/pembiayaan-ib-murabahah.492fcd5bc259c5f3c60d.jpg",
+    "static/media/pembiayaan-ib-gadai-emas.jpg": "/web-landing/static/media/pembiayaan-ib-gadai-emas.f6c3c9c7769547d4c08f.jpg",
     "static/media/simulasi.jpg": "/web-landing/static/media/simulasi.ab785e7f49f86923337d.jpg",
+    "static/media/pembiayaan-ib-multijasa.jpg": "/web-landing/static/media/pembiayaan-ib-multijasa.1be07b8423374c6e425f.jpg",
     "static/media/produk-layanan.jpg": "/web-landing/static/media/produk-layanan.c682c807a228b5f3c2c5.jpg",
     "static/media/berita.jpg": "/web-landing/static/media/berita.d1acb7e9036a174b8b10.jpg",
+    "static/media/tabungan-simpel.jpg": "/web-landing/static/media/tabungan-simpel.d4d8876feb9678a2bad6.jpg",
     "static/media/publikasi.jpg": "/web-landing/static/media/publikasi.f9d13d95967a235410f4.jpg",
     "static/media/galeri.jpg": "/web-landing/static/media/galeri.7d1150ee33988bdbb711.jpg",
+    "static/media/tabungan-ib-wadiah.jpg": "/web-landing/static/media/tabungan-ib-wadiah.9f64e52f0f03bf919ad0.jpg",
+    "static/media/tabungan-simpel-ayah.jpg": "/web-landing/static/media/tabungan-simpel-ayah.03c11b861f6e8d1463ca.jpg",
     "static/media/penghargaan-5.jpg": "/web-landing/static/media/penghargaan-5.9ea71ea8cbefd866f7e6.jpg",
     "static/media/penghargaan-3.jpg": "/web-landing/static/media/penghargaan-3.d6e450cf8fb64b3e9d9d.jpg",
+    "static/media/tabungan-ib-haji.jpg": "/web-landing/static/media/tabungan-ib-haji.c01d2124a250d426f5dd.jpg",
+    "static/media/tabungan-ib-pendidikan.jpg": "/web-landing/static/media/tabungan-ib-pendidikan.048fde0ca4b52b40858c.jpg",
+    "static/media/tabungan-ib-qurban.jpg": "/web-landing/static/media/tabungan-ib-qurban.b075c766f0cf2960ed8c.jpg",
+    "static/media/tabungan-ib-simuda.jpg": "/web-landing/static/media/tabungan-ib-simuda.2558ee2be22121ae666b.jpg",
+    "static/media/tabungan-ib-masa-depan.jpg": "/web-landing/static/media/tabungan-ib-masa-depan.f683e6f53b070d85ef29.jpg",
     "static/media/penghargaan-1.jpg": "/web-landing/static/media/penghargaan-1.a337bfa405c958c731dc.jpg",
     "static/media/penghargaan-4.jpg": "/web-landing/static/media/penghargaan-4.7b0c6c2062e0d5fcf113.jpg",
     "static/media/blog.jpg": "/web-landing/static/media/blog.490bef791b07bdd7f7d8.jpg",
     "static/media/visimisi.jpg": "/web-landing/static/media/visimisi.e1ca8aa342b3821b1e1e.jpg",
     "static/media/penghargaan-2.jpg": "/web-landing/static/media/penghargaan-2.c1d27b77698290b667d7.jpg",
-    "static/media/simulasi-pembiayaan.jpeg": "/web-landing/static/media/simulasi-pembiayaan.39c6b2528d9e57a1ff9a.jpeg",
     "static/media/contact-us.png": "/web-landing/static/media/contact-us.9665044e2f32fad67f86.png",
     "static/media/mitra-1.png": "/web-landing/static/media/mitra-1.ae1bb0f035abdceb21c0.png",
     "static/media/logo_new.png": "/web-landing/static/media/logo_new.497b76dbcbb2ea58c652.png",
@@ -26,7 +39,6 @@
     "static/media/logo_bawah.png": "/web-landing/static/media/logo_bawah.0ae4b70b35e229c33f26.png",
     "static/media/logo_ama_long.png": "/web-landing/static/media/logo_ama_long.9b079bf39083b4b16b64.png",
     "static/media/logo-lps-text.png": "/web-landing/static/media/logo-lps-text.07604f50b701e43e2db3.png",
-    "static/media/simulasi-tabungan.jpeg": "/web-landing/static/media/simulasi-tabungan.aa8a49b725fcf4829c68.jpeg",
     "static/media/mitra-4.png": "/web-landing/static/media/mitra-4.5fbe48e302ea3ed5a26c.png",
     "static/media/lps.png": "/web-landing/static/media/lps.10b34851941f49114be9.png",
     "static/media/logo_white.png": "/web-landing/static/media/logo_white.92a378cc2c65f9ce6374.png",
@@ -41,10 +53,10 @@
     "index.html": "/web-landing/index.html",
     "static/media/slick.woff": "/web-landing/static/media/slick.295183786cd8a1389865.woff",
     "main.d026f199.css.map": "/web-landing/static/css/main.d026f199.css.map",
-    "main.af269798.js.map": "/web-landing/static/js/main.af269798.js.map"
+    "main.7c3a73c1.js.map": "/web-landing/static/js/main.7c3a73c1.js.map"
   },
   "entrypoints": [
     "static/css/main.d026f199.css",
-    "static/js/main.af269798.js"
+    "static/js/main.7c3a73c1.js"
   ]
 }
