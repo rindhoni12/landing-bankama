@@ -2,6 +2,9 @@ import { FiFacebook, FiMail, FiPhone } from "react-icons/fi";
 import { FaEllipsisV, FaInstagram, FaPhone } from "react-icons/fa";
 import {
   blog,
+  dep_ib_mu,
+  pak_dim,
+  pak_mak,
   pak_mumu,
   pemb_ga_emas,
   pemb_ib_mul,
@@ -130,7 +133,7 @@ export const ORGANISASI = [
   {
     id: 1,
     label: "H. Ahmad Mutamakin, S.Pd.I.",
-    img: "",
+    img: pak_mak,
     jabatan: "Dewan Komisaris",
     desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Dasar Pengangkatan: Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },
@@ -144,14 +147,14 @@ export const ORGANISASI = [
   {
     id: 3,
     label: "H. Ghufron Halim, S.E, MM",
-    img: pak_mumu,
+    img: "",
     jabatan: "Dewan Pengawas Syariah",
     desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },
   {
     id: 4,
     label: "Dr. H. Ahmad Dimyati,",
-    img: pak_mumu,
+    img: pak_dim,
     jabatan: "Dewan Pengawas Syariah",
     desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },
@@ -650,7 +653,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa itu Deposito iB Mudharabah ?",
             p: "",
-            fileImg: blog,
+            fileImg: dep_ib_mu,
             fitur: [
               {
                 judul: "Deposito iB Mudharabah",
