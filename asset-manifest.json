@@ -1,9 +1,10 @@
 {
   "files": {
     "main.css": "/web-landing/static/css/main.d026f199.css",
-    "main.js": "/web-landing/static/js/main.7c3a73c1.js",
+    "main.js": "/web-landing/static/js/main.99619e25.js",
     "static/media/struktur-organisasi-juni-2021.xls": "/web-landing/static/media/struktur-organisasi-juni-2021.4de4f66a267cc035f891.xls",
     "static/media/tentang-kami.jpg": "/web-landing/static/media/tentang-kami.2f39ddb0de7b81bc5e30.jpg",
+    "static/media/deposito-ib-mudharabah.jpg": "/web-landing/static/media/deposito-ib-mudharabah.0ea7675965cc27ffb3f2.jpg",
     "static/media/pak-mumu.jpg": "/web-landing/static/media/pak-mumu.fe53bcfaaef2c187a03e.jpg",
     "static/media/simulasi-tabungan.jpg": "/web-landing/static/media/simulasi-tabungan.76224a17129e1009a794.jpg",
     "static/media/simulasi-pembiayaan.jpg": "/web-landing/static/media/simulasi-pembiayaan.920ba797370c26851a3e.jpg",
@@ -44,19 +45,21 @@
     "static/media/logo_white.png": "/web-landing/static/media/logo_white.92a378cc2c65f9ce6374.png",
     "static/media/ayosyariah.jpeg": "/web-landing/static/media/ayosyariah.b0685a80b3456216f497.jpeg",
     "static/media/mitra-3.png": "/web-landing/static/media/mitra-3.bbb3c070ff7078bbdbad.png",
+    "static/media/pak-makin.jpg": "/web-landing/static/media/pak-makin.8e1a3dd5682899c30774.jpg",
     "static/media/ojk.png": "/web-landing/static/media/ojk.f2246f8e0b9a808a1e67.png",
     "static/media/mitra-2.png": "/web-landing/static/media/mitra-2.b8e2c4b921279a926828.png",
     "static/media/lps.1.png": "/web-landing/static/media/lps.1.f23bb6aada03ccdb4706.png",
+    "static/media/pak-dimyati.jpg": "/web-landing/static/media/pak-dimyati.06e0a6061ab3a5970dfd.jpg",
     "static/media/slick.svg": "/web-landing/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/web-landing/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/web-landing/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "index.html": "/web-landing/index.html",
     "static/media/slick.woff": "/web-landing/static/media/slick.295183786cd8a1389865.woff",
     "main.d026f199.css.map": "/web-landing/static/css/main.d026f199.css.map",
-    "main.7c3a73c1.js.map": "/web-landing/static/js/main.7c3a73c1.js.map"
+    "main.99619e25.js.map": "/web-landing/static/js/main.99619e25.js.map"
   },
   "entrypoints": [
     "static/css/main.d026f199.css",
-    "static/js/main.7c3a73c1.js"
+    "static/js/main.99619e25.js"
   ]
 }
