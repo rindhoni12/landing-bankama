@@ -862,7 +862,11 @@ const CardInformasiSection = ({ dataWording }) => {
                           {withoutDeposito?.map((item, i) => (
                             <tr key={i}>
                               <td>{item.jenis_investasi}</td>
-                              <td>{item.nisbah}</td>
+                              {item.nisbah === "-" ? (
+                                <td>{item.nisbah}</td>
+                              ) : (
+                                <td>{item.nisbah}%</td>
+                              )}
                               <td>{item.bunga_bulan1}%</td>
                               <td>{item.bunga_bulan2}%</td>
                               <td>{item.bunga_bulan3}%</td>
@@ -911,7 +915,7 @@ const CardInformasiSection = ({ dataWording }) => {
                           {withDeposito?.map((item, i) => (
                             <tr key={i}>
                               <td>{item.jenis_investasi}</td>
-                              <td>{item.nisbah}</td>
+                              <td>{item.nisbah}%</td>
                               <td>{item.bunga_bulan1}%</td>
                               <td>{item.bunga_bulan2}%</td>
                               <td>{item.bunga_bulan3}%</td>
@@ -971,8 +975,8 @@ const PengajuanSection = () => {
                   Syarat dan Ketentuan Pengajuan Tabungan dan Pembiayan
                 </div>
                 <p>
-                  Sehubungan dengan pembukaan rekening oleh PT. Bank Rakyat
-                  Indonesia (Persero) Tbk. (Selanjutnya disebut Bank) atas
+                  Sehubungan dengan pembukaan rekening oleh PT. BPR Syariah
+                  Artha Mas Abadi. (Selanjutnya disebut Bank Syariah) atas
                   permintaan pemohon (selanjutnya disebut Nasabah), dengan ini
                   Nasabah menyatakan setuju bahwa rekening tersebut tunduk dan
                   akan ditatakerjakan sesuai dengan syarat dan ketentuan dibawah
@@ -986,32 +990,28 @@ const PengajuanSection = () => {
                       <div>
                         <li>
                           Yang dimaksud rekening dalam ketentuan ini adalah
-                          pembukuan Bank atas produk-produk simpanan Bank, yang
-                          dibuka baik secara langsung maupun secara tidak
-                          langsung atas permintaan Nasabah, baik yang telah ada
-                          maupun yang akan ada dikemudian hari.
+                          pembukuan Bank atas produk-produk simpanan Bank
+                          Syariah, yang dibuka baik secara langsung maupun
+                          secara tidak langsung atas permintaan Nasabah, baik
+                          yang telah ada maupun yang akan ada dikemudian hari.
                         </li>
                         <li>
-                          Rekening tertentu dapat dibuka dalam mata uang rupiah
-                          ataupun mata uang asing (valas), dan Bank tidak
-                          bertanggung jawab atas perubahan nilai yang
-                          diakibatkan oleh perubahan nilai mata uang asing
-                          terhadap rupiah.
+                          Rekening tertentu dapat dibuka dalam mata uang rupiah.
                         </li>
                         <li>
                           Pembukaan rekening wajib didasarkan atas permohonan
                           secara tertulis oleh Nasabah dengan memenuhi segala
-                          persyaratan yang ditentukan oleh Bank.
+                          persyaratan yang ditentukan oleh Bank Syariah.
                         </li>
                         <li>
-                          Bank melarang segala bentuk penyalahgunaan rekening,
-                          termasuk sebagai sarana tindakan berindikasi pidana.
-                          Dalam hal terdapat indikasi penyalahgunaan rekening
-                          oleh nasabah, maka Bank berhak untuk melakukan
-                          pemblokiran rekening, mendebet kembali dana untuk
-                          diselesaikan sesuai dengan ketentuan yang berlaku dan
-                          atau sesuai kebijakan Bank, dan/atau penutupan
-                          rekening.
+                          Bank Syariah melarang segala bentuk penyalahgunaan
+                          rekening, termasuk sebagai sarana tindakan berindikasi
+                          pidana. Dalam hal terdapat indikasi penyalahgunaan
+                          rekening oleh nasabah, maka Bank Syariah berhak untuk
+                          melakukan pemblokiran rekening, mendebet kembali dana
+                          untuk diselesaikan sesuai dengan ketentuan yang
+                          berlaku dan atau sesuai kebijakan Bank Syariah,
+                          dan/atau penutupan rekening.
                         </li>
                       </div>
                     </ol>

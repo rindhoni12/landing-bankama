@@ -13,6 +13,8 @@ import tab_ib_ms from "./img/tabungan-ib-masa-depan.jpg";
 import tab_ib_pen from "./img/tabungan-ib-pendidikan.jpg";
 import tab_ib_qur from "./img/tabungan-ib-qurban.jpg";
 import tab_ib_si from "./img/tabungan-ib-simuda.jpg";
+import dep_ib_mu from "./img/deposito-ib-mudharabah.jpg";
+import form_p from "./img/form-pengaduan.jpg";
 import pro_not from "./img/profile-not-found.jpeg";
 import ayosyariah from "./img/ayosyariah.jpeg";
 import lps_text from "./img/logo-lps-text.png";
@@ -31,6 +33,10 @@ import peng3 from "./img/penghargaan-3.jpg";
 import peng4 from "./img/penghargaan-4.jpg";
 import peng5 from "./img/penghargaan-5.jpg";
 import pak_mumu from "./img/pak-mumu.jpg";
+import pak_dim from "./img/pak-dimyati.jpg";
+import pak_mak from "./img/pak-makin.jpg";
+import pak_guf from "./img/pak-gufron.jpg";
+import pak_wak from "./img/pak-wakhrodi.jpg";
 import visimisi from "./img/visimisi.jpg";
 import whatsapp from "./img/whatsapp.png";
 import no_pic from "./img/no-picture.jpg";
@@ -69,6 +75,7 @@ export {
   tab_ib_pen,
   tab_ib_qur,
   tab_ib_si,
+  dep_ib_mu,
   lps_text,
   ojk_text,
   ttg_kami,
@@ -76,10 +83,15 @@ export {
   visimisi,
   simulasi,
   pak_mumu,
+  pak_dim,
+  pak_mak,
+  pak_guf,
+  pak_wak,
   struktur,
   wbsIcon,
   logoNew,
   logoAma,
+  form_p,
   img_bro,
   pro_not,
   banner,

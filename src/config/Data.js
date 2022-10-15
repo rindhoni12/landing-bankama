@@ -2,7 +2,12 @@ import { FiFacebook, FiMail, FiPhone } from "react-icons/fi";
 import { FaEllipsisV, FaInstagram, FaPhone } from "react-icons/fa";
 import {
   blog,
+  dep_ib_mu,
+  pak_dim,
+  pak_guf,
+  pak_mak,
   pak_mumu,
+  pak_wak,
   pemb_ga_emas,
   pemb_ib_mul,
   pemb_ib_mura,
@@ -130,28 +135,28 @@ export const ORGANISASI = [
   {
     id: 1,
     label: "H. Ahmad Mutamakin, S.Pd.I.",
-    img: "",
+    img: pak_mak,
     jabatan: "Dewan Komisaris",
     desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Dasar Pengangkatan: Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },
   {
     id: 2,
     label: "H. Wakhrodi, S.Pd.I., M.Si",
-    img: pak_mumu,
+    img: pak_wak,
     jabatan: "Dewan Komisaris",
     desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },
   {
     id: 3,
     label: "H. Ghufron Halim, S.E, MM",
-    img: pak_mumu,
+    img: pak_guf,
     jabatan: "Dewan Pengawas Syariah",
     desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },
   {
     id: 4,
     label: "Dr. H. Ahmad Dimyati,",
-    img: pak_mumu,
+    img: pak_dim,
     jabatan: "Dewan Pengawas Syariah",
     desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },
@@ -650,7 +655,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa itu Deposito iB Mudharabah ?",
             p: "",
-            fileImg: blog,
+            fileImg: dep_ib_mu,
             fitur: [
               {
                 judul: "Deposito iB Mudharabah",
@@ -1142,8 +1147,8 @@ export const WORDING = {
     },
     {
       id: 5,
-      text: "AYO LAPORKAN SEGERA!!",
-      desc: "Kami percaya bahwa pengalaman transaksi perbankan yang berfokus pada kehidupan Anda akan memungkinkan Anda untuk terus bertumbuh.",
+      text: "Assalamualaikum Sahabat Syariah,",
+      desc: "Dalam rangka menjaga kepercayaan nasabah/konsumen, perlindungan terhadap kepentingan konsumen senantiasa menjadi prioritas kami. PT. BPR Syariah Artha Mas Abadi mengedepankan kualitas layanan dalam rangka memberikan solusi bagi konsumen diantaranya melalui layanan pengaduan konsumen.",
     },
   ],
   produk_layanan: [

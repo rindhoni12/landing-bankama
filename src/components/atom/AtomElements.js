@@ -90,7 +90,7 @@ export const InformasiSite = styled.section`
   }
 
   .content {
-    width: 70%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     gap: 20px;
