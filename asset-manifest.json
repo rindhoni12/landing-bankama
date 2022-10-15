@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/web-landing/static/css/main.d026f199.css",
-    "main.js": "/web-landing/static/js/main.99619e25.js",
+    "main.js": "/web-landing/static/js/main.a0ff72d5.js",
     "static/media/struktur-organisasi-juni-2021.xls": "/web-landing/static/media/struktur-organisasi-juni-2021.4de4f66a267cc035f891.xls",
+    "static/media/form-pengaduan.jpg": "/web-landing/static/media/form-pengaduan.2b1cb29426d3a2409c34.jpg",
     "static/media/tentang-kami.jpg": "/web-landing/static/media/tentang-kami.2f39ddb0de7b81bc5e30.jpg",
     "static/media/deposito-ib-mudharabah.jpg": "/web-landing/static/media/deposito-ib-mudharabah.0ea7675965cc27ffb3f2.jpg",
-    "static/media/pak-mumu.jpg": "/web-landing/static/media/pak-mumu.fe53bcfaaef2c187a03e.jpg",
     "static/media/simulasi-tabungan.jpg": "/web-landing/static/media/simulasi-tabungan.76224a17129e1009a794.jpg",
     "static/media/simulasi-pembiayaan.jpg": "/web-landing/static/media/simulasi-pembiayaan.920ba797370c26851a3e.jpg",
     "static/media/pembiayaan-ib-musyarakah.jpg": "/web-landing/static/media/pembiayaan-ib-musyarakah.c7423ea0a6fe48afc53c.jpg",
@@ -32,12 +32,15 @@
     "static/media/blog.jpg": "/web-landing/static/media/blog.490bef791b07bdd7f7d8.jpg",
     "static/media/visimisi.jpg": "/web-landing/static/media/visimisi.e1ca8aa342b3821b1e1e.jpg",
     "static/media/penghargaan-2.jpg": "/web-landing/static/media/penghargaan-2.c1d27b77698290b667d7.jpg",
+    "static/media/pak-mumu.jpg": "/web-landing/static/media/pak-mumu.edec951219c9e83cb9f1.jpg",
     "static/media/contact-us.png": "/web-landing/static/media/contact-us.9665044e2f32fad67f86.png",
     "static/media/mitra-1.png": "/web-landing/static/media/mitra-1.ae1bb0f035abdceb21c0.png",
     "static/media/logo_new.png": "/web-landing/static/media/logo_new.497b76dbcbb2ea58c652.png",
+    "static/media/pak-wakhrodi.jpg": "/web-landing/static/media/pak-wakhrodi.f16115365e381610aac5.jpg",
     "static/media/banner.png": "/web-landing/static/media/banner.9fe475d22f5bbbbeefa6.png",
     "static/media/logo-ojk-text.png": "/web-landing/static/media/logo-ojk-text.2a6b11866cce261a6f15.png",
     "static/media/logo_bawah.png": "/web-landing/static/media/logo_bawah.0ae4b70b35e229c33f26.png",
+    "static/media/pak-gufron.jpg": "/web-landing/static/media/pak-gufron.99c1d512636ddb07d74b.jpg",
     "static/media/logo_ama_long.png": "/web-landing/static/media/logo_ama_long.9b079bf39083b4b16b64.png",
     "static/media/logo-lps-text.png": "/web-landing/static/media/logo-lps-text.07604f50b701e43e2db3.png",
     "static/media/mitra-4.png": "/web-landing/static/media/mitra-4.5fbe48e302ea3ed5a26c.png",
@@ -56,10 +59,10 @@
     "index.html": "/web-landing/index.html",
     "static/media/slick.woff": "/web-landing/static/media/slick.295183786cd8a1389865.woff",
     "main.d026f199.css.map": "/web-landing/static/css/main.d026f199.css.map",
-    "main.99619e25.js.map": "/web-landing/static/js/main.99619e25.js.map"
+    "main.a0ff72d5.js.map": "/web-landing/static/js/main.a0ff72d5.js.map"
   },
   "entrypoints": [
     "static/css/main.d026f199.css",
-    "static/js/main.99619e25.js"
+    "static/js/main.a0ff72d5.js"
   ]
 }
