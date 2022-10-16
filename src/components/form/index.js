@@ -192,6 +192,7 @@ export const FormTextArea = (item) => {
     <div className="form_content_input">
       <label>Pesan</label>
       <textarea
+        placeholder={item.placeholder}
         required
         value={item.value}
         onChange={item.onChange}
@@ -539,8 +540,6 @@ export const FormSimulasi = ({ dataWording }) => {
     }
     setDataBunga(itemsBunga);
   };
-
-  console.log(withDeposito, withoutDeposito);
   return (
     <FormSite>
       <div className="form_container">
@@ -699,9 +698,9 @@ export const FormSimulasi = ({ dataWording }) => {
                           <th colSpan="3">Simulasi Saldo ({dataJumlah})</th>
                         </tr>
                         <tr style={{ background: "#007c00" }}>
-                          <th className="text">April 2022</th>
-                          <th className="text">Mei 2022</th>
-                          <th className="text">Juni 2022</th>
+                          <th className="text">{dataBaru[0]?.nama_bulan1}</th>
+                          <th className="text">{dataBaru[0]?.nama_bulan2}</th>
+                          <th className="text">{dataBaru[0]?.nama_bulan3}</th>
                         </tr>
                       </thead>
                       <tbody>

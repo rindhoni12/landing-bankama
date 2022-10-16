@@ -273,7 +273,7 @@ export const OrganisasiSite = styled.section`
 
         ${devices.smartphone} {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(1, 1fr);
           place-items: center;
         }
 

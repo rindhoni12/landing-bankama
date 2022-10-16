@@ -9,7 +9,7 @@ const PengajuanForm = () => {
   return (
     <>
       <ReactHelmet
-        title="Berita | Bank Artha Mas Abadi"
+        title="Form Pengajuan | Bank Artha Mas Abadi"
         url={location?.pathname}
       />
       <FocusComponentBackground image={produk} />

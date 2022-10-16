@@ -10,7 +10,7 @@ const SimulasiBank = () => {
   return (
     <>
       <ReactHelmet
-        title="Beranda | Bank Artha Mas Abadi"
+        title="Simulasi | Bank Artha Mas Abadi"
         url={location.pathname}
       />
       <FocusComponentBackground image={simulasi} />
