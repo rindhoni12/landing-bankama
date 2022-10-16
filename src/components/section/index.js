@@ -700,14 +700,14 @@ const HubungiSection = () => {
                       <div className="inputan">
                         <FormInput
                           judul="Nama"
-                          placeholder="Jumlah Pinjamanan"
+                          placeholder="Nama"
                           type="text"
                           value={values.nama}
                           onChange={set("nama")}
                         />
                         <FormInput
-                          judul="No"
-                          placeholder="Jumlah Pinjamanan"
+                          judul="No. Handphone"
+                          placeholder="No. Handphone"
                           type="number"
                           value={values.number}
                           onChange={set("number")}
@@ -716,11 +716,12 @@ const HubungiSection = () => {
                       <FormTextArea
                         value={values.textArea}
                         onChange={set("textArea")}
+                        placeholder="Pesan Anda"
                       />
                       <p style={{ fontSize: "12px", borderBottom: "none" }}>
                         <b>Catatan Lain : </b> Pesan balasan daripada form
                         pengaduan akan dikirimkan melalui No. Hp yang di
-                        masukan.
+                        masukan, jadi pastikan No. Hp anda aktif dan benar.
                       </p>
                       {dataresponse?.success && berhasil ? (
                         <p className="informasi">
@@ -752,7 +753,7 @@ const HubungiSection = () => {
               <div className="card_form" style={{ width: "30%" }}>
                 <div className="content">
                   <p>
-                    <b>Keteragan : </b>Kontak Umum yang dapat dihubungi.
+                    <b>Keteragan : </b>Kontak umum yang dapat dihubungi.
                   </p>
                   <div className="content_form">
                     <div className="contact_item">

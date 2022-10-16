@@ -523,6 +523,10 @@ export const FormContent = styled.div`
       margin-top: -10px;
       color: #a5a5a5;
     }
+
+    textarea::-webkit-input-placeholder {
+      color: #aeaeae;
+    }
   }
 
   .content_form {
