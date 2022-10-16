@@ -15,7 +15,7 @@ const Galery = () => {
   return (
     <>
       <ReactHelmet
-        title="Galery Photos | Bank Artha Mas Abadi"
+        title="Galeri | Bank Artha Mas Abadi"
         url={location.pathname}
       />
       <FocusComponentBackground image={galeri} />
