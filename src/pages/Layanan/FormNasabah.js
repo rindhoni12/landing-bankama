@@ -8,7 +8,7 @@ const FormNasabah = () => {
   const location = useLocation();
   let userState = location;
   if (userState.state === null) {
-    window.location.href = "/web-landing";
+    window.location.href = "/";
   } else if (userState.state.state === false) {
     window.location.href = "./pengajuan-rekening";
   }

@@ -331,7 +331,7 @@ const ContentTab = (item) => {
               label="Daftar Disini"
               style={{ margin: "auto" }}
               onClick={handleButton}
-              to="/web-landing/form-pengajuan"
+              to="/form-pengajuan"
             />
           </div>
         </div>
