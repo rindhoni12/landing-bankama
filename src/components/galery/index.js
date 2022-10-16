@@ -92,8 +92,6 @@ const GaleryNewSection = ({ dataWording }) => {
     }
   }, [modal]);
 
-  console.log(dataVideo);
-
   return (
     <GaleryNewSite>
       <div className="galeryNew_container">

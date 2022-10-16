@@ -1,8 +1,8 @@
 import React from "react";
 import { DetailBeritaSite, DetailSupportSite } from "./BeritaElements";
-import DOMPurify from "dompurify";
 import { useLocation } from "react-router-dom";
 import { ReactHelmet } from "../atom";
+import DOMPurify from "dompurify";
 
 const DetailBeritaComponents = ({ newItem, loading }) => {
   const location = useLocation();
@@ -64,7 +64,7 @@ const DetailBeritaComponents = ({ newItem, loading }) => {
 
 export const DetailSupportComponents = (item) => {
   const location = useLocation();
-  console.log(item.itemNew);
+
   return (
     <>
       <ReactHelmet

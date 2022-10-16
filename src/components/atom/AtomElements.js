@@ -90,7 +90,7 @@ export const InformasiSite = styled.section`
   }
 
   .content {
-    width: 70%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -847,6 +847,30 @@ export const WaItemSite = styled.div`
       margin-left: auto;
       height: 50px;
       width: 50px;
+    }
+  }
+`;
+
+export const BeritaContent = styled.div`
+  .card_content {
+    display: grid;
+    justify-content: center;
+    align-items: flex-start;
+    grid-template-columns: repeat(3, 1fr);
+    transition: all 0.35s ease-in-out;
+    height: 100%;
+    gap: 30px;
+
+    ${devices.smartphone} {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    @media only screen and (min-width: 560px) and (max-width: 760px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    ${devices.ipads} {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 `;

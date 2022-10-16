@@ -1,51 +1,55 @@
 import React, { useEffect, useRef, useState } from "react";
 import {
+  FaInstagram,
   FaAccusoft,
   FaDownload,
   FaFacebook,
-  FaFax,
-  FaInstagram,
-  FaPhone,
   FaWhatsapp,
+  FaPhone,
+  FaFax,
 } from "react-icons/fa";
 import {
-  FormInput,
-  FormInputSelectNew,
   FormInputSelectProduct,
+  FormInputSelectNew,
   FormTextArea,
+  FormInput,
 } from "../form";
 import {
   CardInformasiSite,
-  ContentTabSite,
-  ErrorSite,
+  SimulasiBankSite,
   FormNasabahSite,
+  ContentTabSite,
+  PenyaluranSite,
+  OrganisasiSite,
+  KontakKamiSite,
+  PengajuanSite,
+  PimpinanSite,
   HubungiSite,
   LayananSite,
-  OrganisasiSite,
-  PengajuanSite,
-  PenyaluranSite,
+  ErrorSite,
   Tabs,
-  KontakKamiSite,
-  PimpinanSite,
-  SimulasiBankSite,
 } from "./SectionElements";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
-import ModalItem from "../modal";
-import { FormContent } from "../form/FormElements";
-import { ORGANISASI, KONTAK_KAMI, DATAFETCH } from "../../config";
 import {
-  Button,
   ButtonTransparent,
+  HeadingComponent,
   ButtonDownload,
   ReactHelmet,
-  HeadingComponent,
+  Button,
 } from "../../components";
+import {
+  pro_not,
+  simu_pembiayaan,
+  simu_tabungan,
+  struktur,
+} from "../../assets";
+import { ORGANISASI, KONTAK_KAMI, DATAFETCH } from "../../config";
 import { ButtonDownloadOrganisasi, ButtonLink } from "../button";
-import cvPrawito from "../../assets/cv_prawito.pdf";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
+import { FormContent } from "../form/FormElements";
 import { FiX } from "react-icons/fi";
+import ModalItem from "../modal";
 import axios from "axios";
-import { simu_pembiayaan, simu_tabungan } from "../../assets";
 
 const KontakKamiSection = ({ dataWording }) => {
   const dataCabang = KONTAK_KAMI.kantor_cabang[0];
@@ -167,7 +171,7 @@ const OrganisasiSection = ({ dataWording }) => {
         <ButtonDownloadOrganisasi
           icon={FaDownload}
           label="Download Struktur Organisasi"
-          file={cvPrawito}
+          file={struktur}
         />
       </div>
     </OrganisasiSite>
@@ -211,7 +215,10 @@ const Card = (item) => {
         <div className="circle">
           <div className="gambar_img">
             <button onClick={openModal} id={item.id}>
-              <img src={item.items.img} alt={item.items.label} />
+              <img
+                src={item.items.img ? item.items.img : pro_not}
+                alt={item.items.label}
+              />
             </button>
           </div>
         </div>
@@ -279,7 +286,6 @@ const Tab = ({ children, active, judul }) => {
 
 const ContentTab = (item) => {
   const [data, setData] = useState([]);
-  console.log(item.judulParent);
 
   const handleButton = () => {
     setData(item.judulParent);
@@ -320,12 +326,12 @@ const ContentTab = (item) => {
             <p className="text_baru">**Syarat dan ketentuan berlaku</p>
           </div>
           <div className="button_form_pembiayaan">
-            <ButtonLink
+            <Button
               icon={FaAccusoft}
               label="Daftar Disini"
               style={{ margin: "auto" }}
               onClick={handleButton}
-              to="/form-pengajuan"
+              to="/web-landing/form-pengajuan"
             />
           </div>
         </div>
@@ -534,7 +540,6 @@ const TabPublikasi = ({ children, active }) => {
 };
 
 const ContentTabPublikasi = (item) => {
-  console.log(item);
   return (
     <ContentTabSite>
       <div className="tab_content">
@@ -553,7 +558,7 @@ const ContentTabPublikasi = (item) => {
                       </div>
                       <ButtonDownload
                         icon={FaDownload}
-                        label="Donwload"
+                        label={item.judul}
                         file={item.buttonDonwload}
                         judul={item.judul}
                       />
@@ -675,7 +680,7 @@ const HubungiSection = () => {
         <div className="hubungi_content">
           <HeadingComponent
             Heading="Form Pengaduan"
-            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami."
           />
           <FormContent>
             <div className="content_form_pengaduan">
@@ -857,7 +862,11 @@ const CardInformasiSection = ({ dataWording }) => {
                           {withoutDeposito?.map((item, i) => (
                             <tr key={i}>
                               <td>{item.jenis_investasi}</td>
-                              <td>{item.nisbah}</td>
+                              {item.nisbah === "-" ? (
+                                <td>{item.nisbah}</td>
+                              ) : (
+                                <td>{item.nisbah}%</td>
+                              )}
                               <td>{item.bunga_bulan1}%</td>
                               <td>{item.bunga_bulan2}%</td>
                               <td>{item.bunga_bulan3}%</td>
@@ -906,7 +915,7 @@ const CardInformasiSection = ({ dataWording }) => {
                           {withDeposito?.map((item, i) => (
                             <tr key={i}>
                               <td>{item.jenis_investasi}</td>
-                              <td>{item.nisbah}</td>
+                              <td>{item.nisbah}%</td>
                               <td>{item.bunga_bulan1}%</td>
                               <td>{item.bunga_bulan2}%</td>
                               <td>{item.bunga_bulan3}%</td>
@@ -955,19 +964,19 @@ const PengajuanSection = () => {
       <div className="pengajuan_container">
         <div className="pengajuan_content">
           <HeadingComponent
-            Heading="Pengajuan Rekening Bank"
-            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+            Heading="Pengajuan Tabungan atau Pembiayaan"
+            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami."
           />
 
           <div className="pengajuan_card">
             <div className="card_form">
               <div className="pengajuan_body">
                 <div className="heading">
-                  Syarat dan Ketentuan Pembukaan Rekening Nasabah
+                  Syarat dan Ketentuan Pengajuan Tabungan dan Pembiayan
                 </div>
                 <p>
-                  Sehubungan dengan pembukaan rekening oleh PT. Bank Rakyat
-                  Indonesia (Persero) Tbk. (Selanjutnya disebut Bank) atas
+                  Sehubungan dengan pembukaan rekening oleh PT. BPR Syariah
+                  Artha Mas Abadi. (Selanjutnya disebut Bank Syariah) atas
                   permintaan pemohon (selanjutnya disebut Nasabah), dengan ini
                   Nasabah menyatakan setuju bahwa rekening tersebut tunduk dan
                   akan ditatakerjakan sesuai dengan syarat dan ketentuan dibawah
@@ -981,32 +990,28 @@ const PengajuanSection = () => {
                       <div>
                         <li>
                           Yang dimaksud rekening dalam ketentuan ini adalah
-                          pembukuan Bank atas produk-produk simpanan Bank, yang
-                          dibuka baik secara langsung maupun secara tidak
-                          langsung atas permintaan Nasabah, baik yang telah ada
-                          maupun yang akan ada dikemudian hari.
+                          pembukuan Bank atas produk-produk simpanan Bank
+                          Syariah, yang dibuka baik secara langsung maupun
+                          secara tidak langsung atas permintaan Nasabah, baik
+                          yang telah ada maupun yang akan ada dikemudian hari.
                         </li>
                         <li>
-                          Rekening tertentu dapat dibuka dalam mata uang rupiah
-                          ataupun mata uang asing (valas), dan Bank tidak
-                          bertanggung jawab atas perubahan nilai yang
-                          diakibatkan oleh perubahan nilai mata uang asing
-                          terhadap rupiah.
+                          Rekening tertentu dapat dibuka dalam mata uang rupiah.
                         </li>
                         <li>
                           Pembukaan rekening wajib didasarkan atas permohonan
                           secara tertulis oleh Nasabah dengan memenuhi segala
-                          persyaratan yang ditentukan oleh Bank.
+                          persyaratan yang ditentukan oleh Bank Syariah.
                         </li>
                         <li>
-                          Bank melarang segala bentuk penyalahgunaan rekening,
-                          termasuk sebagai sarana tindakan berindikasi pidana.
-                          Dalam hal terdapat indikasi penyalahgunaan rekening
-                          oleh nasabah, maka Bank berhak untuk melakukan
-                          pemblokiran rekening, mendebet kembali dana untuk
-                          diselesaikan sesuai dengan ketentuan yang berlaku dan
-                          atau sesuai kebijakan Bank, dan/atau penutupan
-                          rekening.
+                          Bank Syariah melarang segala bentuk penyalahgunaan
+                          rekening, termasuk sebagai sarana tindakan berindikasi
+                          pidana. Dalam hal terdapat indikasi penyalahgunaan
+                          rekening oleh nasabah, maka Bank Syariah berhak untuk
+                          melakukan pemblokiran rekening, mendebet kembali dana
+                          untuk diselesaikan sesuai dengan ketentuan yang
+                          berlaku dan atau sesuai kebijakan Bank Syariah,
+                          dan/atau penutupan rekening.
                         </li>
                       </div>
                     </ol>
@@ -1136,13 +1141,23 @@ const FormNasabahSection = () => {
     setBerhasil(true);
   };
 
+  const dataDrop = [
+    "Tabungan iB Wadiah",
+    "Tabungan iB Multijasa",
+    "Tabungan iB Mudharabah",
+    "Pembiayaan iB Wadiah",
+    "Pembiayaan iB Musyarakah",
+    "Pembiayaan iB Multijasa",
+    "Pembiayaan iB Gadai Emas",
+  ];
+
   return (
     <FormNasabahSite>
       <div className="nasabah_container">
         <div className="nasabah_content">
           <HeadingComponent
             Heading="Pengajuan Buka Rekening"
-            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+            Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami."
           />
           <FormContent>
             <div className="content_form_buka">
@@ -1192,14 +1207,8 @@ const FormNasabahSection = () => {
                         />
                       </div>
                       <div className="inputan">
-                        {/* <FormInput
-                          judul="Jenis Produk"
-                          placeholder="Jenis Produk"
-                          type="text"
-                          value={values.jenis_produk}
-                          onChange={set("jenis_produk")}
-                        /> */}
                         <FormInputSelectProduct
+                          option={dataDrop}
                           placeholder="Jenis Layanan"
                           value={values.jenis_produk}
                           onChange={set("jenis_produk")}
@@ -1300,8 +1309,6 @@ const PenyaluranSection = ({ id }) => {
 
   const inputRef = useRef(null);
 
-  // console.log(selectedFile);
-
   const handleUpload = (e) => {
     if (e.target.files.length !== 0) {
       setPreview({ image: URL.createObjectURL(e.target.files[0]) });
@@ -1337,6 +1344,17 @@ const PenyaluranSection = ({ id }) => {
     localStorage.setItem("item", JSON.stringify(local));
   }, [local]);
 
+  const valueSelect = [
+    {
+      name: "Penyimpanan Dana",
+      value: "penyimpanan_dana",
+    },
+    {
+      name: "Penyaluran Dana",
+      value: "penyaluran_dana",
+    },
+  ];
+
   return (
     <PenyaluranSite>
       <div className="penyaluran_container">
@@ -1350,7 +1368,7 @@ const PenyaluranSection = ({ id }) => {
                   ? "Form Pengajuan Pembiayaan"
                   : null
               }
-              Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+              Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami."
             />
           ) : id === "pembiayaan" ? (
             <HeadingComponent
@@ -1361,7 +1379,7 @@ const PenyaluranSection = ({ id }) => {
                   ? "Form Pengajuan Pembiayaan"
                   : null
               }
-              Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+              Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami."
             />
           ) : null}
           {id === "tabungan" ? (
@@ -1382,6 +1400,7 @@ const PenyaluranSection = ({ id }) => {
                       >
                         <div className="inputan">
                           <FormInputSelectNew
+                            option={valueSelect}
                             onChange={handleSelect}
                             placeholder="Jenis Layanan"
                             value={select}
@@ -1497,6 +1516,7 @@ const PenyaluranSection = ({ id }) => {
                       >
                         <div className="inputan">
                           <FormInputSelectNew
+                            option={valueSelect}
                             onChange={handleSelect}
                             placeholder="Jenis Layanan"
                             value={select}

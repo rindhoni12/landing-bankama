@@ -1,6 +1,6 @@
 import DOMPurify from "dompurify";
 import React, { useEffect, useRef } from "react";
-import { organisasi } from "../../assets";
+import { pro_not } from "../../assets";
 import {
   Background,
   CloseModalButton,
@@ -40,7 +40,14 @@ const ModalItem = ({ showModal, setShowModal, id, item }) => {
             <ModalContent>
               <div className="pembungkus" id={id}>
                 <div className="images_content">
-                  <img src={organisasi} alt="organisasi" />
+                  <div className="circle">
+                    <div className="gambar_img">
+                      <img
+                        src={item.img ? item.img : pro_not}
+                        alt="organisasi"
+                      />
+                    </div>
+                  </div>
                 </div>
                 <div className="content_form">
                   <div className="form">

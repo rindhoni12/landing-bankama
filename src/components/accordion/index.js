@@ -1,5 +1,4 @@
 import { HeadingComponent } from "../atom";
-// import { img1, img2 } from "../../assets";
 import React, { useState } from "react";
 import {
   AccordionContainer,
@@ -7,6 +6,7 @@ import {
   AccordionSite,
   // AccordionImg,
 } from "./AccordionElements";
+// import { img1, img2 } from "../../assets";
 
 const Accordion = ({ items, judul, desc }) => {
   return (
@@ -45,6 +45,7 @@ const AccordionComponent = ({ items, judul, desc }) => {
             );
           })}
         </div>
+        {/* Accordion for image */}
         {/* <div className="pembungkus_gambar">
           {active ? (
             items.map((item, i) => {

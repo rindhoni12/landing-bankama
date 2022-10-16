@@ -1,7 +1,32 @@
 import { FiFacebook, FiMail, FiPhone } from "react-icons/fi";
 import { FaEllipsisV, FaInstagram, FaPhone } from "react-icons/fa";
-import { blog, pak_mumu } from "../assets";
-import fileDownload from "../assets/cv_prawito.pdf";
+import {
+  blog,
+  dep_ib_mu,
+  pak_dim,
+  pak_guf,
+  pak_mak,
+  pak_mumu,
+  pak_wak,
+  pemb_ga_emas,
+  pemb_ib_mul,
+  pemb_ib_mura,
+  pemb_ib_musy,
+  peng1,
+  peng2,
+  peng3,
+  peng4,
+  peng5,
+  struktur,
+  tab_ib_ha,
+  tab_ib_ms,
+  tab_ib_pen,
+  tab_ib_qur,
+  tab_ib_si,
+  tab_ib_wad,
+  tab_simpel,
+  tab_simpel_ay,
+} from "../assets";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -51,17 +76,17 @@ export const DATA_PUBLIKASI = [
     judul: "Laporan Triwulan",
     content: {
       apa: "Seleksi Pemasok dan Perlindungan Hak Kreditur",
-      p: "Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:",
+      p: "Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami.",
       fitur: [
         {
           judul: "Seleksi Pemasok dan Perlindungan Hak Kreditur",
           tanggal: "2021 | April",
-          buttonDonwload: fileDownload,
+          buttonDonwload: struktur,
         },
         {
           judul: "Seleksi Pemasok dan Perlindungan Hak Kreditur",
           tanggal: "2022 | April",
-          buttonDonwload: fileDownload,
+          buttonDonwload: struktur,
         },
       ],
     },
@@ -71,17 +96,17 @@ export const DATA_PUBLIKASI = [
     judul: "Laporan CGC",
     content: {
       apa: "Apa yang Dimaksud dengan Tabungan iB Mudharabah ?",
-      p: "Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:",
+      p: "Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami.",
       fitur: [
         {
           judul: "Seleksi Pemasok dan Perlindungan Hak Kreditur CDC",
           tanggal: "2021 | April",
-          buttonDonwload: fileDownload,
+          buttonDonwload: struktur,
         },
         {
           judul: "Seleksi Pemasok dan Perlindungan Hak Kreditur CDC",
           tanggal: "2022 | April",
-          buttonDonwload: fileDownload,
+          buttonDonwload: struktur,
         },
       ],
     },
@@ -110,28 +135,28 @@ export const ORGANISASI = [
   {
     id: 1,
     label: "H. Ahmad Mutamakin, S.Pd.I.",
-    img: pak_mumu,
+    img: pak_mak,
     jabatan: "Dewan Komisaris",
     desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Dasar Pengangkatan: Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },
   {
     id: 2,
     label: "H. Wakhrodi, S.Pd.I., M.Si",
-    img: pak_mumu,
+    img: pak_wak,
     jabatan: "Dewan Komisaris",
     desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },
   {
     id: 3,
     label: "H. Ghufron Halim, S.E, MM",
-    img: pak_mumu,
+    img: pak_guf,
     jabatan: "Dewan Pengawas Syariah",
     desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },
   {
     id: 4,
     label: "Dr. H. Ahmad Dimyati,",
-    img: pak_mumu,
+    img: pak_dim,
     jabatan: "Dewan Pengawas Syariah",
     desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },
@@ -156,7 +181,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa yang Dimaksud dengan Tabungan Wadiah?",
             p: "Tabungan iB Wadiah merupakan tabungan yang dikelola dengan sistem titipan (wadiah)",
-            fileImg: blog,
+            fileImg: tab_ib_wad,
             fitur: [
               {
                 judul: "Fitur & Biaya",
@@ -197,7 +222,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa yang Dimaksud dengan Tabungan iB Simpel ?",
             p: "",
-            fileImg: blog,
+            fileImg: tab_simpel,
             fitur: [
               {
                 judul: "Tabungan Simpel",
@@ -218,7 +243,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa yang Dimaksud dengan Tabungan iB Mudharabah ?",
             p: "Tabungan iB Mudharabah merupakan tabungan yang dikelola dengan sistem bagi hasil.",
-            fileImg: blog,
+            fileImg: tab_simpel_ay,
             fitur: [
               {
                 judul: "Tabungan Simpel Ayah",
@@ -249,7 +274,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa yang Dimaksud dengan Pembiayaan iB Murabahah?",
             p: "Pembiayaan iB Murabahah merupakan jenis pembiayaan yang menggunakan prinsip jual beli.",
-            fileImg: blog,
+            fileImg: pemb_ib_mura,
             fitur: [
               {
                 judul: "Kegunaan",
@@ -323,7 +348,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa yang Dimaksud dengan Pembiayaan iB Musyarakah ?",
             p: "Pembiayaan iB Musyarakah merupakan jenis pembiayaan yang menggunakan prinsip bagi hasil.",
-            fileImg: blog,
+            fileImg: pemb_ib_musy,
             fitur: [
               {
                 judul: "Kegunaan",
@@ -397,7 +422,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa itu Pembiayaan iB Multijasa ?",
             p: "Pembiayaan iB Multijasa merupakan jenis pembiayaan yang menggunakan akad ijarah.",
-            fileImg: blog,
+            fileImg: pemb_ib_mul,
             fitur: [
               {
                 judul: "Kegunaan",
@@ -469,7 +494,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa itu Pembiayaan iB Multijasa ?",
             p: "Pembiayaan iB Gadai Emas merupakan jenis pembiayaan dengan menggunakan prisnsip Qardh, Ijarah dan Rahn.",
-            fileImg: blog,
+            fileImg: pemb_ga_emas,
             fitur: [
               {
                 judul: "Kegunaan",
@@ -505,7 +530,7 @@ export const DATA_BARU = {
           content: {
             apa: "",
             p: "",
-            fileImg: blog,
+            fileImg: tab_ib_ha,
             fitur: [
               {
                 judul: "1. Tabungan iB Haji",
@@ -528,7 +553,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa yang Dimaksud dengan Tabungan iB Masa Depan ?",
             p: "",
-            fileImg: blog,
+            fileImg: tab_ib_ms,
             fitur: [
               {
                 judul: "1. Tabungan iB Masa Depan",
@@ -551,7 +576,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa yang Dimaksud dengan Tabungan iB Pendidikan ?",
             p: "",
-            fileImg: blog,
+            fileImg: tab_ib_pen,
             fitur: [
               {
                 judul: "1. Tabungan iB Pendidikan",
@@ -574,7 +599,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa itu Deposito iB Qurban ?",
             p: "",
-            fileImg: blog,
+            fileImg: tab_ib_qur,
             fitur: [
               {
                 judul: "1. Tabungan iB Qurban",
@@ -597,7 +622,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa itu Deposito iB Si Muda ?",
             p: "",
-            fileImg: blog,
+            fileImg: tab_ib_si,
             fitur: [
               {
                 judul: "1. Tabungan iB siMuda",
@@ -630,7 +655,7 @@ export const DATA_BARU = {
           content: {
             apa: "Apa itu Deposito iB Mudharabah ?",
             p: "",
-            fileImg: blog,
+            fileImg: dep_ib_mu,
             fitur: [
               {
                 judul: "Deposito iB Mudharabah",
@@ -683,15 +708,15 @@ export const NAVLINKS = [
         name: "PENYIMPANAN DANA",
         sub: [
           {
-            to: "/layanan-kami/penyimpanan-dana/0",
+            to: "./layanan-kami/penyimpanan-dana/0",
             judul: "Tabungan iB Wadiah",
           },
           {
-            to: "/layanan-kami/penyimpanan-dana/1",
+            to: "./layanan-kami/penyimpanan-dana/1",
             judul: "Tabungan iB Mudharabah",
           },
           {
-            to: "/layanan-kami/penyimpanan-dana/2",
+            to: "./layanan-kami/penyimpanan-dana/2",
             judul: "Deposito iB Mudharabah",
           },
         ],
@@ -702,19 +727,19 @@ export const NAVLINKS = [
         name: "PENYALURAN DANA",
         sub: [
           {
-            to: "/layanan-kami/penyaluran-dana/0",
+            to: "./layanan-kami/penyaluran-dana/0",
             judul: "Pembiayaan iB Murabahah",
           },
           {
-            to: "/layanan-kami/penyaluran-dana/1",
+            to: "./layanan-kami/penyaluran-dana/1",
             judul: "Pembiayaan iB Musyarakah",
           },
           {
-            to: "/layanan-kami/penyaluran-dana/2",
+            to: "./layanan-kami/penyaluran-dana/2",
             judul: "Pembiayaan iB Multijasa",
           },
           {
-            to: "/layanan-kami/penyaluran-dana/3",
+            to: "./layanan-kami/penyaluran-dana/3",
             judul: "iB Gadai Emas",
           },
         ],
@@ -1122,8 +1147,8 @@ export const WORDING = {
     },
     {
       id: 5,
-      text: "AYO LAPORKAN SEGERA!!",
-      desc: "Kami percaya bahwa pengalaman transaksi perbankan yang berfokus pada kehidupan Anda akan memungkinkan Anda untuk terus bertumbuh.",
+      text: "Assalamualaikum Sahabat Syariah,",
+      desc: "Dalam rangka menjaga kepercayaan nasabah/konsumen, perlindungan terhadap kepentingan konsumen senantiasa menjadi prioritas kami. PT. BPR Syariah Artha Mas Abadi mengedepankan kualitas layanan dalam rangka memberikan solusi bagi konsumen diantaranya melalui layanan pengaduan konsumen.",
     },
   ],
   produk_layanan: [
@@ -1217,7 +1242,40 @@ export const WORDING = {
     {
       id: 4,
       text: "Kontak Kami",
-      desc: "Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:",
+      desc: "Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami.",
     },
   ],
 };
+
+export const DATA_PENGAHRAGAAN = [
+  {
+    key: "penghargaan 1",
+    label: "Penghargaan 1",
+    img: peng1,
+    desc: "BPRS Predikat “ SANGAT BAGUS”  Sharia Finance Awards 2013 versi Majalah Infobank.",
+  },
+  {
+    key: "penghargaan 2",
+    label: "Penghargaan 2",
+    img: peng2,
+    desc: "BPRS Predikat “ SANGAT BAGUS”  Sharia Finance Awards 2014 versi Majalah Infobank.",
+  },
+  {
+    key: "penghargaan 3",
+    label: "Penghargaan 3",
+    img: peng3,
+    desc: "BPRS Predikat “ SANGAT BAGUS”  Sharia Finance Awards 2016 versi Majalah Infobank.",
+  },
+  {
+    key: "penghargaan 4",
+    label: "Penghargaan 4",
+    img: peng4,
+    desc: "BPRS Predikat “ EXCELLENT”  Sharia Finance Awards 2018 versi Majalah Infobank.",
+  },
+  {
+    key: "penghargaan 5",
+    label: "Penghargaan 5",
+    img: peng5,
+    desc: "BPRS Predikat “ EXCELLENT” Financial Performance 2020 versi MES Sharia Institution ",
+  },
+];

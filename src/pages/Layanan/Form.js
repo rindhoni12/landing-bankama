@@ -141,8 +141,6 @@ const Form = ({ id }) => {
         headers: { "content-type": "multipart/form-data" },
       };
 
-      // dataJumlah.pacthValue({ dana: "" });
-
       axios
         .post(
           "https://admin.arthamasabadi.co.id/api/v1/pembiayaan",
@@ -198,12 +196,20 @@ const Form = ({ id }) => {
         text: "Tabungan iB Wadiah",
       },
       {
-        value: "tabungan_ib_mudharabah",
-        text: "Tabungan iB Mudharabah",
+        value: "tabungan_ib_haji",
+        text: "Tabungan iB Haji",
       },
       {
-        value: "deposito_ib_mudharabah",
-        text: "Deposito iB Mudharabah",
+        value: "tabungan_ib_pendidikan",
+        text: "Tabungan iB Pendidikan",
+      },
+      {
+        value: "tabungan_ib_qurban",
+        text: "Tabungan iB Qurban",
+      },
+      {
+        value: "tabungan_ib_si_muda",
+        text: "Tabungan iB Si Muda",
       },
     ],
     pembiayaan: [
@@ -274,7 +280,7 @@ const Form = ({ id }) => {
                     ? "Form Pengajuan Pembiayaan"
                     : null
                 }
-                Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami di:"
+                Text="Jika Anda memiliki pertanyaan atau tidak dapat menemukan apa yang Anda cari, jangan ragu untuk menghubungi kami."
               />
               <FormContent>
                 <div className="content_form_buka">

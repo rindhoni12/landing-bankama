@@ -378,7 +378,6 @@ const Header = () => {
                 })}
               </ul>
             </nav>
-
             {isNavOpen && (
               <div
                 className="navOverlay"

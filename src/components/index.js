@@ -5,8 +5,9 @@ import Accordion from "./accordion";
 import ModalItem from "./modal";
 import Header from "./header";
 import Footer from "./footer";
-import FormKpr, { FormSimulasi } from "./form";
+import { FormKpr, FormSimulasi } from "./form";
 import {
+  DetailOrganisasiSection,
   CardInformasiSection,
   FormNasabahSection,
   OrganisasiSection,
@@ -17,7 +18,6 @@ import {
   LayananSection,
   HubungiSection,
   ErrorSection,
-  DetailOrganisasiSection,
 } from "./section";
 import {
   FocusComponentWithLogo,
@@ -25,42 +25,42 @@ import {
   DetailLayananPages,
   HeadingComponent,
   DetailLayanan,
+  WaItemContent,
+  CardItemLoad,
   OjkInformasi,
   ReactHelmet,
   Informasi,
-  WaItemContent,
   Detail,
   Card,
-  CardItemLoad,
 } from "./atom";
 import { Button, ButtonTransparent, ButtonDownload } from "./button";
 
 export {
+  DetailOrganisasiSection,
+  CardInformasiSection,
   FormNasabahSection,
+  KontakKamiSection,
   PenyaluranSection,
   OrganisasiSection,
   PengajuanSection,
   PublikasiSection,
   HubungiSection,
   LayananSection,
+  GalerySection,
   ErrorSection,
-  KontakKamiSection,
   DetailBeritaComponents,
   HeadingComponent,
   Footer,
   Header,
   Accordion,
   FormKpr,
-  CardInformasiSection,
   ModalItem,
-  GalerySection,
   SimpleSlider,
   SimpleSliderFicture,
   Informasi,
   Card,
   Detail,
   OjkInformasi,
-  DetailOrganisasiSection,
   DetailLayanan,
   DetailLayananPages,
   FocusComponentColor,

@@ -2,7 +2,6 @@ import React from "react";
 import { ReactHelmet } from "../../components/atom";
 import { useLocation, useParams } from "react-router-dom";
 import { ErrorSection } from "../../components/section";
-// import { contactUs } from "../../assets";
 import Form from "./Form";
 
 const FormPenyaluran = () => {

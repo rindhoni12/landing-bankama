@@ -320,7 +320,6 @@ export const OrganisasiSite = styled.section`
           }
 
           .gambar_img {
-            /* padding: 10px; */
             overflow: hidden;
             transition: all 0.3s ease-in-out;
             border-radius: 50%;
@@ -578,7 +577,7 @@ export const ContentTabSite = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: 30px;
     padding: 10px;
 
     .judul {
@@ -1519,6 +1518,7 @@ export const SimulasiBankSite = styled.section`
         .img_card {
           overflow: hidden;
           display: flex;
+          margin: -2px;
           img {
             width: 100%;
             height: 100%;
