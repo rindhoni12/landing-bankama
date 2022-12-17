@@ -244,6 +244,7 @@ export const FormKpr = () => {
       formReset.reset();
       setSelect("");
       setSelectNew("");
+      setHasil("");
       setValues({
         jangkawaktu: "",
         jangkawaktu2: "",
@@ -308,7 +309,7 @@ export const FormKpr = () => {
       setHasil(perubahan);
     } else if (data.dropdown === "Musyarakah") {
       const perhitunganKredit =
-        toNumber / parseFloat(data.selectNew) + toNumber * persentase;
+        toNumber + toNumber * parseFloat(data.selectNew) * persentase;
       const perubahan = formatRupiah(parseInt(perhitunganKredit), "Rp ");
       setHasil(perubahan);
     } else if (data.dropdown === "Murabahah") {
@@ -330,7 +331,7 @@ export const FormKpr = () => {
     },
     {
       name: "6 Bulan",
-      value: "5",
+      value: "6",
     },
     {
       name: "9 Bulan",
@@ -429,7 +430,11 @@ export const FormKpr = () => {
                 </form>
               </div>
               <div className="content_hasil">
-                <div className="text">Angsuran per Bulan anda adalah :</div>
+                {dropdown === "Musyarakah" ? (
+                  <div className="text">Bayar pas Jatuh Tempo :</div>
+                ) : (
+                  <div className="text">Angsuran per Bulan anda adalah :</div>
+                )}
                 <div className="hasil">{hasil ? hasil : 0}</div>
               </div>
             </div>
