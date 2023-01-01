@@ -1,4 +1,5 @@
 import struktur from "./file/struktur-organisasi-juni-2021.xls";
+import laporan_tahunan from "./file/laporan_tahunan_bni.pdf";
 import simu_pembiayaan from "./img/simulasi-pembiayaan.jpg";
 import simu_tabungan from "./img/simulasi-tabungan.jpg";
 import pemb_ib_mul from "./img/pembiayaan-ib-multijasa.jpg";
@@ -88,6 +89,7 @@ export {
   pak_guf,
   pak_wak,
   struktur,
+  laporan_tahunan,
   wbsIcon,
   logoNew,
   logoAma,

@@ -544,10 +544,8 @@ const ContentTabPublikasi = (item) => {
     <ContentTabSite>
       <div className="tab_content">
         <div className="value">
-          <h1>Apa yang Dimaksud dengan {item.judul} ?</h1>
-          <p>{item.item && item.item.p}</p>
           <div className="button_download">
-            {!item.item ? (
+            {item.item ? (
               <>
                 {item?.item &&
                   item?.item.fitur.map((item, i) => (
