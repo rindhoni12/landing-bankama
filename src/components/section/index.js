@@ -32,7 +32,6 @@ import {
 import {
   ButtonTransparent,
   HeadingComponent,
-  ButtonDownload,
   ReactHelmet,
   Button,
 } from "../../components";
@@ -43,7 +42,11 @@ import {
   struktur,
 } from "../../assets";
 import { ORGANISASI, KONTAK_KAMI, DATAFETCH } from "../../config";
-import { ButtonDownloadOrganisasi, ButtonLink } from "../button";
+import {
+  ButtonDownloadOrganisasi,
+  ButtonDownloadPublikasi,
+  ButtonLink,
+} from "../button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { FormContent } from "../form/FormElements";
@@ -515,7 +518,7 @@ const TabPublikasi = ({ children, active }) => {
   return (
     <Tabs>
       <ul className="tabs_button">
-        {tabsData.map((tabs, idx) => (
+        {tabsData?.map((tabs, idx) => (
           <li
             className={`tabs_nav ${idx === activeTab ? "active" : ""}`}
             key={idx}
@@ -545,16 +548,16 @@ const ContentTabPublikasi = (item) => {
       <div className="tab_content">
         <div className="value">
           <div className="button_download">
-            {item.item ? (
+            {item?.item?.fitur?.length !== 0 ? (
               <>
                 {item?.item &&
-                  item?.item.fitur.map((item, i) => (
+                  item?.item.fitur?.map((item, i) => (
                     <div key={i} className="card_download">
                       <div className="text_download">
                         <h1>{item.judul}</h1>
                         <p>{item.tanggal}</p>
                       </div>
-                      <ButtonDownload
+                      <ButtonDownloadPublikasi
                         icon={FaDownload}
                         label={item.judul}
                         file={item.buttonDonwload}
@@ -598,7 +601,7 @@ const PublikasiSection = ({ DATA_TABS, dataWording }) => {
           <div className="layanan_tabs">
             <div className="content">
               <TabPublikasi active={0}>
-                {TABS.map((tab, idx) => (
+                {TABS?.map((tab, idx) => (
                   <TabPublikasi.TabPanelPublikasi
                     key={`Tab-${idx}`}
                     tab={tab.judul}

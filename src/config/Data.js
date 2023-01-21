@@ -50,6 +50,26 @@ export const DATAFETCH = (url) => {
   return { data, isloading };
 };
 
+export const DATAFETCHPUBLIKASI = (url) => {
+  const [data, setData] = useState();
+  const [isloading, setLoading] = useState(true);
+  useEffect(() => {
+    const getData = async () => {
+      setLoading(true);
+      try {
+        const response = await axios(url);
+        setData(response.data);
+      } catch {
+        console.log("error");
+      }
+      setLoading(false);
+    };
+    getData();
+  }, [url]);
+
+  return { data, isloading };
+};
+
 export const DATAFETCHVIDEO = (url) => {
   const [data, setData] = useState();
   const [isloading, setLoading] = useState(true);
