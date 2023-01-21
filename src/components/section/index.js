@@ -32,19 +32,21 @@ import {
 import {
   ButtonTransparent,
   HeadingComponent,
-  ButtonDownload,
   ReactHelmet,
   Button,
 } from "../../components";
 import {
-  laporan_tahunan,
   pro_not,
   simu_pembiayaan,
   simu_tabungan,
   struktur,
 } from "../../assets";
 import { ORGANISASI, KONTAK_KAMI, DATAFETCH } from "../../config";
-import { ButtonDownloadOrganisasi, ButtonLink } from "../button";
+import {
+  ButtonDownloadOrganisasi,
+  ButtonDownloadPublikasi,
+  ButtonLink,
+} from "../button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { FormContent } from "../form/FormElements";
@@ -555,7 +557,7 @@ const ContentTabPublikasi = (item) => {
                         <h1>{item.judul}</h1>
                         <p>{item.tanggal}</p>
                       </div>
-                      <ButtonDownload
+                      <ButtonDownloadPublikasi
                         icon={FaDownload}
                         label={item.judul}
                         file={item.buttonDonwload}
