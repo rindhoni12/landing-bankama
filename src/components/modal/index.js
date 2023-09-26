@@ -43,26 +43,42 @@ const ModalItem = ({ showModal, setShowModal, id, item }) => {
                   <div className="circle">
                     <div className="gambar_img">
                       <img
-                        src={item.img ? item.img : pro_not}
-                        alt="organisasi"
+                        src={
+                          `https://admin.arthamasabadi.co.id/storage/images/direksis/${item?.photo}`
+                            ? `https://admin.arthamasabadi.co.id/storage/images/direksis/${item?.photo}`
+                            : pro_not
+                        }
+                        alt={item?.nama}
                       />
                     </div>
                   </div>
                 </div>
                 <div className="content_form">
                   <div className="form">
-                    <div className="text_form_judul">{item.label}</div>
+                    <div className="text_form_judul">{item?.nama}</div>
                   </div>
                   <div className="form">
-                    <div className="text_form">{item.jabatan}</div>
+                    <div className="text_form">{item?.jabatan}</div>
                   </div>
                 </div>
                 <div className="heading">
-                  <p
+                  <p>
+                    <b>Pendidikan</b> : {item?.pendidikan_terakhir}
+                  </p>
+                  <br></br>
+                  <p>
+                    <b>Pengalaman Kerja</b> : {item?.pekerjaan_terakhir}
+                  </p>
+                  <br></br>
+                  <p>
+                    <b>Dasar Pengangkatan</b> : {item?.dasar_pengangkatan}
+                  </p>
+                  <br></br>
+                  {/* <p
                     dangerouslySetInnerHTML={{
-                      __html: DOMPurify.sanitize(item.desc),
+                      __html: DOMPurify.sanitize(item?.desc),
                     }}
-                  />
+                  /> */}
                 </div>
               </div>
             </ModalContent>

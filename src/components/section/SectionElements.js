@@ -328,6 +328,8 @@ export const OrganisasiSite = styled.section`
               background: transparent;
               cursor: pointer;
               border-radius: 50%;
+              width: 180px;
+              height: 180px;
             }
 
             img {

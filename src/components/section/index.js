@@ -124,27 +124,31 @@ const KontakKamiSection = ({ dataWording }) => {
 };
 
 const OrganisasiSection = ({ dataWording }) => {
+  const { data: dataOrganisasi, isloading } = DATAFETCH(
+    "https://admin.arthamasabadi.co.id/api/v1/direksi"
+  );
   const allOrganisasi = [
     "All",
-    ...new Set(ORGANISASI.map((item) => item.jabatan)),
+    ...new Set(dataOrganisasi?.map((item) => item.jabatan) || []),
   ];
-
-  const [organisasi, setOrganisasi] = useState(ORGANISASI);
-
+  const [organisasi, setOrganisasi] = useState(dataOrganisasi || []);
   const buttons = allOrganisasi;
-
   const [active, setActive] = useState("All");
-
   const filter = (button) => {
     if (button === "All") {
-      setOrganisasi(ORGANISASI);
+      setOrganisasi(dataOrganisasi || []);
       setActive(button);
       return;
     }
-    const filteredData = ORGANISASI.filter((item) => item.jabatan === button);
+    const filteredData = (dataOrganisasi || []).filter(
+      (item) => item.jabatan === button
+    );
     setOrganisasi(filteredData);
     setActive(button);
   };
+  useEffect(() => {
+    setOrganisasi(dataOrganisasi || []);
+  }, [dataOrganisasi]);
 
   return (
     <OrganisasiSite>
@@ -155,22 +159,28 @@ const OrganisasiSection = ({ dataWording }) => {
             Text={dataWording ? dataWording[2]?.desc : ""}
           />
         </div>
-        <div className="organisasi_page">
-          <div className="button_organisasi">
-            <ButtonFilterComponent
-              filter={filter}
-              button={buttons}
-              active={active}
-            />
+
+        {!isloading ? (
+          <div className="organisasi_page">
+            <div className="button_organisasi">
+              <ButtonFilterComponent
+                filter={filter}
+                button={buttons}
+                active={active}
+              />
+            </div>
+            <motion.div layout className="card_organisasi">
+              <AnimatePresence>
+                {organisasi?.map((item, i) => (
+                  <Card judul="Bisa 1" items={item} key={i} />
+                ))}
+              </AnimatePresence>
+            </motion.div>
           </div>
-          <motion.div layout className="card_organisasi">
-            <AnimatePresence>
-              {organisasi.map((item, i) => (
-                <Card judul="Bisa 1" items={item} key={i} />
-              ))}
-            </AnimatePresence>
-          </motion.div>
-        </div>
+        ) : (
+          "loading...."
+        )}
+
         <ButtonDownloadOrganisasi
           icon={FaDownload}
           label="Download Struktur Organisasi"
@@ -217,18 +227,22 @@ const Card = (item) => {
       <div className="card_component">
         <div className="circle">
           <div className="gambar_img">
-            <button onClick={openModal} id={item.id}>
+            <button onClick={openModal} id={item.items.id}>
               <img
-                src={item.items.img ? item.items.img : pro_not}
-                alt={item.items.label}
+                src={
+                  `https://admin.arthamasabadi.co.id/storage/images/direksis/${item?.items?.photo}`
+                    ? `https://admin.arthamasabadi.co.id/storage/images/direksis/${item?.items?.photo}`
+                    : pro_not
+                }
+                alt={item.items.nama}
               />
             </button>
           </div>
         </div>
 
         <div className="text_nama" style={{ marginTop: "20px" }}>
-          <span>{item.items.label}</span>
-          <p>{item.items.jabatan}</p>
+          <span>{item?.items?.nama}</span>
+          <p>{item?.items?.jabatan}</p>
         </div>
       </div>
       <ModalItem
