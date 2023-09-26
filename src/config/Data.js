@@ -12,11 +12,6 @@ import {
   pemb_ib_mul,
   pemb_ib_mura,
   pemb_ib_musy,
-  peng1,
-  peng2,
-  peng3,
-  peng4,
-  peng5,
   laporan_tahunan,
   tab_ib_ha,
   tab_ib_ms,
@@ -1282,36 +1277,3 @@ export const WORDING = {
     },
   ],
 };
-
-export const DATA_PENGAHRAGAAN = [
-  {
-    key: "penghargaan 1",
-    label: "Penghargaan 1",
-    img: peng1,
-    desc: "BPRS Predikat “ SANGAT BAGUS”  Sharia Finance Awards 2013 versi Majalah Infobank.",
-  },
-  {
-    key: "penghargaan 2",
-    label: "Penghargaan 2",
-    img: peng2,
-    desc: "BPRS Predikat “ SANGAT BAGUS”  Sharia Finance Awards 2014 versi Majalah Infobank.",
-  },
-  {
-    key: "penghargaan 3",
-    label: "Penghargaan 3",
-    img: peng3,
-    desc: "BPRS Predikat “ SANGAT BAGUS”  Sharia Finance Awards 2016 versi Majalah Infobank.",
-  },
-  {
-    key: "penghargaan 4",
-    label: "Penghargaan 4",
-    img: peng4,
-    desc: "BPRS Predikat “ EXCELLENT”  Sharia Finance Awards 2018 versi Majalah Infobank.",
-  },
-  {
-    key: "penghargaan 5",
-    label: "Penghargaan 5",
-    img: peng5,
-    desc: "BPRS Predikat “ EXCELLENT” Financial Performance 2020 versi MES Sharia Institution ",
-  },
-];

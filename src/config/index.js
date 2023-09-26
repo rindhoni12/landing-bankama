@@ -16,7 +16,6 @@ import {
   DATA_FOOTER,
   DATAFETCH,
   WORDING,
-  DATA_PENGAHRAGAAN,
 } from "./data";
 
 export {
@@ -37,5 +36,4 @@ export {
   DATA_FOOTER,
   DATAFETCH,
   WORDING,
-  DATA_PENGAHRAGAAN,
 };

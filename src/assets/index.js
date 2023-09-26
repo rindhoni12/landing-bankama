@@ -28,11 +28,6 @@ import logoBawah from "./img/logo_bawah.png";
 import logoWhite from "./img/logo_white.png";
 import img_bro from "./img/broken-image.png";
 import publikasi from "./img/publikasi.jpg";
-import peng1 from "./img/penghargaan-1.jpg";
-import peng2 from "./img/penghargaan-2.jpg";
-import peng3 from "./img/penghargaan-3.jpg";
-import peng4 from "./img/penghargaan-4.jpg";
-import peng5 from "./img/penghargaan-5.jpg";
 import pak_mumu from "./img/pak-mumu.jpg";
 import pak_dim from "./img/pak-dimyati.jpg";
 import pak_mak from "./img/pak-makin.jpg";
@@ -105,11 +100,6 @@ export {
   mitra4,
   galeri,
   berita,
-  peng1,
-  peng2,
-  peng3,
-  peng4,
-  peng5,
   blog,
   lps1,
   ojk,

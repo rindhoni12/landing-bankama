@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { CorouselSection, CorouselSectionFicture } from "./CarouselElements";
 import { DetailLayanan, HeadingComponent } from "../atom";
 import SliderWrapper from "./_SlickSliderStyle";
-import { DATAFETCH, DATA_PENGAHRAGAAN } from "../../config";
+import { DATAFETCH } from "../../config";
 import Slider from "react-slick";
 
 const SimpleSlider = () => {
@@ -41,8 +41,6 @@ const SimpleSlider = () => {
   const DATABANNERSMOBILE = DATAFETCH(
     "https://admin.arthamasabadi.co.id/api/v1/mobile-banners"
   )?.data;
-
-  console.log(DATABANNERSMOBILE);
 
   return (
     <CorouselSection>
@@ -97,6 +95,10 @@ export const SimpleSliderFicture = ({ dataWording }) => {
     // ),
   };
 
+  const DATAPENGHARGAAN = DATAFETCH(
+    "https://admin.arthamasabadi.co.id/api/v1/award"
+  )?.data;
+
   return (
     <CorouselSectionFicture>
       <div className="carousel_container">
@@ -107,13 +109,13 @@ export const SimpleSliderFicture = ({ dataWording }) => {
         <div className="carousel_container_slide">
           <SliderWrapper>
             <Slider {...settings}>
-              {DATA_PENGAHRAGAAN
-                ? DATA_PENGAHRAGAAN?.map((item, i) => (
+              {DATAPENGHARGAAN
+                ? DATAPENGHARGAAN?.map((item, i) => (
                     <DetailLayanan
-                      deskripsi={item.desc}
-                      key={i}
-                      item={item.label}
-                      imgDetail={item.img}
+                      deskripsi={item.deskripsi}
+                      key={item.id}
+                      item={item.judul}
+                      imgDetail={item.photo}
                     />
                   ))
                 : ""}

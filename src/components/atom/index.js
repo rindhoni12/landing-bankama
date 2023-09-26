@@ -245,16 +245,22 @@ const Detail = (item) => {
 };
 
 const DetailLayanan = ({ item, imgDetail, deskripsi }) => {
+  const deskripsiValue = deskripsi ? deskripsi : "";
   return (
     <DetailComponents>
       <div className="detail_content">
         <div className="detail_img">
-          <img src={imgDetail} alt="imgDetail" />
+          <img
+            src={`https://admin.arthamasabadi.co.id/storage/images/awards/${imgDetail}`}
+            alt="imgDetail"
+          />
         </div>
         <div className="detail_text">
           <div className="visi_misi">
             <div className="detail_text_heading">{item ? item : ""}</div>
-            <div className="detail_text_p">{deskripsi ? deskripsi : ""}</div>
+            <div className="detail_text_p">
+              <div dangerouslySetInnerHTML={{ __html: deskripsiValue }} />
+            </div>
           </div>
         </div>
       </div>
