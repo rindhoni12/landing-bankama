@@ -3,11 +3,6 @@ import { FaEllipsisV, FaInstagram, FaPhone } from "react-icons/fa";
 import {
   blog,
   dep_ib_mu,
-  pak_dim,
-  pak_guf,
-  pak_mak,
-  pak_mumu,
-  pak_wak,
   pemb_ga_emas,
   pemb_ib_mul,
   pemb_ib_mura,
@@ -159,44 +154,6 @@ export const MEDIA_SOSIAL = [
     to: "tel:+6282137925173",
     label: "Phone",
     icon: FiPhone,
-  },
-];
-
-export const ORGANISASI = [
-  {
-    id: 1,
-    label: "H. Ahmad Mutamakin, S.Pd.I.",
-    img: pak_mak,
-    jabatan: "Komisaris",
-    desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Dasar Pengangkatan: Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
-  },
-  {
-    id: 2,
-    label: "H. Wakhrodi, S.Pd.I., M.Si",
-    img: pak_wak,
-    jabatan: "Komisaris",
-    desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
-  },
-  {
-    id: 3,
-    label: "H. Mumu Mubarok S.S., M.E.I",
-    img: pak_mumu,
-    jabatan: "Direksi",
-    desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
-  },
-  {
-    id: 4,
-    label: "H. Ghufron Halim, S.E, MM",
-    img: pak_guf,
-    jabatan: "Dewan Pengawas Syariah",
-    desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
-  },
-  {
-    id: 5,
-    label: "Dr. H. Ahmad Dimyati,",
-    img: pak_dim,
-    jabatan: "Dewan Pengawas Syariah",
-    desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },
 ];
 

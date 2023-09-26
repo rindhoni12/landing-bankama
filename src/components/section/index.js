@@ -23,7 +23,6 @@ import {
   OrganisasiSite,
   KontakKamiSite,
   PengajuanSite,
-  PimpinanSite,
   HubungiSite,
   LayananSite,
   ErrorSite,
@@ -41,7 +40,7 @@ import {
   simu_tabungan,
   struktur,
 } from "../../assets";
-import { ORGANISASI, KONTAK_KAMI, DATAFETCH } from "../../config";
+import { KONTAK_KAMI, DATAFETCH } from "../../config";
 import {
   ButtonDownloadOrganisasi,
   ButtonDownloadPublikasi,
@@ -1637,88 +1636,6 @@ const PenyaluranSection = ({ id }) => {
   );
 };
 
-const Organisasi = ({ item }) => {
-  return (
-    <OrganisasiSite>
-      <motion.div className="informasi" layout>
-        <div className="gambar_img">
-          <img src={item.img} alt={item.label} />
-        </div>
-        <div className="text_nama">
-          <h1>{item.label}</h1>
-          <p>{item.jabatan}</p>
-        </div>
-      </motion.div>
-    </OrganisasiSite>
-  );
-};
-
-const DetailOrganisasiSection = () => {
-  const allOrganisasi = [
-    "All",
-    ...new Set(ORGANISASI.map((item) => item.jabatan)),
-  ];
-
-  const [organisasi, setOrganisasi] = useState(ORGANISASI);
-
-  const buttons = allOrganisasi;
-
-  const [active, setActive] = useState("All");
-
-  const filter = (button) => {
-    if (button === "All") {
-      setOrganisasi(ORGANISASI);
-      setActive(button);
-      return;
-    }
-    const filteredData = ORGANISASI.filter((item) => item.jabatan === button);
-    setOrganisasi(filteredData);
-    setActive(button);
-  };
-
-  return (
-    <PimpinanSite>
-      <div className="organisasi_container">
-        <HeadingComponent
-          Heading="Pimpinan Kami"
-          Text="Kami percaya bahwa pengalaman transaksi perbankan yang berfokus pada kehidupan Anda akan memungkinkan Anda untuk terus bertumbuh."
-        />
-
-        <div className="organisasi_all">
-          <div className="organisasi_button">
-            <ButtonFilterComponent
-              filter={filter}
-              button={buttons}
-              active={active}
-            />
-          </div>
-
-          {organisasi.length === 1 ? (
-            <motion.div className="organisasi_content_active" layout>
-              <AnimatePresence>
-                {organisasi.map((item, i) => (
-                  <Organisasi key={i} item={item} />
-                ))}
-              </AnimatePresence>
-            </motion.div>
-          ) : (
-            <motion.div className="organisasi_content" layout>
-              <AnimatePresence>
-                {organisasi.map((item, i) => (
-                  <Organisasi key={i} item={item} />
-                ))}
-              </AnimatePresence>
-            </motion.div>
-          )}
-        </div>
-        <div className="download">
-          <a href="#try">Download Struktur Organisasi</a>
-        </div>
-      </div>
-    </PimpinanSite>
-  );
-};
-
 const SimulasiBankSection = () => {
   return (
     <SimulasiBankSite>
@@ -1779,6 +1696,5 @@ export {
   PengajuanSection,
   FormNasabahSection,
   PenyaluranSection,
-  DetailOrganisasiSection,
   SimulasiBankSection,
 };

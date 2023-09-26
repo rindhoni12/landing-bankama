@@ -7,7 +7,6 @@ import Header from "./header";
 import Footer from "./footer";
 import { FormKpr, FormSimulasi } from "./form";
 import {
-  DetailOrganisasiSection,
   CardInformasiSection,
   FormNasabahSection,
   OrganisasiSection,
@@ -36,7 +35,6 @@ import {
 import { Button, ButtonTransparent, ButtonDownload } from "./button";
 
 export {
-  DetailOrganisasiSection,
   CardInformasiSection,
   FormNasabahSection,
   KontakKamiSection,

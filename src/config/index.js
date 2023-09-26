@@ -6,7 +6,6 @@ import themeList from "./themeList";
 import {
   DATA_PUBLIKASI,
   MEDIA_SOSIAL,
-  ORGANISASI,
   DATA_BARU,
   NAVLINKS,
   PHOTOS,
@@ -26,7 +25,6 @@ export {
   themeList,
   DATA_PUBLIKASI,
   MEDIA_SOSIAL,
-  ORGANISASI,
   DATA_BARU,
   NAVLINKS,
   PHOTOS,
