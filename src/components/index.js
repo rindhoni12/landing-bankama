@@ -21,7 +21,6 @@ import {
 import {
   FocusComponentWithLogo,
   FocusComponentColor,
-  DetailLayananPages,
   HeadingComponent,
   DetailLayanan,
   WaItemContent,
@@ -60,7 +59,6 @@ export {
   Detail,
   OjkInformasi,
   DetailLayanan,
-  DetailLayananPages,
   FocusComponentColor,
   FocusComponentWithLogo,
   ReactHelmet,

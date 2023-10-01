@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { BERITA, WORDING } from "../../config";
+import { BERITA, DATAFETCH, WORDING } from "../../config";
 import {
   CardInformasiSection,
   FocusComponentWithLogo,
@@ -18,13 +18,9 @@ const Home = () => {
   const location = useLocation();
   const dataWording = WORDING;
 
-  const DATAMISI = [
-    "Memberikan layanan penyimpanan dana dan pembiayaan berdasarkan prinsip syariah yang lengkap kepada masyarakat",
-    "Mensosialisasikan serta menanamkan pola, sistem, dan konsep perbankan syariah dalam perekonomian masyarakat.",
-    "Melakukan inovasi produk sesuai dengan kebutuhan dan perkembangan ekonomi masyarakat.",
-    "Mengembangkan jaringan layanan kantor di wilayah eks Karesidenan Pati.",
-    "Meningkatkan kesejahteraan bagi karyawan, pengurus, dan pemegang saham.",
-  ];
+  const VISIMISI = DATAFETCH(
+    "https://admin.arthamasabadi.co.id/api/v1/visimisi"
+  )?.data;
 
   return (
     <>
@@ -36,10 +32,9 @@ const Home = () => {
       <Detail
         img={visimisi}
         judul="Visi"
-        deskripsi="Menjadi BPR Syariah pilihan masyarakat yang sehat, unggul, dan terpercaya di wilayah eks Karesidenan Pati."
+        deskripsi={VISIMISI?.visi}
         judulMisi="Misi"
-        misi={DATAMISI}
-        deskripsiMisi="Menjadi BPR Syariah pilihan masyarakat yang sehat, unggul, dan terpercaya di wilayah eks Karesidenan Pati."
+        misi={VISIMISI?.misi}
       />
       <OjkInformasi dataWording={dataWording ? dataWording?.home : ""} />
       {/* <SimpleSliderFicture dataWording={dataWording ? dataWording?.home : ""} /> */}
