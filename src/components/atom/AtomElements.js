@@ -747,7 +747,7 @@ export const FocusComponentSiteContact = styled.section`
     }
 
     .backgroud_class {
-      height: 540px;
+      /* height: 540px; */
       width: 100%;
       overflow: hidden;
 
