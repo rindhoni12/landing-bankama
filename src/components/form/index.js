@@ -277,8 +277,8 @@ export const FormKpr = ({ img, isloading }) => {
     let presentase_bunga;
     const dropdownToNamaPembiayaan = {
       Murabahah: "iB Murabahah",
-      Musyarakah: "iB Multijasa",
-      Multijasa: "iB Musyarakah",
+      Multijasa: "iB Multijasa",
+      Musyarakah: "iB Musyarakah",
     };
     const selectedNamaPembiayaan = dropdownToNamaPembiayaan[data.dropdown];
     const filteredData = (dataPembiayaan || []).filter(
