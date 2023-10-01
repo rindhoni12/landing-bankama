@@ -34,13 +34,8 @@ import {
   ReactHelmet,
   Button,
 } from "../../components";
-import {
-  pro_not,
-  simu_pembiayaan,
-  simu_tabungan,
-  struktur,
-} from "../../assets";
-import { KONTAK_KAMI, DATAFETCH } from "../../config";
+import { pro_not, simu_pembiayaan, simu_tabungan } from "../../assets";
+import { DATAFETCH } from "../../config";
 import {
   ButtonDownloadOrganisasi,
   ButtonDownloadPublikasi,
@@ -49,13 +44,64 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { FormContent } from "../form/FormElements";
-import { FiX } from "react-icons/fi";
+import { FiMail, FiX } from "react-icons/fi";
 import ModalItem from "../modal";
 import axios from "axios";
 
 const KontakKamiSection = ({ dataWording }) => {
-  const dataCabang = KONTAK_KAMI.kantor_cabang[0];
-  const dataPusat = KONTAK_KAMI.kantor_pusat[0];
+  const ALAMAT = DATAFETCH(
+    "https://admin.arthamasabadi.co.id/api/v1/alamat"
+  )?.data;
+
+  console.log(ALAMAT);
+
+  const getDataPusat = ALAMAT?.filter(
+    (item) => item.nama_cabang === "Kantor Pusat"
+  );
+  // Convert the filtered object to an array
+  const dataPusat = getDataPusat?.length > 0 ? getDataPusat[0] : [];
+  // Create the desired format
+  const transformedDataPusat = {
+    id: dataPusat.id,
+    nama_cabang: dataPusat.nama_cabang,
+    alamat: dataPusat.alamat,
+    no: [
+      {
+        id: 1,
+        icon: FaPhone, // Replace with the actual icon component
+        value: dataPusat.no_telp,
+      },
+      {
+        id: 2,
+        icon: FiMail, // Replace with the actual icon component
+        value: dataPusat.no_hp,
+      },
+    ],
+  };
+
+  const getDataCabang = ALAMAT?.filter(
+    (item) => item.nama_cabang !== "Kantor Pusat"
+  );
+
+  // Use the map function to transform the data into the desired format
+  const formattedDataCabang = getDataCabang?.map((item) => ({
+    id: item.id,
+    nama_cabang: item.nama_cabang,
+    alamat: item.alamat,
+    no: [
+      {
+        id: 1,
+        icon: FaPhone, // Replace with the actual icon component
+        value: item.no_telp,
+      },
+      {
+        id: 2,
+        icon: FiMail, // Replace with the actual icon component
+        value: item.no_hp,
+      },
+    ],
+  }));
+
   return (
     <KontakKamiSite>
       <div className="tentang_container">
@@ -75,13 +121,13 @@ const KontakKamiSection = ({ dataWording }) => {
             />
           </div>
 
-          {dataPusat && (
+          {transformedDataPusat && (
             <div className="contact">
-              <h1>{dataPusat.judul}</h1>
-              <p>{dataPusat.alamat}</p>
+              <h1>{transformedDataPusat.nama_cabang}</h1>
+              <p>{transformedDataPusat.alamat}</p>
               <div className="no_telp">
-                {dataPusat.no &&
-                  dataPusat.no.map((item, i) => (
+                {transformedDataPusat.no &&
+                  transformedDataPusat.no.map((item, i) => (
                     <p key={i}>
                       <item.icon /> {item.value}
                     </p>
@@ -95,14 +141,14 @@ const KontakKamiSection = ({ dataWording }) => {
             </div>
           )}
         </div>
-        {dataCabang && (
+        {formattedDataCabang && (
           <div className="tentang_cabang">
-            <h1>{dataCabang.judul}</h1>
+            <h1>Kantor Cabang</h1>
             <div className="cabang_bank">
-              {dataCabang.cabang &&
-                dataCabang.cabang.map((item, i) => (
+              {formattedDataCabang &&
+                formattedDataCabang?.map((item, i) => (
                   <div key={i} className="cabang_content">
-                    <h1>{item.judul}</h1>
+                    <h1>{item.nama_cabang}</h1>
                     <p>{item.alamat}</p>
                     <div className="no_telp">
                       {item.no &&
@@ -149,6 +195,10 @@ const OrganisasiSection = ({ dataWording }) => {
     setOrganisasi(dataOrganisasi || []);
   }, [dataOrganisasi]);
 
+  const STRUKTUR = DATAFETCH(
+    "https://admin.arthamasabadi.co.id/api/v1/struktur"
+  )?.data;
+
   return (
     <OrganisasiSite>
       <div className="organisasi_container">
@@ -182,8 +232,8 @@ const OrganisasiSection = ({ dataWording }) => {
 
         <ButtonDownloadOrganisasi
           icon={FaDownload}
-          label="Download Struktur Organisasi"
-          file={struktur}
+          label={STRUKTUR?.judul}
+          file={`https://admin.arthamasabadi.co.id/storage/files/strukturs/${STRUKTUR?.pdfpath}`}
         />
       </div>
     </OrganisasiSite>

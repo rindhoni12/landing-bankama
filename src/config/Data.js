@@ -1,5 +1,5 @@
-import { FiFacebook, FiMail, FiPhone } from "react-icons/fi";
-import { FaEllipsisV, FaInstagram, FaPhone } from "react-icons/fa";
+import { FiFacebook, FiPhone } from "react-icons/fi";
+import { FaEllipsisV, FaInstagram } from "react-icons/fa";
 import {
   blog,
   dep_ib_mu,
@@ -917,89 +917,6 @@ export const TABS = [
       "3 page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now",
   },
 ];
-
-export const KONTAK_KAMI = {
-  kantor_pusat: [
-    {
-      id: 1,
-      judul: "Kantor Pusat",
-      alamat:
-        "Jl. Raya Pati – Tayu Km. 19. Waturoyo, Kec. Margoyoso, Kabupaten Pati, Jawa Tengah 59154",
-      no: [
-        {
-          id: 1,
-          icon: FaPhone,
-          value: "(0295) 4150477",
-        },
-        {
-          id: 2,
-          icon: FiMail,
-          value: "085225100893",
-        },
-      ],
-    },
-  ],
-  kantor_cabang: [
-    {
-      id: 1,
-      judul: "Kantor Cabang",
-      alamat: "",
-      cabang: [
-        {
-          id: 1,
-          judul: "Kantor Kas Winong",
-          alamat: "Jl. Raya Winong – Pucakwangi Km. 01 Pekalongan Winong Pati",
-          no: [
-            {
-              id: 1,
-              icon: FaPhone,
-              value: "(0295) 4101241",
-            },
-            {
-              id: 2,
-              icon: FiMail,
-              value: "085326670851",
-            },
-          ],
-        },
-        {
-          id: 2,
-          judul: "Kantor Kas Cluwak",
-          alamat: "Jl. Raya Tayu – Jepara Km. 07 Ngablak Cluwak Pati",
-          no: [
-            {
-              id: 1,
-              icon: FaPhone,
-              value: "(0295) 4545037",
-            },
-            {
-              id: 2,
-              icon: FiMail,
-              value: "082314006059",
-            },
-          ],
-        },
-        {
-          id: 2,
-          judul: "Kantor Kas Pati",
-          alamat: "Jl. Mr. Iskandar No. 1 C Kalianyar Pati",
-          no: [
-            {
-              id: 1,
-              icon: FaPhone,
-              value: "(0295) 4102834",
-            },
-            {
-              id: 2,
-              icon: FiMail,
-              value: "082328262770",
-            },
-          ],
-        },
-      ],
-    },
-  ],
-};
 
 export const DATA_FOOTER = {
   syarat_ketentuan: [
