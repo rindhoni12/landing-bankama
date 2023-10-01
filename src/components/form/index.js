@@ -3,7 +3,6 @@ import { FormContent, FormSite } from "./FormElements";
 import CurrencyInput from "react-currency-input-field";
 import { FaAccusoft } from "react-icons/fa";
 import { HeadingComponent } from "../atom";
-import { banner } from "../../assets";
 import { Button, ButtonTransparent } from "../button";
 import { DATAFETCH } from "../../config";
 
@@ -205,7 +204,7 @@ export const FormTextArea = (item) => {
   );
 };
 
-export const FormKpr = () => {
+export const FormKpr = ({ img, isloading }) => {
   const [select, setSelect] = useState("");
   const [selectNew, setSelectNew] = useState("");
   const [dropdown, setDropdown] = useState("");
@@ -367,9 +366,16 @@ export const FormKpr = () => {
           <div className="card_form">
             <div className="content">
               <div className="content_form">
-                <div className="gambar_pemanis">
-                  <img src={banner} alt="banner" />
-                </div>
+                {isloading ? (
+                  <div className="gambar_pemanis">loading...</div>
+                ) : (
+                  <div className="gambar_pemanis">
+                    <img
+                      src={`https://admin.arthamasabadi.co.id/storage/images/ilustrasis/${img.banner}`}
+                      alt="banner"
+                    />
+                  </div>
+                )}
                 <form
                   className="form_style"
                   onSubmit={handleSubmit}
@@ -445,7 +451,7 @@ export const FormKpr = () => {
   );
 };
 
-export const FormSimulasi = ({ dataWording }) => {
+export const FormSimulasi = ({ dataWording, img, isloading }) => {
   const [dataBungaItems, setDataBunga] = useState([]);
   const [show, setShow] = useState(false);
   const [dataJumlah, setDataJumlah] = useState("");
@@ -650,9 +656,16 @@ export const FormSimulasi = ({ dataWording }) => {
             {showSimu ? (
               <div className="content">
                 <div className="content_form">
-                  <div className="gambar_pemanis">
-                    <img src={banner} alt="banner" />
-                  </div>
+                  {isloading ? (
+                    <div className="gambar_pemanis">loading...</div>
+                  ) : (
+                    <div className="gambar_pemanis">
+                      <img
+                        src={`https://admin.arthamasabadi.co.id/storage/images/ilustrasis/${img?.banner}`}
+                        alt="banner"
+                      />
+                    </div>
+                  )}
                   <form
                     className="form_style"
                     onSubmit={handleSubmit}

@@ -32,13 +32,13 @@ import pak_dim from "./img/pak-dimyati.jpg";
 import pak_mak from "./img/pak-makin.jpg";
 import pak_guf from "./img/pak-gufron.jpg";
 import pak_wak from "./img/pak-wakhrodi.jpg";
+import isloading from "./img/isloading.svg";
 import visimisi from "./img/visimisi.jpg";
 import whatsapp from "./img/whatsapp.png";
 import no_pic from "./img/no-picture.jpg";
 import simulasi from "./img/simulasi.jpg";
 import wbsIcon from "./img/wbs-icon.png";
 import logoNew from "./img/logo_new.png";
-import banner from "./img/banner.png";
 import galeri from "./img/galeri.jpg";
 import berita from "./img/berita.jpg";
 import lps1 from "./img/lps.1.png";
@@ -78,6 +78,7 @@ export {
   pak_mak,
   pak_guf,
   pak_wak,
+  isloading,
   laporan_tahunan,
   wbsIcon,
   logoNew,
@@ -85,7 +86,6 @@ export {
   form_p,
   img_bro,
   pro_not,
-  banner,
   produk,
   no_pic,
   galeri,

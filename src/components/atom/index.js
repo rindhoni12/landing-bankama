@@ -206,9 +206,16 @@ const Detail = (item) => {
     <DetailComponents>
       <div className="detail_container">
         <div className="detail_content">
-          <div className="detail_img">
-            <img src={item.img} alt="two" />
-          </div>
+          {item?.isloading ? (
+            <div className="detail_img">loading...brooo</div>
+          ) : (
+            <div className="detail_img">
+              <img
+                src={`https://admin.arthamasabadi.co.id/storage/images/ilustrasis/${item?.img}`}
+                alt="two"
+              />
+            </div>
+          )}
           <div className="detail_text">
             <div className="visi_misi">
               <div className="detail_text_heading">{item.judul}</div>

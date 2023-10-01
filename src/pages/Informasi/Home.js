@@ -12,7 +12,6 @@ import {
   Detail,
   Card,
 } from "../../components";
-import { visimisi } from "../../assets";
 
 const Home = () => {
   const location = useLocation();
@@ -22,6 +21,15 @@ const Home = () => {
     "https://admin.arthamasabadi.co.id/api/v1/visimisi"
   )?.data;
 
+  const { data: dataIlustrasi, isloading } = DATAFETCH(
+    "https://admin.arthamasabadi.co.id/api/v1/ilustrasi"
+  );
+
+  console.log(dataIlustrasi);
+  const getDataImgHome = (dataIlustrasi || []).filter(
+    (item) => item.posisi === "home"
+  );
+
   return (
     <>
       <ReactHelmet
@@ -30,7 +38,8 @@ const Home = () => {
       />
       <SimpleSlider />
       <Detail
-        img={visimisi}
+        isloading={isloading}
+        img={getDataImgHome[0]?.banner}
         judul="Visi"
         deskripsi={VISIMISI?.visi}
         judulMisi="Misi"

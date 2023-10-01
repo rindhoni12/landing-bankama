@@ -6,7 +6,7 @@ import {
 } from "../../components/atom";
 import { SimpleSliderFicture } from "../../components/carousel";
 import { useLocation } from "react-router-dom";
-import { ttg_kami, visimisi } from "../../assets";
+import { ttg_kami } from "../../assets";
 import { KontakKamiSection, OrganisasiSection } from "../../components";
 import { DATAFETCH, WORDING } from "../../config";
 
@@ -18,6 +18,14 @@ const TentangKami = () => {
     "https://admin.arthamasabadi.co.id/api/v1/tentangkami"
   )?.data;
 
+  const { data: dataIlustrasi, isloading } = DATAFETCH(
+    "https://admin.arthamasabadi.co.id/api/v1/ilustrasi"
+  );
+
+  const getDataImgAbout = (dataIlustrasi || []).filter(
+    (item) => item.posisi === "about"
+  );
+
   return (
     <>
       <ReactHelmet
@@ -26,7 +34,8 @@ const TentangKami = () => {
       />
       <FocusComponentBackground image={ttg_kami} />
       <Detail
-        img={visimisi}
+        isloading={isloading}
+        img={getDataImgAbout[0]?.banner}
         judul={TENTANGKAMI?.judul ? TENTANGKAMI?.judul : ""}
         deskripsi={TENTANGKAMI?.deskripsi ? TENTANGKAMI?.deskripsi : ""}
       />
