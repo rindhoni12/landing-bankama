@@ -38,10 +38,6 @@ import no_pic from "./img/no-picture.jpg";
 import simulasi from "./img/simulasi.jpg";
 import wbsIcon from "./img/wbs-icon.png";
 import logoNew from "./img/logo_new.png";
-import mitra1 from "./img/mitra-1.png";
-import mitra2 from "./img/mitra-2.png";
-import mitra3 from "./img/mitra-3.png";
-import mitra4 from "./img/mitra-4.png";
 import banner from "./img/banner.png";
 import galeri from "./img/galeri.jpg";
 import berita from "./img/berita.jpg";
@@ -92,10 +88,6 @@ export {
   banner,
   produk,
   no_pic,
-  mitra1,
-  mitra2,
-  mitra3,
-  mitra4,
   galeri,
   berita,
   blog,

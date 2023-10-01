@@ -606,6 +606,12 @@ const TabPublikasi = ({ children, active }) => {
 };
 
 const ContentTabPublikasi = (item) => {
+  let pathSection;
+  if (item.judul === "Laporan GCG") {
+    pathSection = "gcgs";
+  } else {
+    pathSection = "triwulans";
+  }
   return (
     <ContentTabSite>
       <div className="tab_content">
@@ -623,7 +629,7 @@ const ContentTabPublikasi = (item) => {
                       <ButtonDownloadPublikasi
                         icon={FaDownload}
                         label={item.judul}
-                        file={`https://admin.arthamasabadi.co.id/storage/files/triwulans/${item?.pdfpath}`}
+                        file={`https://admin.arthamasabadi.co.id/storage/files/${pathSection}/${item?.pdfpath}`}
                         judul={item.judul}
                       />
                     </div>

@@ -3,10 +3,6 @@ import {
   ayosyariah,
   logoWhite,
   lps_text,
-  mitra1,
-  mitra2,
-  mitra3,
-  mitra4,
   no_pic,
   ojk_text,
   wbsIcon,
@@ -262,7 +258,7 @@ const DetailLayanan = ({ item, imgDetail, deskripsi }) => {
   );
 };
 
-const NewSlide = () => {
+const NewSlide = ({ data }) => {
   const [isMobile, setIsMobile] = useState(
     window.matchMedia("(max-width: 480px)").matches
   );
@@ -306,51 +302,35 @@ const NewSlide = () => {
       {isMobile ? (
         <SliderWrapper>
           <Slider {...settingsMobile}>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={mitra1} alt="mitra1" />
-              </div>
-            </div>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={mitra2} alt="mitra2" />
-              </div>
-            </div>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={mitra3} alt="mitra3" />
-              </div>
-            </div>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={mitra4} alt="mitra4" />
-              </div>
-            </div>
+            {data
+              ? data?.map((dataMitra, key) => (
+                  <div key={key} className="slide_content">
+                    <div className="ojk_img">
+                      <img
+                        src={`https://admin.arthamasabadi.co.id/storage/images/mitras/${dataMitra?.photo}`}
+                        alt="mitra"
+                      />
+                    </div>
+                  </div>
+                ))
+              : ""}
           </Slider>
         </SliderWrapper>
       ) : (
         <SliderWrapper>
           <Slider {...settings}>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={mitra1} alt="mitra1" />
-              </div>
-            </div>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={mitra2} alt="mitra2" />
-              </div>
-            </div>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={mitra3} alt="mitra3" />
-              </div>
-            </div>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={mitra4} alt="mitra4" />
-              </div>
-            </div>
+            {data
+              ? data?.map((dataMitra, key) => (
+                  <div key={key} className="slide_content">
+                    <div className="ojk_img">
+                      <img
+                        src={`https://admin.arthamasabadi.co.id/storage/images/mitras/${dataMitra?.photo}`}
+                        alt="mitra"
+                      />
+                    </div>
+                  </div>
+                ))
+              : ""}
           </Slider>
         </SliderWrapper>
       )}
@@ -386,6 +366,10 @@ const OjkInformasi = ({ dataWording }) => {
       </div>
     ),
   };
+
+  const MITRA = DATAFETCH(
+    "https://admin.arthamasabadi.co.id/api/v1/mitra"
+  )?.data;
 
   return (
     <OjkComponents>
@@ -425,7 +409,7 @@ const OjkInformasi = ({ dataWording }) => {
 
         <div className="ojk_content_slide">
           <div className="mitra">Mitra Kami</div>
-          <NewSlide />
+          <NewSlide data={MITRA} />
         </div>
       </div>
     </OjkComponents>
