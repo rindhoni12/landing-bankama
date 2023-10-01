@@ -3,10 +3,6 @@ import {
   ayosyariah,
   logoWhite,
   lps_text,
-  mitra1,
-  mitra2,
-  mitra3,
-  mitra4,
   no_pic,
   ojk_text,
   wbsIcon,
@@ -210,9 +206,16 @@ const Detail = (item) => {
     <DetailComponents>
       <div className="detail_container">
         <div className="detail_content">
-          <div className="detail_img">
-            <img src={item.img} alt="two" />
-          </div>
+          {item?.isloading ? (
+            <div className="detail_img">loading...brooo</div>
+          ) : (
+            <div className="detail_img">
+              <img
+                src={`https://admin.arthamasabadi.co.id/storage/images/ilustrasis/${item?.img}`}
+                alt="two"
+              />
+            </div>
+          )}
           <div className="detail_text">
             <div className="visi_misi">
               <div className="detail_text_heading">{item.judul}</div>
@@ -227,13 +230,7 @@ const Detail = (item) => {
               <div className="detail_text_heading">{item.judulMisi}</div>
               <div className="detail_text_p">
                 <div className="value_all">
-                  <ol>
-                    <div>
-                      {item.misi?.map((item, i) => (
-                        <li key={i}>{item}</li>
-                      ))}
-                    </div>
-                  </ol>
+                  <div dangerouslySetInnerHTML={{ __html: item.misi }} />
                 </div>
               </div>
             </div>
@@ -245,16 +242,22 @@ const Detail = (item) => {
 };
 
 const DetailLayanan = ({ item, imgDetail, deskripsi }) => {
+  const deskripsiValue = deskripsi ? deskripsi : "";
   return (
     <DetailComponents>
       <div className="detail_content">
         <div className="detail_img">
-          <img src={imgDetail} alt="imgDetail" />
+          <img
+            src={`https://admin.arthamasabadi.co.id/storage/images/awards/${imgDetail}`}
+            alt="imgDetail"
+          />
         </div>
         <div className="detail_text">
           <div className="visi_misi">
             <div className="detail_text_heading">{item ? item : ""}</div>
-            <div className="detail_text_p">{deskripsi ? deskripsi : ""}</div>
+            <div className="detail_text_p">
+              <div dangerouslySetInnerHTML={{ __html: deskripsiValue }} />
+            </div>
           </div>
         </div>
       </div>
@@ -262,38 +265,7 @@ const DetailLayanan = ({ item, imgDetail, deskripsi }) => {
   );
 };
 
-const DetailLayananPages = (item) => {
-  return (
-    <DetailComponents>
-      <div className="detail_container">
-        <div className="detail_content">
-          <div className="detail_img">
-            <img src={item.imgDetail} alt="imgDetail" />
-          </div>
-          <div className="detail_text">
-            <div className="visi_misi">
-              <div className="detail_text_heading">Visi {item.item}</div>
-              <div className="detail_text_p">
-                Menjadi BPR yang kuat, dipercaya dan selalu dihati masyarakat di
-                seluruh wilayah kerja Kabupaten Pati dan sekitarnya.
-              </div>
-            </div>
-            <div className="visi_misi">
-              <div className="detail_text_heading">Misi</div>
-              <div className="detail_text_p">
-                Menjadi BPR yang kuat, dipercaya dan selalu dihati masyarakat di
-                seluruh wilayah kerja Kabupaten Pati dan sekitarnya.
-              </div>
-            </div>
-            <Button icon={item.icon} label={item.label} to={item.to} />
-          </div>
-        </div>
-      </div>
-    </DetailComponents>
-  );
-};
-
-const NewSlide = () => {
+const NewSlide = ({ data }) => {
   const [isMobile, setIsMobile] = useState(
     window.matchMedia("(max-width: 480px)").matches
   );
@@ -337,51 +309,35 @@ const NewSlide = () => {
       {isMobile ? (
         <SliderWrapper>
           <Slider {...settingsMobile}>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={mitra1} alt="mitra1" />
-              </div>
-            </div>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={mitra2} alt="mitra2" />
-              </div>
-            </div>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={mitra3} alt="mitra3" />
-              </div>
-            </div>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={mitra4} alt="mitra4" />
-              </div>
-            </div>
+            {data
+              ? data?.map((dataMitra, key) => (
+                  <div key={key} className="slide_content">
+                    <div className="ojk_img">
+                      <img
+                        src={`https://admin.arthamasabadi.co.id/storage/images/mitras/${dataMitra?.photo}`}
+                        alt="mitra"
+                      />
+                    </div>
+                  </div>
+                ))
+              : ""}
           </Slider>
         </SliderWrapper>
       ) : (
         <SliderWrapper>
           <Slider {...settings}>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={mitra1} alt="mitra1" />
-              </div>
-            </div>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={mitra2} alt="mitra2" />
-              </div>
-            </div>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={mitra3} alt="mitra3" />
-              </div>
-            </div>
-            <div className="slide_content">
-              <div className="ojk_img">
-                <img src={mitra4} alt="mitra4" />
-              </div>
-            </div>
+            {data
+              ? data?.map((dataMitra, key) => (
+                  <div key={key} className="slide_content">
+                    <div className="ojk_img">
+                      <img
+                        src={`https://admin.arthamasabadi.co.id/storage/images/mitras/${dataMitra?.photo}`}
+                        alt="mitra"
+                      />
+                    </div>
+                  </div>
+                ))
+              : ""}
           </Slider>
         </SliderWrapper>
       )}
@@ -417,6 +373,10 @@ const OjkInformasi = ({ dataWording }) => {
       </div>
     ),
   };
+
+  const MITRA = DATAFETCH(
+    "https://admin.arthamasabadi.co.id/api/v1/mitra"
+  )?.data;
 
   return (
     <OjkComponents>
@@ -456,7 +416,7 @@ const OjkInformasi = ({ dataWording }) => {
 
         <div className="ojk_content_slide">
           <div className="mitra">Mitra Kami</div>
-          <NewSlide />
+          <NewSlide data={MITRA} />
         </div>
       </div>
     </OjkComponents>
@@ -617,7 +577,6 @@ export {
   FocusComponentBackground,
   FocusComponentWithLogo,
   FocusComponentColor,
-  DetailLayananPages,
   HeadingComponent,
   DetailLayanan,
   WaItemContent,

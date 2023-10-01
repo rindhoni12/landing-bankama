@@ -1,22 +1,12 @@
-import { FiFacebook, FiMail, FiPhone } from "react-icons/fi";
-import { FaEllipsisV, FaInstagram, FaPhone } from "react-icons/fa";
+import { FiFacebook, FiPhone } from "react-icons/fi";
+import { FaEllipsisV, FaInstagram } from "react-icons/fa";
 import {
   blog,
   dep_ib_mu,
-  pak_dim,
-  pak_guf,
-  pak_mak,
-  pak_mumu,
-  pak_wak,
   pemb_ga_emas,
   pemb_ib_mul,
   pemb_ib_mura,
   pemb_ib_musy,
-  peng1,
-  peng2,
-  peng3,
-  peng4,
-  peng5,
   laporan_tahunan,
   tab_ib_ha,
   tab_ib_ms,
@@ -164,44 +154,6 @@ export const MEDIA_SOSIAL = [
     to: "tel:+6282137925173",
     label: "Phone",
     icon: FiPhone,
-  },
-];
-
-export const ORGANISASI = [
-  {
-    id: 1,
-    label: "H. Ahmad Mutamakin, S.Pd.I.",
-    img: pak_mak,
-    jabatan: "Komisaris",
-    desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Dasar Pengangkatan: Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
-  },
-  {
-    id: 2,
-    label: "H. Wakhrodi, S.Pd.I., M.Si",
-    img: pak_wak,
-    jabatan: "Komisaris",
-    desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
-  },
-  {
-    id: 3,
-    label: "H. Mumu Mubarok S.S., M.E.I",
-    img: pak_mumu,
-    jabatan: "Direksi",
-    desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
-  },
-  {
-    id: 4,
-    label: "H. Ghufron Halim, S.E, MM",
-    img: pak_guf,
-    jabatan: "Dewan Pengawas Syariah",
-    desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
-  },
-  {
-    id: 5,
-    label: "Dr. H. Ahmad Dimyati,",
-    img: pak_dim,
-    jabatan: "Dewan Pengawas Syariah",
-    desc: "<div><b>Pendidikan:</b> -.<br><br><b>Pengalaman Kerja:</b> -.<br><br><b>Dasar Pengangkatan:</b> Keputusan RUPS Tahunan tanggal 26 Mei 2022.</div>",
   },
 ];
 
@@ -966,89 +918,6 @@ export const TABS = [
   },
 ];
 
-export const KONTAK_KAMI = {
-  kantor_pusat: [
-    {
-      id: 1,
-      judul: "Kantor Pusat",
-      alamat:
-        "Jl. Raya Pati – Tayu Km. 19. Waturoyo, Kec. Margoyoso, Kabupaten Pati, Jawa Tengah 59154",
-      no: [
-        {
-          id: 1,
-          icon: FaPhone,
-          value: "(0295) 4150477",
-        },
-        {
-          id: 2,
-          icon: FiMail,
-          value: "085225100893",
-        },
-      ],
-    },
-  ],
-  kantor_cabang: [
-    {
-      id: 1,
-      judul: "Kantor Cabang",
-      alamat: "",
-      cabang: [
-        {
-          id: 1,
-          judul: "Kantor Kas Winong",
-          alamat: "Jl. Raya Winong – Pucakwangi Km. 01 Pekalongan Winong Pati",
-          no: [
-            {
-              id: 1,
-              icon: FaPhone,
-              value: "(0295) 4101241",
-            },
-            {
-              id: 2,
-              icon: FiMail,
-              value: "085326670851",
-            },
-          ],
-        },
-        {
-          id: 2,
-          judul: "Kantor Kas Cluwak",
-          alamat: "Jl. Raya Tayu – Jepara Km. 07 Ngablak Cluwak Pati",
-          no: [
-            {
-              id: 1,
-              icon: FaPhone,
-              value: "(0295) 4545037",
-            },
-            {
-              id: 2,
-              icon: FiMail,
-              value: "082314006059",
-            },
-          ],
-        },
-        {
-          id: 2,
-          judul: "Kantor Kas Pati",
-          alamat: "Jl. Mr. Iskandar No. 1 C Kalianyar Pati",
-          no: [
-            {
-              id: 1,
-              icon: FaPhone,
-              value: "(0295) 4102834",
-            },
-            {
-              id: 2,
-              icon: FiMail,
-              value: "082328262770",
-            },
-          ],
-        },
-      ],
-    },
-  ],
-};
-
 export const DATA_FOOTER = {
   syarat_ketentuan: [
     {
@@ -1282,36 +1151,3 @@ export const WORDING = {
     },
   ],
 };
-
-export const DATA_PENGAHRAGAAN = [
-  {
-    key: "penghargaan 1",
-    label: "Penghargaan 1",
-    img: peng1,
-    desc: "BPRS Predikat “ SANGAT BAGUS”  Sharia Finance Awards 2013 versi Majalah Infobank.",
-  },
-  {
-    key: "penghargaan 2",
-    label: "Penghargaan 2",
-    img: peng2,
-    desc: "BPRS Predikat “ SANGAT BAGUS”  Sharia Finance Awards 2014 versi Majalah Infobank.",
-  },
-  {
-    key: "penghargaan 3",
-    label: "Penghargaan 3",
-    img: peng3,
-    desc: "BPRS Predikat “ SANGAT BAGUS”  Sharia Finance Awards 2016 versi Majalah Infobank.",
-  },
-  {
-    key: "penghargaan 4",
-    label: "Penghargaan 4",
-    img: peng4,
-    desc: "BPRS Predikat “ EXCELLENT”  Sharia Finance Awards 2018 versi Majalah Infobank.",
-  },
-  {
-    key: "penghargaan 5",
-    label: "Penghargaan 5",
-    img: peng5,
-    desc: "BPRS Predikat “ EXCELLENT” Financial Performance 2020 versi MES Sharia Institution ",
-  },
-];

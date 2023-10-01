@@ -7,7 +7,6 @@ import Header from "./header";
 import Footer from "./footer";
 import { FormKpr, FormSimulasi } from "./form";
 import {
-  DetailOrganisasiSection,
   CardInformasiSection,
   FormNasabahSection,
   OrganisasiSection,
@@ -22,7 +21,6 @@ import {
 import {
   FocusComponentWithLogo,
   FocusComponentColor,
-  DetailLayananPages,
   HeadingComponent,
   DetailLayanan,
   WaItemContent,
@@ -36,7 +34,6 @@ import {
 import { Button, ButtonTransparent, ButtonDownload } from "./button";
 
 export {
-  DetailOrganisasiSection,
   CardInformasiSection,
   FormNasabahSection,
   KontakKamiSection,
@@ -62,7 +59,6 @@ export {
   Detail,
   OjkInformasi,
   DetailLayanan,
-  DetailLayananPages,
   FocusComponentColor,
   FocusComponentWithLogo,
   ReactHelmet,

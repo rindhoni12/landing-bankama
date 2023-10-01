@@ -79,6 +79,8 @@ export const ModalContent = styled.div`
       /* transition: all 0.3s ease-in-out; */
       border-radius: 50%;
       transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+      width: 170px;
+      height: 170px;
 
       button {
         background: transparent;

@@ -23,7 +23,6 @@ import {
   OrganisasiSite,
   KontakKamiSite,
   PengajuanSite,
-  PimpinanSite,
   HubungiSite,
   LayananSite,
   ErrorSite,
@@ -35,13 +34,8 @@ import {
   ReactHelmet,
   Button,
 } from "../../components";
-import {
-  pro_not,
-  simu_pembiayaan,
-  simu_tabungan,
-  struktur,
-} from "../../assets";
-import { ORGANISASI, KONTAK_KAMI, DATAFETCH } from "../../config";
+import { pro_not, simu_pembiayaan, simu_tabungan } from "../../assets";
+import { DATAFETCH } from "../../config";
 import {
   ButtonDownloadOrganisasi,
   ButtonDownloadPublikasi,
@@ -50,13 +44,62 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { FormContent } from "../form/FormElements";
-import { FiX } from "react-icons/fi";
+import { FiMail, FiX } from "react-icons/fi";
 import ModalItem from "../modal";
 import axios from "axios";
 
 const KontakKamiSection = ({ dataWording }) => {
-  const dataCabang = KONTAK_KAMI.kantor_cabang[0];
-  const dataPusat = KONTAK_KAMI.kantor_pusat[0];
+  const ALAMAT = DATAFETCH(
+    "https://admin.arthamasabadi.co.id/api/v1/alamat"
+  )?.data;
+
+  const getDataPusat = ALAMAT?.filter(
+    (item) => item.nama_cabang === "Kantor Pusat"
+  );
+  // Convert the filtered object to an array
+  const dataPusat = getDataPusat?.length > 0 ? getDataPusat[0] : [];
+  // Create the desired format
+  const transformedDataPusat = {
+    id: dataPusat.id,
+    nama_cabang: dataPusat.nama_cabang,
+    alamat: dataPusat.alamat,
+    no: [
+      {
+        id: 1,
+        icon: FaPhone, // Replace with the actual icon component
+        value: dataPusat.no_telp,
+      },
+      {
+        id: 2,
+        icon: FiMail, // Replace with the actual icon component
+        value: dataPusat.no_hp,
+      },
+    ],
+  };
+
+  const getDataCabang = ALAMAT?.filter(
+    (item) => item.nama_cabang !== "Kantor Pusat"
+  );
+
+  // Use the map function to transform the data into the desired format
+  const formattedDataCabang = getDataCabang?.map((item) => ({
+    id: item.id,
+    nama_cabang: item.nama_cabang,
+    alamat: item.alamat,
+    no: [
+      {
+        id: 1,
+        icon: FaPhone, // Replace with the actual icon component
+        value: item.no_telp,
+      },
+      {
+        id: 2,
+        icon: FiMail, // Replace with the actual icon component
+        value: item.no_hp,
+      },
+    ],
+  }));
+
   return (
     <KontakKamiSite>
       <div className="tentang_container">
@@ -76,13 +119,13 @@ const KontakKamiSection = ({ dataWording }) => {
             />
           </div>
 
-          {dataPusat && (
+          {transformedDataPusat && (
             <div className="contact">
-              <h1>{dataPusat.judul}</h1>
-              <p>{dataPusat.alamat}</p>
+              <h1>{transformedDataPusat.nama_cabang}</h1>
+              <p>{transformedDataPusat.alamat}</p>
               <div className="no_telp">
-                {dataPusat.no &&
-                  dataPusat.no.map((item, i) => (
+                {transformedDataPusat.no &&
+                  transformedDataPusat.no.map((item, i) => (
                     <p key={i}>
                       <item.icon /> {item.value}
                     </p>
@@ -96,14 +139,14 @@ const KontakKamiSection = ({ dataWording }) => {
             </div>
           )}
         </div>
-        {dataCabang && (
+        {formattedDataCabang && (
           <div className="tentang_cabang">
-            <h1>{dataCabang.judul}</h1>
+            <h1>Kantor Cabang</h1>
             <div className="cabang_bank">
-              {dataCabang.cabang &&
-                dataCabang.cabang.map((item, i) => (
+              {formattedDataCabang &&
+                formattedDataCabang?.map((item, i) => (
                   <div key={i} className="cabang_content">
-                    <h1>{item.judul}</h1>
+                    <h1>{item.nama_cabang}</h1>
                     <p>{item.alamat}</p>
                     <div className="no_telp">
                       {item.no &&
@@ -124,27 +167,35 @@ const KontakKamiSection = ({ dataWording }) => {
 };
 
 const OrganisasiSection = ({ dataWording }) => {
+  const { data: dataOrganisasi, isloading } = DATAFETCH(
+    "https://admin.arthamasabadi.co.id/api/v1/direksi"
+  );
   const allOrganisasi = [
     "All",
-    ...new Set(ORGANISASI.map((item) => item.jabatan)),
+    ...new Set(dataOrganisasi?.map((item) => item.jabatan) || []),
   ];
-
-  const [organisasi, setOrganisasi] = useState(ORGANISASI);
-
+  const [organisasi, setOrganisasi] = useState(dataOrganisasi || []);
   const buttons = allOrganisasi;
-
   const [active, setActive] = useState("All");
-
   const filter = (button) => {
     if (button === "All") {
-      setOrganisasi(ORGANISASI);
+      setOrganisasi(dataOrganisasi || []);
       setActive(button);
       return;
     }
-    const filteredData = ORGANISASI.filter((item) => item.jabatan === button);
+    const filteredData = (dataOrganisasi || []).filter(
+      (item) => item.jabatan === button
+    );
     setOrganisasi(filteredData);
     setActive(button);
   };
+  useEffect(() => {
+    setOrganisasi(dataOrganisasi || []);
+  }, [dataOrganisasi]);
+
+  const STRUKTUR = DATAFETCH(
+    "https://admin.arthamasabadi.co.id/api/v1/struktur"
+  )?.data;
 
   return (
     <OrganisasiSite>
@@ -155,26 +206,32 @@ const OrganisasiSection = ({ dataWording }) => {
             Text={dataWording ? dataWording[2]?.desc : ""}
           />
         </div>
-        <div className="organisasi_page">
-          <div className="button_organisasi">
-            <ButtonFilterComponent
-              filter={filter}
-              button={buttons}
-              active={active}
-            />
+
+        {!isloading ? (
+          <div className="organisasi_page">
+            <div className="button_organisasi">
+              <ButtonFilterComponent
+                filter={filter}
+                button={buttons}
+                active={active}
+              />
+            </div>
+            <motion.div layout className="card_organisasi">
+              <AnimatePresence>
+                {organisasi?.map((item, i) => (
+                  <Card judul="Bisa 1" items={item} key={i} />
+                ))}
+              </AnimatePresence>
+            </motion.div>
           </div>
-          <motion.div layout className="card_organisasi">
-            <AnimatePresence>
-              {organisasi.map((item, i) => (
-                <Card judul="Bisa 1" items={item} key={i} />
-              ))}
-            </AnimatePresence>
-          </motion.div>
-        </div>
+        ) : (
+          "loading...."
+        )}
+
         <ButtonDownloadOrganisasi
           icon={FaDownload}
-          label="Download Struktur Organisasi"
-          file={struktur}
+          label={STRUKTUR?.judul}
+          file={`https://admin.arthamasabadi.co.id/storage/files/strukturs/${STRUKTUR?.pdfpath}`}
         />
       </div>
     </OrganisasiSite>
@@ -217,18 +274,22 @@ const Card = (item) => {
       <div className="card_component">
         <div className="circle">
           <div className="gambar_img">
-            <button onClick={openModal} id={item.id}>
+            <button onClick={openModal} id={item.items.id}>
               <img
-                src={item.items.img ? item.items.img : pro_not}
-                alt={item.items.label}
+                src={
+                  `https://admin.arthamasabadi.co.id/storage/images/direksis/${item?.items?.photo}`
+                    ? `https://admin.arthamasabadi.co.id/storage/images/direksis/${item?.items?.photo}`
+                    : pro_not
+                }
+                alt={item.items.nama}
               />
             </button>
           </div>
         </div>
 
         <div className="text_nama" style={{ marginTop: "20px" }}>
-          <span>{item.items.label}</span>
-          <p>{item.items.jabatan}</p>
+          <span>{item?.items?.nama}</span>
+          <p>{item?.items?.jabatan}</p>
         </div>
       </div>
       <ModalItem
@@ -543,6 +604,12 @@ const TabPublikasi = ({ children, active }) => {
 };
 
 const ContentTabPublikasi = (item) => {
+  let pathSection;
+  if (item.judul === "Laporan GCG") {
+    pathSection = "gcgs";
+  } else {
+    pathSection = "triwulans";
+  }
   return (
     <ContentTabSite>
       <div className="tab_content">
@@ -560,7 +627,7 @@ const ContentTabPublikasi = (item) => {
                       <ButtonDownloadPublikasi
                         icon={FaDownload}
                         label={item.judul}
-                        file={item.buttonDonwload}
+                        file={`https://admin.arthamasabadi.co.id/storage/files/${pathSection}/${item?.pdfpath}`}
                         judul={item.judul}
                       />
                     </div>
@@ -1623,88 +1690,6 @@ const PenyaluranSection = ({ id }) => {
   );
 };
 
-const Organisasi = ({ item }) => {
-  return (
-    <OrganisasiSite>
-      <motion.div className="informasi" layout>
-        <div className="gambar_img">
-          <img src={item.img} alt={item.label} />
-        </div>
-        <div className="text_nama">
-          <h1>{item.label}</h1>
-          <p>{item.jabatan}</p>
-        </div>
-      </motion.div>
-    </OrganisasiSite>
-  );
-};
-
-const DetailOrganisasiSection = () => {
-  const allOrganisasi = [
-    "All",
-    ...new Set(ORGANISASI.map((item) => item.jabatan)),
-  ];
-
-  const [organisasi, setOrganisasi] = useState(ORGANISASI);
-
-  const buttons = allOrganisasi;
-
-  const [active, setActive] = useState("All");
-
-  const filter = (button) => {
-    if (button === "All") {
-      setOrganisasi(ORGANISASI);
-      setActive(button);
-      return;
-    }
-    const filteredData = ORGANISASI.filter((item) => item.jabatan === button);
-    setOrganisasi(filteredData);
-    setActive(button);
-  };
-
-  return (
-    <PimpinanSite>
-      <div className="organisasi_container">
-        <HeadingComponent
-          Heading="Pimpinan Kami"
-          Text="Kami percaya bahwa pengalaman transaksi perbankan yang berfokus pada kehidupan Anda akan memungkinkan Anda untuk terus bertumbuh."
-        />
-
-        <div className="organisasi_all">
-          <div className="organisasi_button">
-            <ButtonFilterComponent
-              filter={filter}
-              button={buttons}
-              active={active}
-            />
-          </div>
-
-          {organisasi.length === 1 ? (
-            <motion.div className="organisasi_content_active" layout>
-              <AnimatePresence>
-                {organisasi.map((item, i) => (
-                  <Organisasi key={i} item={item} />
-                ))}
-              </AnimatePresence>
-            </motion.div>
-          ) : (
-            <motion.div className="organisasi_content" layout>
-              <AnimatePresence>
-                {organisasi.map((item, i) => (
-                  <Organisasi key={i} item={item} />
-                ))}
-              </AnimatePresence>
-            </motion.div>
-          )}
-        </div>
-        <div className="download">
-          <a href="#try">Download Struktur Organisasi</a>
-        </div>
-      </div>
-    </PimpinanSite>
-  );
-};
-
 const SimulasiBankSection = () => {
   return (
     <SimulasiBankSite>
@@ -1765,6 +1750,5 @@ export {
   PengajuanSection,
   FormNasabahSection,
   PenyaluranSection,
-  DetailOrganisasiSection,
   SimulasiBankSection,
 };

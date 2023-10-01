@@ -6,17 +6,14 @@ import themeList from "./themeList";
 import {
   DATA_PUBLIKASI,
   MEDIA_SOSIAL,
-  ORGANISASI,
   DATA_BARU,
   NAVLINKS,
   PHOTOS,
   BERITA,
   TABS,
-  KONTAK_KAMI,
   DATA_FOOTER,
   DATAFETCH,
   WORDING,
-  DATA_PENGAHRAGAAN,
 } from "./data";
 
 export {
@@ -27,15 +24,12 @@ export {
   themeList,
   DATA_PUBLIKASI,
   MEDIA_SOSIAL,
-  ORGANISASI,
   DATA_BARU,
   NAVLINKS,
   PHOTOS,
   BERITA,
   TABS,
-  KONTAK_KAMI,
   DATA_FOOTER,
   DATAFETCH,
   WORDING,
-  DATA_PENGAHRAGAAN,
 };
