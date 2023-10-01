@@ -215,6 +215,8 @@ export const FormKpr = ({ img, isloading }) => {
     jangkawaktu2: "",
   });
 
+  console.log(show);
+
   const set = (name) => {
     return ({ target: { value } }) => {
       setValues((oldValues) => ({ ...oldValues, [name]: value }));

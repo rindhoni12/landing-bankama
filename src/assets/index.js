@@ -32,7 +32,6 @@ import pak_dim from "./img/pak-dimyati.jpg";
 import pak_mak from "./img/pak-makin.jpg";
 import pak_guf from "./img/pak-gufron.jpg";
 import pak_wak from "./img/pak-wakhrodi.jpg";
-import isloading from "./img/isloading.svg";
 import visimisi from "./img/visimisi.jpg";
 import whatsapp from "./img/whatsapp.png";
 import no_pic from "./img/no-picture.jpg";
@@ -78,7 +77,6 @@ export {
   pak_mak,
   pak_guf,
   pak_wak,
-  isloading,
   laporan_tahunan,
   wbsIcon,
   logoNew,
