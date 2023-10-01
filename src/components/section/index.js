@@ -53,8 +53,6 @@ const KontakKamiSection = ({ dataWording }) => {
     "https://admin.arthamasabadi.co.id/api/v1/alamat"
   )?.data;
 
-  console.log(ALAMAT);
-
   const getDataPusat = ALAMAT?.filter(
     (item) => item.nama_cabang === "Kantor Pusat"
   );

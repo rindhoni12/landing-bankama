@@ -25,7 +25,6 @@ const Home = () => {
     "https://admin.arthamasabadi.co.id/api/v1/ilustrasi"
   );
 
-  console.log(dataIlustrasi);
   const getDataImgHome = (dataIlustrasi || []).filter(
     (item) => item.posisi === "home"
   );

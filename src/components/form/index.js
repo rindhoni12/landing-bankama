@@ -215,8 +215,6 @@ export const FormKpr = ({ img, isloading }) => {
     jangkawaktu2: "",
   });
 
-  console.log(show);
-
   const set = (name) => {
     return ({ target: { value } }) => {
       setValues((oldValues) => ({ ...oldValues, [name]: value }));
@@ -238,7 +236,6 @@ export const FormKpr = ({ img, isloading }) => {
       setShow(true);
     }
     if (state.button === 2) {
-      console.log("Button 2 clicked!");
       setShow(false);
       formReset.reset();
       setSelect("");
@@ -260,6 +257,10 @@ export const FormKpr = ({ img, isloading }) => {
     setSelectNew(e.target.value);
   };
 
+  const dataPembiayaan = DATAFETCH(
+    "https://admin.arthamasabadi.co.id/api/v1/bunga-pembiayaan"
+  )?.data;
+
   const hitungNilai = (dataUang) => {
     const jangkawaktu = values.jangkawaktu;
     const jangkawaktu2 = values.jangkawaktu2;
@@ -271,12 +272,24 @@ export const FormKpr = ({ img, isloading }) => {
       jangkawaktu2,
     };
     var persentase;
+    let presentase_bunga;
+    const dropdownToNamaPembiayaan = {
+      Murabahah: "iB Murabahah",
+      Musyarakah: "iB Multijasa",
+      Multijasa: "iB Musyarakah",
+    };
+    const selectedNamaPembiayaan = dropdownToNamaPembiayaan[data.dropdown];
+    const filteredData = (dataPembiayaan || []).filter(
+      (item) => item.nama_pembiayaan === selectedNamaPembiayaan
+    );
+    presentase_bunga =
+      filteredData.length > 0 ? Number(filteredData[0].presentase_bunga) : 0;
     if (data.dropdown === "Murabahah") {
-      persentase = 1.5 / 100;
+      persentase = presentase_bunga / 100;
     } else if (data.dropdown === "Musyarakah") {
-      persentase = 2.5 / 100;
+      persentase = presentase_bunga / 100;
     } else if (data.dropdown === "Multijasa") {
-      persentase = 1.75 / 100;
+      persentase = presentase_bunga / 100;
     }
 
     const formatRupiah = (angka, prefix) => {
@@ -483,7 +496,6 @@ export const FormSimulasi = ({ dataWording, img, isloading }) => {
       setShow(true);
     }
     if (state.button === 2) {
-      console.log("Button 2 clicked!");
       setShow(false);
       formReset.reset();
     }
@@ -536,7 +548,6 @@ export const FormSimulasi = ({ dataWording, img, isloading }) => {
           .replace(/[&\\#,+()$~%.'":*?<>{}]/g, "")
       );
 
-      // console.log(toNumber);
       let dataBulan1 = (dataBunga[i].bunga_bulan1 * toNumber) / 100;
       let dataBulan2 = (dataBunga[i].bunga_bulan2 * toNumber) / 100;
       let dataBulan3 = (dataBunga[i].bunga_bulan3 * toNumber) / 100;
