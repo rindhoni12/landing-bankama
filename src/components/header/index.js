@@ -7,6 +7,11 @@ import styled from "styled-components";
 import { devices } from "../../assets/_respondTo";
 import { logoAma, logoNew } from "../../assets";
 import { NAVLINKS, themeList, ThemeSwitcher } from "../../config";
+import { DATAFETCHPUBLIKASI } from "../../config/data";
+
+const NUMBER = {
+  one: "1",
+};
 
 const ContentDrop = styled.div`
   max-height: 340px;
@@ -284,6 +289,8 @@ const Header = () => {
     });
   }, []);
 
+  const NEWNAVLINKS = navLinks();
+
   return (
     <HeaderSite ref={headerRef}>
       <HeaderContainer>
@@ -302,7 +309,7 @@ const Header = () => {
                 </div>
               )}
               <ul className="bisa">
-                {NAVLINKS.map((item, i) => {
+                {NEWNAVLINKS?.map((item, i) => {
                   let isDropdown = dropdown === item.name;
                   return (
                     <li key={i}>
@@ -415,6 +422,17 @@ const Header = () => {
       </HeaderContainer>
     </HeaderSite>
   );
+};
+
+const navLinks = () => {
+  const dataNavbarAll = DATAFETCHPUBLIKASI(
+    "https://admin.arthamasabadi.co.id/api/v1/navbar-all"
+  )?.data;
+  const dataNavbar = dataNavbarAll?.navbar_all;
+  let newDataNavLinks = JSON.parse(JSON.stringify(NAVLINKS));
+  newDataNavLinks[NUMBER.one].megamenuItem = dataNavbar;
+
+  return newDataNavLinks;
 };
 
 export const Header404 = () => {

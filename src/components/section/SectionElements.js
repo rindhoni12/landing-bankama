@@ -663,6 +663,24 @@ export const ContentTabSite = styled.div`
           text-align: left;
         }
       }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-left: 40px;
+        list-style-type: decimal;
+
+        li {
+          font-size: 14px;
+          font-weight: 300;
+          line-height: 1.5;
+          display: list-item;
+          list-style: decimal;
+          text-align: left;
+        }
+      }
+
       ol {
         display: flex;
         flex-direction: column;
@@ -679,6 +697,15 @@ export const ContentTabSite = styled.div`
           text-align: left;
         }
       }
+    }
+
+    .value_all p:first-of-type {
+      font-size: 22px;
+      font-weight: 400;
+    }
+
+    .value_all p:nth-of-type(2) {
+      font-size: 14px;
     }
 
     .button_download {
