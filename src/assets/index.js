@@ -38,6 +38,7 @@ import no_pic from "./img/no-picture.jpg";
 import simulasi from "./img/simulasi.jpg";
 import wbsIcon from "./img/wbs-icon.png";
 import logoNew from "./img/logo_new.png";
+import loading from "./img/loading.gif";
 import galeri from "./img/galeri.jpg";
 import berita from "./img/berita.jpg";
 import lps1 from "./img/lps.1.png";
@@ -73,6 +74,7 @@ export {
   visimisi,
   simulasi,
   pak_mumu,
+  loading,
   pak_dim,
   pak_mak,
   pak_guf,

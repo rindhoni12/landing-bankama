@@ -649,6 +649,7 @@ export const ContentTabSite = styled.div`
       flex-direction: column;
       align-items: flex-start;
       gap: 14px;
+      text-align: left;
 
       h1 {
         font-size: 18px;
@@ -658,6 +659,11 @@ export const ContentTabSite = styled.div`
       p {
         font-size: 14px;
         line-height: 1.5;
+
+        a {
+          color: blue; /* Change the color */
+          text-decoration: underline; /* Add underline */
+        }
 
         ${devices.ipads} {
           text-align: left;
@@ -676,7 +682,7 @@ export const ContentTabSite = styled.div`
           font-weight: 300;
           line-height: 1.5;
           display: list-item;
-          list-style: decimal;
+          list-style: initial;
           text-align: left;
         }
       }
@@ -702,10 +708,12 @@ export const ContentTabSite = styled.div`
     .value_all p:first-of-type {
       font-size: 22px;
       font-weight: 400;
+      text-align: left;
     }
 
     .value_all p:nth-of-type(2) {
       font-size: 14px;
+      text-align: left;
     }
 
     .button_download {
