@@ -47,6 +47,7 @@ import { FormContent } from "../form/FormElements";
 import { FiMail, FiX } from "react-icons/fi";
 import ModalItem from "../modal";
 import axios from "axios";
+import DOMPurify from "dompurify";
 
 const KontakKamiSection = ({ dataWording }) => {
   const ALAMAT = DATAFETCH(
@@ -312,9 +313,9 @@ const Tab = ({ children, active, judul }) => {
       if (!React.isValidElement(element)) return;
 
       const {
-        props: { tab, children },
+        props: { tab, children, images },
       } = element;
-      data.push({ tab, children });
+      data.push({ tab, children, images });
     });
 
     setTabsData(data);
@@ -341,6 +342,7 @@ const Tab = ({ children, active, judul }) => {
             judulParent={judul}
             item={tabsData[activeTab] && tabsData[activeTab].children}
             judul={tabsData[activeTab] && tabsData[activeTab].tab}
+            images={tabsData[activeTab] && tabsData[activeTab].images}
           />
         </div>
       </div>
@@ -362,26 +364,19 @@ const ContentTab = (item) => {
     <ContentTabSite>
       <div className="tab_content">
         <div className="gambar_banner">
-          <img src={item.item?.fileImg} alt="blog" />
+          <img
+            src={`https://admin.arthamasabadi.co.id/storage/images/produklayanans/${item?.images}`}
+            alt="blog"
+          />
         </div>
         <div className="value">
-          <h1>Apa yang Dimaksud dengan {item.judul} ?</h1>
-          <p style={{ fontSize: "14px" }}>{item?.item?.p}</p>
           <div className="value_b">
-            {item.item &&
-              item.item.fitur.map((item, i) => (
-                <div key={i} className="value_all">
-                  <h1>{item.judul}</h1>
-                  <p>{item.text_a}</p>
-                  <ol>
-                    {item.text.map((item, i) => (
-                      <div key={i}>
-                        <li>{item}</li>
-                      </div>
-                    ))}
-                  </ol>
-                </div>
-              ))}
+            <div
+              className="value_all"
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(item?.item),
+              }}
+            ></div>
           </div>
         </div>
         <div className="button_form">
@@ -410,19 +405,9 @@ const TabPanel = ({ children }) => {
 
 Tab.TabPanel = TabPanel;
 
-const LayananSection = ({
-  judul,
-  id,
-  DATA_TABS,
-  link,
-  DATA_TABS_BARU,
-  DATA_TABS_DEP,
-}) => {
-  const TABS = DATA_TABS.contentFull;
-  const number = parseInt(id);
+const LayananSection = ({ judul, id, index, DATA_TABS, link }) => {
+  const TABS = DATA_TABS;
   const location = useLocation();
-  const TABS_BARU = DATA_TABS_BARU.contentFull;
-  const TABS_DEP = DATA_TABS_DEP.contentFull;
   return (
     <>
       <ReactHelmet
@@ -438,117 +423,26 @@ const LayananSection = ({
                 link === "penyimpanan-dana" ? "Penyimpanan" : "Penyaluran"
               } daripada BPR Syariah Artha Mas Abadi:`}
             />
-
-            {link === "penyimpanan-dana" ? (
-              <>
-                {number === 0 ? (
-                  <div className="layanan_tabs">
-                    <div className="content">
-                      {number ? (
-                        <Tab judul={judul} active={number}>
-                          {TABS.map((tab, idx) => (
-                            <Tab.TabPanel key={`Tab-${idx}`} tab={tab.judul}>
-                              {tab.content}
-                            </Tab.TabPanel>
-                          ))}
-                        </Tab>
-                      ) : (
-                        <Tab judul={judul} active={0}>
-                          {TABS.map((tab, idx) => (
-                            <Tab.TabPanel key={`Tab-${idx}`} tab={tab.judul}>
-                              {tab.content}
-                            </Tab.TabPanel>
-                          ))}
-                        </Tab>
-                      )}
-                    </div>
-                  </div>
-                ) : number === 1 ? (
-                  <div className="layanan_tabs">
-                    <div className="content">
-                      {number ? (
-                        <Tab judul={judul} active={0}>
-                          {TABS_BARU.map((tab, idx) => (
-                            <Tab.TabPanel key={`Tab-${idx}`} tab={tab.judul}>
-                              {tab.content}
-                            </Tab.TabPanel>
-                          ))}
-                        </Tab>
-                      ) : (
-                        <Tab judul={judul} active={0}>
-                          {TABS_BARU.map((tab, idx) => (
-                            <Tab.TabPanel key={`Tab-${idx}`} tab={tab.judul}>
-                              {tab.content}
-                            </Tab.TabPanel>
-                          ))}
-                        </Tab>
-                      )}
-                    </div>
-                  </div>
-                ) : number === 2 ? (
-                  <div className="layanan_tabs">
-                    <div className="content">
-                      {number ? (
-                        <Tab judul={judul} active={0}>
-                          {TABS_DEP.map((tab, idx) => (
-                            <Tab.TabPanel key={`Tab-${idx}`} tab={tab.judul}>
-                              {tab.content}
-                            </Tab.TabPanel>
-                          ))}
-                        </Tab>
-                      ) : (
-                        <Tab judul={judul} active={0}>
-                          {TABS_DEP.map((tab, idx) => (
-                            <Tab.TabPanel key={`Tab-${idx}`} tab={tab.judul}>
-                              {tab.content}
-                            </Tab.TabPanel>
-                          ))}
-                        </Tab>
-                      )}
-                    </div>
-                  </div>
-                ) : (
-                  <div className="layanan_tabs">
-                    <div className="content">Data Tidak Ditemukan</div>
-                  </div>
-                )}
-              </>
-            ) : link === "penyaluran-dana" ? (
-              <>
-                {number === 0 ||
-                number === 1 ||
-                number === 2 ||
-                number === 2 ||
-                number === 3 ? (
-                  <div className="layanan_tabs">
-                    <div className="content">
-                      {number ? (
-                        <Tab judul={judul} active={number}>
-                          {TABS.map((tab, idx) => (
-                            <Tab.TabPanel key={`Tab-${idx}`} tab={tab.judul}>
-                              {tab.content}
-                            </Tab.TabPanel>
-                          ))}
-                        </Tab>
-                      ) : (
-                        <Tab judul={judul} active={0}>
-                          {TABS.map((tab, idx) => (
-                            <Tab.TabPanel key={`Tab-${idx}`} tab={tab.judul}>
-                              {tab.content}
-                            </Tab.TabPanel>
-                          ))}
-                        </Tab>
-                      )}
-                    </div>
-                  </div>
-                ) : (
-                  <div className="layanan_tabs">
-                    <div className="content">Data Tidak Ditemukan</div>
-                  </div>
-                )}
-              </>
+            {TABS ? (
+              <div className="layanan_tabs">
+                <div className="content">
+                  <Tab judul={judul} active={Number(index)}>
+                    {TABS?.map((tab, idx) => (
+                      <Tab.TabPanel
+                        key={`Tab-${idx}`}
+                        tab={tab?.nama_produklayanan}
+                        images={tab?.foto_thumbnail}
+                      >
+                        {tab?.deskripsi}
+                      </Tab.TabPanel>
+                    ))}
+                  </Tab>
+                </div>
+              </div>
             ) : (
-              "Data Tidak Ada Juga"
+              <div className="layanan_tabs">
+                <div className="content">Data Tidak Ditemukan</div>
+              </div>
             )}
           </div>
         </div>

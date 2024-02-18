@@ -2,42 +2,48 @@ import React from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { FocusComponentBackground, ReactHelmet } from "../../components/atom";
 import { LayananSection } from "../../components/section";
-import { DATA_BARU } from "../../config";
 import { produk } from "../../assets";
 import { Accordion } from "../../components";
+import { DATAFETCHPUBLIKASI } from "../../config/data";
 
 const Layanan = () => {
   const { id } = useParams();
   const { index } = useParams();
-  const penyimpanan_dana = DATA_BARU.penyimpanan_dana[0];
-  const penyaluran_dana = DATA_BARU.penyaluran_dana[0];
-  const penyimpanan_dana_mudharabah = DATA_BARU.penyimpanan_dana_mudharabah[0];
-  const deposito_dana_mudharabah = DATA_BARU.deposito_dana_mudharabah[0];
-  return (
-    <>
-      {id === "penyimpanan-dana" ? (
+
+  const dataProdukLayanan = DATAFETCHPUBLIKASI(
+    "https://admin.arthamasabadi.co.id/api/v1/produk-all"
+  )?.data;
+
+  const dataArray = dataProdukLayanan?.produk_list
+    .map((category) => category.slug)
+    .flat();
+
+  const renderedComponents = dataProdukLayanan?.produk_list?.map((data) => {
+    const { slug, contentFull } = data;
+
+    const relevantContent = dataArray?.find((content) => content === slug);
+
+    const contentBroo = dataProdukLayanan?.produk_list?.find(
+      (content) => content.slug === slug
+    );
+
+    if (relevantContent && id === slug) {
+      return (
         <LayananSection
-          judul="Penyimpanan Dana"
-          id={index}
-          link={id}
-          DATA_TABS={penyimpanan_dana}
-          DATA_TABS_BARU={penyimpanan_dana_mudharabah}
-          DATA_TABS_DEP={deposito_dana_mudharabah}
+          key={data.id}
+          judul={data.judul}
+          id={data.id}
+          index={index}
+          link={slug}
+          DATA_TABS={contentBroo?.contentFull || contentFull}
         />
-      ) : id === "penyaluran-dana" ? (
-        <LayananSection
-          judul="Penyaluran Dana"
-          id={index}
-          link={id}
-          DATA_TABS={penyaluran_dana}
-          DATA_TABS_BARU=""
-          DATA_TABS_DEP=""
-        />
-      ) : (
-        ""
-      )}
-    </>
-  );
+      );
+    } else {
+      return null;
+    }
+  });
+
+  return <>{renderedComponents}</>;
 };
 
 const LayananSatu = () => {
