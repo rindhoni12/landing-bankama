@@ -308,6 +308,27 @@ export const DetailComponents = styled.section`
       width: 50%;
       max-height: 350px;
 
+      &_loading {
+        img {
+          width: auto !important;
+          height: auto !important;
+          border-radius: 10px;
+          object-fit: cover;
+        }
+
+        ${devices.smartphone} {
+          width: 100%;
+        }
+
+        ${devices.ipads} {
+          width: 100%;
+        }
+
+        ${devices.laptops} {
+          height: 100%;
+        }
+      }
+
       img {
         width: 100%;
         height: 100%;

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import {
   ayosyariah,
+  loading,
   logoWhite,
   lps_text,
   no_pic,
@@ -207,7 +208,11 @@ const Detail = (item) => {
       <div className="detail_container">
         <div className="detail_content">
           {item?.isloading ? (
-            <div className="detail_img">loading...brooo</div>
+            <div className="detail_img">
+              <div className="detail_img_loading">
+                <img src={loading} alt="loading_img" />
+              </div>
+            </div>
           ) : (
             <div className="detail_img">
               <img
