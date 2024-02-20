@@ -48,54 +48,10 @@ const Layanan = () => {
 
 const LayananSatu = () => {
   const location = useLocation();
-  let items = {
-    tabungan: [
-      {
-        name: "Tabungan iB Wadiah",
-        content:
-          "Tabungan iB Wadiah merupakan tabungan yang dikelola dengan sistem titipan (wadiah).",
-        url: "layanan-kami/penyimpanan-dana/0",
-      },
-      {
-        name: "Tabungan iB Mudharabah",
-        content:
-          "Membantu mewujudkan niat anda beribadah haji lebih mudah dan terencana.",
-        url: "layanan-kami/penyimpanan-dana/1",
-      },
-      {
-        name: "Deposito iB Mudharabah",
-        content:
-          "Deposito iB Mudharabah merupakan layanan investasi berjangka yang dikelola dengan sistem bagi hasil (Mudharabah).",
-        url: "layanan-kami/penyimpanan-dana/2",
-      },
-    ],
-    pembiayaan: [
-      {
-        name: "Pembiayaan iB Murabahah",
-        content:
-          "Pembiayaan iB Murabahah merupakan jenis pembiayaan yang menggunakan prinsip jual beli.",
-        url: "layanan-kami/penyaluran-dana/0",
-      },
-      {
-        name: "Pembiayaan iB Musyarakah",
-        content:
-          "Pembiayaan iB Musyarakah merupakan jenis pembiayaan yang menggunakan prinsip bagi hasil.",
-        url: "layanan-kami/penyaluran-dana/1",
-      },
-      {
-        name: "Pembiayaan iB Multijasa",
-        content:
-          "Pembiayaan iB Multijasa merupakan jenis pembiayaan yang menggunakan akad ijarah.",
-        url: "layanan-kami/penyaluran-dana/2",
-      },
-      {
-        name: "iB Gadai Emas",
-        content:
-          "Pembiayaan iB Gadai Emas merupakan jenis pembiayaan dengan menggunakan prisnsip Qardh, Ijarah dan Rahn.",
-        url: "layanan-kami/penyaluran-dana/3",
-      },
-    ],
-  };
+  const dataProdukLayanan = DATAFETCHPUBLIKASI(
+    "https://admin.arthamasabadi.co.id/api/v1/produk-all"
+  )?.data;
+  const convertedData = convertDataToArray(dataProdukLayanan?.produk_list);
 
   return (
     <>
@@ -104,18 +60,38 @@ const LayananSatu = () => {
         url={location.pathname}
       />
       <FocusComponentBackground image={produk} />
-      <Accordion
-        items={items?.tabungan}
-        judul="Layanan Tabungan Dana"
-        desc="Berikut ini adalah Produk dan Layanan dari Penyimpanan Dana (Tabungan)."
-      />
-      <Accordion
-        items={items?.pembiayaan}
-        judul="Layanan Pembiayaan Dana"
-        desc="Berikut ini adalah Produk dan Layanan dari Penyaluran Dana (Pembiayaan)."
-      />
+      {Array.isArray(convertedData) && // Check if dataProduk is an array
+        Object.values(convertedData)?.map((category, i) => {
+          return (
+            <Accordion
+              key={i}
+              items={category?.dataObject}
+              judul={category?.name}
+              desc={category?.name}
+            />
+          );
+        })}
     </>
   );
+};
+
+const convertDataToArray = (data) => {
+  console.log(data);
+  const result = [];
+
+  data?.forEach((category) => {
+    const categoryObject = {
+      name: category.judul,
+      dataObject: category.contentFull.map((item) => ({
+        judul: item.nama_produklayanan,
+        to: `/${item.jenis_tabungan}/${item.id}`,
+        deskripsi: item.deskripsi,
+      })),
+    };
+    result.push(categoryObject);
+  });
+
+  return result;
 };
 
 export { Layanan, LayananSatu };

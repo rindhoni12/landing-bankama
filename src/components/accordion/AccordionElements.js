@@ -5,6 +5,7 @@ import { devices } from "../../assets/_respondTo";
 import { themeList } from "../../config";
 import { ButtonLink } from "../button";
 import { FaAccusoft } from "react-icons/fa";
+import DOMPurify from "dompurify";
 
 const AccordionSite = styled.section`
   display: flex;
@@ -130,6 +131,67 @@ const Inner = styled.div`
   align-items: center;
   justify-content: space-between;
 
+  .deskripsi-accordion {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    text-align: left;
+
+    h1 {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.5;
+
+      a {
+        color: blue; /* Change the color */
+        text-decoration: underline; /* Add underline */
+      }
+
+      ${devices.ipads} {
+        text-align: left;
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-left: 40px;
+      list-style-type: decimal;
+
+      li {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 1.5;
+        display: list-item;
+        list-style: initial;
+        text-align: left;
+      }
+    }
+
+    ol {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-left: 40px;
+      list-style-type: decimal;
+
+      li {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 1.5;
+        display: list-item;
+        list-style: decimal;
+        text-align: left;
+      }
+    }
+  }
+
   ${devices.smartphone} {
     flex-direction: column;
     align-items: flex-start;
@@ -215,7 +277,12 @@ const AccordionContent = ({
         </Header>
         <Content itemName={itemName} isActive={isActive}>
           <Inner id={itemName}>
-            {itemContent}
+            <div
+              className="deskripsi-accordion"
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(itemContent),
+              }}
+            ></div>
             <div className="button">
               <ButtonLink
                 icon={FaAccusoft}
