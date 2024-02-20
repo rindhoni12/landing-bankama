@@ -533,6 +533,90 @@ export const Tabs = styled.div`
     }
   }
 
+  .tabs {
+    &_button.many_tabs {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr); /* 3 columns, adjust as needed */
+      gap: 10px;
+
+      ${devices.smartphone} {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      ${devices.ipads} {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      ${devices.laptops} {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    &_nav {
+      padding: 16px 32px;
+      text-transform: capitalize;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      background-color: #efefef;
+      color: #828282;
+      border-radius: 0px;
+      transition: all 0.3s ease-in-out;
+
+      .button {
+        text-decoration: none;
+        cursor: pointer;
+        color: unset;
+        font-size: 16px;
+        font-weight: 600;
+        background-color: transparent;
+      }
+
+      :hover {
+        color: var(--colorMain);
+      }
+
+      :first-child {
+        border-radius: 8px 0px 0px 8px;
+      }
+      :last-child {
+        border-radius: 0px 8px 8px 0px;
+      }
+
+      ${devices.smartphone} {
+        :first-child {
+          border-radius: 8px 8px 0px 0px;
+        }
+        :last-child {
+          border-radius: 0px 0px 8px 8px;
+        }
+      }
+    }
+
+    &_content {
+      display: inline;
+      /* transition: all 4s ease-in-out; */
+      .fade {
+        display: block;
+      }
+    }
+  }
+
+  .many_tabs {
+    ${devices.smartphone} {
+      display: grid;
+      flex-direction: column;
+      grid-template-columns: repeat(1, 1fr); /* 3 columns, adjust as needed */
+      gap: 10px;
+    }
+  }
+
   .active {
     padding-top: 30px;
     margin-top: -15px !important;

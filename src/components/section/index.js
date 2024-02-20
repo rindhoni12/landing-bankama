@@ -1,13 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import {
-  FaInstagram,
-  FaAccusoft,
-  FaDownload,
-  FaFacebook,
-  FaWhatsapp,
-  FaPhone,
-  FaFax,
-} from "react-icons/fa";
+import { FaAccusoft, FaDownload, FaPhone } from "react-icons/fa";
 import {
   FormInputSelectProduct,
   FormInputSelectNew,
@@ -35,7 +27,7 @@ import {
   Button,
 } from "../../components";
 import { pro_not, simu_pembiayaan, simu_tabungan } from "../../assets";
-import { DATAFETCH } from "../../config";
+import { DATAFETCH, MEDIA_SOSIAL } from "../../config";
 import {
   ButtonDownloadOrganisasi,
   ButtonDownloadPublikasi,
@@ -323,8 +315,8 @@ const Tab = ({ children, active, judul }) => {
 
   return (
     <Tabs>
-      <ul className="tabs_button">
-        {tabsData.map((tabs, idx) => (
+      <ul className={`tabs_button ${tabsData.length > 6 ? "many_tabs" : ""}`}>
+        {tabsData?.map((tabs, idx) => (
           <li
             className={`tabs_nav ${idx === activeTab ? "active" : ""}`}
             key={idx}
@@ -715,53 +707,28 @@ const HubungiSection = () => {
               <div className="card_form" style={{ width: "30%" }}>
                 <div className="content">
                   <p>
-                    <b>Keteragan : </b>Kontak umum yang dapat dihubungi.
+                    <b>Keteragan : </b>Kontak umum yang dapat dihubungi. TEST
                   </p>
                   <div className="content_form">
                     <div className="contact_item">
-                      <div className="item_contactNew">
-                        <div className="icon_text">
-                          <FaWhatsapp />
-                          Whatsapp
+                      {MEDIA_SOSIAL?.map((item, i) => (
+                        <div key={i} className="item_contactNew">
+                          <div className="icon_text">
+                            <item.icon />
+                            {item?.label}
+                          </div>
+                          <div
+                            className="label"
+                            style={{ textDecoration: "underline" }}
+                          >
+                            {item?.to ? (
+                              <a href={item?.to}>{item?.title}</a>
+                            ) : (
+                              item?.title
+                            )}
+                          </div>
                         </div>
-                        <div className="label">085225100893</div>
-                      </div>
-                      <div className="item_contactNew">
-                        <div className="icon_text">
-                          <FaPhone />
-                          Telp.
-                        </div>
-                        <div className="label">(0295) 4150477</div>
-                      </div>
-                      <div className="item_contactNew">
-                        <div className="icon_text">
-                          <FaInstagram />
-                          Instagram
-                        </div>
-                        <div className="label">
-                          <a href="https://www.instagram.com/bprsarthamasabadi/">
-                            Artha Mas Abadi
-                          </a>
-                        </div>
-                      </div>
-                      <div className="item_contactNew">
-                        <div className="icon_text">
-                          <FaFacebook />
-                          Facebook
-                        </div>
-                        <div className="label">
-                          <a href="https://www.facebook.com/achmadsupriyono.supriyono">
-                            Supriyono
-                          </a>
-                        </div>
-                      </div>
-                      <div className="item_contactNew">
-                        <div className="icon_text">
-                          <FaFax />
-                          Fax
-                        </div>
-                        <div className="label">4150400</div>
-                      </div>
+                      ))}
                     </div>
                   </div>
                 </div>
