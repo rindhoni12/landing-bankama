@@ -9,10 +9,12 @@ import {
 // import { img1, img2 } from "../../assets";
 
 const Accordion = ({ items, judul, desc }) => {
+  const dataDesc = `Berikut ini adalah Produk dan Layanan dari ${desc}.`;
+
   return (
     <AccordionSite>
       <div className="accordion_container">
-        <AccordionComponent items={items} judul={judul} desc={desc} />
+        <AccordionComponent items={items} judul={judul} desc={dataDesc} />
       </div>
     </AccordionSite>
   );
@@ -22,24 +24,24 @@ const AccordionComponent = ({ items, judul, desc }) => {
   const [active, setActive] = useState();
 
   const handleClick = (item) => {
-    setActive(item.name === active ? null : item.name);
+    setActive(item.judul === active ? null : item.judul);
   };
 
-  // const gambarPertama = items[0].img;
   return (
     <AccordionContainer>
       <HeadingComponent Heading={judul} Text={desc} />
       <div className="accordion_bungkus">
         <div className="pembungkus">
-          {items.map((item, i) => {
-            let isActive = active === item.name;
+          {items?.map((item, i) => {
+            let isActive = active === item?.judul;
+            let url = `layanan-kami${item?.to}`;
             return (
               <AccordionContent
-                itemUrl={item.url}
+                itemUrl={url}
                 key={i}
                 onClick={() => handleClick(item)}
-                itemName={item.name}
-                itemContent={item.content}
+                itemName={item.judul}
+                itemContent={item.deskripsi}
                 isActive={isActive}
               />
             );

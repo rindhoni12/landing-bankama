@@ -1,5 +1,5 @@
 import { FiFacebook, FiPhone } from "react-icons/fi";
-import { FaEllipsisV, FaInstagram } from "react-icons/fa";
+import { FaEllipsisV, FaFax, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import {
   blog,
   dep_ib_mu,
@@ -141,19 +141,34 @@ export const DATA_PUBLIKASI = [
 
 export const MEDIA_SOSIAL = [
   {
+    to: "https://wa.me/085225100893",
+    label: "Whatsapp",
+    icon: FaWhatsapp,
+    title: "085225100893",
+  },
+  {
     to: "https://www.instagram.com/bprsarthamasabadi/",
     label: "Instagram",
     icon: FaInstagram,
+    title: "Artha Mas Abadi",
   },
   {
     to: "https://www.facebook.com/achmadsupriyono.supriyono",
     label: "Facebook",
     icon: FiFacebook,
+    title: "Artha Mas Abadi",
   },
   {
     to: "tel:+6282137925173",
-    label: "Phone",
+    label: "Telp.",
     icon: FiPhone,
+    title: "(0295) 4150477",
+  },
+  {
+    to: "",
+    label: "Fax",
+    icon: FaFax,
+    title: "4150400",
   },
 ];
 
