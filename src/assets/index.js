@@ -22,6 +22,7 @@ import ojk_text from "./img/logo-ojk-text.png";
 import ttg_kami from "./img/tentang-kami.jpg";
 import produk from "./img/produk-layanan.jpg";
 import logoAma from "./img/logo_ama_long.png";
+import logoAmaFooter from "./img/logo_ama_long_footer.png";
 import contactUs from "./img/contact-us.png";
 import logoBawah from "./img/logo_bawah.png";
 import logoWhite from "./img/logo_white.png";
@@ -83,6 +84,7 @@ export {
   wbsIcon,
   logoNew,
   logoAma,
+  logoAmaFooter,
   form_p,
   img_bro,
   pro_not,

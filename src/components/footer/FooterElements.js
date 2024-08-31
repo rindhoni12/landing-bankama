@@ -238,7 +238,7 @@ export const FooterSite = styled.footer`
       --size: 50px;
       height: var(--size);
       overflow: hidden;
-      background-color: #fff;
+      // background-color: #fff;
       border-radius: 8px;
       padding: 5px;
 
