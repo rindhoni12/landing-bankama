@@ -153,7 +153,7 @@ export const MEDIA_SOSIAL = [
     title: "Artha Mas Abadi",
   },
   {
-    to: "https://www.facebook.com/Banksyariah.Arthamsabadi/",
+    to: "https://www.facebook.com/Banksyariah.Arthamsabadi?mibextid=rS40aB7S9Ucbxw6v",
     label: "Facebook",
     icon: FiFacebook,
     title: "Artha Mas Abadi",
