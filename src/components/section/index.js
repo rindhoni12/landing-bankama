@@ -707,7 +707,7 @@ const HubungiSection = () => {
               <div className="card_form" style={{ width: "30%" }}>
                 <div className="content">
                   <p>
-                    <b>Keteragan : </b>Kontak umum yang dapat dihubungi. TEST
+                    <b>Keteragan : </b>Kontak umum yang dapat dihubungi.
                   </p>
                   <div className="content_form">
                     <div className="contact_item">

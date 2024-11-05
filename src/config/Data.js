@@ -141,7 +141,7 @@ export const DATA_PUBLIKASI = [
 
 export const MEDIA_SOSIAL = [
   {
-    to: "https://wa.me/085225100893",
+    to: "https://wa.me/6285225100893",
     label: "Whatsapp",
     icon: FaWhatsapp,
     title: "085225100893",
