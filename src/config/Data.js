@@ -153,13 +153,13 @@ export const MEDIA_SOSIAL = [
     title: "Artha Mas Abadi",
   },
   {
-    to: "https://www.facebook.com/Banksyariah.Arthamsabadi?mibextid=rS40aB7S9Ucbxw6v",
+    to: "https://www.facebook.com/share/Y2V1fyiL5u6sKCNi/?mibextid=qi2Omg",
     label: "Facebook",
     icon: FiFacebook,
     title: "Artha Mas Abadi",
   },
   {
-    to: "tel:+6282137925173",
+    to: "tel:02954150477",
     label: "Telp.",
     icon: FiPhone,
     title: "(0295) 4150477",

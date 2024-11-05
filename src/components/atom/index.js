@@ -566,7 +566,7 @@ const WaItemContent = () => {
     <WaItemSite>
       <div ref={waRef} className="wa_content">
         <a
-          href="https://wa.me/6282137925173"
+          href="https://wa.me/6285225100893"
           target="_blank"
           rel="noopener noreferrer"
         >
