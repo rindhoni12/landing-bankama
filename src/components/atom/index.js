@@ -437,17 +437,15 @@ const ReactHelmet = (item) => {
         content="Ini adalah halaman Baru Here you can find all the basic elements that should never report any issue, in every page of the website."
       />
       <link rel="canonical" href={item.url} />
-      <meta property="og:type" content="Text" />
-      <meta property="og:title" content="Bank Artha Mas Abadi | Home" />
+      <meta property="og:type" content={item.content ?? "Text"} />
       <meta
-        property="og:image"
-        content="https://id-prawito.github.io/web-landing/static/media/jago-3.6318b27de2998085a42f.jpg"
+        property="og:title"
+        content={item.title ?? "Bank Artha Mas Abadi"}
       />
-      <meta
-        property="og:description"
-        content="hIni adalah halaman Baru Here you can find all the basic elements that should never report any issue, in every page of the website."
-      />
+      <meta property="og:description" content={item.title} />
+      <meta property="og:image" content={item.gambar} />
       <meta property="og:url" content={item.url} />
+      <meta property="og:site_name" content="Bank Artha Mas Abadi" />
     </Helmet>
   );
 };

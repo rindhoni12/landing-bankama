@@ -12,6 +12,8 @@ const DetailBeritaComponents = ({ newItem, loading }) => {
       <ReactHelmet
         title={`${newItem[0].judul} | Bank Artha Mas Abadi`}
         url={location.pathname}
+        gambar={`https://admin.arthamasabadi.co.id/storage/images/blogs/${newItem[0].img}`}
+        content="article"
       />
       <DetailBeritaSite>
         {!loading && newItem ? (
