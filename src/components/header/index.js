@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { devices } from "../../assets/_respondTo";
 import { logoAma, logoNew } from "../../assets";
 import { NAVLINKS, themeList, ThemeSwitcher } from "../../config";
-import { DATAFETCHPUBLIKASI } from "../../config/data";
+import { DATAFETCHPUBLIKASI } from "../../config/Data";
 
 const NUMBER = {
   one: "1",

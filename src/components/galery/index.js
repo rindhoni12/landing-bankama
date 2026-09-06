@@ -5,7 +5,7 @@ import Carousel, { Modal, ModalGateway } from "react-images";
 import { HeadingComponent } from "../atom";
 import { DATAFETCH, PHOTOS } from "../../config";
 import { FiX } from "react-icons/fi";
-import { DATAFETCHVIDEO } from "../../config/data";
+import { DATAFETCHVIDEO } from "../../config/Data";
 
 const GalerySection = () => {
   const [currentImage, setCurrentImage] = useState(0);

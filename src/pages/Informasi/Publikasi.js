@@ -4,7 +4,7 @@ import { publikasi } from "../../assets";
 import { PublikasiSection, ReactHelmet } from "../../components";
 import { FocusComponentBackground } from "../../components/atom";
 import { WORDING } from "../../config";
-import { DATAFETCHPUBLIKASI } from "../../config/data";
+import { DATAFETCHPUBLIKASI } from "../../config/Data";
 
 const Publikasi = () => {
   const dataPublikasi = DATAFETCHPUBLIKASI(

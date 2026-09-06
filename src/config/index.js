@@ -1,7 +1,7 @@
-import GlobalStyles from "./gobalStyles";
-import ThemeContext, { ThemeContextProvider } from "./themeContext.js";
-import ThemeSwitcher from "./themeSwitcher";
-import themeList from "./themeList";
+import GlobalStyles from "./globalStyles";
+import ThemeContext, { ThemeContextProvider } from "./ThemeContext.js";
+import ThemeSwitcher from "./ThemeSwitcher";
+import themeList from "./ThemeList.js";
 
 import {
   DATA_PUBLIKASI,
@@ -14,7 +14,7 @@ import {
   DATA_FOOTER,
   DATAFETCH,
   WORDING,
-} from "./data";
+} from "./Data";
 
 export {
   ThemeContextProvider,

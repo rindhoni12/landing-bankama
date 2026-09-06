@@ -1,9 +1,9 @@
 import { FiSun, FiMoon } from "react-icons/fi";
 import { devices } from "../assets/_respondTo";
 import React, { useContext } from "react";
-import themeContext from "./themeContext";
+import themeContext from "./ThemeContext";
 import styled from "styled-components";
-import themeList from "./themeList";
+import themeList from "./ThemeList";
 
 const ThemeSwitcherStyles = styled.div`
   padding: 0 10px;

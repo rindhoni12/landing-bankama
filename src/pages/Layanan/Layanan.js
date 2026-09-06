@@ -4,7 +4,7 @@ import { FocusComponentBackground, ReactHelmet } from "../../components/atom";
 import { LayananSection } from "../../components/section";
 import { produk } from "../../assets";
 import { Accordion } from "../../components";
-import { DATAFETCHPUBLIKASI } from "../../config/data";
+import { DATAFETCHPUBLIKASI } from "../../config/Data";
 
 const Layanan = () => {
   const { id } = useParams();

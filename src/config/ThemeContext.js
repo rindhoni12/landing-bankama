@@ -1,5 +1,5 @@
 import { createContext, useReducer } from "react";
-import themeList from "./themeList";
+import themeList from "./ThemeList";
 
 const ThemeContext = createContext();
 const lightTheme = themeList.light;
