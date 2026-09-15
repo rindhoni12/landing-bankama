@@ -11,6 +11,7 @@ import {
   FormNasabah,
   TentangKami,
   Publikasi,
+    Publication,
   NotFound,
   Simulasi,
   Layanan,
@@ -48,6 +49,8 @@ export const RouteSite = () => {
         <Route exact path="/simulasi-bank" element={<SimulasiBank />} />
 
         <Route exact path="/publikasi" element={<Publikasi />} />
+
+        <Route exact path="/publication" element={<Publication />} />
 
         <Route exact path="/form-pengajuan" element={<PengajuanForm />} />
         <Route exact path="/form-nasabah" element={<FormNasabah />} />

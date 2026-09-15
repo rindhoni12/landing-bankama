@@ -785,8 +785,16 @@ export const NAVLINKS = [
     name: "BERITA KAMI",
     megamenu: false,
   },
+  /*
   {
     to: "/publikasi",
+    icon: FaEllipsisV,
+    name: "PUBLIKASI",
+    megamenu: false,
+  },
+  */
+  {
+    to: "/publication",
     icon: FaEllipsisV,
     name: "PUBLIKASI",
     megamenu: false,

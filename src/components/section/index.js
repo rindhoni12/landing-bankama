@@ -513,7 +513,10 @@ const ContentTabPublikasi = (item) => {
                       <ButtonDownloadPublikasi
                         icon={FaDownload}
                         label={item.judul}
-                        file={`https://admin.arthamasabadi.co.id/storage/files/${pathSection}/${item?.pdfpath}`}
+                        file={
+                          item.file ||
+                          `https://admin.arthamasabadi.co.id/storage/files/${pathSection}/${item?.pdfpath}`
+                        }
                         judul={item.judul}
                       />
                     </div>
